@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/bootstrap";
+@import "spinner";
+@import "utils";
+@import "rtl";
+@import "responsive";
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+// @import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import './datatable/bootstrap';
+@import './datatable/dark';
+@import './datatable/_material';
+
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+// ... or
+// @import "~@ng-select/ng-select/themes/material.theme.css";

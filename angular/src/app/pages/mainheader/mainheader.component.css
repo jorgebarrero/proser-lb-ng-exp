@@ -1,0 +1,61 @@
+.home-header {
+  padding: 25px 0 25px 0;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(48%, #1c1c5b), color-stop(98%, #0a6375));
+  background: linear-gradient(90deg, #020024 0%, #1c1c5b 48%, #0a6375 98%);
+}
+
+.home-img {
+  width: 300px;
+}
+
+.home .home-container {
+  position: relative;
+}
+
+.home .home-item {
+  position: absolute;
+  top: 20%;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+
+.home-footer {
+  position: fixed;
+  height: 50px;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(48%, #1c1c5b), color-stop(98%, #0a6375));
+  background: linear-gradient(90deg, #020024 0%, #1c1c5b 48%, #0a6375 98%);
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .home-header {
+    padding: 15px 0 15px 0;
+  }
+  .home-img {
+    width: 200px;
+  }
+  .home-container {
+    position: relative;
+  }
+  .home-item {
+    position: absolute;
+    top: 5%;
+    -webkit-transform: translateY(5%);
+            transform: translateY(5%);
+  }
+  -footer {
+    position: fixed;
+    height: 30px;
+    background: #212529;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+  }
+}
+/*# sourceMappingURL=mainheader.component.css.map */

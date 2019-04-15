@@ -1,0 +1,35 @@
+
+.home{
+
+  .home-container {
+    position: relative;
+  }
+
+  .home-item {
+    position: absolute;
+    top: 20%;
+    transform: translateY(20%);
+  }
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+  .home{
+
+
+  .home-container {
+    position: relative;
+  }
+
+  .home-item {
+    position: absolute;
+    top: 5%;
+    transform: translateY(5%);
+  }
+
+}
+
+}

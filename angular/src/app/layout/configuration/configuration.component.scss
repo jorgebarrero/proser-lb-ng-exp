@@ -1,0 +1,45 @@
+body {
+	background: #c2c2c2
+}
+
+.intro {
+
+  margin-top: 10px;
+
+
+  .display-2 {
+    font-size: 4.5rem;
+  }
+
+  .display-5{
+    font-size: 1.1rem;
+  }
+
+  &-header {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 2rem;
+  }
+
+}
+
+
+
+
+.photo-grid {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-gap: 2fr;
+}
+
+
+
+.index-title{
+	color: white;
+	text-align: center;
+	}
+
+	.card-header{
+		background:#2a7de3;
+		color:white;
+	}

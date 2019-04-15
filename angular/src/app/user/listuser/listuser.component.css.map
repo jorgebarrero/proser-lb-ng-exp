@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACf,UAAU,EAAE,MAAM;CACjB;;AAED,AAAA,iBAAiB,CAAA;EACf,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "listuser.component.scss"
+    ],
+    "names": [],
+    "file": "listuser.component.css"
+}

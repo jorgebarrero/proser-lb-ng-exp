@@ -1,0 +1,12 @@
+.ng-select.custom {
+  border:0px;
+  min-height: 0px;
+  border-radius: 5;
+  font-size: 1.1rem;
+}
+
+.ng-select.custom ::ng-deep .ng-select-container {
+  min-height: 0px;
+  border-radius: 0;
+  z-index: 1;
+}

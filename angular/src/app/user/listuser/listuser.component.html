@@ -1,0 +1,55 @@
+
+{{ rows | json }}
+<div class="container">
+    <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columns]="columns"
+
+    [columnMode]="'force'"
+
+    [limit]= "2"
+    [headerHeight]="75"
+    [footerHeight]="50"
+
+    [rowHeight]="'40'"
+
+    [scrollbarH]="true"
+    [scrollbarV]="false"
+
+
+    [summaryRow]="true"
+    [summaryHeight]="30"
+
+    [loadingIndicator]="loadingIndicator"
+    [messages]="{emptyMessage: 'Sin datos que mostrar'} "
+
+
+    >
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="id" width="50" [frozenLeft]="true">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="izquierda-negrita" (click)="sort($event, sortDir, sortFn)">id</p>
+      </ng-template>
+
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <p class="izquierda-negrita">{{value}}</p>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+
+    </ngx-datatable>
+  </div>
+
+<!--
+  [selected]="selected"
+  [selectionType]="'single'"
+
+    (activate)="onActivate($event)"
+    (select)='onSelect($event)'
+
+  -->

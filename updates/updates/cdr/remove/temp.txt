@@ -1,0 +1,1 @@
+x.cdr_main_callcenter_name = process.env.CDR_CALLCENTER_NAME;

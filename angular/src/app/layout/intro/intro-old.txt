@@ -1,0 +1,63 @@
+<app-intro-header></app-intro-header>
+
+<section class="container intro">
+  <div class="intro-header">
+    <div class="intro-logo ">
+      <a href="http://www.inversionesdrc.com/" target="blank">
+        <img src="../../../assets/img/intro/drc_logo.png" class="img-fluid" />
+      </a>
+    </div>
+    <div>
+      <h3 class="display-2 mb-0">Menu</h3>
+    </div>
+    <div></div>
+    <div>
+      <h2 class="display-5 mt-0">
+        Convertimos la Atención al Cliente en experiencias satisfactorias
+      </h2>
+      <p>{{ envService.callcenterName }}</p>
+      <p>{{ envService.version }}</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="mainmenu container">
+  <ul class="mainmenu-ul">
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Display</a>
+    </li>
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Dashboard</a>
+    </li>
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Histórico</a>
+    </li>
+
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" routerLink="/configuration"
+        >Configuración</a
+      >
+    </li>
+
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Filtro</a>
+    </li>
+
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Usuarios</a>
+    </li>
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" href="#">Auditoría</a>
+    </li>
+  </ul>
+
+  <hr />
+  <ul class="mainmenu-ul">
+    <li class="mainmenu-li">
+      <a class="btn btn-primary mainmenu-btn  text-white" (click)="onLogout()">Logout</a>
+    </li>
+  </ul>
+</section>
+
+<app-buttombar></app-buttombar>

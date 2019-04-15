@@ -1,0 +1,31 @@
+import * as pool from '../../connectors/pool'
+
+
+const readCdr = function() {
+  return new Promise(function(resolve, reject) {
+
+    let querySQL = `SELECT * FROM cdr LIMIT 10;`;
+
+    console.log('querySQL', querySQL);
+    
+    resolve(pool.poolCdr.query(querySQL));
+
+    reject('Error');
+  });
+};
+
+
+const readCdrTwo = async function  () {
+  console.log
+}
+
+
+let myCdr = readCdr().then(result => {
+  console.log('result', result);
+  return result;
+})
+
+
+
+
+process.exit();

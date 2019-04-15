@@ -1,0 +1,42 @@
+body {
+  background: #c2c2c2;
+}
+
+.intro {
+  margin-top: 10px;
+}
+
+.intro .display-2 {
+  font-size: 4.5rem;
+}
+
+.intro .display-5 {
+  font-size: 1.1rem;
+}
+
+.intro-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+  grid-gap: 2rem;
+}
+
+.photo-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2fr;
+}
+
+.index-title {
+  color: white;
+  text-align: center;
+}
+
+.card-header {
+  background: #2a7de3;
+  color: white;
+}
+/*# sourceMappingURL=configuration.component.css.map */

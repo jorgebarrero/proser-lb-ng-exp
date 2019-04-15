@@ -1,0 +1,94 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "ACL": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "RoleMapping": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "Role": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "userbase": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "team": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "project": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvSchedule": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvService": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvClient": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "HcaQueue": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvSupervisor": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "HcaAgent": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainCdr": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvBreak": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvQueue": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvAgent": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvScale": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "InvCampaign": {
+    "dataSource": "mysqlProser",
+    "public": true
+  },
+  "MainAudit": {
+    "dataSource": "mysqlProser",
+    "public": true
+  }
+}

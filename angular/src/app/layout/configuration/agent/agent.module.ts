@@ -7,6 +7,9 @@ import { AgentIntroComponent } from './agent-intro/agent-intro.component';
 import { AgentDetailComponent } from './agent-detail/agent-detail.component';
 import { AgentListComponent } from './agent-list/agent-list.component';
 import { AgentMenuComponent } from './agent-menu/agent-menu.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +17,10 @@ import { AgentMenuComponent } from './agent-menu/agent-menu.component';
   declarations: [AgentComponent, AgentIntroComponent, AgentDetailComponent, AgentListComponent, AgentMenuComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxDatatableModule,
+    NgSelectModule,
     AgentRoutingModule
   ]
 })

@@ -7,11 +7,21 @@ import { AsignationIntroComponent } from './asignation-intro/asignation-intro.co
 import { AsignationMenuComponent } from './asignation-menu/asignation-menu.component';
 import { AsignationListComponent } from './asignation-list/asignation-list.component';
 import { AsignationDetailComponent } from './asignation-detail/asignation-detail.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  declarations: [AsignationComponent, AsignationIntroComponent, AsignationMenuComponent, AsignationListComponent, AsignationDetailComponent],
+  declarations: [AsignationComponent, AsignationIntroComponent,
+    AsignationMenuComponent, AsignationListComponent, AsignationDetailComponent],
+
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxDatatableModule,
+    NgSelectModule,
     AsignationRoutingModule
   ]
 })

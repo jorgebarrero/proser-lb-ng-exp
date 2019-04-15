@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scale-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scale-detail.component.scss']
 })
 export class ScaleDetailComponent implements OnInit {
+
+  @Input () selected;
 
   constructor() { }
 

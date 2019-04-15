@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-asignation-detail',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asignation-detail.component.scss']
 })
 export class AsignationDetailComponent implements OnInit {
+
+  @Input () selected;
 
   constructor() { }
 

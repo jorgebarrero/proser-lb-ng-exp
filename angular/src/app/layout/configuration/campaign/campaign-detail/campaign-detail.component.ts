@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-campaign-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campaign-detail.component.scss']
 })
 export class CampaignDetailComponent implements OnInit {
+
+  @Input () selected;
 
   constructor() { }
 

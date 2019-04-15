@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-location-detail',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./location-detail.component.scss']
 })
 export class LocationDetailComponent implements OnInit {
+
+  @Input () selected;
 
   constructor() { }
 

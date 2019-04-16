@@ -1,0 +1,178 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+  <a class="navbar-brand" href="http://10.30.4.55">
+    <img src="assets/images/logos/proser-light-2.png" width="160" height="40" alt="">
+  </a>
+
+  <!--# Responsive button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+    aria-controls="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!--/ Responsive button -->
+
+  <div class="collapse navbar-collapse" id="navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a routerLink="/intro" class="nav-link">Históricos</a>
+      </li>
+
+ <!-- ----------------------------------- -->
+ <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" id="navdrop"
+    role="button" data-toggle="dropdown" data-hover="dropdown">Llamadas</a>
+
+    <div class="dropdown-menu" aria-labelledby="navdrop">
+
+        <a class="dropdown-item" routerLink="/entrante-diario/intro">
+          <i class="fa fa-fw fa-power-off"></i> Entrante diario
+        </a>
+
+        <a class="dropdown-item" routerLink="/entrante-intervalo/intro">
+          <i class="fa fa-fw fa-power-off"></i> Entrante por intervalos
+        </a>
+
+        <!-- <a class="dropdown-item" routerLink="/entrante-dashboard/intro">
+          <i class="fa fa-fw fa-power-off"></i> Dashboard entrante
+        </a> -->
+
+
+
+        <div class="dropdown-divider"> xxxx  </div>
+
+        <a class="dropdown-item" routerLink="/manual-diario/intro">
+          <i class="fa fa-fw fa-power-off"></i> Manuales diario
+        </a>
+
+        <a class="dropdown-item" routerLink="/manual-intervalo/intro">
+          <i class="fa fa-fw fa-power-off"></i> Manuales por intervalos
+        </a>
+
+        <div class="dropdown-divider"> xxxx  </div>
+
+        <a class="dropdown-item disabled" routerLink="/automatica-diario/intro">
+          <i class="fa fa-fw fa-power-off"></i> Automaticas diario
+        </a>
+
+        <a class="dropdown-item disabled" routerLink="/automatica-intervalo/intro">
+          <i class="fa fa-fw fa-power-off"></i> Automaticas por intervalo
+        </a>
+
+        <div class="dropdown-divider"> xxxx  </div>
+
+      <a class="dropdown-item" routerLink="/detalle-llamadas/intro">
+        <i class="fa fa-fw fa-power-off"></i> Detalle de llamadas
+      </a>
+    </div>
+  </li>
+
+
+                <!-- ----------------------------------- -->
+      <li class="nav-item dropdown disabled">
+            <a class="nav-link dropdown-toggle" href="#" id="navdrop"
+            role="button" data-toggle="dropdown" data-hover="dropdown">Agentes</a>
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+
+                <a class="dropdown-item" routerLink="/conexion-desconexion/intro">
+                  <i class="fa fa-fw fa-power-off"></i> Conexión y desconexión
+                </a>
+
+                <a class="dropdown-item" routerLink="/detalle-auxiliares/intro">
+                  <i class="fa fa-fw fa-power-off"></i> Detalle de auxiliares
+                </a>
+
+                <a class="dropdown-item" routerLink="/detalle-asignaciones/intro">
+                  <i class="fa fa-fw fa-power-off"></i> Detalle de asignaciones
+                </a>
+
+
+                <div class="dropdown-divider"> xxxx  </div>
+
+                <!-- <a class="dropdown-item" routerLink="/agentes/intro">
+                  <i class="fa fa-fw fa-power-off"></i> Resumen de agentes
+                </a> -->
+
+
+
+
+            </div>
+          </li>
+
+
+          <!-- ----------------------------------- -->
+      <li class="nav-item dropdown disabled">
+        <a class="nav-link dropdown-toggle" href="#" id="navdrop"
+        role="button" data-toggle="dropdown" data-hover="dropdown">Operación</a>
+        <div class="dropdown-menu" aria-labelledby="navdrop">
+          <a class="dropdown-item" routerLink="/operativo-detallado/intro">
+            <i class="fa fa-fw fa-power-off"></i> Operativo detallado
+          </a>
+          <a class="dropdown-item disabled" routerLink="/productividad/intro">
+            <i class="fa fa-fw fa-power-off"></i> Productividad
+          </a>
+
+        </div>
+      </li>
+
+
+<!-- ----------------------------------- -->
+      <li class="nav-item dropdown disabled">
+          <a class="nav-link dropdown-toggle" href="#" id="navdrop"
+          role="button" data-toggle="dropdown" data-hover="dropdown">Data</a>
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+
+
+            <a class="dropdown-item disabled" routerLink="/cdr/intro">
+              <i class="fa fa-fw fa-power-off"></i> Cdr
+            </a>
+
+            <a class="dropdown-item disabled" routerLink="/audit/intro">
+              <i class="fa fa-fw fa-power-off"></i> Audit
+            </a>
+
+          </div>
+        </li>
+
+
+                <!-- ----------------------------------- -->
+      <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navdrop"
+            role="button" data-toggle="dropdown" data-hover="dropdown">Configuracion</a>
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+              <a class="dropdown-item" routerLink="/config/intro-config">
+                <i class="fa fa-fw fa-power-off"></i> Base
+              </a>
+
+            </div>
+          </li> -->
+
+    </ul>
+
+    <!-- RIGHT MENU----------------------------------------- -->
+    <ul class="navbar-nav ml-auto">
+
+      <li> <a href="#" class="nav-link active hour">
+          <app-now-time></app-now-time>
+        </a></li>
+      <li class="nav-item dropdown" ngbDropdown>
+
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+          <i class="fa fa-user"></i> {{currentUser.firstName}} {{currentUser.lastName}} <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+
+          <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+            <i class="fa fa-fw fa-power-off"></i> Salir
+          </a>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+</nav>

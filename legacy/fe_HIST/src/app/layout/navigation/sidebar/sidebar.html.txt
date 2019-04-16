@@ -1,0 +1,112 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+
+    <div>
+        <a href="../">
+            <img src="assets/images/logos/logo-proser.jpg" class="logo img-fluid" alt="Proser Reports" width>
+        </a>
+    </div>
+
+
+    <div class="list-group">
+
+        <a routerLink="/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-home icon-color"></i>&nbsp;BIENVENIDOS
+        </a>
+
+
+        <!-- Menu GTR -->
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('gtr')">
+                <span>
+                    <i class="fa fa-th"></i>&nbsp;REPORTES HISTORICOS</span>
+            </a>
+
+            <li class="nested" [class.expand]="showMenu === 'gtr'">
+                <ul class="submenu">
+
+                    <!-- GENERALES -->
+                    <li class="menu-subtile">GENERALES</li>
+
+                    <!-- Operativo detallado -->
+                    <li>
+                        <a routerLink="/operativo-detallado/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Operativo detallado
+                        </a>
+                    </li>
+
+                    <!-- Productividad -->
+                    <li>
+                        <a routerLink="/productividad/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Productividad
+                        </a>
+                    </li>
+
+
+                    <!-- Detalle de Llamadas -->
+                    <li>
+                        <a routerLink="/detalle-llamadas/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Detalle de llamadas
+                        </a>
+                    </li>
+
+                    <!-- ENTIDADES -->
+                    <li class="menu-subtile">ENTRANTES</li>
+                    <!-- Servicio por intervalo -->
+                    <li>
+                        <a routerLink="/servicio-intervalo/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Servicio histórico
+                        </a>
+                    </li>
+
+                    <!-- Servicio diario -->
+                    <li>
+                        <a routerLink="/servicio-diario/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Servicio diario
+                        </a>
+                    </li>
+
+                    <!-- SALIENTES -->
+                    <li class="menu-subtile">SALIENTES</li>
+                    <!-- Salientes por intervalos -->
+                    <li>
+                        <a routerLink="/saliente-intervalo/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Salientes por intervalos
+                        </a>
+                    </li>
+
+                    <!-- AGENTES -->
+                    <li class="menu-subtile">AGENTES</li>
+
+                    <!-- Detalle de auxiliares -->
+                    <li>
+                        <a routerLink="/detallado-auxiliares/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Detalle de auxiliares
+                        </a>
+                    </li>
+                        <!-- Detalle de conexion -->
+                    <li>
+                        <a routerLink="/conexion-desconexion/intro" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                            Detalle de conexion
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <a class="list-group-item" (click)="addExpandClass('gtr')">
+                <span>
+                    <i class="fa fa-th"></i>&nbsp;CONFIGURACION</span>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a routerLink="/config/date" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                        Configuración de reportes
+                    </a>
+                </li>
+            </ul>
+
+
+
+        </div>
+
+    </div>
+</nav>

@@ -1,0 +1,9 @@
+
+<input 
+type="text" 
+ngbDatepicker #d="ngbDatepicker" 
+placeholder="Fecha Inicio"
+(click)="d.toggle()"
+[(ngModel)]="selection.fecha_inicio" 
+(ngModelChange)="onChange()"
+/>

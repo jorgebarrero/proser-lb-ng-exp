@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.ultimos_minutos"
+  bindLabel="name" placeholder="Ultimos minutos"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="false"
+  hideSelected="true"
+  [(ngModel)]="selection.ultimos_minutos">
+</ng-select>
+  

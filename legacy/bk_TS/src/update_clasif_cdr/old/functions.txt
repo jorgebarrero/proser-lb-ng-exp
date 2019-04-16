@@ -1,0 +1,192 @@
+
+function CAL_largo_src(src){
+	// =LARGO(D4)
+	// D4=src
+	// Jorge
+
+	let resultado = '',
+	return resultado = src.length;
+	return resultado;
+}
+
+function CAL_largo_dst(dst){
+	// =LARGO(E4)
+	// E4=dst
+	// Jorge
+
+	let resultado = '';
+	resultado = dst.length;
+	return resultado;
+}
+
+
+function CAL_int_ext(src, dst ){
+	// =SI(D4=E4;"Interna"; SI(Y(Z4<=7; AA4<=7);"Interna";"Externa"))
+	// D4=src, E4=dst, Z4=largo_src, AA4=largo_dst
+	// Jorge
+
+	let resultado = '';
+	let largo_src =  src.length;
+  let largo_dst =  dst.length;
+  if ( (largo_src <= 7 &&  largo_dst <= 7) || ( src == dst &&  largo_src <= 7 )  ){
+		return resultado = "Interna"
+	} else {
+		return resultado = "Externa"
+	}
+	return resultado;
+}
+
+
+function CAL_sal_ent( src, dst, int_ext, lastapp ){
+	// =SI(AB4 = "Interna";"Interna";
+	// SI(Y(AB4="Externa";Z4<AA4);"Saliente";SI(I4="Queue";"Entrante";"Interna")))
+	// AB4=int_ext, Z4=largo_src, AA4=largo_dst, I4=lastapp
+
+	let resultado = '';
+	let largo_src = src.length;
+	let largo_dst = dst.length;
+	if( int_ext == "Interna" ){
+		return resultado = "Interna";
+	}
+	if( int_ext =="Externa" && largo_src < largo_dst ){
+		return resultado = "Saliente";
+	}
+	if(lastapp == "Queue") {
+		return resultado = "Entrante";
+	} else {
+		return resultado = "Interna";
+	}
+	return resultado;
+}
+
+function CAL_sal_ent_vacia( sal_ent, src ){
+		//=SI(Y(AC4="Saliente";D4="");"Vacia";AC4)
+		// AC4=sal_ent, D4=src
+
+		let resultado = '';
+		if( sal_ent == "Saliente" && src == "" ){
+			return resultado = "Vacia";
+		} else{
+			return resultado = sal_ent;
+		}
+		return resultado;
+}
+
+function CAL_saliente_entrante( sal_ent_vacia, lastapp ){
+		// =SI(Y(AD4="Entrante";I4="Queue");"Entrante";AD4)
+		// AD4=sal_ent_vacia, I4=lastapp,
+
+		let resultado = '';
+		if( sal_ent_vacia == "Entrante" && lastapp == "Queue" ){
+			return resultado = "Entrante"
+		} else {
+			return resultado = sal_ent_vacia
+		}
+		return resultado;
+}
+
+
+function CAL_productiva( sal_ent, dst, src ){
+		// =SI(O(AC4="Interna";AC4="Vacia");
+		// "Sistema";SI(
+		// O(LARGO(E4)=1;E4="hangup"; E4="hang"; D4="anonymous");
+		// "Sistema";"Productiva"))
+		// AC4=sal_ent, E4=dst, D4
+
+		let resultado = '';
+		if( sal_ent == "Interna"|| sal_ent == "Vacia" ){
+			return resultado = "Sistema";
+		}
+		if( dst.length == 1 || dst == "hangup" || dst == "hang" || (src == "anonymous" && recordingfile == '') ){
+			return resultado = "Sistema";
+		} else {
+			return resultado = "Productiva";
+		}
+		return resultado;
+}
+
+
+function CAL_llamada_produccion( sal_ent_vacia, productiva ){
+		// =SI(O(AD4="Vacia";AF4="Vacia");"Sistema";AF4)
+		// AD4=sal_ent_vacia, AF4=productiva
+
+		let resultado = '';
+		if( sal_ent_vacia == "Vacia" || productiva  == "Vacia" ){
+			return resultado = "Sistema";
+		} else{
+			return resultado = productiva
+		}
+		return resultado;
+}
+
+function CAL_cola( lastapp, saliente_entrante, llamada_produccion, dst ){
+		// =SI(I4="Queue"; SI(Y(AE4="Entrante";AG4="Productiva");E4;"");"")
+		// I4=lastapp, AE4=saliente_entrante, AG4 = llamada_produccion, E4=dst
+
+		let resultado = '';
+
+		if( lastapp == "Queue" ){
+			if( saliente_entrante == "Entrante" && llamada_produccion == "Productiva" ) {
+				return resultado = dst;
+			}
+		}
+		return resultado;
+}
+
+function CAL_ext_ent_larga( sal_ent, dstchannel ){
+		// =SI(AC4="Entrante";H4;"")
+		// AC4=sal_ent, H4=dstchannel
+		let resultado = '';
+		if(sal_ent == "Entrante" && dstchannel.substring(0, 6) == 'Agent/' ){
+			return resultado = dstchannel.substring(6, 10);
+		}
+		if( sal_ent == "Entrante"){
+			return resultado = dstchannel
+		}
+		return resultado;
+}
+
+function CAL_ext_ent( ext_ent_larga, dstchannel ){
+  // =SI(LARGO(AI4)>0;EXTRAEB(AI4
+  //;(ENCONTRAR("/";AI4;1)+1);(ENCONTRAR("-";
+  //(AI4&"-");1)-(ENCONTRAR("/";AI4;1)+1)));"")
+	// AI4 = ext_ent_larga
+
+	let resultado = '';
+  let inicio = ext_ent_larga.indexOf('/', 0);
+	let fin = ext_ent_larga.indexOf('-', 0);
+
+	if(sal_ent == "Entrante" && dstchannel.substring(0, 6) == 'Agent/' ){
+		return resultado = dstchannel.substring(6, 10);
+	}
+
+  resultado = ext_ent_larga.slice(inicio + 1, fin);
+  return resultado;
+}
+
+function CAL_ext_sal( sal_ent, src ){
+		// =SI(AC4="Saliente";D4;"")
+		// AC4=sal_ent, D4,src
+		let resultado = '';
+		if ( sal_ent == "Saliente" ) {
+			return resultado =  src;
+		}
+		return resultado;
+}
+
+
+
+function CAL_extension( ext_ent, ext_sal, dstchannel ){
+		// =SI(AJ4<>"";EXTRAENUM(AJ4);SI(AK4<>"";AK4;""))
+		// AJ4=ext_ent, AK4=ext_sal
+
+		let resultado = '';
+
+		if ( ext_ent ) {
+			return resultado = ext_ent
+    }
+		if( ext_sal ) {
+			return resultado = ext_sal
+    }
+		return resultado;
+}

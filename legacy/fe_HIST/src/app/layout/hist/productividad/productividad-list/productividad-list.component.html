@@ -1,0 +1,66 @@
+<div *ngIf="!rows">
+        <ngb-alert [dismissible]="false" >
+          <strong>Alerta!</strong> {{message}}
+        </ngb-alert>
+      </div>
+
+    <hr>
+
+    <section class="mycontainer" *ngIf="rows">
+      <h4>{{filter.filtro_titles}}</h4>
+
+      <div class="subtiulo">
+        <h5>Fecha: {{desde}} al {{hasta}}</h5>
+
+        <div class="botonera">
+          <button
+          (click)="exportToExcel(rows, 'operativo-detallado')"
+          class="btn btn-outline-secondary ">Excel</button>
+        </div>
+
+        <!-- <input
+        class="form-control-sm"
+        type='text'
+        style='padding:5px;margin:0px auto;width:88%;'
+        placeholder='Buscar agente...'
+        [(ngModel)]="buscarEnLista"
+        (keyup)='updateFilter($event)'
+        /> -->
+
+      </div>
+
+    <div *ngIf="rows_all" >
+      <app-pr-list-table
+      [rows]="rows"
+      [rows_all]="rows_all"
+      [selection]="selection"
+      [filter]="filter"
+      ></app-pr-list-table>
+    </div>
+
+      <p></p>
+    </section>
+
+
+    <!-- <h1> SQL</h1>
+{{filter.filtro_sql | json}}
+
+  <h1>Selection</h1>
+{{selection | json}}
+<h1></h1>
+ -->
+<section *ngIf="0">
+<ngx-json-viewer [json]="rows" [expanded]="false"></ngx-json-viewer>
+</section>
+
+<!-- <pivot-table [data]="[{a: 'A1', b:'B1', c:'C3', d:1}, {a: 'A1', b:'B2', c:'C3', d:2}, {a: 'A2', b:'B2', c:'C2', d:3}, {a: 'A3', b:'B2', c:'C2', d:4}]"
+  [x]="['b', 'c']" [y]="['a']" [renderCell]="renderCell">
+</pivot-table> -->
+
+
+<!-- <pivot-table [data]="rows"
+  [x]="['cdr.fecha_final']" [y]="['cdr.llamadas_recibidas']" [renderCell]="renderCell">
+</pivot-table> -->
+
+
+<!-- <mdg-pivot [data]='rows.cdr' (savePivot)='onSavePivot($event)' (error)='onError($event)' [autoConfigurePivot]='false'></mdg-pivot> -->

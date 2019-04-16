@@ -1,0 +1,177 @@
+
+<div class="alerta" *ngIf="!records">
+        <ngb-alert [dismissible]="false" [type]="danger" >
+          <strong>Alerta!</strong> {{message}}
+        </ngb-alert>
+</div>
+
+<main class="form-container" *ngIf="records">
+
+
+<h4>Configuración del reporte de servicio diario</h4>
+<h5>{{selection.titles}}</h5>
+<h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h6>
+
+<!-- -------------------------------------------------------------------------- -->
+
+<section class="type-grid">
+
+        <div>
+          Fecha inicio
+          <app-config-fecha-inicio
+          (valueChange)='seleccionFechaInicio($event)'
+          [selection] = 'selection'
+
+          >
+          </app-config-fecha-inicio>
+        </div>
+
+        <div>
+          Fecha final
+          <app-config-fecha-final
+          (valueChange)='seleccionFechaFinal($event)'
+          [selection] = 'selection'
+
+          >
+          </app-config-fecha-final>
+        </div>
+
+        <app-config-lineas
+        (valueChange)='seleccionFechaFinal($event)'
+        [selection] = 'selection'
+
+        >
+        </app-config-lineas>
+
+      </section>
+      <!-- -------------------------------------------------------------------------- -->
+
+      <section class="time-grid" *ngIf=" 1 ">
+
+            <div>
+                <app-config-hora-inicio
+                (valueChange)='seleccionHoraInicio($event)'
+                [selection] = 'selection'
+
+                >
+                </app-config-hora-inicio>
+            </div>
+
+            <div>
+                <app-config-hora-final
+                (valueChange)='seleccionHoraFinal($event)'
+                [selection] = 'selection'
+
+                >
+                </app-config-hora-final>
+            </div>
+
+
+            <div>
+                <app-config-intervalo
+                (valueChange)='UltimosMinutos($event)'
+                [selection] = 'selection'
+
+                >
+                </app-config-intervalo>
+            </div>
+
+     </section>
+
+
+    <!-- ------------------------------------------------------------------- -->
+
+    <section class="queue-grid" >
+
+        <div>
+            <app-config-cliente
+            (valueChange)='seleccionClientes($event)'
+            [selection] = 'selection'
+            [options] = 'options'
+
+            >
+            </app-config-cliente>
+        </div>
+
+        <div>
+            <app-config-cola
+            (valueChange)='seleccionColas($event)'
+            [selection] = 'selection'
+            [options] = 'options'
+
+            >
+            </app-config-cola>
+        </div>
+
+        <div>
+            <app-config-servicio
+            (valueChange)='seleccionServicios($event)'
+            [selection] = 'selection'
+            [options] = 'options'
+
+            >
+            </app-config-servicio>
+        </div>
+
+        <div>
+            <app-config-campana
+            (valueChange)='seleccionCampanas($event)'
+            [selection] = 'selection'
+            [options] = 'options'
+
+            >
+            </app-config-campana>
+        </div>
+
+        </section>
+
+        <!-- --------------------------------------------------------- -->
+
+        <section class="extension-grid" *ngIf="1">
+
+                <div>
+                    <app-config-supervisor
+                    (valueChange)='seleccionSupervisores($event)'
+                    [selection] = 'selection'
+                    [options] = 'options'
+
+                    >
+                    </app-config-supervisor>
+                </div>
+
+                <div>
+                    <app-config-suplente
+                    (valueChange)='seleccionSuplentes($event)'
+                    [selection] = 'selection'
+                    [options] = 'options'
+
+                    >
+                    </app-config-suplente>
+                </div>
+
+                <div>
+                    <app-config-agente
+                    (valueChange)='seleccionAgentes($event)'
+                    [selection] = 'selection'
+                    [options] = 'options'
+
+                    >
+                    </app-config-agente>
+                </div>
+
+                <div>
+                    <app-config-horario
+                    (valueChange)='seleccionHorarios($event)'
+                    [selection] = 'selection'
+                    [options] = 'options'
+                   >
+                    </app-config-horario>
+                </div>
+
+                </section>
+
+</main>
+
+
+<h1>Selection</h1>
+{{selection | json}}

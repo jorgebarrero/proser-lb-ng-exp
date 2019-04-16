@@ -1,0 +1,45 @@
+<div *ngIf="!rows">
+    <div class="alert-danger" *ngIf="!records">
+        <ngb-alert [dismissible]="false" [type]="danger" (click)="close(alert)" >
+          <strong>¡Alerta!</strong> {{message}}
+          <button _ngcontent-c0="" aria-label="Close" class="close" type="button">
+                <span _ngcontent-c0="" aria-hidden="true">x</span>
+              </button>
+        </ngb-alert>
+</div>
+  </div>
+
+
+<hr>
+<section class="mycontainer" *ngIf="rows">
+
+
+    <div class="subtiulo">
+        <div>
+          <h5>{{selection.titles}}</h5>
+          <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h6>
+        </div>
+        <div class="botonera">
+          <button
+          (click)="exportToExcel(rows, 'operativo-detallado')"
+          class="btn btn-outline-secondary ">Excel</button>
+        </div>
+      </div>
+
+
+<div *ngIf="rows" >
+  <app-dl-list-table
+  [rows]="rows"
+  [rows_all]="rows_all"
+  [selection]="selection"
+  [filter]="filter"
+
+  ></app-dl-list-table>
+</div>
+
+  <p></p>
+</section>
+
+
+<!-- <h1>Selection</h1>
+{{selection | json}} -->

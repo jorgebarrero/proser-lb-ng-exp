@@ -1,0 +1,11 @@
+ng build --prod --bh /preports/fe_CONFIG/
+
+
+/preports/fe_JS/gtr/
+
+
+            <script>
+              (function() {
+                document.getElementById('baseHref').href = '/' + window.location.pathname.split('/')[1] + "/";
+              })();
+            </script>

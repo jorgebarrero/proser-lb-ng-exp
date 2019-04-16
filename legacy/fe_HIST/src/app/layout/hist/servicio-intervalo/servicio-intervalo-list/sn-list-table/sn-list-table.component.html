@@ -1,0 +1,47 @@
+
+          <ngx-datatable
+          class="material"
+          [rows]="rows"
+          [columnMode]="'force'"
+          [columns]="columns"
+          [headerHeight]="50"
+          [footerHeight]="50"
+          [rowHeight]="'40'"
+          [limit]="itemsList"
+          [scrollbarH]="true"
+          [limit]="12"
+          [loadingIndicator]="loadingIndicator"
+          [messages]="{emptyMessage: 'Sin datos que mostrar'} "
+          [selected]="selected"
+          [selectionType]="'single'"
+          (activate)="onActivate($event)"
+          (select)='onSelect($event)'>
+
+
+
+          </ngx-datatable>
+
+<!--
+          <ngx-datatable-footer>
+            <ng-template
+              ngx-datatable-footer-template
+              let-rowCount="rowCount"
+              let-pageSize="pageSize"
+              let-selectedCount="selectedCount"
+              let-curPage="curPage"
+              let-offset="offset">
+              <div style="padding: 50px 50px">
+                <div>
+                  <strong>Resumen</strong>: Gender: Female
+                </div>
+                <hr style="width:100%" />
+                <div>
+                  Rows: {{rowCount}} |
+                  Size: {{pageSize}} |
+                  Current: {{curPage}} |
+                  Offset: {{offset}}
+                </div>
+              </div>
+            </ng-template>
+          </ngx-datatable-footer>
+           -->

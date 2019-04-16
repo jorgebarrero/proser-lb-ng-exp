@@ -1,0 +1,233 @@
+<div class="anyClass">
+  <ngx-datatable
+  class="material"
+  [rows]="rows"
+  [columnMode]="'force'"
+
+  [limit]= "selection.lineas.id"
+  [headerHeight]="70"
+  [footerHeight]="50"
+
+  [rowHeight]="'40'"
+
+  [scrollbarH]="true"
+  [scrollbarV]="false"
+
+  [loadingIndicator]="loadingIndicator"
+  [messages]="{emptyMessage: 'Sin datos que mostrar'} "
+  [selected]="selected"
+  [selectionType]="'single'"
+  (activate)="onActivate($event)"
+  (select)='onSelect($event)'>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column class="table-header" prop="cdr.nombre_agentes" width="100" [frozenLeft]="true">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Agente  <br> </p>
+        </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+<strong>{{value}}</strong>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.supervisor"  width="100">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Supervisor  <br> </p>
+        </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p>{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+<!-- <ngx-datatable-column prop="cdr.fecha_inicio" width="80">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p (click)="sort($event, sortDir, sortFn)">  Fecha  <br> </p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  
+  <p >{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+   -->
+  
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.llamadas_recibidas" width="50">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p (click)="sort($event, sortDir, sortFn)">  Llamadas  <br> recibidas  <br> </p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p >{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.llamadas_realizadas" width="50">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Llamadas  <br> realizadas </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p>{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+  
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.tiempo_conectado" width="50">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> conectado </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p  class="azul" >{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_recibidas" width="50" class="amarilla">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> recibidas </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template >
+    <p >{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_realizadas" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> realizadas </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_asignaciones" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> asignaciones </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+        <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_after_call" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> after call </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_auxiliares" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> auxiliares </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p >{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.tiempo_ocupado" width="50">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> ocupado </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p>{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.tiempo_productivo" width="50">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)"> Tiempo  <br> productivo </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p>{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.tiempo_disponible" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> disponible </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.porc_ocupacion" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> ocupación </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p >{{value}} %</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+
+      <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.porc_produccion" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> producción </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p >{{value}} %</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.porc_auxiliar" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> auxiliar </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p >{{value}} %</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+      <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.porc_disponible" width="50">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> disponible </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p >{{value}} %</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+
+</ngx-datatable>
+
+</div>
+
+<!-- {{rows_all.cdr.llamadas_recibidas | json}} -->

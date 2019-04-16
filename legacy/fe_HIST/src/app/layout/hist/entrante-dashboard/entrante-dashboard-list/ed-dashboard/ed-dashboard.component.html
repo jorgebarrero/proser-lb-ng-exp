@@ -1,0 +1,195 @@
+
+
+
+  <!-- {{ rows_all | json }} -->
+
+
+  <!-- <button (click)="getIndicadoresCdr_Entrantes();">test</button> -->
+
+  <section class="my-container">
+    <!-- ----------------------------------------------------------------- -->
+  <!-- <section id="id-message">
+
+    <div>
+      <p class=""message">message</p>
+    </div>
+
+    <div> cause</div>
+
+  </section end="id-message"> -->
+
+  <!-- ----------------------------------------------------------------- -->
+  <section id="id-filter">
+
+      <div>
+
+
+              <!-- <app-config-peticion
+              (valueChange)= 'onChangePeticion($event)'
+              [peticion] = 'peticion'
+              >
+              </app-config-peticion> -->
+
+
+        </div>
+
+        <!-- <div> <button (click)="onChange()">change</button></div> -->
+        <div>
+        <!-- <input
+        type="text"
+        ngbDatepicker #d="ngbDatepicker"
+        placeholder="Fecha"
+        (click)="d.toggle()"
+        [(ngModel)]="fecha_seleccionada"
+        (ngModelChange)="onChangeDate()"
+        /> -->
+      </div>
+
+      <div>
+        {{ mensaje_tipo }}
+      </div>
+
+    <div class="filter-icons">
+        <p  ><i class="far fa-clock"></i> <span  class="time-number">&nbsp; {{counter}}</span></p>
+    </div>
+
+  </section>
+
+  <!-- <section id="date-filter">
+    <div>
+      <input type="text" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="fecha_seleccionada"  />
+      <button (click)="d.toggle()">fecha</button>
+      {{ fecha_seleccionada | json }}
+    </div>
+  </section> -->
+
+
+
+  <!-- ----------------------------------------------------------------- -->
+
+
+
+
+  <section *ngIf="rows_all">
+          <!-- <app-entrantes-higlights
+          [rows_all] = "rows_all"
+      >
+      </app-entrantes-higlights> -->
+  </section>
+
+  <!-- ----------------------------------------------------------------- -->
+  <section id="id-dashboard">
+
+  <div *ngIf="rows_all">
+  <p class="dashboard-subtitles">Llamadas</p>
+  <div class="dashboard-table">
+    <p class="dashboard-text">Recibidas</p>
+    <p class="dashboard-number">{{cdr.llamadas_recibidas}}</p>
+  </div>
+  <div class="dashboard-table">
+    <p class="dashboard-text">Abandonadas</p>
+    <p class="dashboard-number">{{cdr.llamadas_abandonadas}}</p>
+  </div>
+  <div class="dashboard-table">
+    <p class="dashboard-text">Atendidas</p>
+    <p class="dashboard-number">{{cdr.llamadas_atendidas}}</p>
+  </div>
+  <div class="dashboard-table">
+    <p class="dashboard-text">Cortas</p>
+    <p class="dashboard-number">{{cdr.llamadas_cortas}}</p>
+  </div>
+  <div class="dashboard-table">
+    <p class="dashboard-text">Atendidas menos de 20"</p>
+    <p class="dashboard-number">{{cdr.llamadas_antes_de_20}}</p>
+  </div>
+  <div class="dashboard-table">
+      <p class="dashboard-text">Colgadas por agente</p>
+      <p class="dashboard-number">{{cdr.colgado_agente}}</p>
+    </div>
+    </div>
+
+  <div *ngIf="0">
+
+      <p class="dashboard-subtitles">Agentes</p>
+
+      <div class="dashboard-table">
+          <p class="dashboard-text">Planificados</p>
+          <p class="dashboard-number">{{indicadores_personas.planificado}}</p>
+      </div>
+
+      <div class="dashboard-table">
+          <p class="dashboard-text">Con cola definida</p>
+          <p class="dashboard-number">{{indicadores_personas.en_cola}}</p>
+      </div>
+
+      <div class="dashboard-table">
+          <p class="dashboard-text">Logueados en el dia</p>
+          <p class="dashboard-number">{{indicadores_personas.logueado}}</p>
+      </div>
+
+      <div class="dashboard-table">
+          <p class="dashboard-text">---</p>
+          <p class="dashboard-number">-</p>
+      </div>
+
+      <div class="dashboard-table">
+          <p class="dashboard-text">Conectados ahora</p>
+          <p class="dashboard-number">{{indicadores_personas.conectado}}</p>
+      </div>
+
+  </div>
+
+  <!-- ********************************************************************* -->
+
+  <div *ngIf="0">
+      <section>
+              <!-- <app-entrantes-conectados
+              [indicadores_personas_entrantes]="indicadores_personas_entrantes"
+              [filtro_entrantes] = "filtro_entrantes"
+              ></app-entrantes-conectados> -->
+      </section>
+  </div>
+
+  <!-- ********************************************************************* -->
+  <section id="graph-grid" *ngIf="0" >
+
+
+      <div class="graph_draw">
+          <!-- <app-entrantes-pie [pie_data]="pie_data">
+          </app-entrantes-pie> -->
+      </div>
+
+      <div class="graph_col-1">
+          <p class="dashboard-subtitles">Auxiliares</p>
+
+          <ul class="list">
+              <li class="list-table" *ngFor="let item of resumen_auxiliares">
+                  <p class="list-count">{{item.count}} - </p>
+                  <p class="list-text">{{item.name}}</p>
+
+                  <p class="list-number">{{item.time}}</p>
+              </li>
+          </ul>
+      </div>
+
+
+      <div class="graph_col-2">
+          <p class="dashboard-subtitles">Asignaciones</p>
+          <ul>
+              <li class="list-table" *ngFor="let item of resumen_asignaciones">
+                  <p class="list-text">{{item.name}}</p>
+                  <p class="list-number">{{item.count}}</p>
+              </li>
+          </ul>
+      </div>
+
+  </section>
+  </section>
+
+  <!-- ----------------------------------------------------------------- -->
+  </section>
+  <!-- end container -->
+
+  <!-- {{ rows_all[0].cdr.llamadas_recibidas | json }}
+<br>
+  {{ rows_all | json }} -->

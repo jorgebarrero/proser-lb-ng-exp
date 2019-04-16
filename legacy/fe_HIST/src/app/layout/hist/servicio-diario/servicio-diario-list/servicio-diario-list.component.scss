@@ -1,0 +1,12 @@
+.subtiulo {
+    display: grid;
+    grid-template-columns: 5fr 1fr
+}
+
+
+.botonera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

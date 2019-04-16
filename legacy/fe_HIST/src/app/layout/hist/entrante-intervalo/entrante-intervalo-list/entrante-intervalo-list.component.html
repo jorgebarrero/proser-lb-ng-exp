@@ -1,0 +1,57 @@
+<div class="alerta" *ngIf="!rows">
+  <ngb-alert [dismissible]="false">
+    <strong>Alerta!</strong> {{message}}
+  </ngb-alert>
+
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+
+</div>
+
+<hr>
+
+<section class="mycontainer" *ngIf="rows">
+
+  <div class="subtiulo">
+    <div>
+      <h5>{{selection.titles}}</h5>
+      <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}} {{ selection.subtitles }}</h6>
+    </div>
+
+    <div class="botonera">
+      <button (click)="toogleGraph()" class="btn btn-outline-secondary ">Gráfico</button>
+
+      <button (click)="exportToExcel(rows, 'entrante-intervalo')" class="btn btn-outline-secondary ">Excel</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="rows && show_table">
+    <app-ei-list-table [rows]="rows" [rows_all]="rows_all" [selection]="selection"></app-ei-list-table>
+  </div>
+
+  <div *ngIf="rows && show_graph">
+    <div >
+    <app-ei-graph
+    [rows]="rows"
+    [rows_all]="rows_all"
+    [selection]="selection"
+    ></app-ei-graph>
+  </div>
+  </div>
+
+  <p></p>
+</section>
+
+
+
+<section *ngIf="0">
+  <ngx-json-viewer [json]="rows_all" [expanded]="false"></ngx-json-viewer>
+</section>
+
+
+  <!-- <h1>Selection</h1>
+  {{selection | json}} -->

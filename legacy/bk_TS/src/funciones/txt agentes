@@ -1,0 +1,333 @@
+
+
+
+function IND_agentes_conectados_ahora (audit_filtrado) {
+
+  if(audit_filtrado) {
+
+    // Filtro
+
+    let temp = audit_filtrado
+    .filter( x => (
+
+      ((x.id_break === null)
+      && (x.datetime_end === null || x.datetime_end === '')) ?
+      true: false
+
+      ));
+
+    let temp_unico = _.uniqBy(temp, 'id_agent');
+
+    // Fin filtro
+
+    let result = temp_unico
+    .reduce((count, x ) => {
+        if((x.datetime_end === null || x.datetime_end === '') &&
+              (x.id_break === null)) {
+          count++;
+        }
+     return count;
+
+ }, 0 );
+
+
+ return result;
+}}
+
+
+function IND_agentes_conectados_en_el_dia (audit_filtrado) {
+
+  if(audit_filtrado) {
+
+      // Filtro
+
+      let temp = audit_filtrado
+      .filter( x => (
+
+        (x.id_break === null) ?
+        true: false
+
+        ));
+
+        let temp_unico = _.uniqBy(temp, 'id_agent');
+
+    // fin filtro
+
+
+  let cantidad_agentes_conectados_dia = temp_unico
+  .reduce((count, x ) => {
+      if((x.id_break === null)) {
+        count++;
+      }
+      return count;
+
+  }, 0 );
+
+
+  return cantidad_agentes_conectados_dia;
+}}
+
+
+function IND_agentes_ocupados(realtime_agentes_filtrado) {
+
+  let resultado = '';
+
+  // inicio
+  // Cantidad de agentes conectados que están contestando/realizando una llamada
+  // in call
+
+
+
+  if (realtime_agentes_filtrado) {
+
+
+    let agentes_unicos = _.uniqBy(realtime_agentes_filtrado, 'numero_agentes');
+
+    let resultado = agentes_unicos
+      .reduce((count, x ) => {
+        if((x.estado === 'in call')) {
+          count++;
+        }
+        return count;
+    }, 0 );
+      //console.log('resultado', resultado);
+
+   return resultado;
+
+ }
+
+  // fin
+
+  return resultado;
+}
+
+function IND_agentes_disponibles(parametros) {
+  let resultado = '';
+
+  // inicio
+
+  // TODO: Cantidad de agentes conectados que están a la espera de recibir/realizar una llamada
+
+  resultado = sum;
+
+  // fin
+
+  return resultado;
+}
+
+function IND_agentes_auxiliares_no_productivos(audit_filtrado) {
+
+  let agentes = '';
+
+  // inicio
+
+  // Cantidad de agentes conectados que están en auxiliar no productivo
+
+
+  if(audit_filtrado) {
+    let agentes = audit_filtrado
+    .reduce((count, x ) => {
+        if((x.id_break !== null)
+        && (x.productividad === 0)
+        && (x.datetime_end === null || x.datetime_end === '')) {
+          count++;
+        }
+        return count;
+
+    }, 0 );
+
+    return agentes;
+  }
+
+  // fin
+
+}
+
+
+function IND_lista_agentes_conectados_ahora(audit_filtrado){
+
+  let resultado = '';
+
+
+
+  if (audit_filtrado) {
+
+    let temp = audit_filtrado
+    .filter( x => (
+
+      ((x.id_break === null)
+      && (x.datetime_end === null || x.datetime_end === '')) ?
+      true: false
+
+      ));
+
+      //console.log('audit_filtrado', temp);
+
+   resultado = JSON.stringify(temp);
+   return resultado;
+
+ }
+
+  return resultado;
+
+}
+
+function IND_lista_agentes_conectados_en_el_dia(audit_filtrado){
+
+
+  let resultado = '';
+
+  if (audit_filtrado) {
+
+    let temp = audit_filtrado
+    .filter( x => (
+
+      (x.id_break === null) ?
+      true: false
+
+      ));
+
+      let temp_unico = _.uniqBy(temp, 'id_agent');
+      //console.log('audit_filtrado', temp);
+
+   resultado = JSON.stringify(temp_unico);
+   return resultado;
+
+ }
+
+  return resultado;
+
+
+}
+
+function IND_lista_auxiliares_ahora(audit_filtrado) {
+
+  let resultado = '';
+
+  if (audit_filtrado) {
+
+    let temp = audit_filtrado
+    .filter( x => (
+
+      ((x.id_break !== null)
+      && (x.datetime_end === null || x.datetime_end === '')) ?
+      true: false
+
+      ));
+
+   resultado = JSON.stringify(temp);
+   return resultado;
+
+ }
+
+  return resultado;
+
+}
+
+function IND_lista_auxiliares_productivos(audit_filtrado) {
+
+
+  let resultado = '';
+
+
+
+  if (audit_filtrado) {
+
+    let temp = audit_filtrado
+    .filter( x => (
+
+      ((x.id_break !== null) && (x.productividad === 1)
+      && (x.datetime_end === null || x.datetime_end === '')) ?
+      true: false
+
+      ));
+
+      //console.log('audit_filtrado', temp);
+
+   resultado = JSON.stringify(temp);
+   return resultado;
+
+ }
+
+  return resultado;
+
+}
+
+function IND_lista_auxiliares_no_productivos(audit_filtrado) {
+
+
+  let lista_auxiliares_productivos = [{}];
+
+  // inicio
+
+  // TODO: Agentes que se encuentran en auxiliares NO productivos
+
+    if (audit_filtrado) {
+
+
+      // filter
+       let temp = audit_filtrado
+       .filter( x => (
+         (x.id_break !== null)
+         && (x.productividad === 0)
+         && (x.datetime_end === null || x.datetime_end === '')
+         ));
+
+
+
+      let lista_auxiliares_productivos = _(temp)
+      .groupBy(x => x.nombre_auxiliares)
+      .map((value, key) =>
+      ({nombre_auxiliares: key,
+      count: Object.values(_.countBy(value,'nombre_auxiliares'))[0],
+      agentes: value})).value();
+
+
+        let result = JSON.stringify(lista_auxiliares_productivos);
+
+      return result;
+      }
+}
+
+function IND_lista_auxiliares_productivos(audit_filtrado) {
+
+
+  let lista_auxiliares_productivos = [{}];
+
+  // inicio
+
+  // TODO: Agentes que se encuentran en auxiliares NO productivos
+
+    if (audit_filtrado) {
+
+
+      // filter
+       let temp = audit_filtrado
+       .filter( x => (
+         (x.id_break !== null)
+         && (x.productividad === 1)
+         && (x.datetime_end === null || x.datetime_end === '')
+         ));
+
+
+
+      let lista_auxiliares_productivos = _(temp)
+      .groupBy(x => x.nombre_auxiliares)
+      .map((value, key) =>
+      ({nombre_auxiliares: key,
+      count: Object.values(_.countBy(value,'nombre_auxiliares'))[0],
+      agentes: value})).value();
+
+
+        let result = JSON.stringify(lista_auxiliares_productivos);
+
+      return result;
+
+  }
+
+    return lista_auxiliares_productivos;
+}
+
+
+
+{"selectedAgentesId":[],"selectedCampanasId":[],"selectedClientesId":[{"id_inv_clientes":1,"nombre_clientes":"IBERO","titulo":"Clientes: "}],"selectedColasId":[],"selectedServiciosId":[],"selectedSupervisoresId":[{"id_inv_supervisores":1,"nombre_supervisores":"GENESYS DUQUE","titulo":"Supervisores: "}],"clasificacionLlamada":[{"clasificacion_llamada":"Entrante"}]}

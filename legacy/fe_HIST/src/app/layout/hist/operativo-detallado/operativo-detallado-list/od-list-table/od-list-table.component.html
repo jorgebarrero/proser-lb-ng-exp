@@ -1,0 +1,697 @@
+
+<div class="anyClass">
+    <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columnMode]="'force'"
+
+    [limit]= "selection.lineas.id"
+    [headerHeight]="75"
+    [footerHeight]="50"
+
+    [rowHeight]="'40'"
+
+    [scrollbarH]="true"
+    [scrollbarV]="false"
+
+    [summaryRow]="true"
+    [summaryHeight]="30"
+
+    [loadingIndicator]="loadingIndicator"
+    [messages]="{emptyMessage: 'Sin datos que mostrar'} "
+    [selected]="selected"
+    [selectionType]="'single'"
+    (activate)="onActivate($event)"
+    (select)='onSelect($event)'>
+
+
+
+<ngx-datatable-column class="table-header" prop="cdr.agente" width="200" [frozenLeft]="true">
+<ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+  <p (click)="sort($event, sortDir, sortFn)">  Agente </p>
+</ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+<strong>{{value}}</strong>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+
+<ngx-datatable-column prop="cdr.cedula" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p (click)="sort($event, sortDir, sortFn)">  Cédula</p>
+  </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p>{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.numero_interno" width="100">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p (click)="sort($event, sortDir, sortFn)">  Número <br> interno</p>
+    </ng-template>
+
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.fecha_inicio" name="Fecha inicio" width="100">
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p>{{value | date:'yyyy' }}-{{value | date:'MM' }}-{{value | date:'dd' }}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.fecha_final" name="Fecha final" width="100">
+<ng-template let-value="value" ngx-datatable-cell-template>
+<p>{{value | date:'yyyy' }}-{{value | date:'MM' }}-{{value | date:'dd' }}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.supervisor" name="Supervisor" width="150">
+<ng-template let-value="value" ngx-datatable-cell-template>
+<p>{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.cliente" name="Cliente" width="150">
+<ng-template let-value="value" ngx-datatable-cell-template>
+<p>{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<!-- -----------------------------------------------------------------------  -->
+
+
+<ngx-datatable-column prop="cdr.numero_clientes" width="80"
+[summaryTemplate]="numero_clientes">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Numero<br>de clientes</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_negro">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #numero_clientes>
+  <p class="celda_derecha_negro">{{ rows_all[0].cdr.numero_clientes | number: '.0'}}</p>
+</ng-template>
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+
+<ngx-datatable-column prop="cdr.llamadas_recibidas" width="80"
+[summaryTemplate]="llamadas_recibidas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Recibidas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_negro">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #llamadas_recibidas>
+  <p class="celda_derecha_negro">{{ rows_all[0].cdr.llamadas_recibidas | number: '.0'}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.seg_recibidas" width="90"
+[summaryTemplate]="seg_recibidas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>recibidas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #seg_recibidas>
+  <p class="celda_derecha_azul">{{ rows_all[0].cdr.seg_recibidas | number: '.0'}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+<ngx-datatable-column prop="cdr.t_recibidas" width="100"
+[summaryTemplate]="t_recibidas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo <br>  recibidas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_verde">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #t_recibidas>
+  <p class="celda_derecha_verde">{{ rows_all[0].cdr.t_recibidas}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.t_promedio_recibidas" width="100"
+[summaryTemplate]="t_promedio_recibidas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Promedio  <br> recibidas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_rojo">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #t_promedio_recibidas>
+  <p class="celda_derecha_rojo">{{ rows_all[0].cdr.t_promedio_recibidas}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.colgado_agente" width="100"
+[summaryTemplate]="colgado_agente">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Colgadas  <br> agente</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_negro">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #colgado_agente>
+  <p class="celda_derecha_negro">{{ rows_all[0].cdr.colgado_agente}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.llamadas_realizadas" width="100"
+[summaryTemplate]="llamadas_realizadas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Llamadas  <br> realizadas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_negro">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #llamadas_realizadas>
+  <p class="celda_derecha_negro">{{ rows_all[0].cdr.llamadas_realizadas}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.seg_realizadas" width="90"
+[summaryTemplate]="seg_realizadas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>realizadas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #seg_realizadas>
+  <p class="celda_derecha_azul">{{ rows_all[0].cdr.seg_realizadas | number: '.0'}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.t_realizadas" width="100"
+[summaryTemplate]="t_realizadas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo <br>  realizadas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_verde">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #t_realizadas>
+  <p class="celda_derecha_verde">{{ rows_all[0].cdr.t_realizadas}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.t_promedio_realizadas" width="100"
+[summaryTemplate]="t_promedio_realizadas">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Promedio  <br> realizadas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_rojo">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #t_promedio_realizadas>
+  <p class="celda_derecha_rojo">{{ rows_all[0].cdr.t_promedio_realizadas}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.llamada_interna" width="100"
+[summaryTemplate]="llamada_interna">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Llamadas  <br> internas</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_negro">{{value}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #llamada_interna>
+  <p class="celda_derecha_negro">{{ rows_all[0].cdr.llamada_interna}}</p>
+</ng-template>
+
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- CALC SEGUNDOS -->
+
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- <ngx-datatable-column prop="calc.seg_sesion" width="80">
+<ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Segundos  <br> en sesión </p>
+</ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+<p class="celda_derecha_azul">{{value}}</p>
+</ng-template>
+</ngx-datatable-column> -->
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.seg_conexion" width="90"
+[summaryTemplate]="seg_conexion">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>conectados</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #seg_conexion>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_conexion | number: '.0'}}</p>
+</ng-template>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.seg_auxiliar" width="90"
+  [summaryTemplate]="seg_auxiliar">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>auxiliares</p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+
+  <p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ng-template #seg_auxiliar>
+    <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_auxiliar | number: '.0'}}</p>
+  </ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.seg_ocupacion_cdr" width="100"
+[summaryTemplate]="seg_ocupacion_cdr">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>ocupados<br> CDR</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #seg_ocupacion_cdr>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_ocupacion_cdr | number: '.0'}}</p>
+</ng-template>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.seg_ocupacion_audit" width="100"
+[summaryTemplate]="seg_ocupacion_audit">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>ocupados<br> AUDIT</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #seg_ocupacion_audit>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_ocupacion_audit | number: '.0'}}</p>
+</ng-template>
+
+
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.seg_disponible_cdr" width="100"
+  [summaryTemplate]="seg_disponible_cdr">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>disponibles<br>CDR</p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+
+  <p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ng-template #seg_disponible_cdr>
+    <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_disponible_cdr | number: '.0'}}</p>
+  </ng-template>
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.seg_disponible_audit" width="100"
+    [summaryTemplate]="seg_disponible_audit">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Segundos<br>disponibles<br>AUDIT</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_azul">{{value | number: '.0'}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #seg_disponible_audit>
+      <p class="celda_derecha_azul">{{ rows_all[0].calc.seg_disponible_audit | number: '.0'}}</p>
+    </ng-template>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+<!-- CALC TIEMPO -->
+
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- <ngx-datatable-column prop="calc.t_sesion" width="80">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Tiempo  <br> en sesión </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p class="celda_derecha_verde">{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column> -->
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.t_conexion" width="100"
+    [summaryTemplate]="t_conexion">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>conectados</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_verde">{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #t_conexion>
+      <p class="celda_derecha_verde">{{ rows_all[0].calc.t_conexion}}</p>
+    </ng-template>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.t_auxiliar" width="100"
+    [summaryTemplate]="t_auxiliar">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>auxiliares</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_verde">{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #t_auxiliar>
+      <p class="celda_derecha_verde">{{ rows_all[0].calc.t_auxiliar}}</p>
+    </ng-template>
+
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.t_ocupacion_cdr" width="100"
+  [summaryTemplate]="t_ocupacion_cdr">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>ocupados<br>CDR</p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+
+  <p class="celda_derecha_verde">{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ng-template #t_ocupacion_cdr>
+    <p class="celda_derecha_verde">{{ rows_all[0].calc.t_ocupacion_cdr}}</p>
+  </ng-template>
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.t_ocupacion_audit" width="100"
+  [summaryTemplate]="t_ocupacion_audit">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>ocupados<br>AUDIT</p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+
+  <p class="celda_derecha_verde">{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ng-template #t_ocupacion_audit>
+    <p class="celda_derecha_verde">{{ rows_all[0].calc.t_ocupacion_audit}}</p>
+  </ng-template>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.t_disponible_cdr" width="100"
+    [summaryTemplate]="t_disponible_cdr">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>disponible<br>CDR</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_verde">{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #t_disponible_cdr>
+      <p class="celda_derecha_verde">{{ rows_all[0].calc.t_disponible_cdr}}</p>
+    </ng-template>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.t_disponible_audit" width="100"
+    [summaryTemplate]="t_disponible_audit">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Tiempo<br>disponible<br>AUDIT</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_verde">{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #t_disponible_audit>
+      <p class="celda_derecha_verde">{{ rows_all[0].calc.t_disponible_audit}}</p>
+    </ng-template>
+
+
+
+ <!-- ----------------------------------------------------------------------- -->
+
+<!-- CALC PORCENTAJE -->
+
+<!-- ----------------------------------------------------------------------- -->
+
+<!-- <ngx-datatable-column prop="calc.porc_sesion" width="80">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> en sesión </p>
+  </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+  <p class="celda_derecha_gris">{{value}}</p>
+  </ng-template>
+  </ngx-datatable-column> -->
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <!-- <ngx-datatable-column prop="calc.porc_conexion" width="80">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p (click)="sort($event, sortDir, sortFn)">  Porcentaje  <br> conectados </p>
+    </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_gris">{{value}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+   -->
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.porc_ocupacion_cdr" width="100"
+    [summaryTemplate]="porc_ocupacion_cdr">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje<br>ocupado<br>CDR</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_gris">{{value | percent: '.2'}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #porc_ocupacion_cdr>
+      <p class="celda_derecha_gris">{{ rows_all[0].calc.porc_ocupacion_cdr | percent: '.2'}}</p>
+    </ng-template>
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.porc_ocupacion_audit" width="100"
+    [summaryTemplate]="porc_ocupacion_audit">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje<br>ocupado<br>AUDIT</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_gris">{{value | percent: '.2'}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #porc_ocupacion_audit>
+      <p class="celda_derecha_gris">{{ rows_all[0].calc.porc_ocupacion_audit | percent: '.2'}}</p>
+    </ng-template>
+
+
+
+  <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="calc.porc_disponible_cdr" width="100"
+    [summaryTemplate]="porc_disponible_cdr">
+      <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje<br>disponible<br>CDR</p>
+        </ng-template>
+    <ng-template let-value="value" ngx-datatable-cell-template>
+
+    <p class="celda_derecha_gris">{{value | percent: '.2'}}</p>
+    </ng-template>
+    </ngx-datatable-column>
+
+    <ng-template #porc_disponible_cdr>
+      <p class="celda_derecha_gris">{{ rows_all[0].calc.porc_disponible_cdr | percent: '.2'}}</p>
+    </ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="calc.porc_disponible_audit" width="100"
+  [summaryTemplate]="porc_disponible_audit">
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje<br>disponible<br>AUDIT</p>
+      </ng-template>
+  <ng-template let-value="value" ngx-datatable-cell-template>
+
+  <p class="celda_derecha_gris">{{value | percent: '.2'}}</p>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ng-template #porc_disponible_audit>
+    <p class="celda_derecha_gris">{{ rows_all[0].calc.porc_disponible_audit | percent: '.2'}}</p>
+  </ng-template>
+
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.porc_auxiliar" width="100"
+[summaryTemplate]="porc_auxiliar">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje  <br> auxiliares</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | percent: '.2'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #porc_auxiliar>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.porc_auxiliar | percent: '.2'}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.porc_ocupacion" width="100"
+[summaryTemplate]="porc_ocupacion">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje  <br> ocupacion</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | percent: '.2'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #porc_ocupacion>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.porc_ocupacion | percent: '.2'}}</p>
+</ng-template>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.porc_disponible" width="100"
+[summaryTemplate]="porc_disponible">
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha_negro"   (click)="sort($event, sortDir, sortFn)">Porcentaje  <br> disponible</p>
+    </ng-template>
+<ng-template let-value="value" ngx-datatable-cell-template>
+
+<p class="celda_derecha_azul">{{value | percent: '.2'}}</p>
+</ng-template>
+</ngx-datatable-column>
+
+<ng-template #porc_disponible>
+  <p class="celda_derecha_azul">{{ rows_all[0].calc.porc_disponible | percent: '.2'}}</p>
+</ng-template>
+
+
+
+
+</ngx-datatable>
+
+  </div>
+
+  <!-- {{rows_all.cdr.llamadas_recibidas | json}} -->

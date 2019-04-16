@@ -129,6 +129,10 @@ function writeDestiny(data) {
   });
 
 //  }
+//  else {
+//   console.log('DATA IS EMPTY');
+//   // console.clear()
+// }
 }
 
 
@@ -171,6 +175,9 @@ async function updateAgent( ) {
 
     // console.log('result', result);
 
+    if(!result[0]) {
+      console.log('RESULT IS EMPTY');
+    } else {
 
     let extendedResult = result
       .map( x => {
@@ -187,10 +194,6 @@ async function updateAgent( ) {
 
         x.inv_agent_password = x.password;
         x.inv_agent_eccp_password = x.eccp_password;
-
-
-
-
 
         return x;
       })
@@ -211,6 +214,7 @@ async function updateAgent( ) {
     // console.log('result', result);
 
     let written = await writeDestiny(result);
+    }
   } else {
     console.log(`No hay registros nuevos por actualizar`);
   }

@@ -2,6 +2,12 @@ body {
 	background: #c2c2c2;
 }
 
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr
+}
+
+
 .intro {
 
   margin-top: 40px;

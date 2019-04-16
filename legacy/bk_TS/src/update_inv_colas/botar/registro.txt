@@ -1,0 +1,40 @@
+ registros.push([
+
+          __COLAS__ = 1,
+         id_inv_colas = result[i].id,
+         numero_colas = result[i].queue,
+         nombre_colas = fun.nombre_colas(numero_colas, colas_asterisk),
+         nombre_reportes_colas = fun.nombre_reportes_colas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         tipo_colas = fun.tipo_colas(id_inv_colas, colas_productividad_reports, 0),
+         uso_produccion = fun.uso_produccion(id_inv_colas, colas_productividad_reports, 0),
+
+         __CLIENTES__ = 1,
+         id_inv_clientes =  fun.id_inv_clientes(id_inv_colas, colas_productividad_reports, nombre_colas),
+         codigo_clientes =  fun.codigo_clientes(id_inv_colas, colas_productividad_reports, nombre_colas),
+         nombre_clientes =  fun.nombre_clientes(id_inv_colas, colas_productividad_reports, nombre_colas),
+
+         __CAMPANAS__ = 1,
+         id_inv_campanas =  fun.id_inv_campanas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         codigo_campanas =  fun.codigo_campanas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         nombre_campanas =  fun.nombre_campanas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         tiempo_after_call =  fun.tiempo_after_call(id_inv_colas, colas_productividad_reports, nombre_colas),
+
+         __SERVICIOS__ = 1,
+         id_inv_servicios =  fun.id_inv_servicios(id_inv_colas, colas_productividad_reports, nombre_colas),
+         codigo_servicios =  fun.codigo_servicios(id_inv_colas, colas_productividad_reports, nombre_colas),
+         nombre_servicios =  fun.nombre_servicios(id_inv_colas, colas_productividad_reports, nombre_colas),
+
+         __ESCALAS__ = 1,
+         id_inv_escalas =  fun.id_inv_escalas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         nombre_escalas =  fun.nombre_escalas(id_inv_colas, colas_productividad_reports, nombre_colas),
+         escalas =  fun.escalas(id_inv_colas, colas_productividad_reports, nombre_colas),
+
+         __REGISTRO__ = 1,
+         chk_utilizado =  1,
+         estatus_inv_colas = result[i].estatus,
+         usuario =  'SYSTEM',
+         createdAt = fun.createdAt(),
+         updatedAt = fun.updatedAt(),
+
+
+        ]);

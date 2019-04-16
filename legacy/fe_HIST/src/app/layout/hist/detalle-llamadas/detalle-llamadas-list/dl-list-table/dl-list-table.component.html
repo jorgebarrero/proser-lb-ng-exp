@@ -1,0 +1,341 @@
+
+<div class="anyClass">
+    <ngx-datatable
+    class="material"
+    [rows]="rows"
+    [columnMode]="'force'"
+
+    [limit]= "selection.lineas.id"
+    [headerHeight]="70"
+    [footerHeight]="50"
+
+    [rowHeight]="'40'"
+
+    [scrollbarH]="true"
+    [scrollbarV]="false"
+
+    [loadingIndicator]="loadingIndicator"
+    [messages]="{emptyMessage: 'Sin datos que mostrar'} "
+    [selected]="selected"
+    [selectionType]="'single'"
+    (activate)="onActivate($event)"
+    (select)='onSelect($event)'>
+
+    <!-- ----------------------------------------------------------------------- -->
+
+    <ngx-datatable-column prop="cdr.id_agente" width="50" [frozenLeft]="true">
+
+        <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+          <p class="izquierda-negrita" (click)="sort($event, sortDir, sortFn)">id</p>
+          </ng-template>
+
+        <ng-template let-value="value" ngx-datatable-cell-template>
+          <p class="izquierda-negrita">{{value}}</p>
+        </ng-template>
+      </ngx-datatable-column>
+    <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.agente" width="150" [frozenLeft]="true">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="izquierda-negrita" (click)="sort($event, sortDir, sortFn)">Agente</p>
+      </ng-template>
+
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <p class="izquierda-negrita">{{value}}</p>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+  <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.supervisor" width="150">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Supervisor</p>
+      </ng-template>
+
+    <ng-template let-value="value" ngx-datatable-cell-template>
+      <p class="celda_derecha_negro">{{value}}</p>
+    </ng-template>
+  </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+<ngx-datatable-column prop="cdr.fecha" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+    <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Fecha<br>Inicio</p>
+    </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value | date:'yyyy' }}-{{value | date:'MM' }}-{{value | date:'dd' }}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora" width="75">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Hora</p>
+   </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.tipo" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Tipo</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+
+<ngx-datatable-column prop="cdr.origen" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Origen</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+
+<ngx-datatable-column prop="cdr.destino" width="100">
+
+    <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+        <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Destino</p>
+   </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.duracion" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Duracion</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.asa" width="20">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Asa</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.status" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Estatus</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.llamadas_abandonadas" width="50">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Abandono</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.llamadas_cortas" width="50">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Corta</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.colgado_agente" width="50">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Colgada</p>
+ </ng-template>
+
+  <ng-template let-value="value" ngx-datatable-cell-template>
+    <p class="celda_derecha_negro">{{value}}</p>
+  </ng-template>
+</ngx-datatable-column>
+
+
+  <!-- ----------------------------------------------------------------------- -->
+
+  <ngx-datatable-column prop="cdr.id" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Registro</p>
+ </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_negro">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="calc.recordingfile" width="100">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Grabación</p>
+ </ng-template>
+
+    <ng-template let-value="value" ngx-datatable-cell-template>
+        <a class="dropdown-item" href={{value}}>Grabación</a>
+    </ng-template>
+  </ngx-datatable-column>
+
+
+          <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_cola" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Hora<br>cola</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+              <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_conexion" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Hora<br>conexión</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_fin_llmada" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Hora<br>final</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_fin_agente" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Fin<br>Agente</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+
+    <!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_fin_llamante" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Fin<br>Llamante</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+
+<!-- ----------------------------------------------------------------------- -->
+
+<ngx-datatable-column prop="cdr.hora_abandono" width="75">
+
+  <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
+      <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)">Hora<br>abandono</p>
+  </ng-template>
+
+      <ng-template let-value="value" ngx-datatable-cell-template>
+        <p class="celda_derecha_azul">{{value}}</p>
+      </ng-template>
+    </ngx-datatable-column>
+    
+</ngx-datatable>
+
+  </div>
+
+<!--
+  <template let-row="row" let-value="value" ngx-datatable-cell-template>
+      <button md-icon-button (click)="blockAgents(value)" [disabled]="row['status']==='BLOCKED'">
+          <i class="fa fa-ban"></i>
+      </button>
+      <button md-icon-button (click)="approveAgent(value)" [disabled]="row['status']==='APPROVED'">
+          <i class="fa fa-check"></i>
+      </button>
+  </template> -->
+
+
+  <!-- hora: "08:09:20"
+hora_abandono: null
+hora_cola: "08:09:20"
+hora_conexion: "08:09:21"
+hora_fin_agente: "08:10:23"
+hora_fin_llamante: null
+hora_fin_llmada: "08:10:23"
+hora_inicio: "00:00:00"
+hora_ivr: null -->

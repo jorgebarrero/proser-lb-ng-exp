@@ -1,0 +1,58 @@
+
+<div class="alerta" *ngIf="!records">
+  <ngb-alert [dismissible]="false" [type]="danger" >
+    <strong>Alerta!</strong> {{message}}
+  </ngb-alert>
+</div>
+<hr>
+
+<section class="mycontainer" *ngIf="rows">
+
+<!-- -------------------------------------------------------------------------- -->
+
+<div class="subtiulo">
+  <div>
+    <h5>{{selection.titles}}</h5>
+    <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h6>
+  </div>
+  <div class="botonera">
+    <div class="filter-icons">
+      <p  ><i class="far fa-clock"></i> <span  class="time-number">&nbsp; {{counter}}</span></p>
+  </div>
+  </div>
+</div>
+
+<div *ngIf="rows && show_table" >
+  <app-ed-dashboard
+  [rows]="rows"
+  [rows_all]="rows_all"
+  [cdr]="cdr"
+  [selection]="selection"
+
+  ></app-ed-dashboard>
+</div>
+
+
+<!-- <div *ngIf="rows && show_graph">
+    <div >
+    <app-ed-dashboard
+    [rows]="rows"
+    [rows_all]="rows_all"
+    [selection]="selection"
+    ></app-ed-dashboard>
+  </div>
+</div> -->
+
+
+
+<p></p>
+</section>
+
+
+<!-- <section *ngIf="0">
+  <ngx-json-viewer [json]="rows" [expanded]="false"></ngx-json-viewer>
+  </section> -->
+
+
+  <!-- <h1>Selection</h1>
+  {{selection | json}} -->

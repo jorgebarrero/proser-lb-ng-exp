@@ -12,24 +12,34 @@ import { updateBreak } from './inv/update_break';
 import { updateCampaign } from './inv/update_campaign';
 import { updateQueue } from './inv/update_queue';
 
+import { asyncCall } from './inv/test'
+
 
 
 const time = process.env.CDR_TIME_INTERVAL;
 
+
 async function repeatCdrUpdate( ) {
 
+  let num;
+
   setInterval(
+
     function() {
       console.clear();
+      num = num + 1;
       console.log(`/*************/ MAIN UPDATE /*************/ `);
-      updateMainCdr();
-      updateMainAudit();
-      updateMainAuditEmpty();
+      console.log('num', num);
 
-      updateAgent();
-      updateBreak();
-      updateCampaign();
-      updateQueue();
+
+      // updateMainCdr();
+      // updateMainAudit();
+      // updateMainAuditEmpty();
+
+      // updateAgent();
+      // updateBreak();
+      // updateCampaign();
+      // updateQueue();
 
 
       // updateAsyncCdrDates();
@@ -41,4 +51,6 @@ async function repeatCdrUpdate( ) {
 }
 
 
-repeatCdrUpdate();
+asyncCall().then(x => {
+  console.log('resolved');
+});

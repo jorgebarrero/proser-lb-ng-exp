@@ -1,0 +1,16 @@
+id_global
+__PETICIONES__
+id_inv_peticiones
+clave_peticiones
+titulo_peticiones
+filtro_peticiones
+sql_peticiones
+clasificacion_llamada
+modalidad
+fecha_peticiones
+__REGISTRO__
+chk_utilizado
+estatus
+usuario
+createdAt
+updatedAt

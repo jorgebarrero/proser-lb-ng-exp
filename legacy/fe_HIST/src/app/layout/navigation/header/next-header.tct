@@ -1,0 +1,234 @@
+<!-- ----------------------------------------------------------------- -->
+<nav class="navbar navbar-expand-lg navbar-dark  ">
+
+
+
+  <a class="navbar-brand" > <img src="assets/images/logos/proser-light-2.png" width="160" height="40" alt=""></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <!-- ----------------------------------------- -->
+      <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i>  Generales <b class="caret"></b>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/operativo-detallado/intro">
+                <i class="fa fa-fw fa-power-off"></i> Operativo detallado
+            </a>
+            <a class="dropdown-item" routerLink="/productividad/intro">
+              <i class="fa fa-fw fa-power-off"></i> Productividad
+          </a>
+          <a class="dropdown-item" routerLink="/detalle-llamadas/intro">
+            <i class="fa fa-fw fa-power-off"></i> Detalle de llamadas
+        </a>
+        </div>
+    </li>
+
+      <!-- ----------------------------------------- -->
+    <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i>  Entrantes <b class="caret"></b>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/servicio-intervalo/intro">
+                <i class="fa fa-fw fa-power-off"></i> Servicio histórico
+            </a>
+            <a class="dropdown-item" routerLink="/servicio-diario/intro">
+              <i class="fa fa-fw fa-power-off"></i> Servicio diario
+          </a>
+
+        </div>
+    </li>
+
+      <!-- ----------------------------------------- -->
+    <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i>  Salientes <b class="caret"></b>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/saliente-intervalo/intro">
+                <i class="fa fa-fw fa-power-off"></i> Salientes por intervalo
+            </a>
+        </div>
+    </li>
+
+      <!-- ----------------------------------------- -->
+    <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i>  Agentes <b class="caret"></b>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" routerLink="/detallado-auxiliares/intro">
+                <i class="fa fa-fw fa-power-off"></i> Detalle de auxiliares
+            </a>
+            <a class="dropdown-item" routerLink="/conexion-desconexion/intro">
+              <i class="fa fa-fw fa-power-off"></i> Conexión y desconexión
+          </a>
+        </div>
+    </li>
+    
+      <!-- ----------------------------------------- -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Configuración
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/config/date">
+              <i class="fa fa-fw fa-power-off"></i> Fecha
+          </a>
+
+        </div>
+      </li>
+    </ul>
+
+      <!-- RIGHT MENU----------------------------------------- -->
+    <ul class="navbar-nav ml-auto">
+
+
+      <li class="nav-item dropdown" ngbDropdown>
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+            <i class="fa fa-user"></i>  {{currentUser.firstName}} {{currentUser.lastName}} <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+
+            <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                <i class="fa fa-fw fa-power-off"></i> Salir
+            </a>
+        </div>
+    </li>
+    </ul>
+
+
+  </div>
+</nav>
+
+--------------------------------------------------------------------------------------------------
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand"><img src="assets/images/logos/proser-light-2.png" width="160" height="40" alt=""></a>
+  <button class="navbar-toggler" type="button" data-target="#navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a routerLink="/intro" class="nav-link">Históricos</a>
+      </li>
+
+      <!-- ----------------------------------- -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navdrop" 
+        role="button" data-toggle="dropdown" data-hover="dropdown">Generales</a>
+        <div class="dropdown-menu" aria-labelledby="navdrop">
+          <a class="dropdown-item" routerLink="/operativo-detallado/intro">
+            <i class="fa fa-fw fa-power-off"></i> Operativo detallado
+          </a>
+          <a class="dropdown-item" routerLink="/productividad/intro">
+            <i class="fa fa-fw fa-power-off"></i> Productividad
+          </a>
+          <a class="dropdown-item" routerLink="/detalle-llamadas/intro">
+            <i class="fa fa-fw fa-power-off"></i> Detalle de llamadas
+          </a>
+        </div>
+      </li>
+
+          <!-- ----------------------------------- -->
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navdrop" 
+                role="button" data-toggle="dropdown" data-hover="dropdown">Entrantes</a>
+                <div class="dropdown-menu" aria-labelledby="navdrop">
+    
+                  <a class="dropdown-item" routerLink="/servicio-intervalo/intro">
+                    <i class="fa fa-fw fa-power-off"></i> Servicio histórico
+                  </a>
+                  <a class="dropdown-item" routerLink="/servicio-diario/intro">
+                    <i class="fa fa-fw fa-power-off"></i> Servicio diario
+                  </a>
+                </div>
+              </li>
+
+                    <!-- ----------------------------------- -->
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navdrop" 
+            role="button" data-toggle="dropdown" data-hover="dropdown">Salientes</a>
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+              <a class="dropdown-item" routerLink="/saliente-intervalo/intro">
+                <i class="fa fa-fw fa-power-off"></i> Salientes por intervalo
+              </a>
+            </div>
+          </li>
+
+                <!-- ----------------------------------- -->
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navdrop" 
+            role="button" data-toggle="dropdown" data-hover="dropdown">Agentes</a>
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+              <a class="dropdown-item" routerLink="/conexion-desconexion/intro">
+                <i class="fa fa-fw fa-power-off"></i> Conexión y desconexión
+              </a>
+
+              <a class="dropdown-item" routerLink="/detallado-auxiliares/intro">
+                <i class="fa fa-fw fa-power-off"></i> Detalle de auxiliares
+              </a>
+            </div>
+          </li>
+
+                <!-- ----------------------------------- -->
+      <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navdrop" 
+            role="button" data-toggle="dropdown" data-hover="dropdown">Configuracion</a>
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+              <a class="dropdown-item" routerLink="/config/date">
+                <i class="fa fa-fw fa-power-off"></i> Fechas
+              </a>
+            
+            </div>
+          </li>
+
+    </ul>
+
+    <!-- RIGHT MENU----------------------------------------- -->
+    <ul class="navbar-nav ml-auto">
+
+      <li> <a href="#" class="nav-link">
+          <app-now></app-now>
+        </a></li>
+      <li class="nav-item dropdown" ngbDropdown>
+
+        <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+          <i class="fa fa-user"></i> {{currentUser.firstName}} {{currentUser.lastName}} <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+
+          <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+            <i class="fa fa-fw fa-power-off"></i> Salir
+          </a>
+        </div>
+      </li>
+    </ul>
+
+
+  </div>
+</nav>

@@ -1,0 +1,46 @@
+<section *ngIf="!rows">
+    <ngb-alert [dismissible]="false" >
+      <strong>Alerta!</strong> {{message}}
+    </ngb-alert>
+  </section>
+
+<hr>
+<section class="mycontainer" *ngIf="rows">
+
+    <div class="subtiulo">
+        <div>
+          <h5>{{selection.titles}}</h5>
+          <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h6>
+        </div>
+        <div class="botonera">
+          <button
+          (click)="exportToExcel(rows, 'operativo-detllado')"
+          class="btn btn-outline-secondary ">Excel</button>
+        </div>
+      </div>
+
+
+
+
+<div *ngIf="rows" >
+  <app-od-list-table
+  [rows]="rows"
+  [rows_all]="rows_all"
+  [selection]="selection"
+  [filter]="filter"
+  ></app-od-list-table>
+</div>
+
+  <p></p>
+</section>
+
+
+<section *ngIf="rows_all">
+  <!-- <p>Llamadas recibidas = {{rows_all.cdr.llamadas_recibidas | json}}</p> -->
+</section>
+
+
+
+  <!-- <h1>Selection</h1>
+{{selection | json}}
+<h1></h1> -->

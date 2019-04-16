@@ -1,0 +1,87 @@
+<div *ngIf="!rows">
+  <h2>{{message}}</h2>
+  <hr>
+</div>
+
+
+<h1> {{selection.selected_date.dates}}</h1>
+<!-- <h6>SQL {{selection.selected_sql_query | json}}</h6> -->
+<!-- <p>{{this.selection | json}}</p> -->
+
+<div *ngIf="rows">
+  <h6>{{selection.selected_titles | json}}</h6>
+ <!--  <h6>{{selection.selected_client | json}}</h6> -->
+</div>
+
+<section *ngIf="rows && show_titles">
+  <!-- TITLE ROW -->
+  <div class="row">
+    <div class="col">
+      Clientes
+      <ul>
+        <li *ngFor="let item of selection.selected_client; let i = index">
+          {{item.nombre_clientes}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      Supervisores
+      <ul>
+        <li *ngFor="let item of selection.selected_supervisor; let i = index">
+          {{item.nombre_supervisores}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      Servicios
+      <ul>
+        <li *ngFor="let item of selection.selected_service; let i = index">
+          {{item.nombre_servicios}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--/ TITLE ROW -->
+  <hr>
+  <!-- TITLE ROW -->
+  <div class="row">
+    <div class="col">
+      Colas
+      <ul>
+        <li *ngFor="let item of selection.selected_queue; let i = index">
+          {{item.nombre_colas}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      Agentes
+      <ul>
+        <li *ngFor="let item of selection.selected_agent; let i = index">
+          {{item.nombre_reportes_agentes}}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col">
+      Campañas
+      <ul>
+        <li *ngFor="let item of selection.selected_campaign; let i = index">
+          {{item.nombre_campanas}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--/ TITLE ROW -->
+</section>
+
+
+<div *ngIf="rows">
+
+</div>
+
+<hr>
+
+<app-sn-list-table [rows]="rows"></app-sn-list-table>

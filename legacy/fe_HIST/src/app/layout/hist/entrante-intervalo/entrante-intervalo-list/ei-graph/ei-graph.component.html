@@ -1,0 +1,28 @@
+<div >
+
+
+  <!-- <button (click)=" crearGrafico()">Graficar</button> -->
+
+  <canvas
+  baseChart width="100"
+  height="30"
+  [chartType]="barChartType"
+  [colors]="barChartColors"
+  [legend]="barChartLegend"
+  [labels]="barChartLabels"
+  [options]="barChartOptions"
+  [datasets]="barChartData"
+  >
+    </canvas>
+</div>
+
+
+<!--
+
+
+
+
+
+(chartHover)="chartHovered($event)"
+(chartClick)="chartClicked($event)"
+-->

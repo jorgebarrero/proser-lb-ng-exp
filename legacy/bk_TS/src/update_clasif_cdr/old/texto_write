@@ -1,0 +1,368 @@
+// Conectores
+const pool = require('../conectores/pool');
+const pool_DAT = pool.pool_DAT;
+const pool_CDR = pool.pool_CDR;
+const pool_QUE = pool.pool_QUE;
+const pool_CALL = pool.pool_CALL;
+
+
+
+// Escribir si hay data nueva
+function escribirCdrBase(cdr_diario, cdr, queLog, agentsClasif, queuesClasif) {
+
+  // CREAR VARIABLES DEL OBJETO DEL PARAMETRO
+  const fecha_inicio = cdr_diario.fecha_inicio;
+  const fecha_final = cdr_diario.fecha_final;
+
+  const cdr_table = cdr_diario.cdr_table;
+
+  // const agentes_table = cdr_diario.agentes_table;
+  // const colas_table = cdr_diario.colas_table;
+
+  const opciones = cdr_diario.opciones;
+
+  console.log('ESCRIBIENDO');
+
+  console.log(
+    ' AGENTES ' + agentsClasif.length +
+    ' COLAS ' + queuesClasif.length +
+    ' QUEUE ' + queLog.length +
+    ' CDR ' + cdr.length
+  );
+
+
+  return new Promise(function (resolve, reject) {
+
+
+    pool_DAT.connect(function (err) {
+
+              let result = cdr;
+              let agenteSeleccionado = agentes[0];
+              let colaSeleccionada = colas[0];
+
+              var registros = [];
+              var long = result.length;
+
+              for (var i = 0; i < long; i++) {
+
+                registros.push([
+
+
+                  ___CRD___ = 1,
+                  calldate = 1,
+                  clid = 1,
+                  src = 1,
+                  dst = 1,
+                  dcontext = 1,
+                  channel = 1,
+                  dstchannel = 1,
+                  lastapp = 1,
+                  lastdata = 1,
+                  duration = 1,
+                  billsec = 1,
+                  disposition = 1,
+                  amaflags = 1,
+                  accountcode = 1,
+                  uniqueid = 1,
+                  userfield = 1,
+                  recordingfile = 1,
+                  cnum = 1,
+                  cnam = 1,
+                  outbound_cnum = 1,
+                  outbound_cnam = 1,
+                  dst_cnam = 1,
+                  did = 1,
+                  id = 1,
+                  ___DATA___ = 1,
+                  id_global = 1,
+                  id_dat_llamadas = 1,
+                  id_secuencia_registros = 1,
+                  numero_telefonico = 1,
+                  ___CALCULOS_INTERMEDIOS___ = 1,
+                  largo_src = 1,
+                  largo_dst = 1,
+                  int_ext = 1,
+                  sal_ent = 1,
+                  sal_ent_vacia = 1,
+                  saliente_entrante = 1,
+                  productiva = 1,
+                  llamada_produccion = 1,
+                  ext_ent_larga = 1,
+                  ext_ent = 1,
+                  ext_sal = 1,
+                  __COLA_EXTENSION__ = 1,
+                  llamada_cola = 1,
+                  llamada_extension = 1,
+                  __CLASIFICACION_LLAMADA__ = 1,
+                  llamada_clasificacion = 1,
+                  llamada_productiva = 1,
+                  llamada_operativa = 1,
+                  llamada_interna = 1,
+                  llamada_entrante = 1,
+                  llamada_entrante_automatica = 1,
+                  llamada_saliente_manual = 1,
+                  __CLASIF_CDR__ = 1,
+                  colas_cdr = 1,
+                  id_inv_colas = 1,
+                  clientes_cdr = 1,
+                  id_inv_clientes = 1,
+                  servicios_cdr = 1,
+                  id_inv_servicios = 1,
+                  campanas_cdr = 1,
+                  id_inv_campanas = 1,
+                  agentes_cdr = 1,
+                  id_inv_agentes = 1,
+                  supervisores_cdr = 1,
+                  id_inv_supervisores = 1,
+                  suplentes_cdr = 1,
+                  id_inv_supervisores_suplente = 1,
+                  horario_cdr = 1,
+                  id_inv_horarios = 1,
+                  __DATA_QLOG__ = 1,
+                  ivroption_time = 1,
+                  enterqueue_time = 1,
+                  connect_time = 1,
+                  completecaller_time = 1,
+                  completeagent_time = 1,
+                  abandon_time = 1,
+                  complete_time = 1,
+                  __CALCULOS_TIEMPOS__ = 1,
+                  tiempo_ivr_cola = 1,
+                  tiempo_cola_agente = 1,
+                  tiempo_agente_finalizacion = 1,
+                  tiempo_llamante_abandono = 1,
+                  tiempo_espera = 1,
+                  tiempo_hold = 1,
+                  tiempo_de_operacion = 1,
+                  tiempo_conversado = 1,
+                  __RESULTADO_LLAMADA__ = 1,
+                  colgado_por = 1,
+                  colgado_agente = 1,
+                  result_qlog = 1,
+                  result_qlog_time = 1,
+                  resultado = 1,
+                  __LLAMADAS_RECIBIDAS__ = 1,
+                  llamadas_recibidas = 1,
+                  llamadas_abandonadas = 1,
+                  llamadas_atendidas = 1,
+                  llamadas_cortas = 1,
+                  llamadas_antes_de_20 = 1,
+                  __LLAMADAS_REALIZADAS__ = 1,
+                  llamadas_realizadas = 1,
+                  llamadas_fallidas = 1,
+                  llamadas_contestadas = 1,
+                  llamadas_efectivas = 1,
+                  llamadas_colgadas = 1,
+                  resultado_llamada_saliente = 1,
+                  __LLAMADAS_MARCADOR__ = 1,
+                  marcador_bbdd = 1,
+                  marcador_recorridas = 1,
+                  marcador_faltantes = 1,
+                  marcador_vuelta = 1,
+                  __CLASIFICACION_FECHA__ = 1,
+                  date_text = 1,
+                  time_text = 1,
+                  day_week_number = 1,
+                  week = 1,
+                  hora_del_dia = 1,
+                  minuto_del_dia = 1,
+                  segundo_del_dia = 1,
+                  hora_actual = 1,
+                  segundos_hora_actual = 1,
+                  __REGISTRO__ = 1,
+                  chk_utilizado = 1,
+                  estatus_dat_llamadas = 1,
+                  usuario = 1,
+                  createdAt = 1,
+                  updatedAt = 1,
+
+
+                ]);
+              }
+
+
+              if (opciones === 'diario' && (fecha_min < new Date(fecha_inicio) || fecha_max > new Date(fecha_final))) {
+                con_DAT.query(` TRUNCATE TABLE ${cdr_table}`, function (err, result, fields) {
+                  console.log('Eliminada la tabla por diario...');
+                  if (err) {
+                    console.log(err)
+                  }
+                });
+              }
+
+
+              // console.log(Object.getOwnPropertyNames('lista', registros[0]));
+              // console.log('lista', registros[0]);
+              let campos = `
+      ___CRD___,
+      calldate,
+      clid,
+      src,
+      dst,
+      dcontext,
+      channel,
+      dstchannel,
+      lastapp,
+      lastdata,
+      duration,
+      billsec,
+      disposition,
+      amaflags,
+      accountcode,
+      uniqueid,
+      userfield,
+      recordingfile,
+      cnum,
+      cnam,
+      outbound_cnum,
+      outbound_cnam,
+      dst_cnam,
+      did,
+      id,
+      ___DATA___,
+      id_global,
+      id_dat_llamadas,
+      id_secuencia_registros,
+      numero_telefonico,
+      ___CALCULOS_INTERMEDIOS___,
+      largo_src,
+      largo_dst,
+      int_ext,
+      sal_ent,
+      sal_ent_vacia,
+      saliente_entrante,
+      productiva,
+      llamada_produccion,
+      ext_ent_larga,
+      ext_ent,
+      ext_sal,
+      __COLA_EXTENSION__,
+      llamada_cola,
+      llamada_extension,
+      __CLASIFICACION_LLAMADA__,
+      llamada_clasificacion,
+      llamada_productiva,
+      llamada_operativa,
+      llamada_interna,
+      llamada_entrante,
+      llamada_entrante_automatica,
+      llamada_saliente_manual,
+      __CLASIF_CDR__,
+      colas_cdr,
+      id_inv_colas,
+      clientes_cdr,
+      id_inv_clientes,
+      servicios_cdr,
+      id_inv_servicios,
+      campanas_cdr,
+      id_inv_campanas,
+      agentes_cdr,
+      id_inv_agentes,
+      supervisores_cdr,
+      id_inv_supervisores,
+      suplentes_cdr,
+      id_inv_supervisores_suplente,
+      horario_cdr,
+      id_inv_horarios,
+      __DATA_QLOG__,
+      ivroption_time,
+      enterqueue_time,
+      connect_time,
+      completecaller_time,
+      completeagent_time,
+      abandon_time,
+      complete_time,
+      __CALCULOS_TIEMPOS__,
+      tiempo_ivr_cola,
+      tiempo_cola_agente,
+      tiempo_agente_finalizacion,
+      tiempo_llamante_abandono,
+      tiempo_espera,
+      tiempo_hold,
+      tiempo_de_operacion,
+      tiempo_conversado,
+      __RESULTADO_LLAMADA__,
+      colgado_por,
+      colgado_agente,
+      result_qlog,
+      result_qlog_time,
+      resultado,
+      __LLAMADAS_RECIBIDAS__,
+      llamadas_recibidas,
+      llamadas_abandonadas,
+      llamadas_atendidas,
+      llamadas_cortas,
+      llamadas_antes_de_20,
+      __LLAMADAS_REALIZADAS__,
+      llamadas_realizadas,
+      llamadas_fallidas,
+      llamadas_contestadas,
+      llamadas_efectivas,
+      llamadas_colgadas,
+      resultado_llamada_saliente,
+      __LLAMADAS_MARCADOR__,
+      marcador_bbdd,
+      marcador_recorridas,
+      marcador_faltantes,
+      marcador_vuelta,
+      __CLASIFICACION_FECHA__,
+      date_text,
+      time_text,
+      day_week_number,
+      week,
+      hora_del_dia,
+      minuto_del_dia,
+      segundo_del_dia,
+      hora_actual,
+      segundos_hora_actual,
+      __REGISTRO__,
+      chk_utilizado,
+      estatus_dat_llamadas,
+      usuario,
+      createdAt,
+      updatedAt
+    `
+
+let camposSinEspacios = campos.replace(/\n/g, ' ');
+
+    // console.log('REG', registros[0]);
+
+    pool_DAT.query(`INSERT INTO ${cdr_table} (${camposSinEspacios}) values ?`, [registros], function (err, result, fields) {
+      resolve(salir(err));
+      return
+    });
+
+            }
+
+          );
+
+          }
+
+        );
+
+
+        function salir(err) {
+          console.log('FIN funcion');
+          if (err) {
+            console.log('\033c'); //clear screen
+            console.log('FIN x error');
+            // console.log(err);
+          }
+          if (tipo === 'historico') {
+            process.exit();
+          }
+
+
+  }
+
+
+}
+
+/*********************************************** */
+      module.exports = {
+        escribirCdrBase,
+      }
+
+
+
+      [{"id_global":1,"id_inv_clasif_colas":201808270012...

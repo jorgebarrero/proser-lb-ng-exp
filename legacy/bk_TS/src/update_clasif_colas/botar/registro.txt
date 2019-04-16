@@ -1,0 +1,48 @@
+
+
+      // registros.push([
+
+      //   id_global = 1,
+      //   id_inv_clasif_colas = prefijo_id + i,
+      //   id_lista_colas = time_string,
+      //   fecha_planificada = fecha_inicio,
+      //   date_text = fechas.date_text(fecha_inicio),
+      //   week_day_number = fechas.week_day_number(fecha_inicio),
+      //   week_day_name = fechas.week_day_name(fecha_inicio),
+      //   segundos_inicio = 0,
+
+      //   __COLAS__ = 1,
+      //   colas_cdr = result[i].colas_cdr,
+      //   id_inv_colas = result[i].id_inv_colas,
+      //   numero_colas = result[i].numero_colas,
+      //   nombre_colas = 1,
+
+      //   __CLIENTES__ = 1,
+      //   clientes_cdr = result[i].clientes_cdr,
+      //   id_inv_clientes = result[i].id_inv_clientes,
+      //   nombre_clientes = result[i].nombre_clientes,
+
+      //   __SERVICIOS__ = 1,
+      //   servicios_cdr = result[i].servicios_cdr,
+      //   id_inv_servicios = result[i].id_inv_servicios,
+      //   nombre_servicios = result[i].nombre_servicios,
+
+      //   __CAMPANAS__ = 1,
+      //   campanas_cdr = result[i].campanas_cdr,
+      //   id_inv_campanas = result[i].id_inv_campanas,
+      //   nombre_campanas = result[i].nombre_campanas,
+
+      //   __ESCALAS__ = 1,
+      //   escalas_cdr = result[i].escalas_cdr,
+      //   id_inv_escalas = result[i].id_inv_escalas,
+      //   nombre_escalas = result[i].nombre_escalas,
+
+      //   __REGISTRO__ = 1,
+      //   chk_utilizado = 1,
+      //   estatus_clasif_colas = result[i].estatus_inv_colas,
+      //   usuario = 'SYSTEM',
+      //   createdAt = fechas.unixDate(new Date()),
+      //   updatedAt = fechas.unixDate(new Date()),
+
+
+      //   ]);

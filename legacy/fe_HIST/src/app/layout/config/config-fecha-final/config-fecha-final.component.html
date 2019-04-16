@@ -1,0 +1,8 @@
+<input 
+type="text" 
+ngbDatepicker #d="ngbDatepicker" 
+placeholder="Fecha Final"
+(click)="d.toggle()"
+[(ngModel)]="selection.fecha_final" 
+(ngModelChange)="onChange()"
+/>

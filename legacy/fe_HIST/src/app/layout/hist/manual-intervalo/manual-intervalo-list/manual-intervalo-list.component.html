@@ -1,0 +1,72 @@
+
+<div class="alerta" *ngIf="!rows">
+  <ngb-alert
+    [dismissible]="false"
+    [type]="danger"
+    (close)="close(alert)" >
+    <strong>Alerta!</strong> {{message}}
+    <p>
+        <!-- <button type="button" class="btn btn-primary" (click)="reset()">Reset</button> -->
+      </p>
+  </ngb-alert>
+
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+
+</div>
+
+<hr>
+<!-- ---------------------------------------------------------------------------- -->
+<section class="mycontainer" *ngIf="rows">
+
+  <!-- -------------------------------- -->
+  <section class="subtiulo">
+
+    <div>
+      <h5>{{selection.titles}}</h5>
+      <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}} {{ selection.subtitles }}</h6>
+    </div>
+
+
+    <div class="botonera">
+        <button (click)="toogleGraph()" class="btn btn-outline-secondary ">Gráfico</button>
+      <button (click)="exportToExcel(rows, 'manual-intervalo')" class="btn btn-outline-secondary ">Excel</button>
+    </div>
+
+  </section>
+
+  <!-- -------------------------------- -->
+  <section *ngIf="rows && show_table">
+    <app-mi-list-table
+    [rows]="rows"
+    [rows_all]="rows_all"
+    [selection]="selection"></app-mi-list-table>
+  </section>
+
+  <section *ngIf="rows && show_graph">
+    <div >
+    <app-mi-graph
+    [rows]="rows"
+    [rows_all]="rows_all"
+    [selection]="selection"
+    ></app-mi-graph>
+  </div>
+  </section>
+
+  <p></p>
+</section>
+
+<!-- ---------------------------------------------------------------------------- -->
+
+<section *ngIf="0">
+  <ngx-json-viewer
+  [json]="rows"
+  [expanded]="false"></ngx-json-viewer>
+</section>
+
+<!--
+<h1>Selection</h1>
+{{selection | json}} -->

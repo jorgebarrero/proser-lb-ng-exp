@@ -317,11 +317,6 @@ async function updateMainCdr( ) {
 
         x.cdr_call_efective = callFunctions.cdr_call_efective(x.cdr_call_made, x.cdr_call_result_inbound);
 
-
-
-
-
-
         return x;
       }, queuelog)
       .map( y => {

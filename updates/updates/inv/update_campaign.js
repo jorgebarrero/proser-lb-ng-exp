@@ -85,7 +85,7 @@ function readOrigin(maxId) {
 
 // write procesed records
 function writeDestiny(data) {
-  // if(data[0]=== !null || data[0]=== !undefined){
+  if(data[0]=== !null || data[0]=== !undefined){
   // console.log('data to write', data);
 
   return new Promise((resolve, reject) => {
@@ -165,7 +165,11 @@ function writeDestiny(data) {
     reject(`Error`);
   });
 
-//  }
+  }
+  else {
+    // console.log('DATA IS EMPTY', data);
+    console.clear()
+  }
 }
 
 
@@ -210,6 +214,9 @@ async function updateCampaign( ) {
 
     // console.log('thisQueue', thisQueueClean);
 
+    if(!result[0]) {
+      console.log('RESULT IS EMPTY');
+    } else {
 
     let extendedResult = result
       .map( x => {
@@ -268,6 +275,8 @@ async function updateCampaign( ) {
     // console.log('result', result);
 
     let written = await writeDestiny(result);
+
+    }
   } else {
     console.log(`No hay registros nuevos por actualizar`);
   }

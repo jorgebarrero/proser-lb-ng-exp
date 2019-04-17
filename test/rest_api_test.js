@@ -10,11 +10,11 @@ var assert = require('assert');
 var loopback = require('loopback');
 
 function json(verb, url) {
-    return request(app)[verb](url)
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json')
-      .expect('Content-Type', /json/);
-  }
+  return request(app)[verb](url)
+    .set('Content-Type', 'application/json')
+    .set('Accept', 'application/json')
+    .expect('Content-Type', /json/);
+}
 
 describe('REST API request', function() {
   before(function(done) {
@@ -78,17 +78,17 @@ describe('REST API request', function() {
   });
 
   it('should donate money to project1', function(done) {
-        json('post', '/api/projects/donate?access_token=' + accessToken)
-          .send({
-            id: 2,
-            amount: 10
-          })
-          .expect(200, function(err, res){
-            assert(typeof res.body === 'object');
-            assert(res.body.success);
-            assert.equal(res.body.success, true);
-            done();
-          });
+    json('post', '/api/projects/donate?access_token=' + accessToken)
+      .send({
+        id: 2,
+        amount: 10
+      })
+      .expect(200, function(err, res){
+        assert(typeof res.body === 'object');
+        assert(res.body.success);
+        assert.equal(res.body.success, true);
+        done();
+      });
   });
 });
 

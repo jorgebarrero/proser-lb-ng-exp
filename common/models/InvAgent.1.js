@@ -4,10 +4,9 @@
 // License text available at https://opensource.org/licenses/Artistic-2.0
 'use strict';
 
-const myPool = require ('../../connectors/pool');
-const querySQL = require ('../../helpers/constructor');
+const myPool = require ('../../connectors/pool_cc_reports');
 
-const poolDat = myPool.poolDat;
+const poolDat = myPool.poolCCreports;
 
 module.exports = function(InvAgent) {
 
@@ -16,17 +15,22 @@ module.exports = function(InvAgent) {
   }
 
   InvAgent.remoteMethod('greet', {
-        accepts: {arg: 'msg', type: 'object', http: { source: 'body'} },
+        accepts: {arg: 'msg', type: 'array', http: { source: 'body'} },
         returns: {arg: 'result', type: 'array'}
   });
 
   async function sql(msg){
     
     console.log("MSG", msg);
-    // let filter = msg[0].status;  
+    let filter = msg[0].status;  
     console.log("FILTER", filter); 
-    let querySQL_cdr;
-    querySQL_cdr = querySQL.mainQuery();
+    let querySQL_cdr = 
+
+        `
+        SELECT * 
+        FROM inv_agentes
+        WHERE estatus_inv_agentes = ${filter} 
+        `;
     
 
         try {
@@ -35,7 +39,7 @@ module.exports = function(InvAgent) {
         // var result_cdr = JSON.stringify(result);
         //console.log('****** CDR ******');
         //console.log(result);
-        console.log(querySQL_cdr);
+        // console.log(querySQL_cdr);
         return result;
             
         } catch (error) {

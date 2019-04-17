@@ -5,40 +5,39 @@
 'use strict';
 
 const myPool = require ('../../connectors/pool');
-const querySQL = require ('../../helpers/constructor');
+const constructor = require ('../../helpers/constructor');
 
 const poolDat = myPool.poolDat;
 
 module.exports = function(InvAgent) {
 
-  InvAgent.greet = async function(msg) {
-    return sql(msg);
+  InvAgent.mainQuery = async function(filtro) {
+    return sql(filtro);
   }
 
-  InvAgent.remoteMethod('greet', {
-        accepts: {arg: 'msg', type: 'object', http: { source: 'body'} },
+  InvAgent.remoteMethod('mainQuery', {
+        accepts: {arg: 'filtro', type: 'object', http: { source: 'body'} },
         returns: {arg: 'result', type: 'array'}
   });
 
-  async function sql(msg){
+  async function sql(filtro){
     
-    console.log("MSG", msg);
-    // let filter = msg[0].status;  
-    console.log("FILTER", filter); 
-    let querySQL_cdr;
-    querySQL_cdr = querySQL.mainQuery();
+    console.log("FILTRO", filtro);
+    var querySQL = await constructor.mainQuery(filtro);
+    console.log("QUERY", querySQL);
     
 
         try {
         
-        var result = await poolDat.query(querySQL_cdr);
-        // var result_cdr = JSON.stringify(result);
-        //console.log('****** CDR ******');
-        //console.log(result);
-        console.log(querySQL_cdr);
+        var result = await poolDat.query(querySQL);
+        console.log(result);
         return result;
             
         } catch (error) {
+
+          console.log('Server error');
+          console.log(querySQL);
+          res.status(500).send('Server error');
             
         }
   }

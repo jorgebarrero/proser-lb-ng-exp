@@ -152,4 +152,4 @@ if (arg.limit){
 // let valid = validateField(input);
 // console.log(valid);
 
-module.exports = { mainQuery }
+export { mainQuery };

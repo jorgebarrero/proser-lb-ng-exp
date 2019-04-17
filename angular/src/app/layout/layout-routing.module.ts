@@ -12,6 +12,7 @@ const routes: Routes = [
           { path: 'intro', loadChildren: './intro/intro.module#IntroModule' },
           { path: 'configuration', loadChildren: './configuration/configuration.module#ConfigurationModule' },
           { path: 'filter', loadChildren: './filter/filter.module#FilterModule' },
+          { path: 'selector', loadChildren: './selector/selector.module#SelectorModule' },
 
       ]
   }

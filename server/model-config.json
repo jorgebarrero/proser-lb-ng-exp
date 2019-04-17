@@ -90,5 +90,9 @@
   "MainAudit": {
     "dataSource": "mysqlProser",
     "public": true
+  },
+  "InvReport": {
+    "dataSource": "mysqlProser",
+    "public": true
   }
 }

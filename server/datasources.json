@@ -8,9 +8,9 @@
     "port": 3306,
     "url": "",
     "database": "roles_test",
-    "password": "10691069a$",
+    "password": "M4pr0t3l",
     "name": "mysqlProser",
-    "user": "sammy",
+    "user": "maprotel",
     "connector": "mysql"
   }
 }

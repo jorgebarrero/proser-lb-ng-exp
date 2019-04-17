@@ -1,14 +1,13 @@
 # Welcome to Proser
 
-
 ## Credits
 Lead by: Jorge Barrero
 
 Contributors:
-Johny Take
-Luis García
-Leonardo Bolívar
-
+- Johny Take
+- Luis García
+- Leonardo Bolívar
+- Erika González
 
 ## This project has been made using the following stack of technologies:
 
@@ -19,4 +18,4 @@ Javascript
 - Express
 
 Database
-- MatiaDB
+- MariaDB

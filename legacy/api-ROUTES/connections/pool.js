@@ -4,33 +4,33 @@ const mysql = require('mysql');
 
 const poolCdr = mysql.createPool({
   connectionLimit: 10,
-  host: '10.30.4.55',
-  user: 'maprotel',
-  password: 'M4pr0t3l.2018',
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
   database: 'asteriskcdrdb',
 });
 
 const poolDat = mysql.createPool({
   connectionLimit: 10,
-  host: '10.30.4.55',
-  user: 'maprotel',
-  password: 'M4pr0t3l.2018',
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
   database: 'cc_reports',
 });
 
 const poolQue = mysql.createPool({
   connectionLimit: 10,
-  host: '10.30.4.55',
-  user: 'maprotel',
-  password: 'M4pr0t3l.2018',
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
   database: 'asterisk',
 });
 
 const poolCall = mysql.createPool({
   connectionLimit: 10,
-  host: '10.30.4.55',
-  user: 'maprotel',
-  password: 'M4pr0t3l.2018',
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
   database: 'call_center',
 });
 

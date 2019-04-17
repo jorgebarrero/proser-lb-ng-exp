@@ -19,4 +19,4 @@ Javascript
 - Express
 
 Database
-- MatiaDB
+- MariaDB

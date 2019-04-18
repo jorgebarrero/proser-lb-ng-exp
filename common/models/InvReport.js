@@ -17,26 +17,26 @@ module.exports = function(InvReport) {
     
       InvReport.remoteMethod('mainQuery', {
             accepts: {arg: 'filtro', type: 'object', http: { source: 'body'} },
-            returns: {arg: 'result', type: 'array'}
+            returns: {type: 'array', root: 'true'}
       });
     
       async function sql(filtro){
 
         var querySelection = await selectReport.selectionReport(filtro);
-        console.log("QUERY SELECTION", querySelection);
+        // console.log("QUERY SELECTION", querySelection);
         filtro.field = [querySelection[0].inv_report_field];
         filtro.table = [querySelection[0].inv_report_table];
-        console.log("//***********FILTRO MODIFICADO********//")
-        console.log("FILTRO", filtro);
+        // console.log("//***********FILTRO MODIFICADO********//")
+        // console.log("FILTRO", filtro);
         var querySQL = await constructor.mainQuery(filtro);
-        console.log("//*************QUERY FINAL******//");
-        console.log("QUERY", querySQL);
+        // console.log("//*************QUERY FINAL******//");
+        // console.log("QUERY", querySQL);
         
     
             try {
             
             var result = await poolDat.query(querySQL);
-            console.log(result);
+            // console.log(result);
             return result;
                 
             } catch (error) {

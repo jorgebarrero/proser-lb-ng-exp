@@ -1,0 +1,87 @@
+<section id=submenu class="submenu">
+  <app-automatic-menu></app-automatic-menu>
+
+
+  <div class="submenu-buttons">
+
+    <div>
+  <a class="btn btn-outline-primary submenu-btn" (click)="onGetActive_Records()">Activos</a>
+  </div>
+  <div>
+  <a class="btn btn-outline-primary submenu-btn" (click)="onGetInactive_Records()">Inactivos</a>
+  </div>
+  <div>
+  <a class="btn btn-outline-primary submenu-btn" (click)="getAll_Records('')">Todos</a>
+  </div>
+  <div>
+  <a
+  class="btn btn-outline-primary submenu-btn"
+  *ngIf="rows"
+  (click)="exportToExcel(rows, 'supervisores')"
+  >
+  Exportar a excel
+  </a>
+  </div>
+  <div>
+  <a class="btn btn-outline-primary submenu-btn" routerLink="/configuration/ automatic/" >Nuevo</a>
+  </div>
+  <div>
+  <a class="btn btn-outline-primary submenu-btn" *ngIf="selected[0]" (click)="open(content)">Editar</a>
+  </div>
+
+  </div>
+
+
+  <div id="right-menu">
+
+  <div class="submenu-input submenu-right-menu">
+      <div >
+          <ng-select
+          class="custom"
+          [items]="cantidadItems"
+          [clearable] =  "false"
+          [dropdownPosition]="'bottom'"
+          (change)="getAll_Records()"
+          hideSelected = "true"
+          [(ngModel)]="itemsInList"
+          placeholder="items-">
+      </ng-select>
+  </div>
+
+      <input
+      type='text'
+      placeholder='Buscar  automatic...'
+      [(ngModel)]="findInList"
+      (keyup)='updateFilter($event)'
+      />
+  </div>
+  </div>
+  </section>
+
+
+
+  <section id="table" class="table container" *ngIf="rows">
+  <div>
+      <ngx-datatable
+      class="dark"
+      [rows]="rows"
+      [columnMode]="'force'"
+      [columns]="columns"
+      [headerHeight]="40"
+      [footerHeight]="50"
+      [rowHeight]="'35'"
+      [limit]="itemsInList"
+      [selected]="selected"
+      [selectionType]="'single'"
+      (activate)="onActivate($event)"
+      (select)='onSelect($event)'
+  >
+      </ngx-datatable>
+      </div>
+    </section>
+
+
+  <ng-template #content let-modal>
+      <app-automatic-detail [selected]="selectedInList"></app-automatic-detail>
+  </ng-template>
+

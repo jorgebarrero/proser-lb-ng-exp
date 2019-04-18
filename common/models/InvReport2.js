@@ -2,8 +2,6 @@
 
 const myPool = require ('../../connectors/pool');
 const constructor = require ('../../helpers/constructor');
-const selectReport = require ('../../helpers/selection-report');
-
 
 const poolDat = myPool.poolDat;
 
@@ -22,14 +20,37 @@ module.exports = function(InvReport) {
     
       async function sql(filtro){
 
-        var querySelection = await selectReport.selectionReport(filtro);
-        console.log("QUERY SELECTION", querySelection);
-        filtro.field = [querySelection[0].inv_report_field];
-        filtro.table = [querySelection[0].inv_report_table];
-        console.log("//***********FILTRO MODIFICADO********//")
+        let id = filtro.id;
+
+        let findSQL = 
+        `
+        SELECT inv_report_field, inv_report_table
+        FROM InvReport
+        WHERE inv_report_id = ${id}
+        `;
+        console.log(findSQL);
+
+        try {
+          var result = await poolDat.query(findSQL);
+          console.log("FIND", result);
+          return result;
+        } catch (error) {
+          
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         console.log("FILTRO", filtro);
         var querySQL = await constructor.mainQuery(filtro);
-        console.log("//*************QUERY FINAL******//");
         console.log("QUERY", querySQL);
         
     
@@ -46,6 +67,25 @@ module.exports = function(InvReport) {
               res.status(500).send('Server error');
                 
             }
-      };
+      }
 
+      //***************ENTRANTE POR INTERVALO******************************/
+
+
+      // InvReport.selectionReport = async function(arg) {
+      //   return selectSQL(arg);
+      // }
+    
+      // InvReport.remoteMethod('selectionReport', {
+      //       accepts: {arg: 'arg', type: 'object', http: {source: 'body'}},
+      //       returns: {type: 'object', root: 'true'}
+      // });
+
+      async function selectSQL(arg){
+
+        
+      }
+
+
+      
 };

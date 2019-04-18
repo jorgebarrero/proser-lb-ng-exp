@@ -1,3 +1,15 @@
-<p>
-  selector-subtitle works!
-</p>
+<ng-select
+  [items]="items"
+  bindValue="inv_subtitle_id"
+  bindLabel="inv_subtitle_name" placeholder="Subtitular"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

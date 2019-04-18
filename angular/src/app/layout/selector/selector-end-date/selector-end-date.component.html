@@ -1,3 +1,15 @@
-<p>
-  selector-end-date works!
-</p>
+<ng-select
+  [items]="items"
+  bindValue="inv_end_date_id"
+  bindLabel="inv_end_date_name" placeholder="Fecha Final"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

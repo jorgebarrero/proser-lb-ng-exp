@@ -1,3 +1,15 @@
-<p>
-  selector-order works!
-</p>
+<ng-select
+  [items]="items"
+  bindValue="inv_order_id"
+  bindLabel="inv_order_name" placeholder="Orden"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

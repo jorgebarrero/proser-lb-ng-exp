@@ -1,15 +1,16 @@
 export class UserSelection {
 
-  title: string;
-  subtitle: string;
+  title: any;
+  subtitle: any;
 
-  start_date: string;
-  end_date: string;
+  start_date: any;
+  end_date: any;
 
-  start_time: string;
-  end_time: string;
+  start_time: any;
+  end_time: any;
 
-  minutes_interval: number;
+  interval: any;
+  lines: any;
 
   agent: any; // AgentSelection[];
   break: any; // BreakSelection[];
@@ -21,9 +22,9 @@ export class UserSelection {
   service: any; // ServiceSelection[];
   supervisor: any; // SupervisorSelection;
 
-  group: string;
-  order: string;
-  limit: string;
+  group: any;
+  order: any;
+  limit: any;
 
 constructor(
   // seleccion_title,
@@ -56,27 +57,27 @@ constructor(
 
 export class AgentSelection {
   inv_agent_id: number;
-  inv_agent_name: string;
+  inv_agent_name: any;
 
-  toSqlFilterString(){
+  toSqlFilterany(){
     return `inv_agent_id = ${this.inv_agent_id}`
   }
 }
 
 export class BreakSelection {
   inv_break_id: number;
-  inv_break_name: string;
+  inv_break_name: any;
 
-  toSqlFilterString(){
+  toSqlFilterany(){
     return `inv_break_id = ${this.inv_break_id}`
   }
 }
 
 export class CampaignSelection {
   inv_campaign_id: number;
-  inv_campaign_name: string;
+  inv_campaign_name: any;
 
-  toSqlFilterString(){
+  toSqlFilterany(){
     return `inv_campaign_id = ${this.inv_campaign_id}`
   }
 
@@ -84,16 +85,16 @@ export class CampaignSelection {
 
 export class ClientSelection {
   inv_client_id: number;
-  inv_client_name: string;
-  toSqlFilterString(){
+  inv_client_name: any;
+  toSqlFilterany(){
     return `inv_client_id = ${this.inv_client_id}`
   }
 }
 
 export class QueueSelection {
   inv_queue_id: number;
-  inv_queue_name: string;
-    toSqlFilterString(){
+  inv_queue_name: any;
+    toSqlFilterany(){
     return `inv_queue_id = ${this.inv_queue_id}`
   }
 
@@ -101,32 +102,32 @@ export class QueueSelection {
 
 export class ScaleSelection {
   inv_scale_id: number;
-  inv_scale_name: string;
-    toSqlFilterString(){
+  inv_scale_name: any;
+    toSqlFilterany(){
     return `inv_scale_id = ${this.inv_scale_id}`
   }
 }
 
 export class ScheduleSelection {
   inv_schedule_id: number;
-  inv_schedule_name: string;
-    toSqlFilterString(){
+  inv_schedule_name: any;
+    toSqlFilterany(){
     return `inv_schedule_id = ${this.inv_schedule_id}`
   }
 }
 
 export class ServiceSelection {
   inv_supervisor_id: number;
-  inv_service_name: string;
-    toSqlFilterString(){
+  inv_service_name: any;
+    toSqlFilterany(){
     return `inv_supervisor_id = ${this.inv_supervisor_id}`
   }
 }
 
 export class SupervisorSelection {
   inv_supervisor_id: number;
-  inv_supervisor_name: string;
-    toSqlFilterString(){
+  inv_supervisor_name: any;
+    toSqlFilterany(){
     return `inv_supervisor_id = ${this.inv_supervisor_id}`
   }
 }

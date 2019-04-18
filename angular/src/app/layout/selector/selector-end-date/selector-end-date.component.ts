@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UserSelection } from '../../../shared/models/filter/Selection'
+
 @Component({
   selector: 'app-selector-end-date',
   templateUrl: './selector-end-date.component.html',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectorEndDateComponent implements OnInit {
 
-  constructor() { }
+  items = [
+    {inv_end_date_id: 1, inv_end_date_name: '09/12/2019'},
+    {inv_end_date_id: 2, inv_end_date_name: '10/10/2019'},
+    {inv_end_date_id: 3, inv_end_date_name: '12/12/2019'}
+  ];
+
+selected = [];
+userSelection = new UserSelection;
+
+  constructor() {
+
+   }
+
 
   ngOnInit() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.selected = this.userSelection.end_date
+  }
+
+  onChange(){
+    this.userSelection.end_date = this.selected
+    console.log('selected end_date', this.selected);
+    console.log('selected object',  this.userSelection);
+    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
   }
 
 }
+

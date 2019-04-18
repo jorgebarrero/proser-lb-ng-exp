@@ -1,3 +1,15 @@
-<p>
-  selector-group works!
-</p>
+<ng-select
+  [items]="items"
+  bindValue="inv_group_id"
+  bindLabel="inv_group_name" placeholder="Grupo"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

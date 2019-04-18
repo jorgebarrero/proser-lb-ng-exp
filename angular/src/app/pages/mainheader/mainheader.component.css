@@ -9,11 +9,11 @@
   width: 300px;
 }
 
-.home .home-container {
+.home-container {
   position: relative;
 }
 
-.home .home-item {
+.home-item {
   position: absolute;
   top: 20%;
   -webkit-transform: translateY(20%);
@@ -39,10 +39,10 @@
   .home-img {
     width: 200px;
   }
-  .home-container {
+  -container {
     position: relative;
   }
-  .home-item {
+  -item {
     position: absolute;
     top: 5%;
     -webkit-transform: translateY(5%);

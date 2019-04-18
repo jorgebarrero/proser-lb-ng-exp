@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACT,UAAU,EAAE,KAAK;CAChB",
+    "sources": [
+        "sd-list-table.component.scss"
+    ],
+    "names": [],
+    "file": "sd-list-table.component.css"
+}

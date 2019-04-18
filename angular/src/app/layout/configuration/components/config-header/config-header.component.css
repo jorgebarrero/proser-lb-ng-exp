@@ -1,0 +1,19 @@
+.navbar {
+  font-size: 1.1rem;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(48%, #1c1c5b), color-stop(98%, #0a6375));
+  background: linear-gradient(90deg, #020024 0%, #1c1c5b 48%, #0a6375 98%);
+}
+
+.dropdown-item {
+  font-size: 1.1rem;
+}
+
+.right-menu-text {
+  font-size: 0.9rem;
+}
+
+.right-menu-inline {
+  display: inline;
+}
+/*# sourceMappingURL=config-header.component.css.map */

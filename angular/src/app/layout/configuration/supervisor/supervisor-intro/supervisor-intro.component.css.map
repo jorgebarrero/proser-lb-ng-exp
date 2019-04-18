@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "supervisor-intro.component.scss"
+    ],
+    "names": [],
+    "file": "supervisor-intro.component.css"
+}

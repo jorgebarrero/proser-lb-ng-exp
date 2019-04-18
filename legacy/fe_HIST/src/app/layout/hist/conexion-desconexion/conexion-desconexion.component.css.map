@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC;EACJ,UAAU,EAAE,OAAO;CACpB",
+    "sources": [
+        "conexion-desconexion.component.scss"
+    ],
+    "names": [],
+    "file": "conexion-desconexion.component.css"
+}

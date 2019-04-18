@@ -116,11 +116,11 @@ router.post('/list', async (req, res, next) => {
         SELECT
 
         fecha,
-        SEC_TO_TIME(segundo_del_dia) as hora,
-        segundo_del_dia as seg_evento,
-        llamada_clasificacion as tipo,
-        src as origen,
-        dstchannel as destino,
+        SEC_TO_TIME(segundo_del_dia) AS hora,
+        segundo_del_dia AS seg_evento,
+        llamada_clasificacion AS tipo,
+        src AS origen,
+        dstchannel AS destino,
 
 
         id,
@@ -129,30 +129,30 @@ router.post('/list', async (req, res, next) => {
 
         nombre_supervisores AS supervisor,
 
-        id_inv_agentes as id_agente,
+        id_inv_agentes AS id_agente,
         nombre_agentes AS agente,
         doc_ident_agentes,
         doc_complementario_agentes,
 
-        SEC_TO_TIME(duration) as duracion,
-        SEC_TO_TIME(billsec) as t_facturable,
+        SEC_TO_TIME(duration) AS duracion,
+        SEC_TO_TIME(billsec) AS t_facturable,
 
 
-        DATE_FORMAT(fecha,'%H:%i:%s') as hora_inicio,
-        DATE_FORMAT(ivroption_time,'%H:%i:%s')  as hora_ivr,
-        DATE_FORMAT(enterqueue_time,'%H:%i:%s')  as hora_cola,
-        DATE_FORMAT(connect_time,'%H:%i:%s')  as hora_conexion,
-        DATE_FORMAT(completecaller_time,'%H:%i:%s')  as hora_fin_llamante,
-        DATE_FORMAT(completeagent_time,'%H:%i:%s')  as hora_fin_agente,
-        DATE_FORMAT(abandon_time,'%H:%i:%s')  as hora_abandono,
-        DATE_FORMAT(complete_time,'%H:%i:%s')  as hora_fin_llmada,
+        DATE_FORMAT(fecha,'%H:%i:%s') AS hora_inicio,
+        DATE_FORMAT(ivroption_time,'%H:%i:%s')  AS hora_ivr,
+        DATE_FORMAT(enterqueue_time,'%H:%i:%s')  AS hora_cola,
+        DATE_FORMAT(connect_time,'%H:%i:%s')  AS hora_conexion,
+        DATE_FORMAT(completecaller_time,'%H:%i:%s')  AS hora_fin_llamante,
+        DATE_FORMAT(completeagent_time,'%H:%i:%s')  AS hora_fin_agente,
+        DATE_FORMAT(abandon_time,'%H:%i:%s')  AS hora_abandono,
+        DATE_FORMAT(complete_time,'%H:%i:%s')  AS hora_fin_llmada,
 
-        tiempo_cola_agente as asa,
+        tiempo_cola_agente AS asa,
 
         disposition,
 
 
-        resultado_llamada as status,
+        resultado_llamada AS status,
         colgado_agente,
 
         nombre_clientes,

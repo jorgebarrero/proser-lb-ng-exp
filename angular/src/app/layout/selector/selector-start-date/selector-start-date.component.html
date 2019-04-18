@@ -1,53 +1,19 @@
 
+<!-- 
+<input class="date" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Mi hora"><owl-date-time #dt1 ></owl-date-time> -->
 
-<input class="date" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" placeholder="Mi hora"><owl-date-time #dt1 ></owl-date-time>
-
-<label>
-  Date Time:
-  <input [owlDateTime]="dt2">
-  <span class="trigger" [owlDateTimeTrigger]="dt2">
-      <i class="fas fa-calendar-alt"></i>
-  </span>
-  <owl-date-time #dt1></owl-date-time>
-</label>
-
-
-<!-- <mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Choose a date" theme="dp-material" [dpDayPicker]="config">
-  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-  <mat-datepicker #picker></mat-datepicker>
-</mat-form-field> -->
-
-<!-- <ng-select
-  [items]="options.campanas"
-  bindLabel="name" placeholder="Campanas"
-  [dropdownPosition]="'top'"
-  [searchable]="false"
+<ng-select
+  [items]="items"
+  bindValue="inv_start_date_id"
+  bindLabel="inv_start_date_name" placeholder="Fecha Inicial"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
   (change)="onChange()"
   [clearable]="true"
   [multiple]="true"
   hideSelected="true"
-  [(ngModel)]="selection.campanas">
-</ng-select> -->
+  [(ngModel)]="selected">
+</ng-select>
 
 
-
-<!--
-<div>
-  <h1>Container</h1> <dp-date-picker #dayPicker></dp-date-picker>
-  <button (click)="open()">
-Open
-  </button>
-  <button (click)="close()">
-    Close
-  </button>
-</div>
-
-
-<div>
-<dp-date-picker  theme="dp-material" [(ngModel)]="value" mode='daytime' [config]='config'
-     (ngModelChange)="validatorsChanged()"
-      [placeholder]="placeholder" [mode]='mode' #datePicker>
-  </dp-date-picker>
-  </div>
-   -->
+{{ selected | json }}

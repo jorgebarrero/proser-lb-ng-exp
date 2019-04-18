@@ -1,0 +1,15 @@
+<ng-select
+  [items]="items"
+  bindValue="inv_client_id"
+  bindLabel="inv_client_name" placeholder="Clientes"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

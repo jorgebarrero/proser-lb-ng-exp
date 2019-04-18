@@ -1,0 +1,130 @@
+h2 a {
+  color: red;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.awesome {
+  color: red;
+}
+
+.move {
+  position: relative;
+  -webkit-animation: move 1s infinite;
+          animation: move 1s infinite;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+@-webkit-keyframes move {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 200px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes move {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: 200px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.ng-select.custom .ng-control {
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.buscandoEnServidor {
+  color: #f3ebeb;
+  background: darkgray;
+  font-size: 2rem;
+  padding: 5px 5px 5px 20px;
+  margin: 0px;
+}
+
+.ocupados {
+  color: #72b3e4;
+  background: #72b3e4;
+}
+
+.disponibles {
+  color: #58a54e;
+  background: #58a54e;
+}
+
+.auxiliares {
+  color: #eedc4f;
+  background: #eedc4f;
+}
+
+.btn-danger {
+  color: white;
+}
+
+.ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+
+.ng-select.custom .ng-select-container {
+  min-height: 100px;
+  background: yellow;
+  border-radius: 0;
+}
+
+.contador {
+  padding: 0px;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.tituloSeleccion {
+  font-size: 0.7rem;
+  background: lightblue;
+}
+
+.tituloSeleccion li {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.tituloSeleccion p {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.itemSeleccion {
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.invisible p {
+  color: white;
+}
+/*# sourceMappingURL=entrante-dashboard-intro.component.css.map */

@@ -1,6 +1,15 @@
-<!-- <ng-select [items]="people$ | async"
-           bindLabel="name"
-           autofocus
-           bindValue="id"
-           [(ngModel)]="selectedPersonId">
-</ng-select> -->
+<ng-select
+  [items]="items"
+  bindValue="inv_agent_id"
+  bindLabel="inv_agent_name" placeholder="Agentes"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

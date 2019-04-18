@@ -21,6 +21,7 @@ export class UserSelection {
   schedule: any; // ScheduleSelection;
   service: any; // ServiceSelection[];
   supervisor: any; // SupervisorSelection;
+  substitute: any;
 
   group: any;
   order: any;

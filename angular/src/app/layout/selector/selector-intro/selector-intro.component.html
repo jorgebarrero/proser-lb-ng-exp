@@ -1,9 +1,15 @@
 <section id="intro" class="container mt-5">
 
+<section id="selector-title">
+<div class="selector-title">
+  <h1> Configuración del Reporte de Llamadas Entrantes por Intervalo</h1>
+  <h3>Subtitulos</h3>
+</div>
+</section>
 
   <section id="first-row">
 
-  <div class="grid-1 first-row-bg">
+  <div class="flexbox-1 first-row-bg">
 
   <div class="item-1">
     <app-selector-start-date></app-selector-start-date>
@@ -16,95 +22,105 @@
   <div class="item-3">
     <app-selector-lines></app-selector-lines>
   </div>
+  <div class="item-4">
+      <app-selector-break></app-selector-break>
+  </div>
 
 </div>
 
 </section>
 
-<section>
+<section id="second-row">
 
-  <div>
+  <div class="flexbox-2 second-row-bg">
+
+  <div class="item-1">
     <app-selector-start-time></app-selector-start-time>
   </div>
 
-  <div>
+  <div class="item-2">
     <app-selector-end-time></app-selector-end-time>
   </div>
 
-  <div>
+  <div class="item-3">
     <app-selector-interval></app-selector-interval>
   </div>
 
+
+  <div class="item-4">
+      <app-selector-scale></app-selector-scale>
+    </div>
+
+  </div>
+
 </section>
 
 
-<section>
+<section id="third-row">
 
-<div>
+<div class="flexbox-3 third-row-bg">
+<div class="item-1">
     <app-selector-client></app-selector-client>
 </div>
 
-<div>
+<div class="item-2">
     <app-selector-queue></app-selector-queue>
 </div>
 
-<div>
+<div class="item-3">
     <app-selector-service></app-selector-service>
 </div>
 
-<div>
+<div class="item-4">
     <app-selector-campaign></app-selector-campaign>
+</div>
 </div>
 
 </section>
 
 
-<section>
-<div>
+
+<section id="fourth-row">
+
+<div class="flexbox-4 fourth-row-bg">
+
+<div class="item-1">
     <app-selector-supervisor></app-selector-supervisor>
 </div>
 
+<div class="item-2">
+    <app-selector-substitute></app-selector-substitute>
+</div>
 
-
-<div class="letra-grande">
+<div class="item-3">
     <app-selector-agent></app-selector-agent>
 </div>
 
-  <div>
+<div class="item-4">
     <app-selector-schedule></app-selector-schedule>
-  </div>
+</div>
+
+</div>
 
 </section>
 
-  <div>
-      <app-selector-break></app-selector-break>
-    </div>
+  
+<section id="fifth-row">
 
-  <div>
+  <div class="flexbox-5 fifth-row-bg">
+  <div class="item-1">
     <app-selector-group></app-selector-group>
   </div>
 
-  <div>
+  <div class="item-2">
     <app-selector-limit></app-selector-limit>
   </div>
 
-  <div>
+  <div class="item-3">
     <app-selector-order></app-selector-order>
   </div>
-
-
-  <div>
-    <app-selector-scale></app-selector-scale>
-  </div>
-
-  <div>
-    <app-selector-title></app-selector-title>
-  </div>
-
-  <div>
-    <app-selector-subtitle></app-selector-subtitle>
-  </div>
-
+</div>
+</section>
 
 
 </section>

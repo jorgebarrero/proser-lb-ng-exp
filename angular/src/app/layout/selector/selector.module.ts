@@ -40,10 +40,11 @@ import { SelectorEndTimeComponent } from './selector-end-time/selector-end-time.
 import { SelectorStartTimeComponent } from './selector-start-time/selector-start-time.component';
 import { SelectorIntervalComponent } from './selector-interval/selector-interval.component';
 import { SelectorLinesComponent } from './selector-lines/selector-lines.component';
+import { SelectorSubstituteComponent } from './selector-substitute/selector-substitute.component';
 
 
 @NgModule({
-  declarations: [SelectorComponent, SelectorIntroComponent, SelectorStartDateComponent, SelectorHeaderComponent, SelectorAgentComponent, SelectorBreakComponent, SelectorCampaignComponent, SelectorClientComponent, SelectorQueueComponent, SelectorScaleComponent, SelectorScheduleComponent, SelectorServiceComponent, SelectorSupervisorComponent, SelectorGroupComponent, SelectorOrderComponent, SelectorLimitComponent, SelectorTitleComponent, SelectorSubtitleComponent, SelectorEndDateComponent, SelectorEndTimeComponent, SelectorStartTimeComponent, SelectorIntervalComponent, SelectorLinesComponent],
+  declarations: [SelectorComponent, SelectorIntroComponent, SelectorStartDateComponent, SelectorHeaderComponent, SelectorAgentComponent, SelectorBreakComponent, SelectorCampaignComponent, SelectorClientComponent, SelectorQueueComponent, SelectorScaleComponent, SelectorScheduleComponent, SelectorServiceComponent, SelectorSupervisorComponent, SelectorGroupComponent, SelectorOrderComponent, SelectorLimitComponent, SelectorTitleComponent, SelectorSubtitleComponent, SelectorEndDateComponent, SelectorEndTimeComponent, SelectorStartTimeComponent, SelectorIntervalComponent, SelectorLinesComponent, SelectorSubstituteComponent],
   imports: [
     CommonModule,
     DpDatePickerModule,

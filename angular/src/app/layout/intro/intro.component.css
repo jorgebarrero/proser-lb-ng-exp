@@ -1,13 +1,30 @@
+body {
+  background: #c2c2c2;
+}
+
 .intro {
-  margin-top: 100px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.intro .display-1 {
+  font-size: 5rem;
 }
 
 .intro .display-2 {
+  font-size: 4.5rem;
+}
+
+.intro .display-3 {
   font-size: 3.5rem;
 }
 
-.intro .display-5 {
+.intro .display-4 {
   font-size: 1.1rem;
+}
+
+.intro .display-5 {
+  font-size: 1rem;
 }
 
 .intro-header {
@@ -18,88 +35,22 @@
   grid-gap: 2rem;
 }
 
-.mainmenu {
-  margin-top: 5px;
+.photo-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
 }
 
-.mainmenu-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.mainmenu-li {
-  text-decoration: none;
-}
-
-.mainmenu-btn {
-  background: #007bff;
-  padding: 0.1rem;
-  width: 200px;
-  height: 3rem;
-  margin-top: 10px;
-  line-height: 3rem;
-  font-size: 1rem;
-  text-align: center;
+.index-title {
   color: white;
-  border: solid #212529 1px;
+  text-align: center;
+  font-size: 1.1rem;
 }
 
-@media screen and (max-width: 768px) {
-  .intro .display-2 {
-    font-size: 3.5rem;
-  }
-  .intro .display-5 {
-    font-size: 1.1rem;
-  }
-  .intro-header {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 4fr;
-        grid-template-columns: 1fr 4fr;
-    grid-gap: 2rem;
-  }
-  .mainmenu {
-    margin-top: 10px;
-  }
-  .mainmenu-ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-  .mainmenu-li {
-    text-decoration: none;
-    color: white;
-  }
-  .mainmenu-btn {
-    background: #007bff;
-    color: white;
-    padding: 0.1rem;
-    width: 200px;
-    height: 2rem;
-    margin-top: 10px;
-    line-height: 2rem;
-    font-size: 0.8rem;
-    text-align: center;
-    border: solid #212529 1px;
-  }
+.card-header {
+  background: #2a7de3;
+  color: white;
 }
 /*# sourceMappingURL=intro.component.css.map */

@@ -1,0 +1,42 @@
+.intro-footer {
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(48%, #1c1c5b), color-stop(98%, #0a6375));
+  background: linear-gradient(90deg, #020024 0%, #1c1c5b 48%, #0a6375 98%);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  /* Avoid the IE 10-11 `min-height` bug. */
+}
+
+.content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+  padding: 20px;
+}
+
+.footer {
+  position: fixed;
+  height: 50px;
+  background: #020024;
+  background: -webkit-gradient(linear, left top, right top, from(#020024), color-stop(48%, #1c1c5b), color-stop(98%, #0a6375));
+  background: linear-gradient(90deg, #020024 0%, #1c1c5b 48%, #0a6375 98%);
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+/*# sourceMappingURL=buttombar.component.css.map */

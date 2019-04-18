@@ -1,3 +1,10 @@
 .base {
   background: red;
 }
+
+
+.intro {
+  &-dates{
+    display: grid;
+  }
+}

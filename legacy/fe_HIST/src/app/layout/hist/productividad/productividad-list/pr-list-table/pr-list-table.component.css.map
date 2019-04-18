@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACb,UAAU,EAAE,KAAK;CAChB",
+    "sources": [
+        "pr-list-table.component.scss"
+    ],
+    "names": [],
+    "file": "pr-list-table.component.css"
+}

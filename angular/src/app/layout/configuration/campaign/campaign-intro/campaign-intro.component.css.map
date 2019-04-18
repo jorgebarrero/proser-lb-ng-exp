@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "campaign-intro.component.scss"
+    ],
+    "names": [],
+    "file": "campaign-intro.component.css"
+}

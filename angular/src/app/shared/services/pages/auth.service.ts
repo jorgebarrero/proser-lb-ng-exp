@@ -7,6 +7,8 @@ import { isNullOrUndefined } from 'util';
 
 import { UserInterface } from '../../models/pages/user-interface';
 
+import { UserSelection } from '../../models/filter/Selection'
+
 import { EnvService } from '../env.service';
 
 import { Router } from '@angular/router';
@@ -62,8 +64,10 @@ export class AuthService {
 
   setUser(user: UserInterface) {
     const userString = JSON.stringify(user);
+    const userSelection = JSON.stringify(new UserSelection);
     // tslint:disable-next-line:no-unused-expression
     localStorage.setItem('currentUser', userString);
+    localStorage.setItem('userSelection', userSelection);
   }
 
   setToken(token) {
@@ -89,7 +93,8 @@ export class AuthService {
     const url_api = `${this.env.loopbackApiUrl}/api/userbases/logout?access_token=${accessToken}`;
     localStorage.removeItem('accessToken');
     localStorage.removeItem('currentUser');
-    this.router.navigate(['/login']);
+    localStorage.removeItem('userSelection');
+    this.router.navigate(['/']);
     return this.http.post<UserInterface>(url_api, {headers: this.headers});
   }
 }

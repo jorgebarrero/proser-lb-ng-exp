@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "scale-intro.component.scss"
+    ],
+    "names": [],
+    "file": "scale-intro.component.css"
+}

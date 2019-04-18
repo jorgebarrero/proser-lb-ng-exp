@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "agent-detail.component.scss"
+    ],
+    "names": [],
+    "file": "agent-detail.component.css"
+}

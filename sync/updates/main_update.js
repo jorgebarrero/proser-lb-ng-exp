@@ -12,7 +12,7 @@ import { updateBreak } from './inv/update_break';
 import { updateCampaign } from './inv/update_campaign';
 import { updateQueue } from './inv/update_queue';
 
-import { asyncCall } from './inv/test'
+import { asyncCall } from './inv/test';
 
 
 
@@ -32,14 +32,14 @@ async function repeatCdrUpdate( ) {
       console.log('num', num);
 
 
-      // updateMainCdr();
-      // updateMainAudit();
-      // updateMainAuditEmpty();
+      updateMainCdr();
+      updateMainAudit();
+      updateMainAuditEmpty();
 
-      // updateAgent();
-      // updateBreak();
-      // updateCampaign();
-      // updateQueue();
+      updateAgent();
+      updateBreak();
+      updateCampaign();
+      updateQueue();
 
 
       // updateAsyncCdrDates();
@@ -51,6 +51,8 @@ async function repeatCdrUpdate( ) {
 }
 
 
-asyncCall().then(x => {
-  console.log('resolved');
-});
+// asyncCall().then(x => {
+//   console.log('resolved');
+// });
+
+repeatCdrUpdate();

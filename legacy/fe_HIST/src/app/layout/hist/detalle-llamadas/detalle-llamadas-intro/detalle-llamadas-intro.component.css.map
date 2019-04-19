@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "detalle-llamadas-intro.component.scss"
+    ],
+    "names": [],
+    "file": "detalle-llamadas-intro.component.css"
+}

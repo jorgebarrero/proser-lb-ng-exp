@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "queue-intro.component.scss"
+    ],
+    "names": [],
+    "file": "queue-intro.component.css"
+}

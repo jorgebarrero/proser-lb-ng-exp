@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACG,AAAD,oBAAM,CAAA;EACJ,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;CAChB;;AAEA,AAAD,sBAAQ,CAAA;EACN,OAAO,EAAE,kBAAkB;EAC3B,MAAM,EAAE,CAAC;CACV;;AAIH,AAAA,YAAY,CAAA;EACV,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "register-welcome.component.scss"
+    ],
+    "names": [],
+    "file": "register-welcome.component.css"
+}

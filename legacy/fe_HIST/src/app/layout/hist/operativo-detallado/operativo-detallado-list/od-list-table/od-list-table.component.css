@@ -1,0 +1,43 @@
+.table-header {
+  color: red;
+}
+
+.celda_derecha {
+  border: 1px solid #c3c3c3;
+  color: red;
+  text-align: center;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active, .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active, .ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active, .ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+  background: yellow;
+}
+
+/*
+
+.celda_derecha_azul {
+  color:blue;
+  text-align: right;
+}
+
+.celda_derecha_verde {
+  color:darkgreen;
+  text-align: right;
+}
+
+.celda_derecha_gris {
+  color:darkslategray;
+  text-align: right;
+}
+
+.celda_derecha_rojo {
+  color:red;
+  text-align: right;
+}
+
+.celda_derecha_negro {
+  color:rgb(51, 50, 50);
+  text-align: right;
+}
+
+*/
+/*# sourceMappingURL=od-list-table.component.css.map */

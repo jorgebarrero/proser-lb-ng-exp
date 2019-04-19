@@ -1,0 +1,15 @@
+<ng-select
+  [items]="items"
+  bindValue="inv_end_time_id"
+  bindLabel="inv_end_time_name" placeholder="Hora Final"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+{{ selected | json }}

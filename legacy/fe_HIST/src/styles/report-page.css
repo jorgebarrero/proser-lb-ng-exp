@@ -1,0 +1,61 @@
+.mycontainer {
+  padding: 0;
+  margin: 5px;
+}
+
+.message {
+  background: lightpink;
+  padding: 20px;
+}
+
+.small-data {
+  color: red;
+  margin: 0px;
+}
+
+.btn {
+  font-size: 0.8rem;
+}
+
+.bg-lightblue {
+  background: lightblue;
+}
+
+.bg-lightgreen {
+  background: lightgreen;
+}
+
+.bg-lightyellow {
+  background: lightyellow;
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.celda_derecha_azul {
+  color: blue;
+  text-align: right;
+}
+
+.celda_derecha_verde {
+  color: darkgreen;
+  text-align: right;
+}
+
+.celda_derecha_gris {
+  color: darkslategray;
+  text-align: right;
+}
+
+.celda_derecha_rojo {
+  color: red;
+  text-align: right;
+}
+
+.celda_derecha_negro {
+  color: #333232;
+  text-align: right;
+}
+/*# sourceMappingURL=report-page.css.map */

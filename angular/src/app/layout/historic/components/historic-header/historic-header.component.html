@@ -1,0 +1,161 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark configheader-menu">
+    <a routerLink="/" class="navbar-brand"
+      ><img
+        src="../../../../assets/img/proser-light-2.png"
+        width="160"
+        height="40"
+        alt=""
+    /></a>
+  
+    <!--# Responsive button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navigation"
+      aria-controls="#navigation"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--/ Responsive button -->
+  
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a routerLink="/historic" class="nav-link">Historico</a>
+        </li>
+  
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+            >Personas</a
+          >
+  
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            
+            <a class="dropdown-item configheader-menu" routerLink="/historic/asignations/">
+              <i class="fas fa-users"></i> Asignaciones
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/asignation-detail/">
+              <i class="fas fa-user-tie"></i> Detalles de Asignacion
+            </a>
+            <div class="dropdown-divider"></div>
+            
+            <a class="dropdown-item configheader-menu" routerLink="/historic/breaks">
+              <i class="fas fa-calendar-alt"></i> Auxiliares
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/break-detail/">
+              <i class="fas fa-globe"></i> Detalles de Auxiliares
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/call-detail/">
+              <i class="fas fa-street-view"></i> Detalles de Llamadas
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/operation-detail/">
+              <div class="dropdown-divider"></div>
+              <i class="fas fa-utensils"></i> Detalles de Operación <nav></nav>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/connection/">
+              <i class="fas fa-utensils"></i> Conexión <nav></nav>
+            </a>
+  
+          </div>
+        </li>
+  
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+            >Operacion</a
+          >
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a class="dropdown-item configheader-menu" routerLink="/historic/inbound-dayly/">
+              <i class="fas fa-industry"></i> Llamadas Entrantes Diarias
+            </a>
+  
+            <a class="dropdown-item configheader-menu" routerLink="/historic/inbound-interval/">
+              <i class="fas fa-comment-dots"></i> Intervalo de Llamadas Entrantes 
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/outbound-interval/">
+              <i class="fas fa-concierge-bell"></i> Intervalo de Llamadas Salientes
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/outbound-dayly/">
+              <i class="fas fa-crosshairs"></i>  Llamadas Salientes Diarias
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/service-dayly/">
+              <i class="fas fa-chart-line"></i> Servicios Diarios
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/service-historic/">
+              <i class="fas fa-chart-line"></i> Historia de Servicios
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/service-interval/">
+              <i class="fas fa-chart-line"></i> Intervalos de Servicios
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/historic/productivity/">
+              <i class="fas fa-chart-line"></i> Productividad
+            </a>
+          </div>
+          
+        </li>
+      </ul>
+  
+  
+  
+      <ul class="navbar-nav ml-auto">
+  
+  
+          <li class="nav-item dropdown" >
+              <a class="nav-link ">
+                  <span class="nav-link small"><app-now-date></app-now-date>
+                <app-now-time></app-now-time></span>
+              </a>
+            </li>
+  
+  
+          <li class="nav-item dropdown" ngbDropdown>
+                <a
+                class="nav-link "
+                id="navdrop"
+                role="button"
+                data-toggle="dropdown"
+                data-hover="dropdown"
+                > <span class="nav-link active small"><i class="fas fa-user"></i>&nbsp;<app-now-user></app-now-user> <app-connection></app-connection></span></a
+              >
+  
+  
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+  
+              <a class="dropdown-item " routerLink="/configuration/break/">
+                <i class="fas fa-id-badge"></i> Perfil
+              </a>
+  
+              <div class="dropdown-divider"></div>
+  
+              <a class="dropdown-item " (click)="onLogout()">
+                <i class="fas fa-power-off"></i> Logout
+              </a>
+  
+            </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </section>
+  

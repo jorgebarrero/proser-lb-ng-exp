@@ -1,0 +1,193 @@
+.base {
+  background: red;
+}
+
+
+.intro {
+  &-dates{
+    display: grid;
+  }
+}
+
+// Title
+.selector-title{
+  margin-bottom: 20px;
+
+}
+// First-Row
+.first-row-bg{
+  background: #FFC0CB;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.flexbox-1{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: start;
+
+  .item-1{
+    margin-right: 80px;
+    order: 1;
+    -webkit-order: 1;
+  }
+  .item-2{
+    margin-right: 80px;
+    order: 2;
+    -webkit-order: 2;
+  }
+  .item-3{
+    margin-right: 80px;
+    order: 3;
+    -webkit-order: 3;
+  }
+  .item-4{
+    order: 4;
+    -webkit-order: 4;
+  }
+
+}
+
+// Second-Row 
+.second-row-bg{
+  background: #F0F061;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.flexbox-2{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: start;
+
+  .item-1{
+    margin-right: 80px;
+    order: 1;
+    -webkit-order: 1;
+  }
+  .item-2{
+    margin-right: 80px;
+    order: 2;
+    -webkit-order: 2;
+  }
+  .item-3{
+    margin-right: 80px;
+    order: 3;
+    -webkit-order: 3;
+  }
+  .item-4{
+    order: 4;
+    -webkit-order: 4;
+  }
+
+}
+
+// Third-Row
+.third-row-bg{
+  background: #90EE8D;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.flexbox-3{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: start;
+
+  .item-1{
+    margin-right: 80px;
+    order: 1;
+    -webkit-order: 1;
+  }
+  .item-2{
+    margin-right: 80px;
+    order: 2;
+    -webkit-order: 2;
+  }
+  .item-3{
+    margin-right: 80px;
+    order: 3;
+    -webkit-order: 3;
+  }
+  .item-4{
+    order: 4;
+    -webkit-order: 4;
+  }
+
+}
+
+// Fourth Row
+
+.fourth-row-bg{
+  background: #ADD8E6;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.flexbox-4{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: start;
+
+  .item-1{
+    margin-right: 80px;
+    order: 1;
+    -webkit-order: 1;
+  }
+  .item-2{
+    margin-right: 80px;
+    order: 2;
+    -webkit-order: 2;
+  }
+  .item-3{
+    margin-right: 80px;
+    order: 3;
+    -wbkit-order: 3;
+  }
+  .item-4{
+    order: 4;
+    -wbkit-order: 4;
+  }
+
+}
+
+// Fifth Row
+
+.fifth-row-bg{
+  background: rgb(216, 214, 215);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.flexbox-5{
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  justify-content: start;
+
+  .item-1{
+    margin-right: 80px;
+    order: 1;
+    -webkit-order: 1;
+  }
+  .item-2{
+    margin-right: 80px;
+    order: 2;
+    -webkit-order: 2;
+  }
+  .item-3{
+    order: 3;
+    -wbkit-order: 3;
+  }
+ 
+}
+

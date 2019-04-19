@@ -1,5 +1,5 @@
 .register-form {
-  background: darkgray;
+  background: lightblue;
   padding: 1rem 1rem 0rem 1rem;
   display: -ms-grid;
   display: grid;
@@ -8,16 +8,34 @@
   grid-gap: 1rem;
 }
 
-.register-form .register-label {
+.register-error {
+  color: red;
   font-size: 0.8rem;
 }
 
-.register-form .register-input {
+.register-label {
+  font-size: 0.9rem;
+}
+
+.register-input {
   font-size: 1rem;
 }
 
-.invalid-feedback {
-  color: red;
+.register-button-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.register-button {
+  font-size: 1.1rem;
+}
+
+.register-login-text {
+  padding: 5px;
+  font-size: 1.1rem;
 }
 
 @media screen and (max-width: 576px) {

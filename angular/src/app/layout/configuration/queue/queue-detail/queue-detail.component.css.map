@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "queue-detail.component.scss"
+    ],
+    "names": [],
+    "file": "queue-detail.component.css"
+}

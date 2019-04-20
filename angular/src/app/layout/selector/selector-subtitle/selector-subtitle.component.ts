@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-subtitle',
@@ -25,15 +25,14 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.subtitle
+    this.selected = this.userSelection.subtitle;
   }
 
-  onChange(){
-    this.userSelection.subtitle = this.selected
+  onChange() {
+    this.userSelection.subtitle = this.selected;
     console.log('selected subtitle', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }
-

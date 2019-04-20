@@ -1,15 +1,7 @@
-<ng-select
-  [items]="items"
-  bindValue="inv_end_date_id"
-  bindLabel="inv_end_date_name" placeholder="Fecha Final"
-  [dropdownPosition]="'auto'"
-  [searchable]="true"
-  (change)="onChange()"
-  [clearable]="true"
-  [multiple]="true"
-  hideSelected="true"
-  [(ngModel)]="selected">
-</ng-select>
+<small (click)="togleShow()">Fecha final</small>
 
+<div *ngIf="show" class="calendar">
+  <ngb-datepicker  #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="onChange()"></ngb-datepicker>
+</div>
 
-{{ selected | json }}
+<pre class="selected" (click)="togleShow()"> {{ selected }}</pre>

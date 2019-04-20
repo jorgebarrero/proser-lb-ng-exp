@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-break',
@@ -25,15 +25,14 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.break
+    this.selected = this.userSelection.break;
   }
 
-  onChange(){
-    this.userSelection.break = this.selected
+  onChange() {
+    this.userSelection.break = this.selected;
     console.log('selected break', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }
-

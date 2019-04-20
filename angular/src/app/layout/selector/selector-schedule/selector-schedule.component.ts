@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-schedule',
@@ -24,14 +24,14 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.schedule
+    this.selected = this.userSelection.schedule;
   }
 
-  onChange(){
-    this.userSelection.schedule = this.selected
+  onChange() {
+    this.userSelection.schedule = this.selected;
     console.log('selected schedule', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }

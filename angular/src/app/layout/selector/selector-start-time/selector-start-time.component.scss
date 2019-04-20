@@ -1,0 +1,15 @@
+.selector-text{
+  color: red;
+  background: yellow;
+}
+
+
+.ng-select.custom {
+  border:0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+.ng-select.custom .ng-control  {
+  min-height: 0px;
+  border-radius: 0;
+}

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';  
-// import {ViewChild, ElementRef} from '@angular/core'
+import { Component, OnInit } from '@angular/core';
 
-// import {DatePickerComponent} from 'ng2-date-picker';
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-start-date',
@@ -11,105 +11,56 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorStartDateComponent implements OnInit {
 
+  model: NgbDateStruct;
+  date: {year: number, month: number};
+  calendar;
+
+  show = false;
+
+
   items = [
     {inv_start_date_id: 1, inv_start_date_name: '04/24/2019'},
     {inv_start_date_id: 2, inv_start_date_name: '02/20/2019'},
     {inv_start_date_id: 3, inv_start_date_name: '01/25/2019'}
   ];
 
-selected = [];
+selected;
 userSelection = new UserSelection;
 
-  constructor() {
+  constructor(
 
-   }
+  ) {
+
+  }
 
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.start_date
+    this.selected = this.userSelection.start_date;
   }
 
-  onChange(){
-    this.userSelection.start_date = this.selected
+  onChange() {
+    this.selected = `${this.model.year}-${this.pad(this.model.month, 2)}-${this.pad(this.model.day, 2)}`;
+    this.userSelection.start_date = this.selected ;
     console.log('selected start_date', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
+
+
+  selectToday() {
+    this.model = this.calendar.getToday();
+  }
+
+
+  pad(num: number, size: number): string {
+    let s = num + '';
+    while (s.length < size) { s = '0' + s; }
+    return s;
+}
+
+  togleShow () {
+    this.show = !this.show;
   }
 
 }
-
-
-//   @ViewChild('dayPicker') datePicker: DatePickerComponent;
-
-//   config;
-//   placeholder;
-
-//   picker;
-
-// selected;
-//   constructor(
-//     private elRef: ElementRef
-//   ) {
-//     this.placeholder = 'Fecha inicial';
-//     this.config = {
-//       firstDayOfWeek: 'mo',
-//       monthFormat: 'MMM, YYYY',
-//       disableKeypress: false,
-//       allowMultiSelect: false,
-//       closeOnSelect: undefined,
-//       closeOnSelectDelay: 100,
-//       onOpenDelay: 0,
-//       weekDayFormat: 'ddd',
-//       appendTo: document.body,
-//       drops: 'down',
-//       opens: 'right',
-//       showNearMonthDays: true,
-//       showWeekNumbers: false,
-//       enableMonthSelector: true,
-//       format: 'YYYY-MM-DD',
-//       yearFormat: 'YYYY',
-//       showGoToCurrent: true,
-//       dayBtnFormat: 'DD',
-//       monthBtnFormat: 'MMM',
-//       hours12Format: 'hh',
-//       hours24Format: 'HH',
-//       meridiemFormat: 'A',
-//       minutesFormat: 'mm',
-//       minutesInterval: 1,
-//       secondsFormat: 'ss',
-//       secondsInterval: 1,
-//       showSeconds: false,
-//       showTwentyFourHours: true,
-//       timeSeparator: ':',
-//       multipleYearsNavigateBy: 10,
-//       showMultipleYearsNavigation: false,
-//       locale: 'es',
-//       // min:'2017-08-29 15:50',
-//       // minTime:'2017-08-29 15:50'
-//     };
-//   }
-
-
-//   ngOnInit() {
-//   }
-
-//   onChange() {
-//     console.log('date', this.picker);
-
-//   }
-
-//   open() {
-//     this.datePicker.api.open();
-//   }
-//   close() {
-//     this.datePicker.api.close();
-//   }
-
-//   validatorsChanged() {
-
-//   }
-
-//   toogel(){}
-
-

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-substitute',
@@ -24,15 +24,14 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.substitute
+    this.selected = this.userSelection.substitute;
   }
 
-  onChange(){
-    this.userSelection.substitute = this.selected
+  onChange() {
+    this.userSelection.substitute = this.selected;
     console.log('selected substitute', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }
-

@@ -1,0 +1,48 @@
+<main id="selector" class="selector">
+  <section class="selector-row">
+    <section id="selector-title">
+      <div class="selector-title">
+        <h1>Configuración del Reporte de Llamadas Entrantes por Intervalo</h1>
+      </div>
+      <div class="selector-subtitle">
+        <h3>Subtitulos</h3>
+      </div>
+    </section>
+
+    <div class="selector-grid-5columns selector-bg">
+      <app-selector-start-date ></app-selector-start-date>
+      <app-selector-end-date ></app-selector-end-date>
+      <app-selector-start-time ></app-selector-start-time>
+      <app-selector-end-time ></app-selector-end-time>
+      <app-selector-interval ></app-selector-interval>
+    </div>
+
+    <div class="selector-grid-4columns selector-bg">
+      <div id="selector-group-2">
+        <app-selector-supervisor></app-selector-supervisor>
+        <app-selector-substitute></app-selector-substitute>
+        <app-selector-agent></app-selector-agent>
+        <app-selector-schedule></app-selector-schedule>
+        <app-selector-break></app-selector-break>
+      </div>
+
+      <div id="selector-group-3">
+        <app-selector-client></app-selector-client>
+        <app-selector-queue></app-selector-queue>
+        <app-selector-service></app-selector-service>
+        <app-selector-campaign></app-selector-campaign>
+      </div>
+
+      <div id="selector-group-4">
+        <app-selector-lines></app-selector-lines>
+        <app-selector-scale></app-selector-scale>
+      </div>
+
+      <div id="selector-group-5">
+        <app-selector-group></app-selector-group>
+        <app-selector-order></app-selector-order>
+        <app-selector-limit></app-selector-limit>
+      </div>
+    </div>
+  </section>
+</main>

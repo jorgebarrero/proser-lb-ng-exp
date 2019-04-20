@@ -50,7 +50,7 @@
 
 }
 
-// Second-Row 
+// Second-Row
 .second-row-bg{
   background: #F0F061;
   margin-bottom: 20px;
@@ -188,6 +188,5 @@
     order: 3;
     -wbkit-order: 3;
   }
- 
-}
 
+}

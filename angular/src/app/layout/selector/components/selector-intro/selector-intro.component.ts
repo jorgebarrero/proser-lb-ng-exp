@@ -118,19 +118,17 @@ export class SelectorIntroComponent implements OnInit {
         'end_date': '\'2019-01-26\''
         };
 
-    const temp = await this.menuService.getMenuOptionRecords(query);
+    this.menuService.getMenuOptionRecords(query)
+    .subscribe( data => {
 
-    // .subscribe( data => {
-    //   data === undefined ? this.menuList = 0 : this.menuList = 1;
-    //   console.log('data', data);
+      const newData = JSON.parse(data);
 
-          // }
-        // );
+      newData === undefined ? this.menuList = 0 : this.menuList = 1;
+      console.log('data', newData);
 
+          }
+        );
 
-
-     console.log('menu service', temp.agent);
-     this.menuOptions.agent = temp.agent;
   }
 
 

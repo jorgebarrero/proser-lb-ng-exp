@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,18 +11,18 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorStartDateComponent implements OnInit {
 
+  @Input() menuOptions: UserSelection;
+
   model: NgbDateStruct;
   date: {year: number, month: number};
   calendar;
 
   show = false;
 
+  items;
 
-  items = [
-    {inv_start_date_id: 1, inv_start_date_name: '04/24/2019'},
-    {inv_start_date_id: 2, inv_start_date_name: '02/20/2019'},
-    {inv_start_date_id: 3, inv_start_date_name: '01/25/2019'}
-  ];
+
+
 
 selected;
 userSelection = new UserSelection;
@@ -31,6 +31,11 @@ userSelection = new UserSelection;
 
   ) {
 
+  this.items = [
+    {inv_start_date_id: 1, inv_start_date_name: '04/24/2019'},
+    {inv_start_date_id: 2, inv_start_date_name: '02/20/2019'},
+    {inv_start_date_id: 3, inv_start_date_name: '01/25/2019'}
+  ];
   }
 
 
@@ -40,10 +45,11 @@ userSelection = new UserSelection;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = `${this.model.year}-${this.pad(this.model.month, 2)}-${this.pad(this.model.day, 2)}`;
     this.userSelection.start_date = this.selected ;
-    console.log('selected start_date', this.selected);
-    console.log('selected object',  this.userSelection);
+    // console.log('selected start_date', this.selected);
+    // console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 

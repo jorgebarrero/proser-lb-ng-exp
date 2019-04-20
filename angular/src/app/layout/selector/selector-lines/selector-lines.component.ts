@@ -9,14 +9,11 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorLinesComponent implements OnInit {
 
-  items = [
-    {inv_lines_id: 1, inv_lines_name: 'Linea 1'},
-    {inv_lines_id: 2, inv_lines_name: 'Linea 2'},
-    {inv_lines_id: 3, inv_lines_name: 'Linea 3'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
@@ -24,11 +21,17 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.lines;
+
+    // console.log('menuOptions.lines', this.menuOptions.lines);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = this.userSelection.lines;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.lines = this.selected;
     console.log('selected lines', this.selected);
     console.log('selected object',  this.userSelection);

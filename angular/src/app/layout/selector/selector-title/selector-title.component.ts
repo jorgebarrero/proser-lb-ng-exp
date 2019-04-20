@@ -29,6 +29,7 @@ userSelection = new UserSelection;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.title = this.selected;
     console.log('selected title', this.selected);
     console.log('selected object',  this.userSelection);

@@ -40,10 +40,11 @@ userSelection = new UserSelection;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = `${this.model.year}-${this.pad(this.model.month, 2)}-${this.pad(this.model.day, 2)}`;
     this.userSelection.end_date = this.selected ;
-    console.log('selected end_date', this.selected);
-    console.log('selected object',  this.userSelection);
+    // console.log('selected end_date', this.selected);
+    // console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 

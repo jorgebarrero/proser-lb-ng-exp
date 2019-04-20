@@ -8,14 +8,11 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorCampaignComponent implements OnInit {
 
-  items = [
-    {inv_campaign_id: 7, inv_campaign_name: 'Campaña 1'},
-    {inv_campaign_id: 8, inv_campaign_name: 'Campaña 2'},
-    {inv_campaign_id: 9, inv_campaign_name: 'Campaña 3'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
@@ -23,11 +20,17 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.campaign;
+
+    // console.log('menuOptions.campaign', this.menuOptions.campaign);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = this.userSelection.campaign;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.campaign = this.selected;
     console.log('selected campaign', this.selected);
     console.log('selected object',  this.userSelection);

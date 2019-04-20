@@ -9,26 +9,29 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorSupervisorComponent implements OnInit {
 
-  items = [
-    {inv_supervisor_id: 1, inv_supervisor_name: 'Jorge'},
-    {inv_supervisor_id: 2, inv_supervisor_name: 'Luis'},
-    {inv_supervisor_id: 3, inv_supervisor_name: 'Sara'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
-   }
+}
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.supervisor;
+
+    // console.log('menuOptions.supervisor', this.menuOptions.supervisor);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = this.userSelection.supervisor;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.supervisor = this.selected;
     console.log('selected supervisor', this.selected);
     console.log('selected object',  this.userSelection);

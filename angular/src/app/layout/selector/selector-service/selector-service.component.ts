@@ -9,14 +9,11 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorServiceComponent implements OnInit {
 
-  items = [
-    {inv_service_id: 1, inv_service_name: 'Servicios 1'},
-    {inv_service_id: 2, inv_service_name: 'Servicios 2'},
-    {inv_service_id: 3, inv_service_name: 'Servicios 3'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
@@ -24,11 +21,17 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.service;
+
+    // console.log('menuOptions.service', this.menuOptions.service);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.selected = this.userSelection.service;
   }
 
   onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.service = this.selected;
     console.log('selected service', this.selected);
     console.log('selected object',  this.userSelection);

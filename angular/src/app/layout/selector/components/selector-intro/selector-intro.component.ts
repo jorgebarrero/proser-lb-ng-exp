@@ -15,6 +15,7 @@ export class SelectorIntroComponent implements OnInit {
   menuOptions;
   menuList;
   example;
+  auxiliar = undefined;
 
   constructor(
     private menuService: MenuService) {
@@ -114,14 +115,28 @@ export class SelectorIntroComponent implements OnInit {
 
   async getMenuRecords() {
     const query = {
-        'start_date': '\'2019-01-25\'',
-        'end_date': '\'2019-01-26\''
+        'start_date': '\'2019-04-25\'',
+        'end_date': '\'2019-04-26\''
         };
 
     this.menuService.getMenuOptionRecords(query)
     .subscribe( data => {
 
       const newData = JSON.parse(data);
+      console.log("NEW DATA", newData);
+      
+      this.menuOptions.client = newData.client;
+      this.menuOptions.queue = newData.queue;
+      this.menuOptions.service = newData.service;
+      this.menuOptions.campaign = newData.campaign;
+      this.menuOptions.supervisor = newData.supervisor;
+      this.menuOptions.agent = newData.agent;
+      this.menuOptions.schedule = newData.schedule;
+      this.menuOptions.auxiliar = newData.auxiliar;
+      this.menuOptions.asignation = newData.asignation;
+      console.log("MENU OPTIONS", this.menuOptions);
+      // this.auxiliar = this.menuOptions.agent;
+      // this.menuOptions.agent = newData.agent;
 
       newData === undefined ? this.menuList = 0 : this.menuList = 1;
       console.log('data', newData);

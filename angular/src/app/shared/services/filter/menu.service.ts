@@ -31,16 +31,16 @@ export class MenuService {
   getMenuOptionRecords(queryDates) {
     const query = {
         // tslint:disable-next-line:quotemark
-        "start_date": "'2019-01-25'",
+        "start_date": "'2019-01-01'",
         // tslint:disable-next-line:quotemark
-        "end_date": "'2019-01-26'"
+        "end_date": "'2019-01-28'"
         };
 
     queryDates = JSON.stringify(query);
 
     const accessToken = localStorage.getItem('accessToken');
 
-    const url_api = `${this.env.loopbackApiUrl}/api/InvMenus/selectionMenu access_token=${accessToken}`;
+    const url_api = `${this.env.loopbackApiUrl}/api/InvMenus/selectionMenu`;
     console.log('getAllRecords', url_api);
 
     return this.http.post<MenuOptions>(url_api, queryDates, {headers: this.headers})

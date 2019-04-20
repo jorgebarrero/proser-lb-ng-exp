@@ -1,7 +1,7 @@
 
 <small>Agentes</small>
 <ng-select
-  [items]="items"
+  [items]="items | async"
   bindValue="inv_agent_id"
   bindLabel="inv_agent_name" placeholder="Agentes"
   [dropdownPosition]="'auto'"

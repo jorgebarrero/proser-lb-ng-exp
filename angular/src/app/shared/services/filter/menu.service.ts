@@ -308,7 +308,7 @@ export class MenuService {
     // const url_api = `${this.env.loopbackApiUrl}/api/InvMenus/selectionMenu access_token=${accessToken}`;
     console.log('getAllRecords', url_api);
 
-    // return this.http.post<InvSupervisor>(url_api, queryDates, {headers: this.headers})
+    // const temp = this.http.post<InvSupervisor>(url_api, queryDates, {headers: this.headers})
     // .pipe(map(data => data));
 
     return this.demo;

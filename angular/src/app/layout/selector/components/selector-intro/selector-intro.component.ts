@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserSelection } from '../../../../shared/models/filter/Selection';
 
-import { MenuService } from '../../../../shared/services/filter/menu.service'
+import { MenuService } from 'src/app/shared/services/filter/menu.service';
 
 
 @Component({
@@ -14,17 +14,20 @@ export class SelectorIntroComponent implements OnInit {
 
   menuOptions;
   menuList;
+  example;
 
   constructor(
     private menuService: MenuService) {
-      
+
     }
 
 
   ngOnInit() {
 
-   
-   this.getMenuRecords(); 
+
+   this.getMenuRecords();
+
+
 
     this.menuOptions = {
       title: 'Titulo original de la consulta',
@@ -35,16 +38,8 @@ export class SelectorIntroComponent implements OnInit {
 
       start_date: new Date,
       end_date: new Date,
-      start_time: [
-        {inv_start_time_id: 1, inv_start_time_name: '07:00 am'},
-        {inv_start_time_id: 2, inv_start_time_name: '08:00 am'},
-        {inv_start_time_id: 3, inv_start_time_name: '09:00 am'}
-      ],
-      end_time: [
-        {inv_end_time_id: 1, inv_end_time_name: '4:00 pm'},
-        {inv_end_time_id: 2, inv_end_time_name: '8:00 pm'},
-        {inv_end_time_id: 3, inv_end_time_name: '10:00 pm'}
-      ],
+      start_time: '',
+      end_time: '',
       interval: [
         {inv_interval_id: 1, inv_interval_name: '60 minutos'},
         {inv_interval_id: 2, inv_interval_name: '20 minutos'},
@@ -55,6 +50,10 @@ export class SelectorIntroComponent implements OnInit {
         {inv_lines_id: 2, inv_lines_name: 'Linea 2'},
         {inv_lines_id: 3, inv_lines_name: 'Linea 3'}
       ],
+
+    };
+
+    this.example = {
       // iMPORTED
       agent: [
         {inv_agent_id: 1, inv_agent_name: 'Jorge'},
@@ -106,7 +105,6 @@ export class SelectorIntroComponent implements OnInit {
         {inv_supervisor_id: 2, inv_supervisor_name: 'Luis'},
         {inv_supervisor_id: 3, inv_supervisor_name: 'Sara'}
       ]
-
     };
 
     localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
@@ -114,19 +112,25 @@ export class SelectorIntroComponent implements OnInit {
   }
 
 
-  getMenuRecords() {
-    let query = {
-        "start_date": "'2019-01-25'",
-        "end_date": "'2019-01-26'"
+  async getMenuRecords() {
+    const query = {
+        'start_date': '\'2019-01-25\'',
+        'end_date': '\'2019-01-26\''
         };
-    this.menuService.getMenuOptionRecords(query)
-    .subscribe( data => {
-      data === undefined ? this.menuList = 0 : this.menuList = 1;
-      console.log('data', data);
 
-          }
-        );
-     console.log('menu service', this.menuList);
+    const temp = await this.menuService.getMenuOptionRecords(query);
+
+    // .subscribe( data => {
+    //   data === undefined ? this.menuList = 0 : this.menuList = 1;
+    //   console.log('data', data);
+
+          // }
+        // );
+
+
+
+     console.log('menu service', temp.agent);
+     this.menuOptions.agent = temp.agent;
   }
 
 

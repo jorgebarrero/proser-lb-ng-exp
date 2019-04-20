@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { InvSupervisorService } from 'src/app/shared/services/configuration/inv-supervisor.service';
-import { InvSupervisor } from 'src/app/shared/models/configuration/InvSupervisor';
+
+import { InvCampaignService } from 'src/app/shared/services/configuration/inv-campaign.service';
+
+import { InvCampaign } from 'src/app/shared/models/configuration/InvCampaign';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
+
 
 @Component({
   selector: 'app-campaign-list',
@@ -14,7 +17,7 @@ import { AlertModel } from 'src/app/shared/models/Alert';
 export class CampaignListComponent implements OnInit {
 
   constructor(
-    private invSupervisorService: InvSupervisorService,
+    private invCampaignService: InvCampaignService,
     private excelService: ExcelService,
     private modalService: NgbModal,
 
@@ -43,9 +46,9 @@ export class CampaignListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_supervisor_name', name: 'Supervisor', width: 200 },
-    { prop: 'inv_supervisor_schedule_name', name: 'Horario', width: 100 },
-    { prop: 'inv_supervisor_status', name: 'Estado', width: 50 },
+    { prop: 'inv_campaign_name', name: 'Campañas', width: 200 },
+    { prop: 'inv_campaign_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_campaign_status', name: 'Estado', width: 50 },
   ];
 
   closeResult: string;
@@ -70,7 +73,7 @@ export class CampaignListComponent implements OnInit {
 
   getAll_Records(query?) {
     this.selected = [];
-    this.invSupervisorService.getAllRecords(query)
+    this.invCampaignService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -82,10 +85,10 @@ export class CampaignListComponent implements OnInit {
 
   onGetActive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'A'}});
+    const query = JSON.stringify({where: {inv_campaign_status: 'A'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invCampaignService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -97,10 +100,10 @@ export class CampaignListComponent implements OnInit {
 
   onGetInactive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'I'}});
+    const query = JSON.stringify({where: {inv_campaign_status: 'I'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invCampaignService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -124,16 +127,16 @@ export class CampaignListComponent implements OnInit {
       .map( x => {
         return {
 
-          id: x.inv_supervisor_id,
-          status: x.inv_supervisor_status,
-          chk: x.inv_supervisor_chk,
-          nombre: x.inv_supervisor_name,
-          nombre_corto: x.inv_supervisor_shortname,
-          tipo: x.inv_supervisor_type,
-          identificacion: x.inv_supervisor_legal_id,
-          numero_interno: x.inv_supervisor_internal_id,
-          id_turno: x.inv_supervisor_schedule_id,
-          nombre_turno: x.inv_supervisor_schedule_name,
+          id: x.inv_campaign_id,
+          status: x.inv_campaign_status,
+          chk: x.inv_campaign_chk,
+          nombre: x.inv_campaign_name,
+          nombre_corto: x.inv_campaign_shortname,
+          tipo: x.inv_campaign_type,
+          identificacion: x.inv_campaign_legal_id,
+          numero_interno: x.inv_campaign_internal_id,
+          id_turno: x.inv_campaign_schedule_id,
+          nombre_turno: x.inv_campaign_schedule_name,
         };
       });
 
@@ -177,7 +180,7 @@ export class CampaignListComponent implements OnInit {
 
       // filter our data
       const temp = this.rows.filter(function(d) {
-        return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
+        return d.inv_campaign_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
 
 

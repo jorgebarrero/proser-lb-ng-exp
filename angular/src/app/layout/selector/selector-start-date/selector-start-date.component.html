@@ -1,0 +1,7 @@
+<small (click)="togleShow()">Fecha incio</small>
+
+<div *ngIf="show" class="calendar">
+  <ngb-datepicker  #dp [(ngModel)]="model" (navigate)="date = $event.next" (click)="onChange()"></ngb-datepicker>
+</div>
+
+<pre class="selected" (click)="togleShow()"> {{ selected }}</pre>

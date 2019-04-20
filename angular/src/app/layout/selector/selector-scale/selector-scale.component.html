@@ -1,0 +1,16 @@
+<small>Escala</small>
+<ng-select
+  [items]="items"
+  bindValue="inv_scale_id"
+  bindLabel="inv_scale_name" placeholder="Escala"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

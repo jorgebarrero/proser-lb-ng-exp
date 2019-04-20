@@ -1,0 +1,63 @@
+body {
+  background: #c2c2c2;
+}
+
+.filter {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.intro {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.intro .display-1 {
+  font-size: 5rem;
+}
+
+.intro .display-2 {
+  font-size: 4.5rem;
+}
+
+.intro .display-3 {
+  font-size: 3.5rem;
+}
+
+.intro .display-4 {
+  font-size: 1.1rem;
+}
+
+.intro .display-5 {
+  font-size: 1rem;
+}
+
+.intro-header {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+  grid-gap: 2rem;
+}
+
+.photo-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.index-title {
+  color: white;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.card-header {
+  background: #2a7de3;
+  color: white;
+}
+/*# sourceMappingURL=filter-intro.component.css.map */

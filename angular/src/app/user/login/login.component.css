@@ -1,25 +1,40 @@
-.form-control.login-user {
-  border: 0px solid #fff !important;
-}
-
 .login-form {
-  margin-top: 30px;
+  background: lightblue;
+  padding: 1rem 1rem 0rem 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 1rem;
 }
 
-input {
+.login-error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.login-label {
+  font-size: 0.9rem;
+}
+
+.login-input {
+  font-size: 1rem;
+}
+
+.login-button-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.login-button {
   font-size: 1.1rem;
 }
 
-.login-form {
-  background: red;
-}
-
-body {
-  background: #bdc3c7;
-  /* fallback for old browsers */
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-gradient(linear, left top, right top, from(#2c3e50), to(#bdc3c7));
-  background: linear-gradient(to right, #2c3e50, #bdc3c7);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.login-login-text {
+  padding: 5px;
+  font-size: 1.1rem;
 }
 /*# sourceMappingURL=login.component.css.map */

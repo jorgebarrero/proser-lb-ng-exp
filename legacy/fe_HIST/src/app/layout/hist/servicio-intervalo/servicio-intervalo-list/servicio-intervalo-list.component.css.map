@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "servicio-intervalo-list.component.scss"
+    ],
+    "names": [],
+    "file": "servicio-intervalo-list.component.css"
+}

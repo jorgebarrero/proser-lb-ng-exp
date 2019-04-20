@@ -1,0 +1,16 @@
+<small>Suplente</small>
+<ng-select
+  [items]="items"
+  bindValue="inv_substitute_id"
+  bindLabel="inv_supervisor_name" placeholder="Suplente"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

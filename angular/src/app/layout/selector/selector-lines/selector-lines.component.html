@@ -1,0 +1,16 @@
+<small>Líneas del reporte</small>
+<ng-select
+  [items]="items"
+  bindValue="inv_lines_id"
+  bindLabel="inv_lines_name" placeholder="Líneas"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

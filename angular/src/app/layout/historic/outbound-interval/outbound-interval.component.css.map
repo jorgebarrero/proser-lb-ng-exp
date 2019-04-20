@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "outbound-interval.component.scss"
+    ],
+    "names": [],
+    "file": "outbound-interval.component.css"
+}

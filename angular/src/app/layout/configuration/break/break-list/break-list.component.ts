@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { InvSupervisorService } from 'src/app/shared/services/configuration/inv-supervisor.service';
-import { InvSupervisor } from 'src/app/shared/models/configuration/InvSupervisor';
+
+import { InvBreakService } from 'src/app/shared/services/configuration/inv-break.service';
+import { InvBreak} from 'src/app/shared/models/configuration/InvBreak';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
+
 
 @Component({
   selector: 'app-break-list',
@@ -14,7 +16,7 @@ import { AlertModel } from 'src/app/shared/models/Alert';
 export class BreakListComponent implements OnInit {
 
   constructor(
-    private invSupervisorService: InvSupervisorService,
+    private invBreakService: InvBreakService,
     private excelService: ExcelService,
     private modalService: NgbModal,
 
@@ -43,9 +45,9 @@ export class BreakListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_supervisor_name', name: 'Supervisor', width: 200 },
-    { prop: 'inv_supervisor_schedule_name', name: 'Horario', width: 100 },
-    { prop: 'inv_supervisor_status', name: 'Estado', width: 50 },
+    { prop: 'inv_break_name', name: 'Auxiliares', width: 200 },
+    { prop: 'inv_break_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_break_status', name: 'Estado', width: 50 },
   ];
 
   closeResult: string;
@@ -70,7 +72,7 @@ export class BreakListComponent implements OnInit {
 
   getAll_Records(query?) {
     this.selected = [];
-    this.invSupervisorService.getAllRecords(query)
+    this.invBreakService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -82,10 +84,10 @@ export class BreakListComponent implements OnInit {
 
   onGetActive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'A'}});
+    const query = JSON.stringify({where: {inv_break_status: 'A'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invBreakService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -97,10 +99,10 @@ export class BreakListComponent implements OnInit {
 
   onGetInactive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'I'}});
+    const query = JSON.stringify({where: {inv_break_status: 'I'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invBreakService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -124,16 +126,16 @@ export class BreakListComponent implements OnInit {
       .map( x => {
         return {
 
-          id: x.inv_supervisor_id,
-          status: x.inv_supervisor_status,
-          chk: x.inv_supervisor_chk,
-          nombre: x.inv_supervisor_name,
-          nombre_corto: x.inv_supervisor_shortname,
-          tipo: x.inv_supervisor_type,
-          identificacion: x.inv_supervisor_legal_id,
-          numero_interno: x.inv_supervisor_internal_id,
-          id_turno: x.inv_supervisor_schedule_id,
-          nombre_turno: x.inv_supervisor_schedule_name,
+          id: x.inv_break_id,
+          status: x.inv_break_status,
+          chk: x.inv_break_chk,
+          nombre: x.inv_break_name,
+          nombre_corto: x.inv_break_shortname,
+          tipo: x.inv_break_type,
+          identificacion: x.inv_break_legal_id,
+          numero_interno: x.inv_break_internal_id,
+          id_turno: x.inv_break_schedule_id,
+          nombre_turno: x.inv_break_schedule_name,
         };
       });
 
@@ -177,7 +179,7 @@ export class BreakListComponent implements OnInit {
 
       // filter our data
       const temp = this.rows.filter(function(d) {
-        return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
+        return d.inv_break_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
 
 

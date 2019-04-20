@@ -1,0 +1,44 @@
+body {
+  background: #c2c2c2;
+}
+
+.title-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr;
+}
+
+.title-grid .logo {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+}
+
+.title-top {
+  margin: 3%;
+}
+
+.photo-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2fr;
+}
+
+.title {
+  color: white;
+}
+
+.index-title {
+  color: white;
+  text-align: center;
+}
+
+.card-header {
+  background: #2a7de3;
+  color: white;
+}
+/*# sourceMappingURL=intro.component.css.map */

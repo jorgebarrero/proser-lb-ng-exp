@@ -1,0 +1,16 @@
+<small>Límite de registros</small>
+<ng-select
+  [items]="items"
+  bindValue="inv_limit_id"
+  bindLabel="inv_limit_name" placeholder="Limite"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

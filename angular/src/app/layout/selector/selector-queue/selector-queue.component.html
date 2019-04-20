@@ -1,0 +1,16 @@
+<small>Colas</small>
+<ng-select
+  [items]="items"
+  bindValue="inv_queue_id"
+  bindLabel="inv_queue_name" placeholder="Cola"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

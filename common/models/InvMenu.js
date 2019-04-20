@@ -20,10 +20,10 @@ module.exports = function(InvMenu) {
 
         // let start_date = validateStartDate(filtro) ? filtro.start_date : "";         //Invoke validations    
         // let end_date = validateEndDate(filtro) ? filtro.end_date : "";
-        // let start_date = filtro.start_date;                                          //Get param from object filter
-        // let end_date = filtro.end_date;
+        let start_date = filtro.start_date;                                          //Get param from object filter
+        let end_date = filtro.end_date;
 
-        let menu = {};
+        let menuOptions = {};
         
         
         // if(start_date && end_date){
@@ -32,15 +32,20 @@ module.exports = function(InvMenu) {
     
         let queryMenuClient =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        DISTINCT(queue.hca_queue_client_id),
+        queue.hca_queue_client_name
+
+        FROM
+        HcaQueue AS queue INNER JOIN MainCdr as cdr
+        
+        ON
+        cdr.cdr_type_hca_queue_id = queue.hca_queue_text_key
+
+        WHERE
+        cdr.cdr_dates_calldate >= ${start_date}
+        AND
+        cdr.cdr_dates_calldate <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -60,15 +65,20 @@ module.exports = function(InvMenu) {
     
         let queryMenuQueue = 
         `
-        SELECT 
-        hca_queue_queue_id as id, 
-        hca_queue_queue_name as queue
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_queue_name
+        SELECT
+        DISTINCT(queue.hca_queue_queue_id),
+        queue.hca_queue_queue_name
+
+        FROM
+        HcaQueue AS queue INNER JOIN MainCdr as cdr
+        ON
+        cdr.cdr_type_hca_queue_id = queue.hca_queue_text_key
+
+        WHERE
+        cdr.cdr_dates_calldate >= '2019-01-25'
+        AND
+        cdr.cdr_dates_calldate <= '2019-01-26'
+        
         `;
 
         try {
@@ -86,15 +96,19 @@ module.exports = function(InvMenu) {
     
         let queryMenuService =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        DISTINCT(queue.hca_queue_service_id),
+        queue.hca_queue_service_name
+
+        FROM
+        HcaQueue AS queue INNER JOIN MainCdr as cdr
+        ON
+        cdr.cdr_type_hca_queue_id = queue.hca_queue_text_key
+
+        WHERE
+        cdr.cdr_dates_calldate >= ${start_date}
+        AND
+        cdr.cdr_dates_calldate <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -114,15 +128,17 @@ module.exports = function(InvMenu) {
     
         let queryMenuCampaign =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        inv_campaign_id,
+        inv_campaign_name
+
+        FROM
+        InvCampaign 
+
+        WHERE
+        inv_campaign_start_date_text >= ${start_date}
+        AND
+        inv_campaign_end_date_text <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -142,15 +158,19 @@ module.exports = function(InvMenu) {
     
         let queryMenuSupervisor =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        DISTINCT(agent.hca_agent_supervisor_id),
+        agent.hca_agent_supervisor_name
+
+        FROM
+        HcaAgent AS agent INNER JOIN MainCdr as cdr   
+        ON
+        cdr.cdr_type_hca_agent_id = agent.hca_agent_key_cdr
+
+        WHERE
+        cdr.cdr_dates_calldate >= ${start_date}
+        AND
+        cdr.cdr_dates_calldate <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -168,45 +188,43 @@ module.exports = function(InvMenu) {
 
         //*****************************SUBSTITUTE*********************************************/
     
-        let queryMenuSubstitute =                              
-        `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        // let queryMenuSubstitute =                              
+        // `
+        
 
-        `;
-        // console.log("SQL", availableSQL);
+        // `;
+        // // console.log("SQL", availableSQL);
     
-        try {
-          var result = await poolDat.query(queryMenuSubstitute);
-          console.log("SUBSTITUTE", result);
-          var substitute = result;
-        } 
-        catch (error) {
-            console.log('Server error');
-            console.log(queryMenuSubstitute);
-            res.status(500).send('Server error');
-        }
+        // try {
+        //   var result = await poolDat.query(queryMenuSubstitute);
+        //   console.log("SUBSTITUTE", result);
+        //   var substitute = result;
+        // } 
+        // catch (error) {
+        //     console.log('Server error');
+        //     console.log(queryMenuSubstitute);
+        //     res.status(500).send('Server error');
+        // }
 
         //*****************************AGENT*********************************************/
     
         let queryMenuAgent =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        DISTINCT(agent.hca_agent_agent_id),
+        agent.hca_agent_agent_name
+       
+        FROM
+        HcaAgent AS agent INNER JOIN MainCdr as cdr
+       
+        ON
+        cdr.cdr_type_hca_agent_id = agent.hca_agent_key_cdr
+       
+        WHERE
+        cdr.cdr_dates_calldate >= ${start_date}
+       
+        AND
+        cdr.cdr_dates_calldate <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -226,15 +244,19 @@ module.exports = function(InvMenu) {
     
         let queryMenuSchedule =                              
         `
-        SELECT 
-        hca_queue_client_id, 
-        hca_queue_client_name 
-        FROM 
-        HcaQueue 
-        WHERE 
-        1 
-        group by 
-        hca_queue_client_name
+        SELECT
+        DISTINCT(agent.hca_agent_schedule_id),
+        agent.hca_agent_schedule_name
+
+        FROM
+        HcaAgent AS agent INNER JOIN MainCdr as cdr   
+        ON
+        cdr.cdr_type_hca_agent_id = agent.hca_agent_key_cdr
+
+        WHERE
+        cdr.cdr_dates_calldate >= ${start_date}
+        AND
+        cdr.cdr_dates_calldate <= ${end_date}
 
         `;
         // console.log("SQL", availableSQL);
@@ -250,20 +272,92 @@ module.exports = function(InvMenu) {
             res.status(500).send('Server error');
         }
 
+
+        //*****************************AUXILIAR*********************************************/
+    
+        let queryMenuAuxiliar =                              
+        `
+        SELECT
+        DISTINCT(break.inv_break_id),
+        break.inv_break_name
+
+        FROM
+        MainAudit AS audit INNER JOIN InvBreak AS break  
+        ON
+        break.inv_break_id = audit.id_break 
+
+        WHERE
+        audit.audit_date >= ${start_date}
+        AND
+        audit.audit_date <= ${end_date}
+        AND
+        break.inv_break_productivity = 0
+
+        `;
+        // console.log("SQL", availableSQL);
+    
+        try {
+          var result = await poolDat.query(queryMenuAuxiliar);
+          console.log("AUXILIAR", result);
+          var auxiliar = result;
+        } 
+        catch (error) {
+            console.log('Server error');
+            console.log(queryMenuAuxiliar);
+            res.status(500).send('Server error');
+        }
+
+
+        //*****************************ASIGNATION*********************************************/
+    
+        let queryMenuAsignation =                              
+        `
+        SELECT
+        DISTINCT(break.inv_break_id),
+        break.inv_break_name
+
+        FROM
+        MainAudit AS audit INNER JOIN InvBreak AS break  
+        ON
+        break.inv_break_id = audit.id_break 
+
+        WHERE
+        audit.audit_date >= ${start_date}
+        AND
+        audit.audit_date <= ${end_date}
+        AND
+        break.inv_break_productivity = 1
+
+        `;
+        // console.log("SQL", availableSQL);
+    
+        try {
+          var result = await poolDat.query(queryMenuAsignation);
+          console.log("ASIGNATION", result);
+          var asignation = result;
+        } 
+        catch (error) {
+            console.log('Server error');
+            console.log(queryMenuAsignation);
+            res.status(500).send('Server error');
+        }
+
         //******************************RESULT*******************/
 
-        menu = {
+        menuOptions = {
           client,
           queue,
           service,
           campaign,
           supervisor,
-          substitute,
+          // substitute,
           agent,
-          schedule
+          schedule,
+          auxiliar,
+          asignation
         };
 
-        return menu;
+        return menuOptions;
       };
     
     

@@ -94,5 +94,9 @@
   "InvReport": {
     "dataSource": "mysqlProser",
     "public": true
+  },
+  "InvMenu": {
+    "dataSource": "mysqlProser",
+    "public": true
   }
 }

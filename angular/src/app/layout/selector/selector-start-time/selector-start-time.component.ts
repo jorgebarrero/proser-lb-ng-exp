@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-start-time',
@@ -9,31 +9,36 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorStartTimeComponent implements OnInit {
 
-  items = [
-    {inv_start_time_id: 1, inv_start_time_name: '07:00 am'},
-    {inv_start_time_id: 2, inv_start_time_name: '08:00 am'},
-    {inv_start_time_id: 3, inv_start_time_name: '09:00 am'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
-   }
 
-
-  ngOnInit() {
-    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.start_time
-  }
-
-  onChange(){
-    this.userSelection.start_time = this.selected
-    console.log('selected start_time', this.selected);
-    console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
-  }
 
 }
 
+
+  ngOnInit() {
+
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.start_time;
+
+    // console.log('menuOptions.start_time', this.menuOptions.start_time);
+
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.selected = this.userSelection.start_time;
+  }
+
+  onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.start_time = this.selected;
+    console.log('selected start_time', this.selected);
+    console.log('selected object',  this.userSelection);
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
+
+}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SelectorComponent } from './selector.component';
-import { SelectorIntroComponent } from './selector-intro/selector-intro.component';
+import { SelectorIntroComponent } from './components/selector-intro/selector-intro.component';
 import { SelectorStartDateComponent } from './selector-start-date/selector-start-date.component';
 
 const routes: Routes = [

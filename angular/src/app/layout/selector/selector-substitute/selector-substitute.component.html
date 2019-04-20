@@ -1,7 +1,8 @@
+<small>Suplente</small>
 <ng-select
   [items]="items"
   bindValue="inv_substitute_id"
-  bindLabel="inv_substitute_name" placeholder="Suplentes"
+  bindLabel="inv_supervisor_name" placeholder="Suplente"
   [dropdownPosition]="'auto'"
   [searchable]="true"
   (change)="onChange()"
@@ -11,5 +12,5 @@
   [(ngModel)]="selected">
 </ng-select>
 
-
-{{ selected | json }}
+<!--
+{{ selected | json }} -->

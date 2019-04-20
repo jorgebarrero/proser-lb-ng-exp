@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-supervisor',
@@ -9,30 +9,33 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorSupervisorComponent implements OnInit {
 
-  items = [
-    {inv_agent_id: 1, inv_agent_name: 'Jorge'},
-    {inv_agent_id: 2, inv_agent_name: 'Luis'},
-    {inv_agent_id: 3, inv_agent_name: 'Sara'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
-   }
+}
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.supervisor;
+
+    // console.log('menuOptions.supervisor', this.menuOptions.supervisor);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.agent
+    this.selected = this.userSelection.supervisor;
   }
 
-  onChange(){
-    this.userSelection.agent = this.selected
-    console.log('selected agent', this.selected);
+  onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.supervisor = this.selected;
+    console.log('selected supervisor', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }

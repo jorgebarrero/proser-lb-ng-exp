@@ -1,7 +1,8 @@
+<small>Supervisor</small>
 <ng-select
   [items]="items"
-  bindValue="inv_agent_id"
-  bindLabel="inv_agent_name" placeholder="Supervisores"
+  bindValue="inv_supervisor_id"
+  bindLabel="inv_supervisor_name" placeholder="Supervisores"
   [dropdownPosition]="'auto'"
   [searchable]="true"
   (change)="onChange()"
@@ -11,5 +12,5 @@
   [(ngModel)]="selected">
 </ng-select>
 
-
-{{ selected | json }}
+<!--
+{{ selected | json }} -->

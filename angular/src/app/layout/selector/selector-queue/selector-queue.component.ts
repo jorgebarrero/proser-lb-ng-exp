@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-queue',
@@ -9,14 +9,12 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorQueueComponent implements OnInit {
 
-  items = [
-    {inv_queue_id: 1, inv_queue_name: 'Cola 1'},
-    {inv_queue_id: 2, inv_queue_name: 'Cola 2'},
-    {inv_queue_id: 3, inv_queue_name: 'Cola 3'}
-  ];
 
-selected = [];
-userSelection = new UserSelection;
+  menuOptions;
+  items;
+
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
@@ -24,16 +22,21 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.queue;
+
+    // console.log('menuOptions.queue', this.menuOptions.queue);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.queue
+    this.selected = this.userSelection.queue;
   }
 
-  onChange(){
-    this.userSelection.queue = this.selected
+  onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.queue = this.selected;
     console.log('selected queue', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }
-

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-schedule',
@@ -8,14 +8,11 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorScheduleComponent implements OnInit {
 
-  items = [
-    {inv_schedule_id: 1, inv_schedule_name: 'Diurno'},
-    {inv_schedule_id: 2, inv_schedule_name: 'Mediodia'},
-    {inv_schedule_id: 3, inv_schedule_name: 'Nocturno'}
-  ];
+  menuOptions;
+  items;
 
-selected = [];
-userSelection = new UserSelection;
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
@@ -23,15 +20,21 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.schedule;
+
+    // console.log('menuOptions.schedule', this.menuOptions.schedule);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.schedule
+    this.selected = this.userSelection.schedule;
   }
 
-  onChange(){
-    this.userSelection.schedule = this.selected
+  onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.schedule = this.selected;
     console.log('selected schedule', this.selected);
     console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }

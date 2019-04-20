@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserSelection } from '../../../../shared/models/filter/Selection';
 
+import { MenuService } from '../../../../shared/services/filter/menu.service'
+
+
 @Component({
   selector: 'app-selector-intro',
   templateUrl: './selector-intro.component.html',
@@ -10,11 +13,18 @@ import { UserSelection } from '../../../../shared/models/filter/Selection';
 export class SelectorIntroComponent implements OnInit {
 
   menuOptions;
+  menuList;
 
-  constructor() {
-  }
+  constructor(
+    private menuService: MenuService) {
+      
+    }
+
 
   ngOnInit() {
+
+   
+   this.getMenuRecords(); 
 
     this.menuOptions = {
       title: 'Titulo original de la consulta',
@@ -102,6 +112,24 @@ export class SelectorIntroComponent implements OnInit {
     localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
 
   }
+
+
+  getMenuRecords() {
+    let query = {
+        "start_date": "'2019-01-25'",
+        "end_date": "'2019-01-26'"
+        };
+    this.menuService.getMenuOptionRecords(query)
+    .subscribe( data => {
+      data === undefined ? this.menuList = 0 : this.menuList = 1;
+      console.log('data', data);
+
+          }
+        );
+     console.log('menu service', this.menuList);
+  }
+
+
 
 
 }

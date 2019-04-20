@@ -157,6 +157,7 @@ async function updateMainAudit( ) {
         x.id_break = x.id_break? x.id_break: 0;
         x.audit_secs_duration = moment.duration(x.duration).asSeconds();
         x.audit_status = x.duration? `I`: `A`;
+        x.audit_hca_agent_id = moment(x.datetime_init, 'YYYY-MM-DD')  + 'agt'+ id_agent;
 
         return x;
       })

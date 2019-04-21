@@ -33,8 +33,8 @@ module.exports = function(InvMenu) {
     let queryMenuClient =
         `
         SELECT
-        DISTINCT(queue.hca_queue_client_id),
-        queue.hca_queue_client_name
+        DISTINCT(queue.hca_queue_client_id) as menu_client_id,
+        queue.hca_queue_client_name as menu_client_name
 
         FROM
         HcaQueue AS queue INNER JOIN MainCdr as cdr
@@ -58,7 +58,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuClient);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************QUEUE*********************************************/
@@ -66,8 +66,8 @@ module.exports = function(InvMenu) {
     let queryMenuQueue =
         `
         SELECT
-        DISTINCT(queue.hca_queue_queue_id),
-        queue.hca_queue_queue_name
+        DISTINCT(queue.hca_queue_queue_id) as menu_queue_id,
+        queue.hca_queue_queue_name as menu_queue_name
 
         FROM
         HcaQueue AS queue INNER JOIN MainCdr as cdr
@@ -89,7 +89,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuQueue);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************SERVICE*********************************************/
@@ -97,8 +97,8 @@ module.exports = function(InvMenu) {
     let queryMenuService =
         `
         SELECT
-        DISTINCT(queue.hca_queue_service_id),
-        queue.hca_queue_service_name
+        DISTINCT(queue.hca_queue_service_id) as menu_service_id,
+        queue.hca_queue_service_name as menu_service_name
 
         FROM
         HcaQueue AS queue INNER JOIN MainCdr as cdr
@@ -121,7 +121,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuService);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************CAMPAIGN*********************************************/
@@ -129,8 +129,8 @@ module.exports = function(InvMenu) {
     let queryMenuCampaign =
         `
         SELECT
-        inv_campaign_id,
-        inv_campaign_name
+        inv_campaign_id as menu_campaign_id,
+        inv_campaign_name as menu_campaign_name
 
         FROM
         InvCampaign
@@ -151,7 +151,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuCampaign);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************SUPERVISOR*********************************************/
@@ -159,8 +159,8 @@ module.exports = function(InvMenu) {
     let queryMenuSupervisor =
         `
         SELECT
-        DISTINCT(agent.hca_agent_supervisor_id),
-        agent.hca_agent_supervisor_name
+        DISTINCT(agent.hca_agent_supervisor_id) as menu_supervisor_id,
+        agent.hca_agent_supervisor_name as menu_supervisor_name
 
         FROM
         HcaAgent AS agent INNER JOIN MainCdr as cdr
@@ -183,7 +183,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuSupervisor);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************SUBSTITUTE*********************************************/
@@ -203,7 +203,7 @@ module.exports = function(InvMenu) {
     // catch (error) {
     //     console.log('Server error');
     //     console.log(queryMenuSubstitute);
-    //     res.status(500).send('Server error');
+    //     return error;
     // }
 
     //*****************************AGENT*********************************************/
@@ -211,8 +211,8 @@ module.exports = function(InvMenu) {
     let queryMenuAgent =
         `
         SELECT
-        DISTINCT(agent.hca_agent_agent_id),
-        agent.hca_agent_agent_name
+        DISTINCT(agent.hca_agent_agent_id) as menu_agent_id,
+        agent.hca_agent_agent_name as menu_agent_name
 
         FROM
         HcaAgent AS agent INNER JOIN MainCdr as cdr
@@ -237,7 +237,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuAgent);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //*****************************SCHEDULE*********************************************/
@@ -245,8 +245,8 @@ module.exports = function(InvMenu) {
     let queryMenuSchedule =
         `
         SELECT
-        DISTINCT(agent.hca_agent_schedule_id),
-        agent.hca_agent_schedule_name
+        DISTINCT(agent.hca_agent_schedule_id) as menu_schedule_id,
+        agent.hca_agent_schedule_name as menu_schedule_name
 
         FROM
         HcaAgent AS agent INNER JOIN MainCdr as cdr
@@ -269,7 +269,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuSchedule);
-      res.status(500).send('Server error');
+      return error;
     }
 
 
@@ -278,8 +278,8 @@ module.exports = function(InvMenu) {
     let queryMenuAuxiliar =
         `
         SELECT
-        DISTINCT(break.inv_break_id),
-        break.inv_break_name
+        DISTINCT(break.inv_break_id) as menu_break_id,
+        break.inv_break_name as menu_break_name
 
         FROM
         MainAudit AS audit INNER JOIN InvBreak AS break
@@ -304,7 +304,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuAuxiliar);
-      res.status(500).send('Server error');
+      return error;
     }
 
 
@@ -313,8 +313,8 @@ module.exports = function(InvMenu) {
     let queryMenuAsignation =
         `
         SELECT
-        DISTINCT(break.inv_break_id),
-        break.inv_break_name
+        DISTINCT(break.inv_break_id) as menu_asignation_id,
+        break.inv_break_name as menu_asignation_name
 
         FROM
         MainAudit AS audit INNER JOIN InvBreak AS break
@@ -339,7 +339,7 @@ module.exports = function(InvMenu) {
     catch (error) {
       console.log('Server error');
       console.log(queryMenuAsignation);
-      res.status(500).send('Server error');
+      return error;
     }
 
     //******************************RESULT*******************/

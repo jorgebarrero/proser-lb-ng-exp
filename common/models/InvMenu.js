@@ -278,8 +278,8 @@ module.exports = function(InvMenu) {
     let queryMenuAuxiliar =
         `
         SELECT
-        DISTINCT(break.inv_break_id) as menu_break_id,
-        break.inv_break_name as menu_break_name
+        DISTINCT(break.inv_break_id) as menu_auxiliar_id,
+        break.inv_break_name as menu_auxiliar_name
 
         FROM
         MainAudit AS audit INNER JOIN InvBreak AS break

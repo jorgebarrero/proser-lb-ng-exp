@@ -4,7 +4,7 @@ import { UserSelection } from '../../../../shared/models/filter/Selection';
 
 import { WeekDayPipe } from './../../../../shared/pipes/week-day.pipe';
 
-import {  createTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
+import { createFilterTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
 
 import { EntranteDiarioService } from 'src/app/shared/services/reports/entrante-diario.service';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
@@ -75,17 +75,16 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
     this.getList();
     this.userSelection.subtitle = createSubTitles(this.userSelection);
-    this.userSelection.title = createTitles(this.userSelection);
+    this.userSelection.title = createFilterTitles(this.userSelection);
   }
 
   ngOnDestroy() {
-    this.userSelection.title = createTitles(this.userSelection);
+    this.userSelection.title = createFilterTitles(this.userSelection);
     this.userSelection.subtitle = createSubTitles(this.userSelection);
   }
 
 
   getList() {
-
 
     this.entranteDiarioService.getList(this.userSelection)
 
@@ -145,5 +144,8 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
     this.excelService.exportAsExcelFile(rowData, name);
   }
+
+
+
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { UserSelection } from '../../../../shared/models/filter/Selection';
 
@@ -9,7 +9,7 @@ import { AlertModel } from 'src/app/shared/models/Alert';
 import { MenuOptions } from 'src/app/shared/models/filter/MenuOptions';
 import * as moment from 'moment';
 
-import {  createTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
+import {  createSubTitles, createFilterTitles } from 'src/app/shared/functions/titles-peticion';
 
 
 @Component({
@@ -17,7 +17,7 @@ import {  createTitles, createSubTitles } from 'src/app/shared/functions/titles-
   templateUrl: './selector-intro.component.html',
   styleUrls: ['./selector-intro.component.scss']
 })
-export class SelectorIntroComponent implements OnInit {
+export class SelectorIntroComponent implements OnInit, OnDestroy {
 
   menuOptions = new MenuOptions;
   menuList;
@@ -26,37 +26,49 @@ export class SelectorIntroComponent implements OnInit {
   alertMessage = new AlertModel;
   userSelection = new UserSelection;
 
+  fieldUpdated;
+
   constructor(
     private menuService: MenuService,
     private alertService: AlertService,
     private router: Router
     ) {
 
+      this.alertMessage = {
+        alertTitle: 'Conectando con el servidor',
+        alertText: 'Tenga paciencia que la conexión está lenta.',
+        alertShow: true,
+        alertClass: 'alert alert-success alert-dismissible fade show',
+      };
+
     }
 
 
   ngOnInit() {
 
-    this.alertMessage = {
-      alertTitle: 'Conectando con el servidor',
-      alertText: 'Tenga paciencia que la conexión está lenta.',
-      alertShow: true,
-      alertClass: 'alert alert-success alert-dismissible fade show',
-    };
-
   this.onDateChange();
 
    this.getMenuRecords();
 
-    this.userSelection.title = 'Llamadas entrantes';
-    this.userSelection.subtitle = createSubTitles(this.userSelection);
+  this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+  this.userSelection.title = 'Llamadas entrantes';
+  this.userSelection.subtitle = createSubTitles(this.userSelection);
+  this.userSelection.filterTitle = createFilterTitles(this.userSelection);
+  localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
 
-    // localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
 
   }
 
+  ngOnDestroy() {
+    // localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
 
-  async getMenuRecords() {
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
+
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
+
+
+  getMenuRecords() {
     const query = this.onDateChange();
 
     this.menuService.getMenuOptionRecords(query)
@@ -86,11 +98,9 @@ export class SelectorIntroComponent implements OnInit {
               alertClass: 'alert alert-danger alert-dismissible fade show',
             }
 
-
             ;
           }
         );
-
   }
 
 
@@ -117,7 +127,4 @@ export class SelectorIntroComponent implements OnInit {
     return newDate;
   }
 
-  // onReport(){
-  //   this.router.navigate(['/llamadas entrantes']);
-  // }
 }

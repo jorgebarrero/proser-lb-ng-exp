@@ -7,15 +7,14 @@
 
   <hr>
 
-  <section class="mycontainer" *ngIf="rows">
+  <section class="mycontainer" *ngIf="auxiliar">
 
   <!-- -------------------------------------------------------------------------- -->
 
   <div class="subtiulo">
     <div>
-      <h5>{{userSelection.title}}</h5>
-      <h6>Fecha: {{userSelection.start_date}} al {{userSelection.end_date}} - Desde: {{userSelection.start_time}} - Hasta: {{userSelection.end_time}}</h6>
-      <h6>{{ userSelection.subtitles }}</h6>
+      <p>{{ userSelection.title }}</p>
+      <p>{{ userSelection.subtitle }}</p>
     </div>
     <div class="botonera">
         <button (click)="toogleGraph()" class="btn btn-outline-secondary ">Gráfico</button>

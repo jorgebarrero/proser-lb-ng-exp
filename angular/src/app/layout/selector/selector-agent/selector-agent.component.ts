@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { UserSelection } from '../../../shared/models/filter/Selection';
+
+
 
 @Component({
   selector: 'app-selector-agent',
@@ -8,6 +10,7 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
   styleUrls: ['./selector-agent.component.scss']
 })
 export class SelectorAgentComponent implements OnInit {
+
 
   menuOptions;
   items;
@@ -34,8 +37,8 @@ export class SelectorAgentComponent implements OnInit {
   onChange() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.agent = this.selected;
-    console.log('selected agent', this.selected);
-    console.log('selected object',  this.userSelection);
+    // console.log('selected agent', this.selected);
+    // console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 

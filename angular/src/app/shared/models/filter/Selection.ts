@@ -2,6 +2,7 @@ export class UserSelection {
 
   title: any;
   subtitle: any;
+  filterTitle: any;
 
   start_date: any;
   end_date: any;
@@ -29,7 +30,7 @@ export class UserSelection {
   orderBy: any;
   limitBy: any;
 
-  lastMinutes: any;
+  last_minutes: any;
 
 constructor(
   // seleccion_title,

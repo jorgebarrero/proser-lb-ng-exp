@@ -17,6 +17,9 @@
       <div class="selector-subtitle">
         <h3>{{userSelection.subtitle}}</h3>
       </div>
+      <div class="selector-subtitle">
+          <h3>{{userSelection.filterTitle}}</h3>
+        </div>
     </section>
 
     <div class="selector-grid-5columns selector-bg">
@@ -60,3 +63,9 @@
 </main>
 
 <button (click)="onDateChange()">Date</button>
+
+<button (click)="onIdle()">Update</button>
+
+ {{ userSelection | json }}
+
+ {{ userSelection.subtitle | json }}

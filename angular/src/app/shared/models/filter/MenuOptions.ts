@@ -1,6 +1,7 @@
 export class MenuOptions {
   title;
   subtitle;
+  filterTitle;
   groupBy;
   orderBy;
   limitBy;
@@ -23,6 +24,7 @@ export class MenuOptions {
   auxiliar;
   asignation;
   login;
+  last_minutes;
 
   constructor() {
     this.title = 'Titulo original de la consulta';
@@ -63,19 +65,20 @@ export class Lines {
 
 export class Interval {
   interval = [
-      {menu_interval_id: 1, menu_interval_name: '1 min' },
-      {menu_interval_id: 5, menu_interval_name: '5 min' },
-      {menu_interval_id: 10, menu_interval_name: '10 min' },
-      {menu_interval_id: 15, menu_interval_name: '15 min' },
-      {menu_interval_id: 20, menu_interval_name: '20 min' },
-      {menu_interval_id: 25, menu_interval_name: '25 min' },
-      {menu_interval_id: 30, menu_interval_name: '30 min' },
-      {menu_interval_id: 35, menu_interval_name: '35 min' },
-      {menu_interval_id: 40, menu_interval_name: '40 min' },
-      {menu_interval_id: 45, menu_interval_name: '45 min' },
-      {menu_interval_id: 50, menu_interval_name: '50 min' },
-      {menu_interval_id: 55, menu_interval_name: '55 min' },
-      {menu_interval_id: 60, menu_interval_name: '60 min' },
+      {menu_interval_id: 1, menu_interval_name: '1 min', value: '1' },
+      {menu_interval_id: 5, menu_interval_name: '5 min', value: '5'},
+      {menu_interval_id: 10, menu_interval_name: '10 min', value: '10'},
+      {menu_interval_id: 15, menu_interval_name: '15 min', value: '15'},
+      {menu_interval_id: 20, menu_interval_name: '20 min', value: '20'},
+      {menu_interval_id: 25, menu_interval_name: '25 min', value: '25'},
+      {menu_interval_id: 30, menu_interval_name: '30 min', value: '30'},
+      {menu_interval_id: 35, menu_interval_name: '35 min', value: '35'},
+      {menu_interval_id: 40, menu_interval_name: '40 min', value: '40'},
+      {menu_interval_id: 45, menu_interval_name: '45 min', value: '41'},
+      {menu_interval_id: 50, menu_interval_name: '50 min', value: '50'},
+      {menu_interval_id: 55, menu_interval_name: '55 min', value: '55'},
+      {menu_interval_id: 60, menu_interval_name: '60 min', value: '60'},
+      {menu_interval_id: 120, menu_interval_name: '120 min', value: '120'},
   ];
 }
 
@@ -92,7 +95,6 @@ export class Hour {
 
   hour = [
     {menu_hour_id: 0, menu_hour_name: '00:00:00'},
-
     {menu_hour_id: 1, menu_hour_name: '01:00:00'},
     {menu_hour_id: 2, menu_hour_name: '02:00:00'},
     {menu_hour_id: 3, menu_hour_name:  '03:00:00'},
@@ -105,7 +107,6 @@ export class Hour {
     {menu_hour_id: 10, menu_hour_name:  '10:00:00'},
     {menu_hour_id: 11, menu_hour_name:  '11:00:00'},
     {menu_hour_id: 12, menu_hour_name:  '12:00:00'},
-
     {menu_hour_id: 13, menu_hour_name: '13:00:00'},
     {menu_hour_id: 14, menu_hour_name:  '14:00:00'},
     {menu_hour_id: 15, menu_hour_name:  '15:00:00'},

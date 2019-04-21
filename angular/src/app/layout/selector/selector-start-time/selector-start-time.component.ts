@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { UserSelection } from '../../../shared/models/filter/Selection';
 
@@ -36,8 +36,8 @@ export class SelectorStartTimeComponent implements OnInit {
   onChange() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     this.userSelection.start_time = this.selected;
-    console.log('selected start_time', this.selected);
-    console.log('selected object',  this.userSelection);
+    // console.log('selected start_time', this.selected);
+    // console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 

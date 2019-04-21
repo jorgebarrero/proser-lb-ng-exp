@@ -33,7 +33,6 @@ import { SelectorIntervalComponent } from './selector-interval/selector-interval
 import { SelectorLinesComponent } from './selector-lines/selector-lines.component';
 
 import { SelectorAgentComponent } from './selector-agent/selector-agent.component';
-import { SelectorBreakComponent } from './selector-break/selector-break.component';
 import { SelectorCampaignComponent } from './selector-campaign/selector-campaign.component';
 import { SelectorClientComponent } from './selector-client/selector-client.component';
 import { SelectorQueueComponent } from './selector-queue/selector-queue.component';
@@ -49,6 +48,10 @@ import { SelectorLimitComponent } from './selector-limit/selector-limit.componen
 
 import { SelectorSubstituteComponent } from './selector-substitute/selector-substitute.component';
 import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
+import { SelectorAsignationComponent } from './selector-asignation/selector-asignation.component';
+import { SelectorLoginComponent } from './selector-login/selector-login.component';
+import { SelectorAuxiliarComponent } from './selector-auxiliar/selector-auxiliar.component';
+
 
 
 
@@ -59,7 +62,6 @@ import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
     SelectorStartDateComponent,
     SelectorHeaderComponent,
     SelectorAgentComponent,
-    SelectorBreakComponent,
     SelectorCampaignComponent,
     SelectorClientComponent,
     SelectorQueueComponent,
@@ -77,7 +79,10 @@ import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
     SelectorStartTimeComponent,
     SelectorIntervalComponent,
     SelectorLinesComponent,
-    SelectorSubstituteComponent
+    SelectorSubstituteComponent,
+    SelectorAsignationComponent,
+    SelectorLoginComponent,
+    SelectorAuxiliarComponent,
   ],
   imports: [
     CommonModule,

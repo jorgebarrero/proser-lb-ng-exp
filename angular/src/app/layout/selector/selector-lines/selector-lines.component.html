@@ -1,13 +1,13 @@
 <small>Líneas del reporte</small>
 <ng-select
   [items]="items"
-  bindValue="menu_lines_id"
+
   bindLabel="menu_lines_name" placeholder="Líneas"
   [dropdownPosition]="'auto'"
   [searchable]="true"
   (change)="onChange()"
   [clearable]="true"
-  [multiple]="true"
+  [multiple]="false"
   hideSelected="true"
   [(ngModel)]="selected">
 </ng-select>

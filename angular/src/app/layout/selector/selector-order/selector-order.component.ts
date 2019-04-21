@@ -10,9 +10,9 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 export class SelectorOrderComponent implements OnInit {
 
   items = [
-    {inv_order_id: 1, inv_order_name: 'Orden 1'},
-    {inv_order_id: 2, inv_order_name: 'Orden 2'},
-    {inv_order_id: 3, inv_order_name: 'Orden 3'}
+    {inv_orderBy_id: 1, inv_orderBy_name: 'Orden 1'},
+    {inv_orderBy_id: 2, inv_orderBy_name: 'Orden 2'},
+    {inv_orderBy_id: 3, inv_orderBy_name: 'Orden 3'}
   ];
 
 selected = [];
@@ -25,13 +25,13 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.order;
+    this.selected = this.userSelection.orderBy;
   }
 
   onChange() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.userSelection.order = this.selected;
-    console.log('selected order', this.selected);
+    this.userSelection.orderBy = this.selected;
+    console.log('selected orderBy', this.selected);
     console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }

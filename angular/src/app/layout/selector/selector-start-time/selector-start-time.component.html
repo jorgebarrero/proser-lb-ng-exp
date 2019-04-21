@@ -1,14 +1,13 @@
 <small>Hora de inicio</small>
 <ng-select
-  class="custom"
   [items]="items"
-  bindValue="menu_start_time_id"
-  bindLabel="menu_start_time_name" placeholder="Hora Inicial"
+  bindValue="menu_hour_name"
+  bindLabel="menu_hour_name" placeholder="Hora Inicial"
   [dropdownPosition]="'auto'"
   [searchable]="true"
   (change)="onChange()"
   [clearable]="true"
-  [multiple]="true"
+  [multiple]="false"
   hideSelected="true"
   [(ngModel)]="selected">
 </ng-select>

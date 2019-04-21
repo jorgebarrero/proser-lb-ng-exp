@@ -13,7 +13,9 @@ export class UserSelection {
   lines: any;
 
   agent: any; // AgentSelection[];
-  break: any; // BreakSelection[];
+  auxiliar: any; // BreakSelection[];
+  login: any;
+  asignation: any;
   campaign: any; // CampaignSelection[];
   client: any; // ClientSelection[];
   queue: any; // QueueSelection[];
@@ -23,9 +25,9 @@ export class UserSelection {
   supervisor: any; // SupervisorSelection;
   substitute: any;
 
-  group: any;
-  order: any;
-  limit: any;
+  groupBy: any;
+  orderBy: any;
+  limitBy: any;
 
 constructor(
   // seleccion_title,

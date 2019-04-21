@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { UserSelection } from '../../../shared/models/filter/Selection';
-
 @Component({
-  selector: 'app-selector-break',
-  templateUrl: './selector-break.component.html',
-  styleUrls: ['./selector-break.component.scss']
+  selector: 'app-selector-auxiliar',
+  templateUrl: './selector-auxiliar.component.html',
+  styleUrls: ['./selector-auxiliar.component.scss']
 })
-export class SelectorBreakComponent implements OnInit {
-
+export class SelectorAuxiliarComponent implements OnInit {
 
 
   menuOptions;
@@ -24,18 +21,18 @@ export class SelectorBreakComponent implements OnInit {
 
   ngOnInit() {
     this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
-    this.items = this.menuOptions.break;
+    this.items = this.menuOptions.auxiliar;
 
-    // console.log('menuOptions.break', this.menuOptions.break);
+    // console.log('menuOptions.auxiliar', this.menuOptions.auxiliar);
 
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.break;
+    this.selected = this.userSelection.auxiliar;
   }
 
   onChange() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.userSelection.break = this.selected;
-    console.log('selected break', this.selected);
+    this.userSelection.auxiliar = this.selected;
+    console.log('selected auxiliar', this.selected);
     console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }

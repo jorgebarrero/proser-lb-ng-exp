@@ -10,9 +10,9 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 export class SelectorLimitComponent implements OnInit {
 
   items = [
-    {inv_limit_id: 1, inv_limit_name: 'límite 1'},
-    {inv_limit_id: 2, inv_limit_name: 'límite 2'},
-    {inv_limit_id: 3, inv_limit_name: 'límite 3'}
+    {inv_limitBy_id: 1, inv_limitBy_name: 'límite 1'},
+    {inv_limitBy_id: 2, inv_limitBy_name: 'límite 2'},
+    {inv_limitBy_id: 3, inv_limitBy_name: 'límite 3'}
   ];
 
 selected = [];
@@ -25,13 +25,13 @@ userSelection = new UserSelection;
 
   ngOnInit() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.limit;
+    this.selected = this.userSelection.limitBy;
   }
 
   onChange() {
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.userSelection.limit = this.selected;
-    console.log('selected limit', this.selected);
+    this.userSelection.limitBy = this.selected;
+    console.log('selected limitBy', this.selected);
     console.log('selected object',  this.userSelection);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }

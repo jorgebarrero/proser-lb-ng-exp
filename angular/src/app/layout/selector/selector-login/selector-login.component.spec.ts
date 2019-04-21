@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectorBreakComponent } from './selector-break.component';
+import { SelectorLoginComponent } from './selector-login.component';
 
-describe('SelectorBreakComponent', () => {
-  let component: SelectorBreakComponent;
-  let fixture: ComponentFixture<SelectorBreakComponent>;
+describe('SelectorLoginComponent', () => {
+  let component: SelectorLoginComponent;
+  let fixture: ComponentFixture<SelectorLoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectorBreakComponent ]
+      declarations: [ SelectorLoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SelectorBreakComponent);
+    fixture = TestBed.createComponent(SelectorLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

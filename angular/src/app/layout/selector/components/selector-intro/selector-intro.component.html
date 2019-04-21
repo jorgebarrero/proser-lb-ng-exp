@@ -4,14 +4,18 @@
   <app-alert [alertMessage]="alertMessage"></app-alert>
 </div>
 
+
 <main id="selector" class="selector" *ngIf="auxiliar">
+
+    <button routerLink="/selector/llamadas-entrantes" class="btn btn-success">Llamadas entrantes</button>
+
   <section class="selector-row">
     <section id="selector-title">
       <div class="selector-title">
-        <h1>{{menuOptions.title}}</h1>
+        <h1>{{userSelection.title}}</h1>
       </div>
       <div class="selector-subtitle">
-        <h3>{{menuOptions.subtitle}}</h3>
+        <h3>{{userSelection.subtitle}}</h3>
       </div>
     </section>
 
@@ -54,3 +58,5 @@
     </div>
   </section>
 </main>
+
+<button (click)="onDateChange()">Date</button>

@@ -1,0 +1,61 @@
+<div *ngIf="!auxiliar">
+    <h1>Alerta</h1>
+    {{ HttpErrorResponse }}
+    <app-alert [alertMessage]="alertMessage"></app-alert>
+  </div>
+
+
+  <hr>
+
+  <section class="mycontainer" *ngIf="rows">
+
+  <!-- -------------------------------------------------------------------------- -->
+
+  <div class="subtiulo">
+    <div>
+      <h5>{{userSelection.title}}</h5>
+      <h6>Fecha: {{userSelection.start_date}} al {{userSelection.end_date}} - Desde: {{userSelection.start_time}} - Hasta: {{userSelection.end_time}}</h6>
+      <h6>{{ userSelection.subtitles }}</h6>
+    </div>
+    <div class="botonera">
+        <button (click)="toogleGraph()" class="btn btn-outline-secondary ">Gráfico</button>
+
+      <button
+      (click)="exportToExcel(rows, 'entrante-diario')"
+      class="btn btn-outline-secondary ">Excel</button>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="rows && show_table" >
+    <app-ed-list-table
+    [rows]="rows"
+    [rows_all]="rows_all"
+    [userSelection]="userSelection"
+
+    ></app-ed-list-table>
+  </div> -->
+
+
+  <!-- <div *ngIf="rows && show_graph">
+      <div >
+      <app-ed-graph
+      [rows]="rows"
+      [rows_all]="rows_all"
+      [userSelection]="userSelection"
+      ></app-ed-graph>
+    </div>
+  </div> -->
+
+
+
+  <p></p>
+  </section>
+
+
+  <section *ngIf="1">
+    <ngx-json-viewer [json]="rows" [expanded]="false"></ngx-json-viewer>
+    </section>
+
+
+    <h1>Selection</h1>
+    {{userSelection | json}}

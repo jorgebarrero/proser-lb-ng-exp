@@ -7,7 +7,9 @@ import { Router } from '@angular/router';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { AlertModel } from 'src/app/shared/models/Alert';
 import { MenuOptions } from 'src/app/shared/models/filter/MenuOptions';
+import * as moment from 'moment';
 
+import {  createTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class SelectorIntroComponent implements OnInit {
   example;
   auxiliar = null;
   alertMessage = new AlertModel;
+  userSelection = new UserSelection;
 
   constructor(
     private menuService: MenuService,
@@ -41,7 +44,12 @@ export class SelectorIntroComponent implements OnInit {
       alertClass: 'alert alert-success alert-dismissible fade show',
     };
 
+  this.onDateChange();
+
    this.getMenuRecords();
+
+    this.userSelection.title = 'Llamadas entrantes';
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
 
     // localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
 
@@ -49,36 +57,27 @@ export class SelectorIntroComponent implements OnInit {
 
 
   async getMenuRecords() {
-    const query = {
-        'start_date': '\'2019-04-25\'',
-        'end_date': '\'2019-04-26\''
-        };
+    const query = this.onDateChange();
 
     this.menuService.getMenuOptionRecords(query)
     .subscribe( data => {
-      console.log('Hola', data);
-
-      const newData = data;
-      // const newData = JSON.parse(data);
-      console.log('NEW DATA', newData);
-
-      this.menuOptions.client = newData.client;
-      this.menuOptions.queue = newData.queue;
-      this.menuOptions.service = newData.service;
-      this.menuOptions.campaign = newData.campaign;
-      this.menuOptions.supervisor = newData.supervisor;
-      this.menuOptions.agent = newData.agent;
-      this.menuOptions.schedule = newData.schedule;
-      this.menuOptions.auxiliar = newData.auxiliar;
-      this.menuOptions.asignation = newData.asignation;
+      if (data) {
+      this.menuOptions.client = data.client;
+      this.menuOptions.queue = data.queue;
+      this.menuOptions.service = data.service;
+      this.menuOptions.campaign = data.campaign;
+      this.menuOptions.supervisor = data.supervisor;
+      this.menuOptions.agent = data.agent;
+      this.menuOptions.schedule = data.schedule;
+      this.menuOptions.auxiliar = data.auxiliar;
+      this.menuOptions.asignation = data.asignation;
 
       localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
-      console.log('MENU OPTIONS', this.menuOptions);
-      if (data) {
+      // console.log('MENU OPTIONS', this.menuOptions);
         this.auxiliar = true;
       }
-          },
-          error => {
+    },
+     error => {
             console.log('upps, error ');
             this.alertMessage = {
               alertTitle: 'Error del servidor',
@@ -95,6 +94,30 @@ export class SelectorIntroComponent implements OnInit {
   }
 
 
+  onDateChange() {
+    const userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    const today = moment(new Date).format( 'YYYY-MM-DD');
+    let newDate;
 
+    if ( userSelection.start_date && userSelection.end_date) {
 
+    newDate = {
+        'start_date': `'${userSelection.start_date}'`,
+        'end_date': `'${userSelection.end_date}'`,
+    };
+    } else {
+      newDate = {
+        'start_date': `'${today}'`,
+        'end_date': `'${today}'`,
+    };
+    userSelection.start_date = today;
+    userSelection.end_date = today;
+    }
+    // console.log('newDate', newDate);
+    return newDate;
+  }
+
+  // onReport(){
+  //   this.router.navigate(['/llamadas entrantes']);
+  // }
 }

@@ -29,6 +29,8 @@ export class UserSelection {
   orderBy: any;
   limitBy: any;
 
+  lastMinutes: any;
+
 constructor(
   // seleccion_title,
   // selection_subtitle,
@@ -54,7 +56,7 @@ constructor(
   // project,
   ) {
 
-    this.agent = []; // new AgentSelection;
+  //  this.agent = []; // new AgentSelection;
   }
 }
 

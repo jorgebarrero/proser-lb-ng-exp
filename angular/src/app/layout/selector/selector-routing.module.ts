@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SelectorComponent } from './selector.component';
 import { SelectorIntroComponent } from './components/selector-intro/selector-intro.component';
 import { SelectorStartDateComponent } from './selector-start-date/selector-start-date.component';
+import { LlamadasEntrantesComponent } from './components/llamadas-entrantes/llamadas-entrantes.component';
 
 const routes: Routes = [
 
@@ -14,6 +15,7 @@ const routes: Routes = [
 
       { path: 'intro', component: SelectorIntroComponent },
       { path: 'start-date', component: SelectorStartDateComponent },
+      { path: 'llamadas-entrantes', component: LlamadasEntrantesComponent },
  ]
   },
 ];

@@ -1,19 +1,23 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { SelectionConfig } from './../../../../shared/models';
+import { UserSelection } from '../../../../shared/models/filter/Selection';
 
 import { WeekDayPipe } from './../../../../shared/pipes/week-day.pipe';
 
-import {  createTitles, createSubTitles } from './../../../../shared/functions';
+import {  createTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
 
-import { EntranteDiarioService, ExcelService } from './../../../../shared/services';
+import { EntranteDiarioService } from 'src/app/shared/services/reports/entrante-diario.service';
+import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
+import { AlertModel } from 'src/app/shared/models/Alert';
+
+
 
 @Component({
-  selector: 'app-entrante-diario-list',
-  templateUrl: './entrante-diario-list.component.html',
-  styleUrls: ['./entrante-diario-list.component.scss']
+  selector: 'app-llamadas-entrantes',
+  templateUrl: './llamadas-entrantes.component.html',
+  styleUrls: ['./llamadas-entrantes.component.scss']
 })
-export class EntranteDiarioListComponent implements OnInit, OnDestroy {
+export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
   currentUser;
 
@@ -21,10 +25,10 @@ export class EntranteDiarioListComponent implements OnInit, OnDestroy {
   rows_all: any;
 
 
-  message: string = 'Conectando con el servidor';
+  message = 'Conectando con el servidor';
 
     // Selection values
-    selection; // = new Selection;
+    userSelection; // = new Selection;
 
     proser_store;
 
@@ -36,49 +40,57 @@ export class EntranteDiarioListComponent implements OnInit, OnDestroy {
     show_graph;
     draw;
 
+    alertMessage = new AlertModel;
+
   constructor(
     private entranteDiarioService: EntranteDiarioService,
     private excelService: ExcelService
     ) {
 
-    this.selection = new SelectionConfig;
+    this.userSelection = new UserSelection;
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.proser_store =  JSON.parse(localStorage.getItem('proser_store'));
 
-    this.proser_store = JSON.parse(localStorage.getItem('proser_store'));
 
-    let storedSelection = this.proser_store.entrante_diario.selection;
+    // const storedSelection = this.proser_store.entrante_diario.userSelection;
 
-    if (storedSelection) {
-      this.selection = this.proser_store.entrante_diario.selection;
-    }
+    // if (storedSelection) {
+    //   this.userSelection = this.proser_store.entrante_diario.userSelection;
+    // }
 
     this.show_table = true;
     this.show_graph = false;
+
+    this.rows = {
+      data: 1,
+      newData: 2
+    };
   }
 
   ngOnInit() {
 
-    if (this.proser_store.entrante_diario.selection) {
+    if (this.proser_store.entrante_diario.userSelection) {
      //  console.log('NO HAY SELECCION');
     }
 
     this.getList();
-    this.selection.subtitles = createSubTitles(this.selection);
-    this.selection.titles = createTitles(this.selection);
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
+    this.userSelection.title = createTitles(this.userSelection);
   }
 
   ngOnDestroy() {
-    this.selection.titles = createTitles(this.selection);
-    this.selection.subtitles = createSubTitles(this.selection);
+    this.userSelection.title = createTitles(this.userSelection);
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
   }
 
 
   getList() {
 
 
-    this.entranteDiarioService.getList(this.selection)
+    this.entranteDiarioService.getList(this.userSelection)
 
     .subscribe(res => {
-      let temp = JSON.parse(JSON.stringify(res));
+      const temp = JSON.parse(JSON.stringify(res));
       console.log('ROWS', temp);
 
       this.rows = temp
@@ -105,7 +117,7 @@ export class EntranteDiarioListComponent implements OnInit, OnDestroy {
 
   exportToExcel(data, name) {
 
-    let rowData = data
+    const rowData = data
     .map( x => {
       return {
         fecha_inicio: x.calc.fecha_inicio,

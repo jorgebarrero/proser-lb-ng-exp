@@ -1,154 +1,153 @@
-// import {
-//   SelectionConfig
-// } from './../models';
+import {
+  UserSelection
+} from './../models/filter/Selection';
 
-// export function createTitles(selection: SelectionConfig) {
+export function createTitles(userSelection: UserSelection) {
 
-//   let resultado: any = [];
-
-
-//   if (selection.clientes) {
-//     if (selection.clientes.length > 0) {
-//       let sqlClientes = selection.clientes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlClientes.join(' - ');
-//       resultado.push(`CLIENTES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.colas) {
-//     if (selection.colas.length > 0) {
-//       let sqlColas = selection.colas
-//         .map(x => {
-//           return `${x.id}`;
-//         });
-//       let temp = sqlColas.join(' - ');
-//       resultado.push(`COLAS: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.servicios) {
-//     if (selection.servicios.length > 0) {
-//       let sqlServicios = selection.servicios
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlServicios.join(' - ');
-//       resultado.push(`SERVICIOS: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.campanas) {
-//     if (selection.campanas.length > 0) {
-//       let sqlCampanas = selection.campanas
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlCampanas.join(' - ');
-//       resultado.push(`CAMPAÑAS: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.supervisores) {
-//     if (selection.supervisores.length > 0) {
-//       let sqlSupervisores = selection.supervisores
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlSupervisores.join(' OR ');
-//       resultado.push(`SUPERVISORES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.suplentes) {
-//     if (selection.suplentes.length > 0) {
-//       let sqlSuplentes = selection.suplentes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlSuplentes.join(' OR ');
-//       resultado.push(`SUPLENTES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.agentes) {
-//     if (selection.agentes.length > 0) {
-//       let sqlAgentes = selection.agentes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlAgentes.join(' OR ');
-//       resultado.push(`AGENTES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.horarios) {
-//     if (selection.horarios.length > 0) {
-//       let sqlHorarios = selection.horarios
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlHorarios.join(' OR ');
-//       resultado.push(`HORARIOS: [${temp}]`);
-//     }
-//   }
-
-//   let filtered_resultado = resultado
-//     .filter(x => {
-//       let lastChars = x.substr(x.length - 2);
-//       return lastChars !== '[]';
-//     });
+  const resultado: any = [];
 
 
-//   let filtered_join = filtered_resultado.join(' & ');
-//   let resultado_string = filtered_join;
+  if (userSelection.client) {
+    if (userSelection.client.length > 0) {
+      const sqlClientes = userSelection.client
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlClientes.join(' - ');
+      resultado.push(`CLIENTES: [${temp}]`);
+    }
+  }
 
-//   return resultado_string;
-// }
+  if (userSelection.queue) {
+    if (userSelection.queue.length > 0) {
+      const sqlColas = userSelection.queue
+        .map(x => {
+          return `${x.id}`;
+        });
+      const temp = sqlColas.join(' - ');
+      resultado.push(`COLAS: [${temp}]`);
+    }
+  }
+
+  if (userSelection.service) {
+    if (userSelection.service.length > 0) {
+      const sqlServicios = userSelection.service
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlServicios.join(' - ');
+      resultado.push(`SERVICIOS: [${temp}]`);
+    }
+  }
+
+  if (userSelection.campaign) {
+    if (userSelection.campaign.length > 0) {
+      const sqlCampanas = userSelection.campaign
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlCampanas.join(' - ');
+      resultado.push(`CAMPAÑAS: [${temp}]`);
+    }
+  }
+
+  if (userSelection.supervisor) {
+    if (userSelection.supervisor.length > 0) {
+      const sqlSupervisores = userSelection.supervisor
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlSupervisores.join(' OR ');
+      resultado.push(`SUPERVISORES: [${temp}]`);
+    }
+  }
+
+  if (userSelection.substitute) {
+    if (userSelection.substitute.length > 0) {
+      const sqlSuplentes = userSelection.substitute
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlSuplentes.join(' OR ');
+      resultado.push(`SUPLENTES: [${temp}]`);
+    }
+  }
+
+  if (userSelection.agent) {
+    if (userSelection.agent.length > 0) {
+      const sqlAgentes = userSelection.agent
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlAgentes.join(' OR ');
+      resultado.push(`AGENTES: [${temp}]`);
+    }
+  }
+
+  if (userSelection.schedule) {
+    if (userSelection.schedule.length > 0) {
+      const sqlHorarios = userSelection.schedule
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlHorarios.join(' OR ');
+      resultado.push(`HORARIOS: [${temp}]`);
+    }
+  }
+
+  const filtered_resultado = resultado
+    .filter(x => {
+      const lastChars = x.substr(x.length - 2);
+      return lastChars !== '[]';
+    });
 
 
+  const filtered_join = filtered_resultado.join(' & ');
+  const resultado_string = filtered_join;
 
-
-// export function createSubTitles(selection: SelectionConfig) {
-
-//   let resultado = [];
-
-//   if (selection) {
-//     //  console.log('selection.minutos_intervalo.name', selection.minutos_intervalo);
-
-//     selection.hora_inicio !== undefined ?
-//       resultado.push(` Hora inicio: ${selection.hora_inicio.name} `) : returnWhite();
-//     selection.hora_final !== undefined ?
-//       resultado.push(` Hora final: ${selection.hora_final.name} `) : returnWhite();
-//     selection.ultimos_minutos !== undefined ?
-//       resultado.push(` Ultimos minutos: ${selection.ultimos_minutos.name} `) : returnWhite();
-//   }
+  return resultado_string;
+}
 
 
 
-//   return resultado;
-// }
+export function createSubTitles(userSelection: UserSelection) {
+
+  const resultado = [];
+
+  if (userSelection) {
+    //  console.log('userSelection.interval.name', userSelection.interval);
+
+    userSelection.start_date !== undefined ?
+      resultado.push(` Hora inicio: ${userSelection.start_date.name} `) : returnWhite();
+    userSelection.end_date !== undefined ?
+      resultado.push(` Hora final: ${userSelection.end_date.name} `) : returnWhite();
+    userSelection.lastMinutes !== undefined ?
+      resultado.push(` Ultimos minutos: ${userSelection.lastMinutes.name} `) : returnWhite();
+  }
+
+
+
+  return resultado;
+}
 
 
 
 
-// export function createIntervalTitles(selection: SelectionConfig, subtitles) {
+export function createIntervalTitles(userSelection: UserSelection, subtitles) {
 
-//   let resultado = [subtitles];
+  const resultado = [subtitles];
 
-//   if (selection.minutos_intervalo) {
-//     resultado.push(` Minutos intervalo: ${selection.minutos_intervalo.name} `);
-//   } else {
-//     returnWhite();
-//   }
+  if (userSelection.interval) {
+    resultado.push(` Minutos intervalo: ${userSelection.interval.name} `);
+  } else {
+    returnWhite();
+  }
 
-//   return resultado;
-// }
+  return resultado;
+}
 
 
 
-// function returnWhite() {
-//   return '';
-// }
+function returnWhite() {
+  return '';
+}

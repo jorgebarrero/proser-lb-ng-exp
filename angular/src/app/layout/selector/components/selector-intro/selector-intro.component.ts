@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserSelection } from '../../../../shared/models/filter/Selection';
 
 import { MenuService } from 'src/app/shared/services/filter/menu.service';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { AlertModel } from 'src/app/shared/models/Alert';
 
 
 @Component({
@@ -15,10 +18,14 @@ export class SelectorIntroComponent implements OnInit {
   menuOptions;
   menuList;
   example;
-  auxiliar = undefined;
+  auxiliar = null;
+  alertMessage = new AlertModel;
 
   constructor(
-    private menuService: MenuService) {
+    private menuService: MenuService,
+    private alertService: AlertService,
+    private router: Router
+    ) {
 
     }
 
@@ -27,6 +34,7 @@ export class SelectorIntroComponent implements OnInit {
 
 
    this.getMenuRecords();
+
 
 
 
@@ -42,14 +50,14 @@ export class SelectorIntroComponent implements OnInit {
       start_time: '',
       end_time: '',
       interval: [
-        {inv_interval_id: 1, inv_interval_name: '60 minutos'},
-        {inv_interval_id: 2, inv_interval_name: '20 minutos'},
-        {inv_interval_id: 3, inv_interval_name: '130 minutos'}
+        {menu_interval_id: 1, menu_interval_name: '60 minutos'},
+        {menu_interval_id: 2, menu_interval_name: '20 minutos'},
+        {menu_interval_id: 3, menu_interval_name: '130 minutos'}
       ],
       lines: [
-        {inv_lines_id: 1, inv_lines_name: 'Linea 1'},
-        {inv_lines_id: 2, inv_lines_name: 'Linea 2'},
-        {inv_lines_id: 3, inv_lines_name: 'Linea 3'}
+        {menu_lines_id: 1, menu_lines_name: 'Linea 1'},
+        {menu_lines_id: 2, menu_lines_name: 'Linea 2'},
+        {menu_lines_id: 3, menu_lines_name: 'Linea 3'}
       ],
 
     };
@@ -57,58 +65,58 @@ export class SelectorIntroComponent implements OnInit {
     this.example = {
       // iMPORTED
       agent: [
-        {inv_agent_id: 1, inv_agent_name: 'Jorge'},
-        {inv_agent_id: 2, inv_agent_name: 'Luis'},
-        {inv_agent_id: 3, inv_agent_name: 'Sara'}
+        {menu_agent_id: 1, menu_agent_name: 'Jorge'},
+        {menu_agent_id: 2, menu_agent_name: 'Luis'},
+        {menu_agent_id: 3, menu_agent_name: 'Sara'}
       ],
       break: [
-        {inv_break_id: 4, inv_break_name: 'Baño'},
-        {inv_break_id: 5, inv_break_name: 'Almuerzo'},
-        {inv_break_id: 6, inv_break_name: 'Permiso'}
+        {menu_break_id: 4, menu_break_name: 'Baño'},
+        {menu_break_id: 5, menu_break_name: 'Almuerzo'},
+        {menu_break_id: 6, menu_break_name: 'Permiso'}
       ],
       campaign: [
-        {inv_campaign_id: 7, inv_campaign_name: 'Campaña 1'},
-        {inv_campaign_id: 8, inv_campaign_name: 'Campaña 2'},
-        {inv_campaign_id: 9, inv_campaign_name: 'Campaña 3'}
+        {menu_campaign_id: 7, menu_campaign_name: 'Campaña 1'},
+        {menu_campaign_id: 8, menu_campaign_name: 'Campaña 2'},
+        {menu_campaign_id: 9, menu_campaign_name: 'Campaña 3'}
       ],
       client:  [
-        {inv_client_id: 1, inv_client_name: 'Cliente 1'},
-        {inv_client_id: 2, inv_client_name: 'Cliente 2'},
-        {inv_client_id: 3, inv_client_name: 'Cliente 3'}
+        {menu_client_id: 1, menu_client_name: 'Cliente 1'},
+        {menu_client_id: 2, menu_client_name: 'Cliente 2'},
+        {menu_client_id: 3, menu_client_name: 'Cliente 3'}
       ],
       queue: [
-        {inv_queue_id: 1, inv_queue_name: 'Cola 1'},
-        {inv_queue_id: 2, inv_queue_name: 'Cola 2'},
-        {inv_queue_id: 3, inv_queue_name: 'Cola 3'}
+        {menu_queue_id: 1, menu_queue_name: 'Cola 1'},
+        {menu_queue_id: 2, menu_queue_name: 'Cola 2'},
+        {menu_queue_id: 3, menu_queue_name: 'Cola 3'}
       ],
       schedule: [
-        {inv_schedule_id: 1, inv_schedule_name: 'Diurno'},
-        {inv_schedule_id: 2, inv_schedule_name: 'Mediodia'},
-        {inv_schedule_id: 3, inv_schedule_name: 'Nocturno'}
+        {menu_schedule_id: 1, menu_schedule_name: 'Diurno'},
+        {menu_schedule_id: 2, menu_schedule_name: 'Mediodia'},
+        {menu_schedule_id: 3, menu_schedule_name: 'Nocturno'}
       ],
       scale: [
-        {inv_scale_id: 1, inv_scale_name: 'Escala 1'},
-        {inv_scale_id: 2, inv_scale_name: 'Escala 2'},
-        {inv_scale_id: 3, inv_scale_name: 'Escala 3'}
+        {menu_scale_id: 1, menu_scale_name: 'Escala 1'},
+        {menu_scale_id: 2, menu_scale_name: 'Escala 2'},
+        {menu_scale_id: 3, menu_scale_name: 'Escala 3'}
       ],
       service: [
-        {inv_service_id: 1, inv_service_name: 'Servicios 1'},
-        {inv_service_id: 2, inv_service_name: 'Servicios 2'},
-        {inv_service_id: 3, inv_service_name: 'Servicios 3'}
+        {menu_service_id: 1, menu_service_name: 'Servicios 1'},
+        {menu_service_id: 2, menu_service_name: 'Servicios 2'},
+        {menu_service_id: 3, menu_service_name: 'Servicios 3'}
       ],
       substitute: [
-        {inv_substitute_id: 1, inv_substitute_name: 'Suplentes 1'},
-        {inv_substitute_id: 2, inv_substitute_name: 'Suplentes 2'},
-        {inv_substitute_id: 3, inv_substitute_name: 'Suplentes 3'}
+        {menu_substitute_id: 1, menu_substitute_name: 'Suplentes 1'},
+        {menu_substitute_id: 2, menu_substitute_name: 'Suplentes 2'},
+        {menu_substitute_id: 3, menu_substitute_name: 'Suplentes 3'}
       ],
       supervisor: [
-        {inv_supervisor_id: 1, inv_supervisor_name: 'Jorge'},
-        {inv_supervisor_id: 2, inv_supervisor_name: 'Luis'},
-        {inv_supervisor_id: 3, inv_supervisor_name: 'Sara'}
+        {menu_supervisor_id: 1, menu_supervisor_name: 'Jorge'},
+        {menu_supervisor_id: 2, menu_supervisor_name: 'Luis'},
+        {menu_supervisor_id: 3, menu_supervisor_name: 'Sara'}
       ]
     };
 
-    localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
+    // localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
 
   }
 
@@ -121,10 +129,12 @@ export class SelectorIntroComponent implements OnInit {
 
     this.menuService.getMenuOptionRecords(query)
     .subscribe( data => {
+      console.log('Hola', data);
 
-      const newData = JSON.parse(data);
-      console.log("NEW DATA", newData);
-      
+      const newData = data;
+      // const newData = JSON.parse(data);
+      console.log('NEW DATA', newData);
+
       this.menuOptions.client = newData.client;
       this.menuOptions.queue = newData.queue;
       this.menuOptions.service = newData.service;
@@ -134,13 +144,24 @@ export class SelectorIntroComponent implements OnInit {
       this.menuOptions.schedule = newData.schedule;
       this.menuOptions.auxiliar = newData.auxiliar;
       this.menuOptions.asignation = newData.asignation;
-      console.log("MENU OPTIONS", this.menuOptions);
-      // this.auxiliar = this.menuOptions.agent;
-      // this.menuOptions.agent = newData.agent;
 
-      newData === undefined ? this.menuList = 0 : this.menuList = 1;
-      console.log('data', newData);
+      localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
+      console.log('MENU OPTIONS', this.menuOptions);
+      if (data) {
+        this.auxiliar = true;
+      }
+          },
+          error => {
+            console.log('upps, error ');
+            this.alertMessage = {
+              alertTitle: 'Error del servidor',
+              alertText: 'No hay conexión con el servidor, revise si el backend esta funcionando, o la conexion a internet está activa.',
+              alertShow: true,
+              alertClass: 'alert alert-danger alert-dismissible fade show',
+            }
 
+
+            ;
           }
         );
 

@@ -17,7 +17,7 @@ export class SelectorAgentComponent implements OnInit {
 
   constructor() {
 
-   }
+}
 
 
   ngOnInit() {

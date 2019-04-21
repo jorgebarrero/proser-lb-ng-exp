@@ -48,6 +48,8 @@ import { SelectorLimitComponent } from './selector-limit/selector-limit.componen
 
 
 import { SelectorSubstituteComponent } from './selector-substitute/selector-substitute.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
+
 
 
 @NgModule({
@@ -87,6 +89,7 @@ import { SelectorSubstituteComponent } from './selector-substitute/selector-subs
     OwlDateTimeModule, OwlNativeDateTimeModule,
     NgSelectModule,
     NgbModule,
+    AlertModule,
     SelectorRoutingModule
   ]
 })

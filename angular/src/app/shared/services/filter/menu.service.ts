@@ -44,7 +44,7 @@ export class MenuService {
     console.log('getAllRecords', url_api);
 
     return this.http.post<MenuOptions>(url_api, queryDates, {headers: this.headers})
-    .pipe(map(data => JSON.stringify(data)));
+    .pipe(map(data => (data)));
   }
 
 

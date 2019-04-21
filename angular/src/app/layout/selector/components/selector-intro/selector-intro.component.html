@@ -1,4 +1,10 @@
-<main id="selector" class="selector">
+<div *ngIf="!auxiliar">
+  <h1>Alerta</h1>
+  {{ HttpErrorResponse }}
+  <app-alert [alertMessage]="alertMessage"></app-alert>
+</div>
+
+<main id="selector" class="selector" *ngIf="auxiliar">
   <section class="selector-row">
     <section id="selector-title">
       <div class="selector-title">

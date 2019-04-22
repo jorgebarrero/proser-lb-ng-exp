@@ -22,12 +22,10 @@
    }
    &-detail {
     font-size: 1rem;
-    font-weight: 400;
     margin-bottom: 0px;
+    background: rgb(161, 161, 224);
     color: rgb(49, 46, 46);
     padding: 5px;
-    border: 1px solid gray;
-    min-height: 35px;
   }
    &-button-group {
      display: grid;

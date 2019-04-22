@@ -44,6 +44,15 @@ export class InvSupervisorService {
   }
 
 
+  putSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvSupervisors`;
+    console.log('Put a record', url_api);
+
+    return this.http.put<InvSupervisor>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
 
 
 }

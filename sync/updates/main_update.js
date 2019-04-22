@@ -33,20 +33,20 @@ async function repeatCdrUpdate( ) {
 
 
       updateMainCdr();
-      updateMainAudit();
-      updateMainAuditEmpty();
+      // updateMainAudit();
+      // updateMainAuditEmpty();
 
-      updateAgent();
-      updateBreak();
-      updateCampaign();
-      updateQueue();
+      // updateAgent();
+      // updateBreak();
+      // updateCampaign();
+      // updateQueue();
 
 
       // updateAsyncCdrDates();
       // updateAsyncCdrQlog();
       // updateAsyncCdrType();
       // updateAsyncCdrCall();
-    }, 5000
+    }, 3000
   );
 }
 

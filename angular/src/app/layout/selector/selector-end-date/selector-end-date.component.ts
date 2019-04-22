@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
-import { UserSelection } from '../../../shared/models/filter/Selection';
 
 @Component({
   selector: 'app-selector-end-date',
@@ -11,21 +10,17 @@ import { UserSelection } from '../../../shared/models/filter/Selection';
 })
 export class SelectorEndDateComponent implements OnInit {
 
+  @Input() data;
+
+  @Output() event: EventEmitter<any> = new EventEmitter();
+
   model: NgbDateStruct;
   date: {year: number, month: number};
   calendar;
 
   show = false;
 
-
-  items = [
-    {inv_end_date_id: 1, inv_end_date_name: '04/24/2019'},
-    {inv_end_date_id: 2, inv_end_date_name: '02/20/2019'},
-    {inv_end_date_id: 3, inv_end_date_name: '01/25/2019'}
-  ];
-
-selected;
-userSelection = new UserSelection;
+  selected;
 
   constructor(
 
@@ -35,17 +30,19 @@ userSelection = new UserSelection;
 
 
   ngOnInit() {
-    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.end_date;
+    this.selected = this.data;
   }
 
   onChange() {
-    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+
     this.selected = `${this.model.year}-${this.pad(this.model.month, 2)}-${this.pad(this.model.day, 2)}`;
-    this.userSelection.end_date = this.selected ;
-    // console.log('selected end_date', this.selected);
-    // console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+
+    let object = {
+      field: 'end_date',
+      value: this.selected
+    }
+
+    this.event.emit(object);
   }
 
 

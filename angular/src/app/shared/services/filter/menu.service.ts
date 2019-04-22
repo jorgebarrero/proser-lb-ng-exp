@@ -29,14 +29,7 @@ export class MenuService {
 
 
   getMenuOptionRecords(queryDates) {
-    const query = {
-        // tslint:disable-next-line:quotemark
-        "start_date": "'2019-01-01'",
-        // tslint:disable-next-line:quotemark
-        "end_date": "'2019-01-28'"
-        };
 
-    queryDates = JSON.stringify(query);
 
     const accessToken = localStorage.getItem('accessToken');
 
@@ -45,6 +38,7 @@ export class MenuService {
 
     return this.http.post<MenuOptions>(url_api, queryDates, {headers: this.headers})
     .pipe(map(data => (data)));
+
   }
 
 

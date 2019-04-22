@@ -7,6 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 import { NowModule } from 'src/app/shared/modules/now/now.module';
 import { ConnectionModule } from 'src/app/shared/modules/connection/connection.module';
@@ -51,6 +52,7 @@ import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 import { SelectorAsignationComponent } from './selector-asignation/selector-asignation.component';
 import { SelectorLoginComponent } from './selector-login/selector-login.component';
 import { SelectorAuxiliarComponent } from './selector-auxiliar/selector-auxiliar.component';
+import { LlamadasEntrantesComponent } from './components/llamadas-entrantes/llamadas-entrantes.component';
 
 
 
@@ -83,6 +85,7 @@ import { SelectorAuxiliarComponent } from './selector-auxiliar/selector-auxiliar
     SelectorAsignationComponent,
     SelectorLoginComponent,
     SelectorAuxiliarComponent,
+    LlamadasEntrantesComponent,
   ],
   imports: [
     CommonModule,
@@ -94,6 +97,7 @@ import { SelectorAuxiliarComponent } from './selector-auxiliar/selector-auxiliar
     OwlDateTimeModule, OwlNativeDateTimeModule,
     NgSelectModule,
     NgbModule,
+    NgxJsonViewerModule,
     AlertModule,
     SelectorRoutingModule
   ]

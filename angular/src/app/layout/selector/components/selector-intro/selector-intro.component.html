@@ -4,26 +4,35 @@
   <app-alert [alertMessage]="alertMessage"></app-alert>
 </div>
 
-<main id="selector" class="selector" *ngIf="auxiliar">
+
+<main id="selector" class="selector">
+
+    <button routerLink="/selector/llamadas-entrantes" class="btn btn-success">Llamadas entrantes</button>
+
   <section class="selector-row">
     <section id="selector-title">
       <div class="selector-title">
-        <h1>{{menuOptions.title}}</h1>
+        <h1>{{userSelection.title}}</h1>
       </div>
       <div class="selector-subtitle">
-        <h3>{{menuOptions.subtitle}}</h3>
+        <h4>{{userSelection.subtitle}}</h4>
       </div>
+      <div class="selector-subtitle">
+          <h6>{{userSelection.filtertitle}}</h6>
+        </div>
     </section>
 
     <div class="selector-grid-5columns selector-bg">
-      <app-selector-start-date ></app-selector-start-date>
-      <app-selector-end-date ></app-selector-end-date>
-      <app-selector-start-time></app-selector-start-time>
-      <app-selector-end-time ></app-selector-end-time>
-      <app-selector-interval ></app-selector-interval>
+      <app-selector-start-date (event)="onReceive($event)" [data]="userSelection.start_date"></app-selector-start-date>
+
+      <app-selector-end-date (event)="onReceive($event)" [data]="userSelection.end_date"></app-selector-end-date>
+
+      <app-selector-start-time *ngIf="show"></app-selector-start-time>
+      <app-selector-end-time  *ngIf="show"></app-selector-end-time>
+      <app-selector-interval *ngIf="show"></app-selector-interval>
     </div>
 
-    <div class="selector-grid-4columns selector-bg">
+    <div class="selector-grid-4columns selector-bg" *ngIf="show">
       <div id="selector-group-2">
         <app-selector-supervisor></app-selector-supervisor>
         <app-selector-substitute></app-selector-substitute>
@@ -32,21 +41,21 @@
 
       </div>
 
-      <div id="selector-group-3">
+      <div id="selector-group-3" *ngIf="show">
         <app-selector-client></app-selector-client>
         <app-selector-queue></app-selector-queue>
         <app-selector-service></app-selector-service>
         <app-selector-campaign></app-selector-campaign>
       </div>
 
-      <div id="selector-group-4">
+      <div id="selector-group-4" *ngIf="show">
         <app-selector-lines></app-selector-lines>
         <app-selector-scale></app-selector-scale>
         <app-selector-auxiliar></app-selector-auxiliar>
         <app-selector-asignation></app-selector-asignation>
       </div>
 
-      <div id="selector-group-5">
+      <div id="selector-group-5" *ngIf="show">
         <app-selector-group></app-selector-group>
         <app-selector-order></app-selector-order>
         <app-selector-limit></app-selector-limit>
@@ -54,3 +63,11 @@
     </div>
   </section>
 </main>
+
+<button (click)="onDateChange()">Date</button>
+
+<button (click)="getMenuRecords()">Update</button>
+
+ {{ userSelection | json }}
+
+ {{ userSelection.subtitle | json }}

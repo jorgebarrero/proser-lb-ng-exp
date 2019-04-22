@@ -7,11 +7,12 @@ import { isNullOrUndefined } from 'util';
 
 import { UserInterface } from '../../models/pages/user-interface';
 
-import { UserSelection } from '../../models/filter/Selection'
+import { UserSelection } from '../../models/filter/Selection';
 
 import { EnvService } from '../env.service';
 
 import { Router } from '@angular/router';
+import { MenuOptions } from '../../models/filter/MenuOptions';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,13 @@ export class AuthService {
   headers: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json'
   });
+
+  proser_store = {
+    entrante_diario: {
+      menuOptions: new MenuOptions,
+      userSelection : new UserSelection
+    }
+  };
 
   registerUser(
     firstname: string,
@@ -45,7 +53,7 @@ export class AuthService {
   }
 
   loginUser(username: string, password: string) {
-    console.log('DATA IN', username, password );
+    // console.log('DATA IN', username, password );
 
     const url_api = `${this.env.loopbackApiUrl}/api/userbases/login?include=user`;
     return this.http.post<UserInterface>(url_api, {username, password}, {headers: this.headers})
@@ -72,6 +80,7 @@ export class AuthService {
 
   setToken(token) {
     localStorage.setItem('accessToken', token);
+    localStorage.setItem('proser_store', JSON.stringify(this.proser_store));
   }
 
   getToken() {
@@ -91,10 +100,8 @@ export class AuthService {
   logoutUser() {
     const accessToken = localStorage.getItem('accessToken');
     const url_api = `${this.env.loopbackApiUrl}/api/userbases/logout?access_token=${accessToken}`;
-    localStorage.removeItem('accessToken');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('userSelection');
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
+    localStorage.clear();
     return this.http.post<UserInterface>(url_api, {headers: this.headers});
   }
 }

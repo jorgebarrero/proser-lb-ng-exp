@@ -4,7 +4,6 @@ import { SelectionConfig } from './../../../../shared/models';
 
 import { WeekDayPipe } from './../../../../shared/pipes/week-day.pipe';
 
-
 import {  createTitles, createSubTitles } from './../../../../shared/functions';
 
 import { EntranteDiarioService, ExcelService } from './../../../../shared/services';

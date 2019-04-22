@@ -13,6 +13,12 @@
     },
     "inv_report_name": {
       "type": "string"
+    },
+    "inv_report_field": {
+      "type": "string"
+    },
+    "inv_report_table": {
+      "type": "string"
     }
   },
   "validations": [],

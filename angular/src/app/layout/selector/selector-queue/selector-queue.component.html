@@ -1,3 +1,16 @@
-<p>
-  selector-queue works!
-</p>
+<small>Colas</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_queue_name" placeholder="Cola"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

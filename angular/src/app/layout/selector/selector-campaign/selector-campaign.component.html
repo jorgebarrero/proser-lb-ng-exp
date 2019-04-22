@@ -1,3 +1,16 @@
-<p>
-  selector-campaign works!
-</p>
+<small>Campañas</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_campaign_name" placeholder="Campañas"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

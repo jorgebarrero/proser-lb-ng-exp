@@ -1,0 +1,199 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
+import { UserSelection } from '../../../../shared/models/filter/Selection';
+
+import { MenuService } from 'src/app/shared/services/filter/menu.service';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
+import { AlertModel } from 'src/app/shared/models/Alert';
+import { MenuOptions } from 'src/app/shared/models/filter/MenuOptions';
+import * as moment from 'moment';
+import { formatDate } from 'src/app/shared/functions/dates';
+
+import {  createSubTitles, createFilterTitles } from 'src/app/shared/functions/titles-peticion';
+
+
+@Component({
+  selector: 'app-selector-intro',
+  templateUrl: './selector-intro.component.html',
+  styleUrls: ['./selector-intro.component.scss']
+})
+export class SelectorIntroComponent implements OnInit, OnDestroy {
+
+  menuOptions = new MenuOptions;
+  userSelection = new UserSelection;
+  menuList;
+  example;
+
+  alertMessage = new AlertModel;
+  fieldUpdated;
+  show = false;
+  auxiliar = null;
+  
+  constructor(
+    private menuService: MenuService,
+    private alertService: AlertService,
+    private router: Router
+    ) {
+
+      this.alertMessage = {
+        alertTitle: 'Conectando con el servidor',
+        alertText: 'Tenga paciencia que la conexión está lenta.',
+        alertShow: true,
+        alertClass: 'alert alert-success alert-dismissible fade show',
+      };
+
+    }
+
+
+  ngOnInit() {
+
+
+
+    // this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    // this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    // this.onGetTitles();
+
+    // if( menuOptions.start_date === userSelection.start_date 
+    //   && 
+    //     menuOptions.end_date === userSelection.end_date
+    //   )
+
+    if(userSelection.start_date) {
+      console.log('fecha inicial vacia');
+      
+    }
+
+    // this.getMenuRecords();
+
+  // this.onDateChange();
+
+  // this.userSelection.title = 'Llamadas entrantes';
+  // this.userSelection.subtitle = createSubTitles(this.userSelection);
+  // this.userSelection.filterTitle = createFilterTitles(this.userSelection);
+  // localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+
+
+  }
+
+  ngOnDestroy() {
+    // localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+    // this.userSelection.subtitle = createSubTitles(this.userSelection);
+    // localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
+
+
+  getMenuRecords(start_date?, end_date?) {
+    const query = this.onDateChange();
+    const today = formatDate(new Date)
+
+    if(!start_date) {
+      start_date = `'${today}'`
+    }
+
+    if(!end_date){
+      end_date = start_date
+    }
+
+ 
+
+    const query = {
+      // tslint:disable-next-line:quotemark
+      "start_date": `'${start_date}'`,
+      // tslint:disable-next-line:quotemark
+      "end_date": `'${end_date}'`
+      };
+
+    this.menuService.getMenuOptionRecords(query)
+    .subscribe( data => {
+
+      data[0] ? this.show = true : this.show = false;
+
+      if (data !== undefined) {
+      this.menuOptions.client = data.client;
+      this.menuOptions.queue = data.queue;
+      this.menuOptions.service = data.service;
+      this.menuOptions.campaign = data.campaign;
+      this.menuOptions.supervisor = data.supervisor;
+      this.menuOptions.agent = data.agent;
+      this.menuOptions.schedule = data.schedule;
+      this.menuOptions.auxiliar = data.auxiliar;
+      this.menuOptions.asignation = data.asignation;
+
+      localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
+      console.log('DATA', this.data);
+      this.onGetTitles();
+      this.auxiliar = true;
+      this.show = true;
+      }
+    },
+     error => {
+            console.log('upps, error ');
+            this.alertMessage = {
+              alertTitle: 'Error del servidor',
+              alertText: 'No hay conexión con el servidor, revise si el backend esta funcionando, o la conexion a internet está activa.',
+              alertShow: true,
+              alertClass: 'alert alert-danger alert-dismissible fade show',
+            }
+
+            ;
+          }
+        );
+  }
+
+
+  onDateChange() {
+    const userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    const today = moment(new Date).format( 'YYYY-MM-DD');
+    let newDate;
+
+    if ( userSelection.start_date && userSelection.end_date) {
+
+    newDate = {
+        'start_date': `'${userSelection.start_date}'`,
+        'end_date': `'${userSelection.end_date}'`,
+    };
+    } else {
+      userSelection.start_date = today;
+      userSelection.end_date = today;
+      newDate = {
+        'start_date': `'${userSelection.start_date}'`,
+        'end_date': `'${userSelection.end_date}'`,
+    };
+    }
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+    return newDate;
+  }
+
+
+  onGetDates() {
+    if ( !this.userSelection.start_date) {
+      this.show = false;
+      this.menuOptions = new MenuOptions;
+      this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+      console.log('sin fecha de inicio');
+      this.userSelection.start_date = this.menuOptions.start_date;
+      this.userSelection.end_date = this.menuOptions.end_date;
+      localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+
+      getMenuRecords(this.userSelection.start_date, this.userSelection.end_date);
+    }
+  }
+
+
+  onGetTitles() {
+    // console.log('userSelection before', this.userSelection);
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.title = 'Llamadas entrantes';
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
+    this.userSelection.filtertitle = createFilterTitles(this.userSelection);
+
+    // console.log('userSelection after', this.userSelection);
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
+
+  toggleShow() {
+    this.show = !this.show;
+  }
+
+}

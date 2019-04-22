@@ -1,0 +1,16 @@
+<small>Auxiliares</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_auxiliar_name" placeholder="Auxiliares"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

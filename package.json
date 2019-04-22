@@ -8,6 +8,7 @@
     "start-up": "babel-node updates/app",
     "start-import": "babel-node updates/imports/main_import",
     "start-update": "babel-node updates/updates/main_update",
+    "ng": "bash ng.sh",
     "test": "mocha test/*test.js"
   },
   "dependencies": {

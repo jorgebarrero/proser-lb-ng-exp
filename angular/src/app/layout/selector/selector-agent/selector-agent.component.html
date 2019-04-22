@@ -1,7 +1,9 @@
+
+<small>Agentes</small>
 <ng-select
   [items]="items"
-  bindValue="inv_agent_id"
-  bindLabel="inv_agent_name" placeholder="Agentes"
+
+  bindLabel="menu_agent_name" placeholder="Agentes"
   [dropdownPosition]="'auto'"
   [searchable]="true"
   (change)="onChange()"
@@ -11,5 +13,5 @@
   [(ngModel)]="selected">
 </ng-select>
 
-
-{{ selected | json }}
+<!--
+{{ selected | json }} -->

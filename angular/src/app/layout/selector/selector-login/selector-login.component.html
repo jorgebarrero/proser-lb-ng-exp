@@ -1,0 +1,16 @@
+<small>Login</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_login_name" placeholder="Login"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

@@ -1,154 +1,203 @@
-// import {
-//   SelectionConfig
-// } from './../models';
-
-// export function createTitles(selection: SelectionConfig) {
-
-//   let resultado: any = [];
+import {
+  UserSelection
+} from './../models/filter/Selection';
 
 
-//   if (selection.clientes) {
-//     if (selection.clientes.length > 0) {
-//       let sqlClientes = selection.clientes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlClientes.join(' - ');
-//       resultado.push(`CLIENTES: [${temp}]`);
-//     }
-//   }
+export function createFilterTitles(userSelection: UserSelection) {
 
-//   if (selection.colas) {
-//     if (selection.colas.length > 0) {
-//       let sqlColas = selection.colas
-//         .map(x => {
-//           return `${x.id}`;
-//         });
-//       let temp = sqlColas.join(' - ');
-//       resultado.push(`COLAS: [${temp}]`);
-//     }
-//   }
+  const resultado: any = [];
 
-//   if (selection.servicios) {
-//     if (selection.servicios.length > 0) {
-//       let sqlServicios = selection.servicios
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlServicios.join(' - ');
-//       resultado.push(`SERVICIOS: [${temp}]`);
-//     }
-//   }
+  if (userSelection.agent) {
+    if (userSelection.agent.length > 0) {
+      const sqlAgentes = userSelection.agent
+        .map(x => {
+          return `${x.menu_agent_name}`;
+        });
+      const temp = sqlAgentes.join(', ');
+        resultado.push(` AGENTES: ${temp}`);
+    }
+  }
 
-//   if (selection.campanas) {
-//     if (selection.campanas.length > 0) {
-//       let sqlCampanas = selection.campanas
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlCampanas.join(' - ');
-//       resultado.push(`CAMPAÑAS: [${temp}]`);
-//     }
-//   }
+  if (userSelection.asignation) {
+    if (userSelection.asignation.length > 0) {
+      const sqlAgentes = userSelection.asignation
+        .map(x => {
+          return `${x.menu_asignation_name}`;
+        });
+      const temp = sqlAgentes.join(', ');
+        resultado.push(` ASIGNACIONES: ${temp}`);
+    }
+  }
 
-//   if (selection.supervisores) {
-//     if (selection.supervisores.length > 0) {
-//       let sqlSupervisores = selection.supervisores
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlSupervisores.join(' OR ');
-//       resultado.push(`SUPERVISORES: [${temp}]`);
-//     }
-//   }
+  if (userSelection.auxiliar) {
+    if (userSelection.auxiliar.length > 0) {
+      const sqlAgentes = userSelection.auxiliar
+        .map(x => {
+          return `${x.menu_auxiliar_name}`;
+        });
+      const temp = sqlAgentes.join(', ');
+        resultado.push(` ASIGNACIONES: ${temp}`);
+    }
+  }
 
-//   if (selection.suplentes) {
-//     if (selection.suplentes.length > 0) {
-//       let sqlSuplentes = selection.suplentes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlSuplentes.join(' OR ');
-//       resultado.push(`SUPLENTES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.agentes) {
-//     if (selection.agentes.length > 0) {
-//       let sqlAgentes = selection.agentes
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlAgentes.join(' OR ');
-//       resultado.push(`AGENTES: [${temp}]`);
-//     }
-//   }
-
-//   if (selection.horarios) {
-//     if (selection.horarios.length > 0) {
-//       let sqlHorarios = selection.horarios
-//         .map(x => {
-//           return `${x.name}`;
-//         });
-//       let temp = sqlHorarios.join(' OR ');
-//       resultado.push(`HORARIOS: [${temp}]`);
-//     }
-//   }
-
-//   let filtered_resultado = resultado
-//     .filter(x => {
-//       let lastChars = x.substr(x.length - 2);
-//       return lastChars !== '[]';
-//     });
+  if (userSelection.campaign) {
+    if (userSelection.campaign.length > 0) {
+      const sqlCampanas = userSelection.campaign
+        .map(x => {
+          return `${x.menu_campaign_name}`;
+        });
+      const temp = sqlCampanas.join(' - ');
+      resultado.push(` CAMPAÑAS: ${temp}`);
+    }
+  }
 
 
-//   let filtered_join = filtered_resultado.join(' & ');
-//   let resultado_string = filtered_join;
+  if (userSelection.client) {
+    if (userSelection.client.length > 0) {
+      const sqlClientes = userSelection.client
+        .map(x => {
+          return `${x.menu_client_name}`;
+        });
+      const temp = sqlClientes.join(' - ');
+      resultado.push(` CLIENTES: ${temp}`);
+    }
+  }
 
-//   return resultado_string;
-// }
+
+  if (userSelection.queue) {
+    if (userSelection.queue.length > 0) {
+      const sqlColas = userSelection.queue
+        .map(x => {
+          return `${x.menu_queue_name}`;
+        });
+      const temp = sqlColas.join(' - ');
+      resultado.push(` COLAS: ${temp}`);
+    }
+  }
+
+  if (userSelection.scale) {
+    if (userSelection.scale.length > 0) {
+      const sqlServicios = userSelection.scale
+        .map(x => {
+          return `${x.menu_scale_name}`;
+        });
+      const temp = sqlServicios.join(' - ');
+        resultado.push(` ESCALA: ${temp}`);
+
+    }
+  }
+
+  if (userSelection.schedule) {
+    if (userSelection.schedule.length > 0) {
+      const sqlHorarios = userSelection.schedule
+        .map(x => {
+          return `${x.menu_schedule_name}`;
+        });
+      const temp = sqlHorarios.join(', ');
+      resultado.push(` TURNOS: ${temp}`);
+    }
+  }
 
 
 
+  if (userSelection.service) {
+    if (userSelection.service.length > 0) {
+      const sqlServicios = userSelection.service
+        .map(x => {
+          return `${x.menu_service_name}`;
+        });
+      const temp = sqlServicios.join(' - ');
+        resultado.push(` SERVICIOS: ${temp}`);
 
-// export function createSubTitles(selection: SelectionConfig) {
+    }
+  }
 
-//   let resultado = [];
+  if (userSelection.substitute) {
+    if (userSelection.substitute.length > 0) {
+      const sqlSuplentes = userSelection.substitute
+        .map(x => {
+          return `${x.menu_substitute_name}`;
+        });
+      const temp = sqlSuplentes.join(', ');
+      resultado.push(` SUPLENTES: ${temp}`);
+    }
+  }
 
-//   if (selection) {
-//     //  console.log('selection.minutos_intervalo.name', selection.minutos_intervalo);
-
-//     selection.hora_inicio !== undefined ?
-//       resultado.push(` Hora inicio: ${selection.hora_inicio.name} `) : returnWhite();
-//     selection.hora_final !== undefined ?
-//       resultado.push(` Hora final: ${selection.hora_final.name} `) : returnWhite();
-//     selection.ultimos_minutos !== undefined ?
-//       resultado.push(` Ultimos minutos: ${selection.ultimos_minutos.name} `) : returnWhite();
-//   }
-
-
-
-//   return resultado;
-// }
-
-
-
-
-// export function createIntervalTitles(selection: SelectionConfig, subtitles) {
-
-//   let resultado = [subtitles];
-
-//   if (selection.minutos_intervalo) {
-//     resultado.push(` Minutos intervalo: ${selection.minutos_intervalo.name} `);
-//   } else {
-//     returnWhite();
-//   }
-
-//   return resultado;
-// }
+  if (userSelection.supervisor) {
+    if (userSelection.supervisor.length > 0) {
+      const sqlSupervisores = userSelection.supervisor
+        .map(x => {
+          return `${x.menu_supervisor_name}`;
+        });
+      const temp = sqlSupervisores.join(', ');
+      resultado.push(` SUPERVISORES: ${temp}`);
+    }
+  }
 
 
 
-// function returnWhite() {
-//   return '';
-// }
+  const filtered_resultado = resultado
+    .filter(x => {
+      const lastChars = x.substr(x.length - 2);
+      return lastChars !== '[]';
+    });
+
+
+  const filtered_join = filtered_resultado.join(' & ');
+  const resultado_string = filtered_join;
+
+  return resultado;
+  // return 'Filter titles'
+}
+
+
+
+export function createSubTitles(userSelection: UserSelection) {
+
+  const resultado = [];
+
+  if (userSelection) {
+    //  console.log('userSelection.interval.name', userSelection.interval);
+
+    userSelection.start_date ?
+      resultado.push(` Fecha inicio: ${userSelection.start_date} `) : returnWhite();
+    userSelection.end_date  ?
+      resultado.push(` Fecha final: ${userSelection.end_date} `) : returnWhite();
+
+    userSelection.start_time  ?
+      resultado.push(` Hora inicio: ${userSelection.start_time} `) : returnWhite();
+    userSelection.end_time ?
+      resultado.push(` Hora final: ${userSelection.end_time} `) : returnWhite();
+
+    userSelection.last_minutes  ?
+      resultado.push(` Ultimos minutos: ${userSelection.last_minutes} min`) : returnWhite();
+    userSelection.interval ?
+      resultado.push(` Intervalo: ${userSelection.interval} min`) : returnWhite();
+  }
+
+
+
+  return resultado;
+}
+
+
+
+
+export function createIntervalTitles(userSelection: UserSelection, subtitles) {
+
+  const resultado = [subtitles];
+
+  if (userSelection.interval) {
+    resultado.push(` Minutos intervalo: ${userSelection.interval.name} `);
+  } else {
+    returnWhite();
+  }
+
+  return resultado;
+}
+
+
+
+function returnWhite() {
+  return '';
+}

@@ -1,3 +1,16 @@
-<p>
-  selector-client works!
-</p>
+<small>Clientes</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_client_name" placeholder="Clientes"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

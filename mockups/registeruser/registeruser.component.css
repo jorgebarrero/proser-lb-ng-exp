@@ -1,0 +1,33 @@
+.register-form {
+  background: darkgray;
+  padding: 1rem 1rem 0rem 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+}
+
+.register-form .register-label {
+  font-size: 0.8rem;
+}
+
+.register-form .register-input {
+  font-size: 1rem;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+@media screen and (max-width: 576px) {
+  .register-form {
+    padding: 1rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+}
+/*# sourceMappingURL=registeruser.component.css.map */

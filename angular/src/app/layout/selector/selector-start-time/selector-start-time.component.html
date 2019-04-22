@@ -1,3 +1,16 @@
-<p>
-  selector-start-time works!
-</p>
+<small>Hora de inicio</small>
+<ng-select
+  [items]="items"
+  bindValue="menu_hour_name"
+  bindLabel="menu_hour_name" placeholder="Hora Inicial"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="false"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

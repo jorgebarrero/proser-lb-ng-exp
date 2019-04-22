@@ -1,3 +1,16 @@
-<p>
-  selector-end-time works!
-</p>
+<small>Hora final</small>
+<ng-select
+  [items]="items"
+  bindValue="menu_hour_name"
+  bindLabel="menu_hour_name" placeholder="Hora Final"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="false"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

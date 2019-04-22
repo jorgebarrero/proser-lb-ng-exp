@@ -1,3 +1,16 @@
-<p>
-  selector-supervisor works!
-</p>
+<small>Supervisor</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_supervisor_name" placeholder="Supervisores"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+<!--
+{{ selected | json }} -->

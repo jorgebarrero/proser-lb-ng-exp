@@ -1,3 +1,16 @@
-<p>
-  selector-order works!
-</p>
+<small>Ordenado por</small>
+<ng-select
+  [items]="items"
+
+  bindLabel="menu_orderBy_name" placeholder="Orden"
+  [dropdownPosition]="'auto'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selected">
+</ng-select>
+
+
+<!-- {{ selected | json }} -->

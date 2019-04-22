@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import { UserSelection } from '../../../shared/models/filter/Selection'
+import { UserSelection } from '../../../shared/models/filter/Selection';
+
+
 
 @Component({
   selector: 'app-selector-agent',
@@ -9,30 +11,35 @@ import { UserSelection } from '../../../shared/models/filter/Selection'
 })
 export class SelectorAgentComponent implements OnInit {
 
-items = [
-    {inv_agent_id: 1, inv_agent_name: 'Jorge'},
-    {inv_agent_id: 2, inv_agent_name: 'Luis'},
-    {inv_agent_id: 3, inv_agent_name: 'Sara'}
-  ];
 
-selected = [];
-userSelection = new UserSelection;
+  menuOptions;
+  items;
+
+  selected;
+  userSelection = new UserSelection;
 
   constructor() {
 
-   }
+}
 
 
   ngOnInit() {
+
+    this.menuOptions = JSON.parse(localStorage.getItem('menuOptions'));
+    this.items = this.menuOptions.agent;
+
+    // console.log('menuOptions.agent', this.menuOptions.agent);
+
     this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    this.selected = this.userSelection.agent
+    this.selected = this.userSelection.agent;
   }
 
-  onChange(){
-    this.userSelection.agent = this.selected
-    console.log('selected agent', this.selected);
-    console.log('selected object',  this.userSelection);
-    localStorage.setItem('userSelection',JSON.stringify(this.userSelection));
+  onChange() {
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.agent = this.selected;
+    // console.log('selected agent', this.selected);
+    // console.log('selected object',  this.userSelection);
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
   }
 
 }

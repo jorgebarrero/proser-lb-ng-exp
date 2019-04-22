@@ -25,6 +25,12 @@ module.exports = function(InvMenu) {
 
     let menuOptions = {};
 
+    console.log('filtro', filtro);
+    console.log('start_date', filtro.start_date);
+    console.log('end_date', filtro.end_date);
+    
+    
+
 
     // if(start_date && end_date){
 
@@ -48,7 +54,7 @@ module.exports = function(InvMenu) {
         cdr.cdr_dates_calldate <= ${end_date}
 
         `;
-    // console.log("SQL", availableSQL);
+    console.log("queryMenuClient", queryMenuClient);
 
     try {
       var result = await poolDat.query(queryMenuClient);

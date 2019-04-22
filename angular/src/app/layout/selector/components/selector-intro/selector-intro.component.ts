@@ -8,6 +8,7 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 import { AlertModel } from 'src/app/shared/models/Alert';
 import { MenuOptions } from 'src/app/shared/models/filter/MenuOptions';
 import * as moment from 'moment';
+import { formatDate } from 'src/app/shared/functions/dates';
 
 import {  createSubTitles, createFilterTitles } from 'src/app/shared/functions/titles-peticion';
 
@@ -20,14 +21,16 @@ import {  createSubTitles, createFilterTitles } from 'src/app/shared/functions/t
 export class SelectorIntroComponent implements OnInit, OnDestroy {
 
   menuOptions = new MenuOptions;
+  userSelection = new UserSelection;
+  storedVariable = 'userSelection'
   menuList;
   example;
-  auxiliar = null;
+
   alertMessage = new AlertModel;
-  userSelection = new UserSelection;
-
   fieldUpdated;
-
+  show = false;
+  auxiliar = null;
+  
   constructor(
     private menuService: MenuService,
     private alertService: AlertService,
@@ -45,35 +48,38 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    let temp = JSON.parse(localStorage.getItem('userSelection'));
 
-  this.onDateChange();
-
-   this.getMenuRecords();
-
-  this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
-  this.userSelection.title = 'Llamadas entrantes';
-  this.userSelection.subtitle = createSubTitles(this.userSelection);
-  this.userSelection.filterTitle = createFilterTitles(this.userSelection);
-  localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
-
-
+    if (!temp.start_date) {
+          localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+      } else {
+          this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+          this.show = true;
+          this.auxiliar = true;
+      }
   }
 
   ngOnDestroy() {
-    // localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
-
-    this.userSelection.subtitle = createSubTitles(this.userSelection);
-
-    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+   
   }
 
 
-  getMenuRecords() {
-    const query = this.onDateChange();
+  getMenuRecords( ) {
+    this.show = false;
+
+    const query = {
+      // tslint:disable-next-line:quotemark
+      "start_date": `'${this.userSelection.start_date}'`,
+      // tslint:disable-next-line:quotemark
+      "end_date": `'${this.userSelection.end_date}'`
+      };
 
     this.menuService.getMenuOptionRecords(query)
     .subscribe( data => {
-      if (data) {
+
+      data[0] ? this.show = true : this.show = false;
+
+      if (data !== undefined) {
       this.menuOptions.client = data.client;
       this.menuOptions.queue = data.queue;
       this.menuOptions.service = data.service;
@@ -85,46 +91,32 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
       this.menuOptions.asignation = data.asignation;
 
       localStorage.setItem('menuOptions', JSON.stringify(this.menuOptions));
-      // console.log('MENU OPTIONS', this.menuOptions);
-        this.auxiliar = true;
+      console.log('DATA', data);
+      this.auxiliar = true;
+      this.show = true;
       }
     },
      error => {
-            console.log('upps, error ');
-            this.alertMessage = {
-              alertTitle: 'Error del servidor',
-              alertText: 'No hay conexión con el servidor, revise si el backend esta funcionando, o la conexion a internet está activa.',
-              alertShow: true,
-              alertClass: 'alert alert-danger alert-dismissible fade show',
-            }
-
-            ;
-          }
-        );
-  }
-
-
-  onDateChange() {
-    const userSelection = JSON.parse(localStorage.getItem('userSelection'));
-    const today = moment(new Date).format( 'YYYY-MM-DD');
-    let newDate;
-
-    if ( userSelection.start_date && userSelection.end_date) {
-
-    newDate = {
-        'start_date': `'${userSelection.start_date}'`,
-        'end_date': `'${userSelection.end_date}'`,
-    };
-    } else {
-      newDate = {
-        'start_date': `'${today}'`,
-        'end_date': `'${today}'`,
-    };
-    userSelection.start_date = today;
-    userSelection.end_date = today;
+      console.log('upps, error ');
+        this.alertMessage = {
+          alertTitle: 'Error del servidor',
+          alertText: 'No hay conexión con el servidor, revise si el backend esta funcionando, o la conexion a internet está activa.',
+          alertShow: true,
+          alertClass: 'alert alert-danger alert-dismissible fade show',
+      };
     }
-    // console.log('newDate', newDate);
-    return newDate;
+  );
   }
+
+
+  onReceive(event){
+    // console.log('event', event);
+    
+    eval( `this.${this.storedVariable}.${event.field} = event.value`)
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+    // console.log('received', this.userSelection);
+  }
+
+  
 
 }

@@ -1,3 +1,5 @@
+
+import {formatDate } from '../../functions/dates';
 export class MenuOptions {
   title;
   subtitle;
@@ -25,6 +27,7 @@ export class MenuOptions {
   asignation;
   login;
   last_minutes;
+  today;
 
   constructor() {
     this.title = 'Titulo original de la consulta';
@@ -33,8 +36,9 @@ export class MenuOptions {
     this.orderBy = '';
     this.limitBy = '';
 
-    this.start_date = new Date;
-    this.end_date = new Date;
+    this.today = formatDate(new Date);
+    this.start_date = '';
+    this.end_date = '';
     this.start_time = (new Hour).hour;
     this.end_time = (new Hour).hour;
     this.interval = (new Interval).interval;

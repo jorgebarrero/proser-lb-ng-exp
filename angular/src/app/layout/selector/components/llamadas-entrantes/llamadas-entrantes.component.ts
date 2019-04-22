@@ -69,13 +69,15 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
+    this.onGetTitles();
+
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
     if (this.proser_store.entrante_diario.userSelection) {
      //  console.log('NO HAY SELECCION');
     }
 
     this.getList();
-    this.userSelection.subtitle = createSubTitles(this.userSelection);
-    this.userSelection.title = createFilterTitles(this.userSelection);
+
   }
 
   ngOnDestroy() {
@@ -86,25 +88,25 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
   getList() {
 
-    this.entranteDiarioService.getList(this.userSelection)
+    // this.entranteDiarioService.getList(this.userSelection)
 
-    .subscribe(res => {
-      const temp = JSON.parse(JSON.stringify(res));
-      console.log('ROWS', temp);
+    // .subscribe(res => {
+    //   const temp = JSON.parse(JSON.stringify(res));
+    //   console.log('ROWS', temp);
 
-      this.rows = temp
-      .filter( x => {
-        return x.calc.row !== 'TOTAL';
-      });
+    //   this.rows = temp
+    //   .filter( x => {
+    //     return x.calc.row !== 'TOTAL';
+    //   });
 
-      this.rows_all = temp
-      .filter( x => {
-        return x.calc.row === 'TOTAL';
-      });
+    //   this.rows_all = temp
+    //   .filter( x => {
+    //     return x.calc.row === 'TOTAL';
+    //   });
 
-      console.log('ROWS', this.rows);
-      console.log('ROWS_ALL',  this.rows_all);
-    });
+    //   console.log('ROWS', this.rows);
+    //   console.log('ROWS_ALL',  this.rows_all);
+    // });
 
   }
 
@@ -146,6 +148,16 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
   }
 
 
+  onGetTitles() {
+    console.log('userSelection before', this.userSelection);
 
+    this.userSelection = JSON.parse(localStorage.getItem('userSelection'));
+    this.userSelection.title = 'Llamadas entrantes';
+    this.userSelection.subtitle = createSubTitles(this.userSelection);
+    this.userSelection.filtertitle = createFilterTitles(this.userSelection);
+
+    // console.log('userSelection after', this.userSelection);
+    localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
+  }
 
 }

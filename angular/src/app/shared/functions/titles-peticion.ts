@@ -159,19 +159,19 @@ export function createSubTitles(userSelection: UserSelection) {
   if (userSelection) {
     //  console.log('userSelection.interval.name', userSelection.interval);
 
-    userSelection.start_date !== undefined ?
+    userSelection.start_date ?
       resultado.push(` Fecha inicio: ${userSelection.start_date} `) : returnWhite();
-    userSelection.end_date !== undefined ?
+    userSelection.end_date  ?
       resultado.push(` Fecha final: ${userSelection.end_date} `) : returnWhite();
 
-    userSelection.start_time !== undefined ?
+    userSelection.start_time  ?
       resultado.push(` Hora inicio: ${userSelection.start_time} `) : returnWhite();
-    userSelection.end_time !== undefined ?
+    userSelection.end_time ?
       resultado.push(` Hora final: ${userSelection.end_time} `) : returnWhite();
 
-    userSelection.last_minutes !== undefined ?
+    userSelection.last_minutes  ?
       resultado.push(` Ultimos minutos: ${userSelection.last_minutes} min`) : returnWhite();
-    userSelection.interval !== undefined ?
+    userSelection.interval ?
       resultado.push(` Intervalo: ${userSelection.interval} min`) : returnWhite();
   }
 

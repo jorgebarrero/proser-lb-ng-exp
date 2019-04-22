@@ -7,14 +7,15 @@
 
   <hr>
 
-  <section class="mycontainer" *ngIf="auxiliar">
+  <section class="container" >
 
   <!-- -------------------------------------------------------------------------- -->
 
   <div class="subtiulo">
     <div>
-      <p>{{ userSelection.title }}</p>
-      <p>{{ userSelection.subtitle }}</p>
+      <h1>{{ userSelection.title }}</h1>
+      <h2>{{ userSelection.subtitle }}</h2>
+      <h3>{{ userSelection.filtertitle }}</h3>
     </div>
     <div class="botonera">
         <button (click)="toogleGraph()" class="btn btn-outline-secondary ">Gráfico</button>

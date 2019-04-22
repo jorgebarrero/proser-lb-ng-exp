@@ -1,0 +1,17 @@
+SELECT (cdr_dates_week_day_name) AS 'Dia', 
+(cdr_dates_calldate) AS 'fecha_desde',
+MIN(cdr_dates_time) AS 'hora_inicio',
+MAX(cdr_dates_time) AS 'hora_final',
+SUM(cdr_call_received) AS 'llamadas_recibidas',
+SUM(cdr_call_abandoned) AS 'Llamadas_abandonadas',
+SUM(cdr_call_atended) AS 'llamadas_atendidas',
+SUM(cdr_call_short) AS 'llamadas_cortas',
+SUM(cdr_call_before_time) AS 'llamadas_antes de 20',
+SUM(cdr_call_before_time) AS 'llamadas_colgadas',
+SUM(cdr_call_before_time)/SUM(cdr_call_received) AS 'nivel_servicios',
+SUM(cdr_call_atended)/SUM(cdr_call_received) AS 'nivel_atencion',
+SUM(cdr_call_abandoned)/SUM(cdr_call_received) AS 'nivel_abandono',
+SUM(cdr_qlog_secs_at_operation) AS 'segundos_operacion',
+SEC_TO_TIME(SUM(cdr_qlog_secs_at_operation)) AS 'tiempo_operacion',
+SUM(cdr_qlog_secs_at_wait) AS 'segundos_espera'
+FROM MainCdr where cdr_dates_calldate='2018-04-25'

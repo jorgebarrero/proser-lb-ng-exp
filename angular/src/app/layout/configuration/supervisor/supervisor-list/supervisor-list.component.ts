@@ -6,8 +6,6 @@ import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
 
-
-
 @Component({
   selector: 'app-supervisor-list',
   templateUrl: './supervisor-list.component.html',
@@ -166,7 +164,6 @@ export class SupervisorListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -181,8 +178,6 @@ export class SupervisorListComponent implements OnInit {
       const temp = this.rows.filter(function(d) {
         return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
-
-
 
       // update the rows
 

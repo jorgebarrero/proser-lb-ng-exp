@@ -10,17 +10,21 @@ import { AgentMenuComponent } from './agent-menu/agent-menu.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgentEditComponent } from './agent-edit/agent-edit.component';
+import { AgentAddComponent } from './agent-add/agent-add.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 
 
 @NgModule({
-  declarations: [AgentComponent, AgentIntroComponent, AgentDetailComponent, AgentListComponent, AgentMenuComponent],
+  declarations: [AgentComponent, AgentIntroComponent, AgentDetailComponent, AgentListComponent, AgentMenuComponent, AgentEditComponent, AgentAddComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
     NgSelectModule,
+    AlertModule,
     AgentRoutingModule
   ]
 })

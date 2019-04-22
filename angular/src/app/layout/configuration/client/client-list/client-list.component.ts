@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { InvSupervisorService } from 'src/app/shared/services/configuration/inv-supervisor.service';
-import { InvSupervisor } from 'src/app/shared/models/configuration/InvSupervisor';
+import { InvClientService } from 'src/app/shared/services/configuration/inv-client.service';
+import { InvClient } from 'src/app/shared/models/configuration/InvClient';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -14,9 +15,10 @@ import { AlertModel } from 'src/app/shared/models/Alert';
 export class ClientListComponent implements OnInit {
 
   constructor(
-    private invSupervisorService: InvSupervisorService,
+    private invClientService: InvClientService,
     private excelService: ExcelService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -43,9 +45,9 @@ export class ClientListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_supervisor_name', name: 'Supervisor', width: 200 },
-    { prop: 'inv_supervisor_schedule_name', name: 'Horario', width: 100 },
-    { prop: 'inv_supervisor_status', name: 'Estado', width: 50 },
+    { prop: 'inv_client_name', name: 'Client', width: 200 },
+    { prop: 'inv_client_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_client_status', name: 'Estado', width: 50 },
   ];
 
   closeResult: string;
@@ -59,7 +61,7 @@ export class ClientListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -70,10 +72,10 @@ export class ClientListComponent implements OnInit {
 
   getAll_Records(query?) {
     this.selected = [];
-    this.invSupervisorService.getAllRecords(query)
+    this.invClientService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -82,10 +84,10 @@ export class ClientListComponent implements OnInit {
 
   onGetActive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'A'}});
+    const query = JSON.stringify({where: {inv_client_status: 'A'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invClientService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -97,10 +99,10 @@ export class ClientListComponent implements OnInit {
 
   onGetInactive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'I'}});
+    const query = JSON.stringify({where: {inv_client_status: 'I'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invClientService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -124,24 +126,48 @@ export class ClientListComponent implements OnInit {
       .map( x => {
         return {
 
-          id: x.inv_supervisor_id,
-          status: x.inv_supervisor_status,
-          chk: x.inv_supervisor_chk,
-          nombre: x.inv_supervisor_name,
-          nombre_corto: x.inv_supervisor_shortname,
-          tipo: x.inv_supervisor_type,
-          identificacion: x.inv_supervisor_legal_id,
-          numero_interno: x.inv_supervisor_internal_id,
-          id_turno: x.inv_supervisor_schedule_id,
-          nombre_turno: x.inv_supervisor_schedule_name,
+          id: x.inv_client_id,
+          status: x.inv_client_status,
+          chk: x.inv_client_chk,
+          nombre: x.inv_client_name,
+          nombre_corto: x.inv_client_shortname,
+          tipo: x.inv_client_type,
+          identificacion: x.inv_client_legal_id,
+          numero_interno: x.inv_client_internal_id,
+          id_turno: x.inv_client_schedule_id,
+          nombre_turno: x.inv_client_schedule_name,
         };
       });
 
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    // closeEdit(edit) {
+    //   this.modalService.close(edit);
+    // }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -164,7 +190,6 @@ export class ClientListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -177,10 +202,8 @@ export class ClientListComponent implements OnInit {
 
       // filter our data
       const temp = this.rows.filter(function(d) {
-        return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
+        return d.inv_client_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
-
-
 
       // update the rows
 
@@ -190,4 +213,20 @@ export class ClientListComponent implements OnInit {
 
     }
 
+    onEdit(selected) {
+
+    console.log (selected)
+      localStorage.setItem("Client", JSON.stringify(selected))
+      this.router.navigate(['/configuration/client/edit']);
+      // this.router("/configuration/client/edit")
+
+    }
+
+
+    onNew() {
+
+        this.router.navigate(['/configuration/client/add']);
+        // this.router("/configuration/client/edit")
+  
+      }
 }

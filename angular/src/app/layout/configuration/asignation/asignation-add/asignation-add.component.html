@@ -1,0 +1,295 @@
+<section id="register" class="myCustomModalClass">
+    <div class="container">
+      <div class="row">
+        <div class=" mx-auto">
+          <div class="card-login">
+            <div class="card mt-3">
+              <div class="card-body">
+                <h3 class="h2 mb-3 font-weight-normal text-center">
+                  Registro de asignation
+                </h3>
+  
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="register-form">
+                    <!-- inv_asignation_id -->
+                    <div class="form-group" id="inv_asignation_id">
+                      <label class="register-label">id</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_id"
+                        class="form-control register-input disabled"
+                        [ngClass]="{ 'is-invalid': f.inv_asignation_id.errors }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_id.dirty && f.inv_asignation_id.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_id.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_status -->
+                    <div class="form-group" id="inv_asignation_status">
+                      <label class="register-label">Status</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_status"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_status.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_status.dirty &&
+                          f.inv_asignation_status.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_status.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_chk -->
+                    <div class="form-group" id="inv_asignation_chk">
+                      <label class="register-label">Chk</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_chk"
+                        class="form-control register-input"
+                        [ngClass]="{ 'is-invalid': f.inv_asignation_chk.errors }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_chk.dirty &&
+                          f.inv_asignation_chk.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_chk.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_name -->
+                    <div class="form-group" id="inv_asignation_name">
+                      <label class="register-label">Nombre completo</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_name"
+                        class="form-control register-input"
+                        [ngClass]="{ 'is-invalid': f.inv_asignation_name.errors }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_name.dirty &&
+                          f.inv_asignation_name.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_name.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_shortname -->
+                    <div class="form-group" id="inv_asignation_shortname">
+                      <label class="register-label">Nombre corto</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_shortname"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_shortname.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_shortname.dirty &&
+                          f.inv_asignation_shortname.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_shortname.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_type -->
+                    <div class="form-group" id="inv_asignation_type">
+                      <label class="register-label">Tipo</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_type"
+                        class="form-control register-input"
+                        [ngClass]="{ 'is-invalid': f.inv_asignation_type.errors }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_type.dirty &&
+                          f.inv_asignation_type.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_type.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_legal_id -->
+                    <div class="form-group" id="inv_asignation_legal_id">
+                      <label class="register-label">Identificación legal</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_legal_id"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_legal_id.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_legal_id.dirty &&
+                          f.inv_asignation_legal_id.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_legal_id.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_internal_id -->
+                    <div class="form-group" id="inv_asignation_internal_id">
+                      <label class="register-label">Código interno</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_internal_id"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_internal_id.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_internal_id.dirty &&
+                          f.inv_asignation_internal_id.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_internal_id.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_schedule_id -->
+                    <div class="form-group" id="inv_asignation_schedule_id">
+                      <label class="register-label">Id del turno</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_schedule_id"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_schedule_id.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_schedule_id.dirty &&
+                          f.inv_asignation_schedule_id.errors
+                        "
+                        class="register-error"
+                      >
+                        <div *ngIf="f.inv_asignation_schedule_id.errors.required">
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- inv_asignation_schedule_name -->
+                    <div class="form-group" id="inv_asignation_schedule_name">
+                      <label class="register-label">Nombre del turno</label>
+                      <input
+                        type="text"
+                        formControlName="inv_asignation_schedule_name"
+                        class="form-control register-input"
+                        [ngClass]="{
+                          'is-invalid': f.inv_asignation_schedule_name.errors
+                        }"
+                      />
+  
+                      <div
+                        *ngIf="
+                          f.inv_asignation_schedule_name.dirty &&
+                          f.inv_asignation_schedule_name.errors
+                        "
+                        class="register-error"
+                      >
+                        <div
+                          *ngIf="f.inv_asignation_schedule_name.errors.required"
+                        >
+                          Este dato es obligatorio
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div
+                    class="form-group text-center mt-3 mb-0 register-button-group "
+                  >
+                    <!-- <div >
+  <button class="btn btn-secondary register-button"
+  (click)="onResetForm()">Borrar forma</button>
+  </div> -->
+  
+  <!-- 
+  <button
+  class="btn btn-success register-button"
+  (click)="post_Records(registerForm.value)"
+  >
+  Registrar
+  </button> -->
+  
+  <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Close</button>
+  </div> -->
+  
+                    <div *ngIf="registerForm">
+                      <button
+                        class="btn btn-success  register-button"
+                        (click)="onRegister(registerForm.value)"
+                      >
+                        Registrar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

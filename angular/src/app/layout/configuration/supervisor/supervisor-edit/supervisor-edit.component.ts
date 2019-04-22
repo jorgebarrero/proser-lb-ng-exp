@@ -40,6 +40,8 @@ export class SupervisorEditComponent implements OnInit {
 
   ngOnInit() {
 
+    this.selected = JSON.parse(localStorage.getItem("Supervisor"))
+
     console.log('alertMessage', this.alertMessage);
 
     this.registerForm = this.formBuilder.group({
@@ -73,6 +75,8 @@ export class SupervisorEditComponent implements OnInit {
               this.editedRecord = data;
           }
         );
+        localStorage.setItem("Supervisor", '')
+        this.router.navigate(['/configuration/supervisor/list']);
   }
 
   onSubmit() {

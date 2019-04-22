@@ -45,4 +45,26 @@ export class InvCampaignService {
     .pipe(map(data => data));
   }
 
+
+  putSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvCampaigns`;
+    console.log('Put a record', url_api);
+
+    return this.http.put<InvCampaign>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+  postSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvCampaigns`;
+    console.log('Post a record', url_api);
+
+    return this.http.post<InvCampaign>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+
 }

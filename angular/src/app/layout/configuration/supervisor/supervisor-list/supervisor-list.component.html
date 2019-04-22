@@ -25,7 +25,7 @@ Exportar a excel
 </div>
 
 <div>
-  <a class="btn btn-outline-primary submenu-btn" *ngIf="selected[0]" (click)="openAdd(add)">Nuevo</a>
+  <a class="btn btn-outline-primary submenu-btn" routerLink= "/configuration/supervisor/add">Nuevo</a>
   </div>
 
 <div>
@@ -33,7 +33,7 @@ Exportar a excel
 </div>
 
 <div>
-  <a class="btn btn-outline-success submenu-btn" *ngIf="selected[0]" (click)="openEdit(edit)">Editar</a>
+  <a class="btn btn-outline-success submenu-btn" (click)= "onEdit(selected[0])">Editar</a>
   </div>
 
 </div>
@@ -91,19 +91,4 @@ Exportar a excel
 
 <ng-template #detail let-modal>
     <app-supervisor-detail [selected]="selectedInList"></app-supervisor-detail>
-</ng-template>
-
-<ng-template #edit let-modal>
-  <app-supervisor-edit [selected]="selectedInList"></app-supervisor-edit>
-
-  <button type="button" class="close" aria-label="Close" (click)="edit.dismiss('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
-
-
-
-</ng-template>
-
-<ng-template #add let-modal>
-  <app-supervisor-add [selected]="selectedInList"></app-supervisor-add>
 </ng-template>

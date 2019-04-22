@@ -24,14 +24,18 @@ export class SupervisorAddComponent implements OnInit {
     // private authService: AuthService,
     private alertService: AlertService,
     private modalService: NgbModal,
-    private router: Router
+    private router: Router,
+    private invSupervisorService: InvSupervisorService,
+
   ) { }
 
   registerForm: FormGroup;
   submitted = false;
   alertMessage = new AlertModel;
 
-  @Input() selected;
+  // selected = new InvSupervisor;
+
+  editedRecord;
 
   ngOnInit() {
 
@@ -39,16 +43,16 @@ export class SupervisorAddComponent implements OnInit {
 
     this.registerForm = this.formBuilder.group({
 
-      inv_supervisor_id: [this.selected.inv_supervisor_id, Validators.required],
-      inv_supervisor_status: [this.selected.inv_supervisor_status, Validators.required],
-      inv_supervisor_chk: [this.selected.inv_supervisor_chk, Validators.required],
-      inv_supervisor_name: [this.selected.inv_supervisor_name, Validators.required],
-      inv_supervisor_shortname: [this.selected.inv_supervisor_shortname, Validators.required],
-      inv_supervisor_type: [this.selected.inv_supervisor_type, Validators.required],
-      inv_supervisor_legal_id: [this.selected.inv_supervisor_legal_id, Validators.required],
-      inv_supervisor_internal_id: [this.selected.inv_supervisor_legal_id, Validators.required],
-      inv_supervisor_schedule_id: [this.selected.inv_supervisor_schedule_id, Validators.required],
-      inv_supervisor_schedule_name: [this.selected.inv_supervisor_schedule_name, Validators.required],
+      inv_supervisor_id: ['0', Validators.required],
+      inv_supervisor_status: ['', Validators.required],
+      inv_supervisor_chk: ['', Validators.required],
+      inv_supervisor_name: ['', Validators.required],
+      inv_supervisor_shortname: ['', Validators.required],
+      inv_supervisor_type: ['', Validators.required],
+      inv_supervisor_legal_id: ['', Validators.required],
+      inv_supervisor_internal_id: ['', Validators.required],
+      inv_supervisor_schedule_id: ['', Validators.required],
+      inv_supervisor_schedule_name: ['', Validators.required],
 
     });
 
@@ -56,6 +60,31 @@ export class SupervisorAddComponent implements OnInit {
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
+
+
+  post_Records(query?) {
+    // this.selected = [];
+    console.log('QUERY TO INSERT', query);
+
+    this.invSupervisorService.postSelectedRecords(query)
+    .subscribe( data => {
+      console.log('data', data);
+              this.editedRecord = data;
+          }
+        );
+
+        
+  }
+
+
+  onRegister(register) {
+    console.log("registro", register)
+    this.post_Records(register)
+
+   this.router.navigate(['/configuration/supervisor/list']);
+  }
+
+
 
   onSubmit() {
     this.submitted = true;

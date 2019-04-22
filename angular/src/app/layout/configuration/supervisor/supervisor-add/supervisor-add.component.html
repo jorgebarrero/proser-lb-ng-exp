@@ -263,10 +263,22 @@
 (click)="onResetForm()">Borrar forma</button>
 </div> -->
 
-                  <div *ngIf="registerForm.valid">
+<!-- 
+<button
+class="btn btn-success register-button"
+(click)="post_Records(registerForm.value)"
+>
+Registrar
+</button> -->
+
+<!-- <div class="modal-footer">
+  <button type="button" class="btn btn-danger" (click)="activeModal.close('Close click')">Close</button>
+</div> -->
+
+                  <div *ngIf="registerForm">
                     <button
-                      class="btn btn-success register-button"
-                      (click)="onRegister(content)"
+                      class="btn btn-success  register-button"
+                      (click)="onRegister(registerForm.value)"
                     >
                       Registrar
                     </button>

@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 import { InvCampaignService } from 'src/app/shared/services/configuration/inv-campaign.service';
-
 import { InvCampaign } from 'src/app/shared/models/configuration/InvCampaign';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-campaign-list',
@@ -20,6 +18,7 @@ export class CampaignListComponent implements OnInit {
     private invCampaignService: InvCampaignService,
     private excelService: ExcelService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -46,7 +45,7 @@ export class CampaignListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_campaign_name', name: 'Campañas', width: 200 },
+    { prop: 'inv_campaign_name', name: 'Campaign', width: 200 },
     { prop: 'inv_campaign_schedule_name', name: 'Horario', width: 100 },
     { prop: 'inv_campaign_status', name: 'Estado', width: 50 },
   ];
@@ -62,7 +61,7 @@ export class CampaignListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -76,7 +75,7 @@ export class CampaignListComponent implements OnInit {
     this.invCampaignService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -143,8 +142,32 @@ export class CampaignListComponent implements OnInit {
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    // closeEdit(edit) {
+    //   this.modalService.close(edit);
+    // }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -167,7 +190,6 @@ export class CampaignListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -183,8 +205,6 @@ export class CampaignListComponent implements OnInit {
         return d.inv_campaign_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
 
-
-
       // update the rows
 
       this.rows = temp;
@@ -193,4 +213,20 @@ export class CampaignListComponent implements OnInit {
 
     }
 
+    onEdit(selected) {
+
+    console.log (selected)
+      localStorage.setItem("Campaign", JSON.stringify(selected))
+      this.router.navigate(['/configuration/campaign/edit']);
+      // this.router("/configuration/campaign/edit")
+
+    }
+
+
+    onNew() {
+
+        this.router.navigate(['/configuration/campaign/add']);
+        // this.router("/configuration/campaign/edit")
+  
+      }
 }

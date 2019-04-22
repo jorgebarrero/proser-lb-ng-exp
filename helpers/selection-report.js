@@ -20,15 +20,15 @@ const poolDat = myPool.poolDat;
 
 async function selectionReport(arg){
 
-    let id = validateId(arg) ? arg.id : "";
+    let report_id = validateId(arg) ? arg.report_id : "";
 
-    if(id){
+    if(report_id){
 
     let findSQL = 
     `
     SELECT inv_report_field, inv_report_table
     FROM InvReport
-    WHERE inv_report_id = ${id}
+    WHERE inv_report_id = ${report_id}
     `;
     console.log("SQL", findSQL);
 
@@ -56,9 +56,9 @@ async function selectionReport(arg){
 
     let result = false
 
-if (arg.id){
+if (arg.report_id){
 
-    if (arg.id > 0){
+    if (arg.report_id > 0){
         return true
     } else {
         result = false

@@ -30,17 +30,22 @@ function mainQuery(arg){
     let order = validateOrder(arg) ? arg.order : "";
     let limit = validateLimit(arg) ? arg.limit :"";
 
+
     let filterBy = validateFilter(arg) ? "WHERE" : "";
     let groupBy = validateGroup(arg) ? "GROUP BY" : "";
     let orderBy = validateOrder(arg) ? "ORDER BY" : "";
     let limitBy = validateLimit(arg) ? "LIMIT" : "";
 
+
     if (field && table){
 
     let querySQL = 
-    `SELECT ${field} FROM ${table}
+    `
+    SELECT ${field} FROM ${table}
     ${filterBy} ${filter} ${groupBy} ${group}
-    ${orderBy} ${order} ${limitBy} ${limit}`;
+    ${orderBy} ${order} ${limitBy} ${limit}
+    
+    `;
 
     result = querySQL;
     }

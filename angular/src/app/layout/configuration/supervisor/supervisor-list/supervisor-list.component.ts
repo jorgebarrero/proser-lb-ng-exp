@@ -59,7 +59,7 @@ export class SupervisorListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -73,7 +73,7 @@ export class SupervisorListComponent implements OnInit {
     this.invSupervisorService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -140,8 +140,32 @@ export class SupervisorListComponent implements OnInit {
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    closeEdit(edit) {
+      this.modalService.close(edit);
+    }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;

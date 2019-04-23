@@ -98,5 +98,9 @@
   "InvMenu": {
     "dataSource": "mysqlProser",
     "public": true
+  },
+  "InvDashboard": {
+    "dataSource": "mysqlProser",
+    "public": true
   }
 }

@@ -22,12 +22,19 @@ module.exports = function(InvReport) {
     
       async function sql(filtro){
 
+        //**********************REPORT SELECTION***************************/
+
         var querySelection = await selectReport.selectionReport(filtro);
         // console.log("QUERY SELECTION", querySelection);
+        
+        //**********************INSERTION DATA FIELD & TABLE INTO FILTRO***************************/
         filtro.field = [querySelection[0].inv_report_field];
         filtro.table = [querySelection[0].inv_report_table];
         // console.log("//***********FILTRO MODIFICADO********//")
         // console.log("FILTRO", filtro);
+
+        //**********************REPORT QUERY***************************/
+
         var querySQL = await constructor.mainQuery(filtro);
         // console.log("//*************QUERY FINAL******//");
         // console.log("QUERY", querySQL);
@@ -43,7 +50,7 @@ module.exports = function(InvReport) {
     
               console.log('Server error');
               console.log(querySQL);
-              res.status(500).send('Server error');
+              return error;
                 
             }
       };

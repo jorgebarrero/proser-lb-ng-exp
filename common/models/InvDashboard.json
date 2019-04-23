@@ -1,0 +1,21 @@
+{
+  "name": "InvDashboard",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "inv_dashboard_id": {
+      "type": "number",
+      "required": true
+    },
+    "inv_dashboard_name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

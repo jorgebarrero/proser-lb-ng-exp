@@ -45,9 +45,17 @@ export class CampaignListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_campaign_name', name: 'Campaign', width: 200 },
-    { prop: 'inv_campaign_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_campaign_id', name: 'ID', width: 50 },
+    { prop: 'inv_campaign_name', name: 'Horario', width: 100 },
     { prop: 'inv_campaign_status', name: 'Estado', width: 50 },
+    { prop: 'inv_campaign_description', name: 'Descripción', width: 50 },
+    { prop: 'inv_campaign_queue_name', name: 'Colas', width: 50 },
+    { prop: 'inv_campaign_queue_number', name: 'Número de Colas', width: 50 },
+    { prop: 'inv_campaign_start_date_text', name: 'Fecha Inicial', width: 100 },
+    { prop: 'inv_campaign_end_date_text', name: 'Fecha Final', width: 100 },
+    { prop: 'inv_campaign_start_time_text', name: 'Hora de Inicio', width: 50 },
+    { prop: 'inv_campaign_end_time_text', name: 'Hora Final', width: 50 },
+
   ];
 
   closeResult: string;

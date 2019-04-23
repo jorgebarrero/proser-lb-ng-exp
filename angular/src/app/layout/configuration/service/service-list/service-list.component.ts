@@ -45,9 +45,11 @@ export class ServiceListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_service_name', name: 'Service', width: 200 },
-    { prop: 'inv_service_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_service_id', name: 'ID', width: 50 },
+    { prop: 'inv_service_name', name: 'Servicio', width: 100 },
     { prop: 'inv_service_status', name: 'Estado', width: 50 },
+    { prop: 'inv_service_type', name: 'Tipo', width: 50 },
+    { prop: 'inv_service_use', name: 'Uso', width: 50 }, 
   ];
 
   closeResult: string;

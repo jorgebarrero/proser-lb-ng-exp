@@ -45,9 +45,12 @@ export class ScheduleListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_schedule_name', name: 'Schedule', width: 200 },
-    { prop: 'inv_schedule_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_schedule_id', name: 'ID', width: 50 },
+    { prop: 'inv_schedule_name', name: 'Turno', width: 150 },
+    { prop: 'inv_schedule_type', name: 'Tipo', width: 50 }, 
     { prop: 'inv_schedule_status', name: 'Estado', width: 50 },
+    { prop: 'inv_schedule_description', name: 'Descripción', width: 50 },
+    { prop: 'inv_schedule_days', name: 'Días', width: 50 },
   ];
 
   closeResult: string;

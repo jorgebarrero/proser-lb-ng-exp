@@ -50,9 +50,15 @@ export class AgentListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_agent_name', name: 'Agent', width: 200 },
-    { prop: 'inv_agent_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_agent_id', name: 'ID', width: 50 },
+    { prop: 'inv_agent_name', name: 'Agente', width: 100 },
     { prop: 'inv_agent_status', name: 'Estado', width: 50 },
+    { prop: 'inv_agent_type', name: 'Tipo', width: 50 },
+    { prop: 'inv_agent_extension', name: 'Extensión', width: 50 },
+    { prop: 'inv_agent_legal_id', name: 'Identificaión legal', width: 50 },
+    { prop: 'inv_agent_internal_id', name: 'Código Interno', width: 50 },
+    { prop: 'inv_agent_supervisor_name', name: 'Supervisor', width: 50 },
+    { prop: 'inv_agent_schedule_name', name: 'Turnos', width: 50 },
   ];
 
   closeResult: string;

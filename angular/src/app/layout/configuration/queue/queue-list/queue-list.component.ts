@@ -45,11 +45,13 @@ export class QueueListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_queue_name', name: 'Queue', width: 200 },
-    { prop: 'inv_queue_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_queue_id', name: 'ID', width: 50 },
+    { prop: 'inv_queue_name', name: 'Colas', width: 100 },
     { prop: 'inv_queue_status', name: 'Estado', width: 50 },
+    { prop: 'inv_queue_number', name: 'Número', width: 50 },
+    { prop: 'inv_queue_type', name: 'Tipo', width: 50 },
+    { prop: 'inv_queue_use', name: 'Uso', width: 50 },
   ];
-
   closeResult: string;
 
   ngOnInit() {

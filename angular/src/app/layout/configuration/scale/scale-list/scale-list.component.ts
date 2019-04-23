@@ -44,9 +44,13 @@ export class ScaleListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_scale_name', name: 'Scale', width: 200 },
-    { prop: 'inv_scale_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_scale_id', name: 'ID', width: 50 },
+    { prop: 'inv_scale_name', name: 'Escala', width: 100 },
     { prop: 'inv_scale_status', name: 'Estado', width: 50 },
+    { prop: 'inv_scale_red', name: 'Rojo', width: 50 },
+    { prop: 'inv_scale_yellow', name: 'Amarillo', width: 50 },
+    { prop: 'inv_scale_green', name: 'Verde', width: 50 },
+    { prop: 'inv_scale_blue ', name: 'Azul', width: 50 },
   ];
 
   closeResult: string;

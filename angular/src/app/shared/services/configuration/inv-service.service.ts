@@ -44,4 +44,25 @@ export class InvServiceService {
   }
 
 
+  putSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvServices`;
+    console.log('Put a record', url_api);
+
+    return this.http.put<InvService>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+  postSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvServices`;
+    console.log('Post a record', url_api);
+
+    return this.http.post<InvService>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+
 }

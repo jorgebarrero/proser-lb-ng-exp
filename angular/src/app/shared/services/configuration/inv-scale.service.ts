@@ -43,4 +43,27 @@ export class InvScaleService {
     return this.http.get<InvScale>(url_api, {headers: this.headers})
     .pipe(map(data => data));
   }
+
+
+  putSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvScales`;
+    console.log('Put a record', url_api);
+
+    return this.http.put<InvScale>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+  postSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvScales`;
+    console.log('Post a record', url_api);
+
+    return this.http.post<InvScale>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+
 }

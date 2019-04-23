@@ -12,6 +12,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScheduleEditComponent } from './schedule-edit/schedule-edit.component';
 import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
     ReactiveFormsModule,
     NgxDatatableModule,
     NgSelectModule,
+    AlertModule,
     ScheduleRoutingModule
   ]
 })

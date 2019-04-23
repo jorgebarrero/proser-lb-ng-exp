@@ -12,6 +12,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScaleEditComponent } from './scale-edit/scale-edit.component';
 import { ScaleAddComponent } from './scale-add/scale-add.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 @NgModule({
   declarations: [ScaleComponent, ScaleIntroComponent, ScaleDetailComponent, ScaleListComponent, ScaleMenuComponent, ScaleEditComponent, ScaleAddComponent],
@@ -21,6 +22,7 @@ import { ScaleAddComponent } from './scale-add/scale-add.component';
     ReactiveFormsModule,
     NgxDatatableModule,
     NgSelectModule,
+    AlertModule,
     ScaleRoutingModule
   ]
 })

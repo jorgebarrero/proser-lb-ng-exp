@@ -1,3 +1,120 @@
-<p>
-  scale-detail works!
-</p>
+
+<section id="register" class="myCustomModalClass">
+    <div class="container">
+      <div class="row">
+        <div class=" mx-auto">
+          <div class="card-login">
+            <div class="card mt-3">
+              <div class="card-body">
+                <h3 class="h2 mb-3 font-weight-normal text-center">
+                  Registro de scale
+                </h3>
+  
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="register-form">
+                    <!-- inv_scale_id -->
+                    <div class="form-group" id="inv_scale_id">
+                      <label class="register-label">id</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_status -->
+                    <div class="form-group" id="inv_scale_status">
+                      <label class="register-label">Status</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_status}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_chk -->
+                    <div class="form-group" id="inv_scale_chk">
+                      <label class="register-label">Chk</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_chk}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_name -->
+                    <div class="form-group" id="inv_scale_name">
+                      <label class="register-label">Nombre completo</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_name}}</p>
+  
+  
+                    </div>
+  
+                    <!-- inv_scale_shortname -->
+                    <div class="form-group" id="inv_scale_shortname">
+                      <label class="register-label">Nombre corto</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_shortname}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_type -->
+                    <div class="form-group" id="inv_scale_type">
+                      <label class="register-label">Tipo</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_type}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_legal_id -->
+                    <div class="form-group" id="inv_scale_legal_id">
+                      <label class="register-label">Identificación legal</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_legal_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_internal_id -->
+                    <div class="form-group" id="inv_scale_internal_id">
+                      <label class="register-label">Código interno</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_internal_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_schedule_id -->
+                    <div class="form-group" id="inv_scale_schedule_id">
+                      <label class="register-label">Id del turno</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_schedule_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_scale_schedule_name -->
+                    <div class="form-group" id="inv_scale_schedule_name">
+                      <label class="register-label">Nombre del turno</label>
+  
+                      <p class="register-detail">{{selected.inv_scale_schedule_name}}</p>
+  
+                  </div>
+  
+  
+  
+                    <!-- <div >
+  <button class="btn btn-secondary register-button"
+  (click)="onResetForm()">Borrar forma</button>
+  </div> -->
+  
+                    <div *ngIf="registerForm.valid">
+                      <button
+                        class="btn btn-success register-button"
+                        (click)="onRegister(content)"
+                      >
+                        Registrar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

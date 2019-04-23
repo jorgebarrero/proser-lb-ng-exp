@@ -13,6 +13,7 @@ import { ServiceListComponent } from './service-list/service-list.component';
 import { ServiceMenuComponent } from './service-menu/service-menu.component';
 import { ServiceEditComponent } from './service-edit/service-edit.component';
 import { ServiceAddComponent } from './service-add/service-add.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ServiceAddComponent } from './service-add/service-add.component';
     ReactiveFormsModule,
     NgxDatatableModule,
     NgSelectModule,
+    AlertModule,
     ServiceRoutingModule
   ]
 })

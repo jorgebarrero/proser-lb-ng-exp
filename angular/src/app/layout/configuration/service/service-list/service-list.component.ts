@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { InvSupervisorService } from 'src/app/shared/services/configuration/inv-supervisor.service';
-import { InvSupervisor } from 'src/app/shared/models/configuration/InvSupervisor';
+import { InvServiceService } from 'src/app/shared/services/configuration/inv-service.service';
+import { InvService } from 'src/app/shared/models/configuration/InvService';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-service-list',
@@ -14,9 +15,10 @@ import { AlertModel } from 'src/app/shared/models/Alert';
 export class ServiceListComponent implements OnInit {
 
   constructor(
-    private invSupervisorService: InvSupervisorService,
+    private invServiceService: InvServiceService,
     private excelService: ExcelService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -43,9 +45,9 @@ export class ServiceListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_supervisor_name', name: 'Supervisor', width: 200 },
-    { prop: 'inv_supervisor_schedule_name', name: 'Horario', width: 100 },
-    { prop: 'inv_supervisor_status', name: 'Estado', width: 50 },
+    { prop: 'inv_service_name', name: 'Service', width: 200 },
+    { prop: 'inv_service_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_service_status', name: 'Estado', width: 50 },
   ];
 
   closeResult: string;
@@ -59,7 +61,7 @@ export class ServiceListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -70,10 +72,10 @@ export class ServiceListComponent implements OnInit {
 
   getAll_Records(query?) {
     this.selected = [];
-    this.invSupervisorService.getAllRecords(query)
+    this.invServiceService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -82,10 +84,10 @@ export class ServiceListComponent implements OnInit {
 
   onGetActive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'A'}});
+    const query = JSON.stringify({where: {inv_service_status: 'A'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invServiceService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -97,10 +99,10 @@ export class ServiceListComponent implements OnInit {
 
   onGetInactive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'I'}});
+    const query = JSON.stringify({where: {inv_service_status: 'I'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invServiceService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -124,24 +126,48 @@ export class ServiceListComponent implements OnInit {
       .map( x => {
         return {
 
-          id: x.inv_supervisor_id,
-          status: x.inv_supervisor_status,
-          chk: x.inv_supervisor_chk,
-          nombre: x.inv_supervisor_name,
-          nombre_corto: x.inv_supervisor_shortname,
-          tipo: x.inv_supervisor_type,
-          identificacion: x.inv_supervisor_legal_id,
-          numero_interno: x.inv_supervisor_internal_id,
-          id_turno: x.inv_supervisor_schedule_id,
-          nombre_turno: x.inv_supervisor_schedule_name,
+          id: x.inv_service_id,
+          status: x.inv_service_status,
+          chk: x.inv_service_chk,
+          nombre: x.inv_service_name,
+          nombre_corto: x.inv_service_shortname,
+          tipo: x.inv_service_type,
+          identificacion: x.inv_service_legal_id,
+          numero_interno: x.inv_service_internal_id,
+          id_turno: x.inv_service_schedule_id,
+          nombre_turno: x.inv_service_schedule_name,
         };
       });
 
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    // closeEdit(edit) {
+    //   this.modalService.close(edit);
+    // }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -164,7 +190,6 @@ export class ServiceListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -177,10 +202,8 @@ export class ServiceListComponent implements OnInit {
 
       // filter our data
       const temp = this.rows.filter(function(d) {
-        return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
+        return d.inv_service_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
-
-
 
       // update the rows
 
@@ -190,4 +213,20 @@ export class ServiceListComponent implements OnInit {
 
     }
 
+    onEdit(selected) {
+
+    console.log (selected)
+      localStorage.setItem("Service", JSON.stringify(selected))
+      this.router.navigate(['/configuration/service/edit']);
+      // this.router("/configuration/service/edit")
+
+    }
+
+
+    onNew() {
+
+        this.router.navigate(['/configuration/service/add']);
+        // this.router("/configuration/service/edit")
+  
+      }
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { InvSupervisorService } from 'src/app/shared/services/configuration/inv-supervisor.service';
-import { InvSupervisor } from 'src/app/shared/models/configuration/InvSupervisor';
+import { InvScaleService } from 'src/app/shared/services/configuration/inv-scale.service';
+import { InvScale } from 'src/app/shared/models/configuration/InvScale';
 import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scale-list',
@@ -12,11 +13,11 @@ import { AlertModel } from 'src/app/shared/models/Alert';
   styleUrls: ['./scale-list.component.scss']
 })
 export class ScaleListComponent implements OnInit {
-
   constructor(
-    private invSupervisorService: InvSupervisorService,
+    private invScaleService: InvScaleService,
     private excelService: ExcelService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -43,9 +44,9 @@ export class ScaleListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_supervisor_name', name: 'Supervisor', width: 200 },
-    { prop: 'inv_supervisor_schedule_name', name: 'Horario', width: 100 },
-    { prop: 'inv_supervisor_status', name: 'Estado', width: 50 },
+    { prop: 'inv_scale_name', name: 'Scale', width: 200 },
+    { prop: 'inv_scale_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_scale_status', name: 'Estado', width: 50 },
   ];
 
   closeResult: string;
@@ -59,7 +60,7 @@ export class ScaleListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -70,10 +71,10 @@ export class ScaleListComponent implements OnInit {
 
   getAll_Records(query?) {
     this.selected = [];
-    this.invSupervisorService.getAllRecords(query)
+    this.invScaleService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -82,10 +83,10 @@ export class ScaleListComponent implements OnInit {
 
   onGetActive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'A'}});
+    const query = JSON.stringify({where: {inv_scale_status: 'A'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invScaleService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -97,10 +98,10 @@ export class ScaleListComponent implements OnInit {
 
   onGetInactive_Records() {
     this.selected = [];
-    const query = JSON.stringify({where: {inv_supervisor_status: 'I'}});
+    const query = JSON.stringify({where: {inv_scale_status: 'I'}});
     console.log('query', query);
 
-    this.invSupervisorService.getSelectedRecords(query)
+    this.invScaleService.getSelectedRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
       console.log('data', data);
@@ -124,24 +125,48 @@ export class ScaleListComponent implements OnInit {
       .map( x => {
         return {
 
-          id: x.inv_supervisor_id,
-          status: x.inv_supervisor_status,
-          chk: x.inv_supervisor_chk,
-          nombre: x.inv_supervisor_name,
-          nombre_corto: x.inv_supervisor_shortname,
-          tipo: x.inv_supervisor_type,
-          identificacion: x.inv_supervisor_legal_id,
-          numero_interno: x.inv_supervisor_internal_id,
-          id_turno: x.inv_supervisor_schedule_id,
-          nombre_turno: x.inv_supervisor_schedule_name,
+          id: x.inv_scale_id,
+          status: x.inv_scale_status,
+          chk: x.inv_scale_chk,
+          nombre: x.inv_scale_name,
+          nombre_corto: x.inv_scale_shortname,
+          tipo: x.inv_scale_type,
+          identificacion: x.inv_scale_legal_id,
+          numero_interno: x.inv_scale_internal_id,
+          id_turno: x.inv_scale_schedule_id,
+          nombre_turno: x.inv_scale_schedule_name,
         };
       });
 
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    // closeEdit(edit) {
+    //   this.modalService.close(edit);
+    // }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -164,7 +189,6 @@ export class ScaleListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -177,10 +201,8 @@ export class ScaleListComponent implements OnInit {
 
       // filter our data
       const temp = this.rows.filter(function(d) {
-        return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
+        return d.inv_scale_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
-
-
 
       // update the rows
 
@@ -190,4 +212,20 @@ export class ScaleListComponent implements OnInit {
 
     }
 
+    onEdit(selected) {
+
+    console.log (selected)
+      localStorage.setItem("Scale", JSON.stringify(selected))
+      this.router.navigate(['/configuration/scale/edit']);
+      // this.router("/configuration/scale/edit")
+
+    }
+
+
+    onNew() {
+
+        this.router.navigate(['/configuration/scale/add']);
+        // this.router("/configuration/scale/edit")
+  
+      }
 }

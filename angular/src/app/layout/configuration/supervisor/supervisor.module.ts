@@ -16,6 +16,9 @@ import { SupervisorEditComponent } from './supervisor-edit/supervisor-edit.compo
 import { SupervisorAddComponent } from './supervisor-add/supervisor-add.component';
 
 
+
+
+
 @NgModule({
   declarations: [
     SupervisorComponent,

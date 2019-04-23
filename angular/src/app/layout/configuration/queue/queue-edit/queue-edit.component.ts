@@ -13,19 +13,21 @@ import { Router } from '@angular/router';
 import { AlertModel } from 'src/app/shared/models/Alert';
 
 @Component({
-  selector: 'app-queue-detail',
-  templateUrl: './queue-detail.component.html',
-  styleUrls: ['./queue-detail.component.scss']
+  selector: 'app-queue-edit',
+  templateUrl: './queue-edit.component.html',
+  styleUrls: ['./queue-edit.component.scss']
 })
-export class QueueDetailComponent implements OnInit {
+export class QueueEditComponent implements OnInit {
 
-
+ 
   constructor(
     private formBuilder: FormBuilder,
     // private authService: AuthService,
     private alertService: AlertService,
     private modalService: NgbModal,
-    private router: Router
+    private router: Router,
+    private invQueueService: InvQueueService,
+
   ) { }
 
   registerForm: FormGroup;
@@ -34,7 +36,11 @@ export class QueueDetailComponent implements OnInit {
 
   @Input() selected;
 
+  editedRecord;
+
   ngOnInit() {
+
+    this.selected = JSON.parse(localStorage.getItem("Queue"))
 
     console.log('alertMessage', this.alertMessage);
 
@@ -58,9 +64,23 @@ export class QueueDetailComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
+
+  put_Records(query?) {
+    // this.selected = [];
+    console.log('QUERY TO INSERT', query);
+
+    this.invQueueService.putSelectedRecords(query)
+    .subscribe( data => {
+      console.log('data', data);
+              this.editedRecord = data;
+          }
+        );
+        localStorage.setItem("Queue", '')
+        this.router.navigate(['/configuration/queue/list']);
+  }
+
   onSubmit() {
     this.submitted = true;
   }
 
 }
-

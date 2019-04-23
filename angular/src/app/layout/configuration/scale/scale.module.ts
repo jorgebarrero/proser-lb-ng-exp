@@ -10,9 +10,11 @@ import { ScaleMenuComponent } from './scale-menu/scale-menu.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ScaleEditComponent } from './scale-edit/scale-edit.component';
+import { ScaleAddComponent } from './scale-add/scale-add.component';
 
 @NgModule({
-  declarations: [ScaleComponent, ScaleIntroComponent, ScaleDetailComponent, ScaleListComponent, ScaleMenuComponent],
+  declarations: [ScaleComponent, ScaleIntroComponent, ScaleDetailComponent, ScaleListComponent, ScaleMenuComponent, ScaleEditComponent, ScaleAddComponent],
   imports: [
     CommonModule,
     FormsModule,

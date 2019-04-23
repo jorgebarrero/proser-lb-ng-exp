@@ -11,10 +11,12 @@ import { ServiceIntroComponent } from './service-intro/service-intro.component';
 import { ServiceDetailComponent } from './service-detail/service-detail.component';
 import { ServiceListComponent } from './service-list/service-list.component';
 import { ServiceMenuComponent } from './service-menu/service-menu.component';
+import { ServiceEditComponent } from './service-edit/service-edit.component';
+import { ServiceAddComponent } from './service-add/service-add.component';
 
 
 @NgModule({
-  declarations: [ServiceComponent, ServiceIntroComponent, ServiceDetailComponent, ServiceListComponent, ServiceMenuComponent],
+  declarations: [ServiceComponent, ServiceIntroComponent, ServiceDetailComponent, ServiceListComponent, ServiceMenuComponent, ServiceEditComponent, ServiceAddComponent],
   imports: [
     CommonModule,
     FormsModule,

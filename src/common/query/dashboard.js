@@ -13,7 +13,11 @@ sum(cdr_qlog_secs_at_wait)/SUM(cdr_call_received)
 
 let SQLAudit = `
 COUNT()
+<<<<<<< HEAD
 '
+=======
+
+>>>>>>> 329a93600d47868ec929996e9e2d0118c7d74701
 SELECT 'LOGIN', COUNT(id_break), MIN(datetime_init), MAX(datetime_end) FROM 'MainAudit' WHERE id_break = '0'
 
 UNION
@@ -25,4 +29,4 @@ UNION
 SELECT 'ASIGNATION', COUNT(audit.id_break) FROM 'MainAudit' as audit JOIN 'InvBreak' as break ON audit.id_break = break.inv_break_id  WHERE audit.id_break <> '0' AND break.inv_break_productivity = '1'
 
 
-export { SQLCdr }`;
+export { SQLCdr } `;

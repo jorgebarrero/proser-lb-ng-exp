@@ -10,16 +10,20 @@ import { ScheduleMenuComponent } from './schedule-menu/schedule-menu.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ScheduleEditComponent } from './schedule-edit/schedule-edit.component';
+import { ScheduleAddComponent } from './schedule-add/schedule-add.component';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 
 @NgModule({
-  declarations: [ScheduleComponent, ScheduleIntroComponent, ScheduleDetailComponent, ScheduleListComponent, ScheduleMenuComponent],
+  declarations: [ScheduleComponent, ScheduleIntroComponent, ScheduleDetailComponent, ScheduleListComponent, ScheduleMenuComponent, ScheduleEditComponent, ScheduleAddComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxDatatableModule,
     NgSelectModule,
+    AlertModule,
     ScheduleRoutingModule
   ]
 })

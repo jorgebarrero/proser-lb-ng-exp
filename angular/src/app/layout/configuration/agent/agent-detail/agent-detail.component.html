@@ -1,3 +1,120 @@
-<p>
-  agent-detail works!
-</p>
+
+<section id="register" class="myCustomModalClass">
+    <div class="container">
+      <div class="row">
+        <div class=" mx-auto">
+          <div class="card-login">
+            <div class="card mt-3">
+              <div class="card-body">
+                <h3 class="h2 mb-3 font-weight-normal text-center">
+                  Registro de Agentes
+                </h3>
+  
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                  <div class="register-form">
+                    <!-- inv_agent_id -->
+                    <div class="form-group" id="inv_agent_id">
+                      <label class="register-label">id</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_status -->
+                    <div class="form-group" id="inv_agent_status">
+                      <label class="register-label">Status</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_status}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_chk -->
+                    <div class="form-group" id="inv_agent_chk">
+                      <label class="register-label">Chk</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_chk}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_name -->
+                    <div class="form-group" id="inv_agent_name">
+                      <label class="register-label">Nombre completo</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_name}}</p>
+  
+  
+                    </div>
+  
+                    <!-- inv_agent_shortname -->
+                    <div class="form-group" id="inv_agent_shortname">
+                      <label class="register-label">Nombre corto</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_shortname}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_type -->
+                    <div class="form-group" id="inv_agent_type">
+                      <label class="register-label">Tipo</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_type}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_legal_id -->
+                    <div class="form-group" id="inv_agent_legal_id">
+                      <label class="register-label">Identificación legal</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_legal_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_internal_id -->
+                    <div class="form-group" id="inv_agent_internal_id">
+                      <label class="register-label">Código interno</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_internal_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_schedule_id -->
+                    <div class="form-group" id="inv_agent_schedule_id">
+                      <label class="register-label">Id del turno</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_schedule_id}}</p>
+  
+                    </div>
+  
+                    <!-- inv_agent_schedule_name -->
+                    <div class="form-group" id="inv_agent_schedule_name">
+                      <label class="register-label">Nombre del turno</label>
+  
+                      <p class="register-detail">{{selected.inv_agent_schedule_name}}</p>
+  
+                  </div>
+  
+  
+  
+                    <!-- <div >
+  <button class="btn btn-secondary register-button"
+  (click)="onResetForm()">Borrar forma</button>
+  </div> -->
+  
+                    <div *ngIf="registerForm.valid">
+                      <button
+                        class="btn btn-success register-button"
+                        (click)="onRegister(content)"
+                      >
+                        Registrar
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

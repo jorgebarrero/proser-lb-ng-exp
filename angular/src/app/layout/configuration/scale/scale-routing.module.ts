@@ -4,6 +4,9 @@ import { ScaleComponent } from './scale.component';
 import { ScaleIntroComponent } from './scale-intro/scale-intro.component';
 import { ScaleListComponent } from './scale-list/scale-list.component';
 import { ScaleDetailComponent } from './scale-detail/scale-detail.component';
+import { ScaleEditComponent } from './scale-edit/scale-edit.component';
+import { ScaleAddComponent } from './scale-add/scale-add.component';
+
 
 const routes: Routes = [
 
@@ -14,6 +17,8 @@ const routes: Routes = [
       { path: 'intro', component: ScaleIntroComponent },
       { path: 'list', component: ScaleListComponent},
       { path: 'detail', component: ScaleDetailComponent},
+      { path: 'edit', component: ScaleEditComponent },
+      { path: 'add', component: ScaleAddComponent },
  ]
   },
 ];

@@ -44,4 +44,26 @@ export class InvAgentService {
     .pipe(map(data => data));
   }
 
+
+  putSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvAgents`;
+    console.log('Put a record', url_api);
+
+    return this.http.put<InvAgent>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+  postSelectedRecords(query?) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url_api = `${this.env.loopbackApiUrl}/api/InvAgents`;
+    console.log('Post a record', url_api);
+
+    return this.http.post<InvAgent>(url_api, query, {headers: this.headers})
+    .pipe(map(data => data));
+  }
+
+
+
 }

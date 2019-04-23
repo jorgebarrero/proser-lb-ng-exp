@@ -5,8 +5,7 @@ import { ExcelService } from 'src/app/shared/services/helpers/excel.service';
 
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AlertModel } from 'src/app/shared/models/Alert';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-supervisor-list',
@@ -19,6 +18,7 @@ export class SupervisorListComponent implements OnInit {
     private invSupervisorService: InvSupervisorService,
     private excelService: ExcelService,
     private modalService: NgbModal,
+    private router: Router
 
   ) { }
 
@@ -61,7 +61,7 @@ export class SupervisorListComponent implements OnInit {
 
     this.selectedInList = null;
     this.selectedInList = this.selected[0];
-    console.log('seleccionado', this.selected[0] );
+    // console.log('seleccionado', this.selected[0] );
 
   }
 
@@ -75,7 +75,7 @@ export class SupervisorListComponent implements OnInit {
     this.invSupervisorService.getAllRecords(query)
     .subscribe( data => {
       data === undefined ? this.masterlist = 0 : this.masterlist = 1;
-      console.log('data', data);
+      // console.log('data', data);
               this.original_list = data;
               this.rows = data;
           }
@@ -142,8 +142,32 @@ export class SupervisorListComponent implements OnInit {
       this.excelService.exportAsExcelFile(filterData, name);
     }
 
-    open(content) {
-      this.modalService.open(content, {size: 'lg'}).result.then((result) => {
+    openDetail(detail) {
+      this.modalService.open(detail, {size: 'lg'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }
+
+    // openEdit(edit) {
+    //   this.modalService.open(edit, {size: 'lg'}).result.then((result) => {
+    //     this.closeResult = `Closed with: ${result}`;
+    //   }, (reason) => {
+    //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    //   });
+    // }
+
+    openEdit(edit) {
+      this.modalService.open(edit, {size: 'lg'});
+    }
+
+    // closeEdit(edit) {
+    //   this.modalService.close(edit);
+    // }
+
+    openAdd(add) {
+      this.modalService.open(add, {size: 'lg'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -166,7 +190,6 @@ export class SupervisorListComponent implements OnInit {
       this.registerForm.reset();
     }
 
-
     updateFilter(event) {
       const val = event.target.value.toLowerCase();
 
@@ -182,8 +205,6 @@ export class SupervisorListComponent implements OnInit {
         return d.inv_supervisor_name.toLowerCase().indexOf(val) !== -1 || !val;
       });
 
-
-
       // update the rows
 
       this.rows = temp;
@@ -192,4 +213,20 @@ export class SupervisorListComponent implements OnInit {
 
     }
 
+    onEdit(selected) {
+
+    console.log (selected)
+      localStorage.setItem("Supervisor", JSON.stringify(selected))
+      this.router.navigate(['/configuration/supervisor/edit']);
+      // this.router("/configuration/supervisor/edit")
+
+    }
+
+
+    onNew() {
+
+        this.router.navigate(['/configuration/supervisor/add']);
+        // this.router("/configuration/supervisor/edit")
+  
+      }
 }

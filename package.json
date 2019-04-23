@@ -4,10 +4,10 @@
   "main": "server/server.js",
   "scripts": {
     "pretest": "jshint .",
-    "start": "babel-node .",
+    "start": "babel-node src/server/server.js",
     "start-up": "babel-node updates/app",
-    "start-import": "babel-node updates/imports/main_import",
-    "start-update": "babel-node updates/updates/main_update",
+    "start-import": "babel-node sync/imports/main_import",
+    "start-update": "babel-node sync/updates/main_update",
     "ng": "bash ng.sh",
     "test": "mocha test/*test.js"
   },

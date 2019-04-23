@@ -5,6 +5,11 @@ import { SupervisorIntroComponent } from './supervisor-intro/supervisor-intro.co
 import { SupervisorListComponent } from './supervisor-list/supervisor-list.component';
 import { SupervisorDetailComponent } from './supervisor-detail/supervisor-detail.component';
 
+import { SupervisorEditComponent } from './supervisor-edit/supervisor-edit.component';
+import { SupervisorAddComponent } from './supervisor-add/supervisor-add.component';
+
+
+
 
 const routes: Routes = [
 
@@ -15,6 +20,8 @@ const routes: Routes = [
       { path: 'intro', component: SupervisorIntroComponent },
       { path: 'list', component: SupervisorListComponent },
       { path: 'detail', component: SupervisorDetailComponent },
+      { path: 'edit', component: SupervisorEditComponent },
+      { path: 'add', component: SupervisorAddComponent },
  ]
   },
 ];

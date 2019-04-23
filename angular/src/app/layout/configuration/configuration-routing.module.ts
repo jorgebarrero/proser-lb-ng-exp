@@ -20,7 +20,7 @@ const routes: Routes = [
 
         { path: 'location', loadChildren: './location/location.module#LocationModule' },
         { path: 'schedule', loadChildren: './schedule/schedule.module#ScheduleModule' },
-        { path: 'asignation', loadChildren: './asignation/asignation.module#AsignationModule' },
+        // { path: 'asignation', loadChildren: './asignation/asignation.module#AsignationModule' },
         { path: 'break', loadChildren: './break/break.module#BreakModule' },
 
         { path: 'client', loadChildren: './client/client.module#ClientModule' },

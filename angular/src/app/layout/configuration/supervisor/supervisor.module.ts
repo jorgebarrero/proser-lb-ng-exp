@@ -12,6 +12,11 @@ import { SupervisorListComponent } from './supervisor-list/supervisor-list.compo
 import { SupervisorMenuComponent } from './supervisor-menu/supervisor-menu.component';
 import { SupervisorDetailComponent } from './supervisor-detail/supervisor-detail.component';
 import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
+import { SupervisorEditComponent } from './supervisor-edit/supervisor-edit.component';
+import { SupervisorAddComponent } from './supervisor-add/supervisor-add.component';
+
+
+
 
 
 @NgModule({
@@ -20,7 +25,9 @@ import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
     SupervisorIntroComponent,
     SupervisorListComponent,
     SupervisorMenuComponent,
-    SupervisorDetailComponent
+    SupervisorDetailComponent,
+    SupervisorEditComponent,
+    SupervisorAddComponent
   ],
   imports: [
     CommonModule,

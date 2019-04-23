@@ -1,0 +1,902 @@
+﻿Glosario de términos y definiciones - Reportes Históricos
+Exportación a Excel
+Evaluar medidas duales
+
+
+Reporte Operativo Detallado
+Este reporte genera registros de información diaria por agente y por dia
+Si una entidad es múltiple se reporta varias veces
+Evaluar posibilidad de sort en caliente con consolidación
+
+
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+default es fecha actual
+
+
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+default es todo el dia
+
+
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+Agente *
+Realizar la búsqueda de información seleccionando de un agente en particular
+
+
+Los datos que debe contener este reporte son:
+
+
+
+
+Fecha        
+Intervalo de Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+
+
+Supervisor
+Nombre del supervisor asignado al agente
+
+
+Agente 
+Nombre del agente mostrado
+
+
+IDOP
+Código de identificación asignado al agente
+
+
+Tiempo de Login Expresado en hh:mm:ss
+Total Tiempo que el agente ha estado conectado al sistema de acuerdo a los filtros seleccionados
+
+
+Tiempo Disponible Expresado en hh:mm:ss[a]
+Total del Tiempo que el agente ha estado disponible para atender llamadas
+
+
+Tiempo Conversación Expresado en hh:mm:ss
+Total del Tiempo que el agente ha estado en conversación tanto en llamadas entrantes como en salientes
+
+
+Tiempo de Auxiliares Expresado en hh:mm:ss
+Total del Tiempo que el agente ha estado en codigo auxiliares
+
+
+Entrantes  Expresado en Unidades
+Cantidad de Llamadas recibidas por el agente
+
+
+Tiempo Conversación Entrantes  Expresado en Segundos
+Total de Tiempo en conversación de las llamadas entrantes
+Salientes Expresado en Unidades
+Cantidad de Llamadas emitidas por el agente
+Tiempo Conversación Saliente Expresado en Segundos
+Total del Tiempo de conversación de las llamadas emitidas
+
+
+Colgadas  Expresado en Unidades
+Cantidad de llamadas colgadas o liberadas por el agente
+
+
+Evento Not Ready Expresado en Unidades
+cantidad de veces que el agente colocó Notready
+Tiempo en ACW Expresado en hh:mm:ss
+Total del Tiempo que el agente tarda en proceso post llamada, desde que se cuelga la llamada hasta que el operador cambia de estado, ejemplo: pasa de llamada a disponible y/o pasa de llamadas a auxiliar.
+
+
+ACW= After call work
+
+
+Tiempo en Hold Expresado en hh:mm:ss
+Total del Tiempo que el agente colocas las llamadas en espera con musiquita
+
+
+Llamadas On Hold Expresado en Unidades
+Cantidad de llamadas colocadas en retener
+
+
+Internas Expresado en Unidades
+Cantidad de llamadas realizadas a extensiones internas
+
+
+
+
+Tiempo de llamadas Internas (Sg) Expresado en Segundos
+Tiempo total duración de llamadas internas
+
+
+Tiempo Promedio de Atención Expresado en Segundos
+es el Tiempo Medio que se tarda el agente en Operación
+SUMA(tiempo operación)/CONTAR(llamadas atendidas) del agente
+tiempo_de_operacion - Expresado en Segundos
+Suma de (duración de llamada + tiempo de hold + after call work)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reporte Detallado Auxiliares
+la unidad del reporte es agente por auxiliar
+
+
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+
+
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+
+
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+Agente
+Realizar la búsqueda de información seleccionando de un agente en particular
+
+
+Los datos que debe contener este reporte son:
+
+
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+
+
+Supervisor
+Nombre del supervisor asignado al agente
+Agente 
+Nombre del agente mostrado
+
+
+IDOP
+Código de identificación asignado al agente
+
+
+
+
+Servicio / Campaña[b]
+
+
+Eliminar este campo, 
+
+
+Extensión
+la extensión asociada al agente que se está reportando
+
+
+Hora Inicio Expresado en HH:MM:SS
+Hora inicio de cada evento auxiliar
+
+
+Hora Fin Expresado en HH:MM:SS
+Hora fin de cada evento auxiliar
+
+
+Tipo Aux
+el tipo de auxiliar seleccionado por el agente
+
+
+Tiempo de Auxiliar Expresado en Segundos
+Tiempo total del evento del auxiliar reportado
+
+
+
+
+
+
+
+
+
+
+
+
+Reporte de Servicio Historico
+La unidad de reportes es por dia por servicio
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+
+
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+
+
+Por día de la semana
+poder realizar una consulta por dia especifico de la semana, ejemplo: sólo los lunes...
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+Agente
+Realizar la búsqueda de información seleccionando de un agente en particular
+
+
+Los datos que debe contener este reporte son:
+
+
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+
+
+Llamadas Recibidas Expresado en Unidades
+Cantidad de llamadas recibidas
+
+
+
+
+Llamadas Contestadas Expresado en Unidades
+Cantidad de llamadas contestadas
+
+
+Llamadas Atendidas antes de 20 segundos Expresado en Unidades
+Cantidad de llamadas atendidas
+
+
+
+
+
+
+Llamadas Abandonadas Expresado en Unidades
+Cantidad de llamadas abandonadas
+
+
+
+
+% abandono Expresado en Porcentaje
+Proporción de llamadas abandonadas del total de recibidas suma(llamadas_abandonadas)/suma(llamadas_Recibidas)
+
+
+
+
+Nivel de Atención Expresado en Porcentaje
+Proporción de llamadas atendidas del total de recibidas suma(llamadas_Atendidas)/suma(llamadas_Recibidas)
+
+
+ASA Tiempo Medio de Atención Expresado en Segundos
+Tiempo medio de Atención/Respuesta, suma(tiempo_espera_en_cola)/suma(llamadas_atendidas)
+desde que la llamadas fue liberada del ivr (recibida por el call center) y atendidas por un agente
+tiempo_de_espera_en_cola - Expresado en Segundos
+Suma del tiempo desde que la llamada fue liberada por el ivr hasta que la llamada sea contestada
+
+
+
+
+Minutos Atendidos Expresado en minutos
+Tiempo total de operación expresado en minutos sin retener, es decir sin el hold
+suma(tiempo_conversacion)
+
+
+
+
+TMO Expresado en Segundos
+Tiempo Medio de Operación 
+SUMA(tiempo_operacion)/CONTAR(llamadas_atendidas) 
+
+
+tiempo_de_operacion - Expresado en Segundos
+Suma de (duración de llamada + tiempo de hold + tiempo after call work)
+
+
+
+
+Nivel de Servicio 80/20 Expresado en %
+Proporción de llamadas atendidas antes de los 20seg
+suma(llamadas_Atendidas<20)/suma(llamadas_Recibidas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reporte de Servicio Diario
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+Dia de la semana: 
+poder realizar una consulta por dia de semana.
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+Intervalos de Tiempo
+Se debe poder solicitar que el reporte se exprese en intervalos de tiempo (fijos de 15 min, 30 min, 1 hora) y variables ad hoc.
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+
+
+
+
+
+
+
+
+Los datos que debe contener este reporte son:
+
+
+
+
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+
+
+Intervalo
+Hora inicio del intervalo de tiempo que se está reportando
+
+
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+Llamadas Recibidas Expresado en Unidades
+Cantidad de llamadas recibidas
+
+
+Llamadas Atendidas Expresado en Unidades
+Cantidad de llamadas atendidas
+
+
+Llamadas Contestadas antes de 20 segundos Expresado en Unidades
+Cantidad de llamadas atendidas antes de los 20 segundos
+Llamadas Abandonadas Expresado en Unidades
+Cantidad de llamadas abandonadas
+
+
+
+
+Promedio de llamadas abandonadas Expresado en %
+Proporción de llamadas abandonadas del total de recibidas suma(llamadas_abandonadas)/suma(llamadas_Recibidas)
+
+
+
+
+Nivel de Atención Expresado en %
+Proporción de llamadas atendidas del total de recibidas suma(llamadas_Atendidas)/suma(llamadas_Recibidas)
+
+
+
+
+ASA Tiempo Medio de Espera Expresado en Segundos
+Tiempo medio de Atención/Respuesta suma(tiempo_espera_en_la_cola)/suma(llamadas_atendidas)
+
+
+tiempo_de_espera_en_la_cola - Expresado en Segundos
+Suma del tiempo que reporta el IVR antes de que la llamada sea contestada
+
+
+Tiempo Total de Conversación Expresado en HH:MM:SS
+Tiempo total de operación expresado en minutos 
+suma(tiempo_conversacion+tiempo_hold)
+
+
+
+
+Minutos Atendidos Expresado en minutos
+Tiempo total de operación expresado en minutos sin retener
+
+
+
+
+TMO Expresado en Segundos
+Tiempo Medio de Operación, SUMA(tiempo_operacion)/CONTAR(llamadas_atendidas) del agente
+
+
+tiempo_de_operacion - Expresado en Segundos
+Suma de (duración de llamada + tiempo de hold + tiempo after call)
+
+
+Nivel de Servicio 80/20 Expresado en %
+Proporción de llamadas atendidas antes de los 20seg suma(llamadas_Atendidas<20)/suma(llamadas_Recibidas)
+
+
+Agentes conectados[c] Expresado en Unidades
+Cantidad de agentes conectados en el periodo suma(tiempo_auxiliar+tiempo_conversacion+tiempo_retener+tiempo_disponible)/tiempo_intervalo
+Máximo Agentes conectados Expresado en Unidades
+Cantidad máxima de agentes conectados durante el intervalo
+Mínimo Agentes conectados Expresado en Unidades
+Cantidad máxima de agentes conectados durante el intervalo
+
+Agentes disponibles Expresado en Unidades
+Cantidad de agentes disponibles para atender en el periodo suma(tiempo_disponible)/tiempo_intervalo
+Tiempo Total Disponible Expresado en HH:MM:SS
+Tiempo total generado en Disponible suma(tiempo_disponible)
+
+
+Break Expresado en HH:MM:SS
+Tiempo total generado en Break por todos los agentes conectados en la cola / skill / servicio
+suma(tiempo_break)
+
+
+Curso  Expresado en HH:MM:SS
+Tiempo total generado en Curso, suma(tiempo_Curso)
+
+
+Reunión Expresado en HH:MM:SS
+Tiempo total generado en Reunión suma(tiempo_Reunion)
+
+
+Feed back Expresado en HH:MM:SS
+Tiempo total generado en Feedback, suma(tiempo_Feedback)
+
+
+Enfermería Expresado en HH:MM:SS
+Tiempo total generado en Enfermería, suma(tiempo_enfermeria)        
+
+
+Auxiliares Expresado en HH:MM:SS
+Tiempo total generado en Auxiliares, suma(tiempo_Feedback+tiempo_break+tiempo_Curso+tiempo_reunion+tiempo_enfermeria)
+% Auxiliares Expresado en %
+Tiempo total generado en Auxiliares, suma(tiempo_ auxiliares)/total del intervalo
+Ocupación Expresado en HH:MM:SS
+Proporción del tiempo que efectivamente se conversa, suma(Tiempo_Total_Conversación)
+% Ocupación Expresado en %
+Proporción del tiempo que efectivamente se conversa, suma(Tiempo_Total_Conversación del intervalo)/(suma(Tiempo_Total_Conversación)+suma(Tiempo_Disponible) del intervalo)
+
+
+
+
+________________
+
+
+
+
+Reporte de Productividad
+
+
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+Dia de la semana: 
+poder realizar una consulta por dia de semana.
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+
+
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+
+
+
+
+Los datos que debe contener este reporte son:
+
+
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+
+
+Tiempo Total de Conexión Expresado en HH:MM:SS
+Tiempo total generado por la conexión del personal suma(tiempo_auxiliar+tiempo_conversacion+tiempo_retener+tiempo_disponible)
+
+Tiempo Total de Conversación Expresado en HH:MM:SS
+Tiempo total de operación suma(tiempo_conversacion+tiempo_hold)
+
+
+Tiempo Total Disponible Expresado en HH:MM:SS
+Tiempo total disponible, suma(tiempo_disponible)
+
+
+Break Expresado en HH:MM:SS
+Tiempo total generado en Break por todos los agentes conectados en la cola / skill / servicio
+suma(tiempo_break)
+
+
+Curso  Expresado en HH:MM:SS
+Tiempo total generado en Curso, suma(tiempo_Curso)
+
+
+Reunión Expresado en HH:MM:SS
+Tiempo total generado en Reunión suma(tiempo_Reunion)
+
+
+Feed back Expresado en HH:MM:SS
+Tiempo total generado en Feedback, suma(tiempo_Feedback)
+
+
+Enfermería Expresado en HH:MM:SS
+Tiempo total generado en Enfermería, suma(tiempo_enfermeria)        
+
+
+Auxiliares Expresado en HH:MM:SS
+Tiempo total generado en Auxiliares, suma(tiempo_Feedback+tiempo_break+tiempo_Curso+tiempo_reunion+tiempo_enfermeria)
+% Ocupación Expresado en %
+Proporción del tiempo que efectivamente se conversa, suma(Tiempo_Total_Conversación)/(suma(Tiempo_Total_Conversación)+suma(Tiempo_Disponible))
+
+
+(Reporte con base diaria)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reporte de Conexión y Desconexión
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+Agente
+Realizar la búsqueda de información seleccionando de un agente en particular
+
+
+Los datos que debe contener este reporte son:
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Agente
+nombre del agente que se está reportando
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+Extensión
+la extensión asociada al agente que se está reportando
+Inicio (Conexión) Expresado en HH:MM:SS
+Hora en que se conecta el agente
+Fin (Conexión) Expresado en HH:MM:SS
+Hora de desconexión del sistema del agente
+
+
+
+
+
+
+Detalle de llamadas
+
+
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+Dia de la semana: 
+poder realizar una consulta por dia de semana.
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+
+
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+Agente
+Realizar la búsqueda de información seleccionando de un agente en particular
+Número telefónico
+Numero de telefono
+
+
+Los datos que debe contener este reporte son:
+Fecha Expresado en DD/MM/AAAA        
+Fecha en que se recibe la llamada
+Agente
+nombre del agente que se está reportando
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+Extensión
+la extensión asociada al agente que se está reportando
+
+
+Hora Expresado en HH:MM:SS
+Hora en que se recibe la llamada
+Tipo
+el tipo de llamada que se está reportando, si es entrante, saliente del marcador o saliente manual
+
+
+Extensión Origen
+Fuente/origen de la llamada/contacto (ANI)
+
+
+Extensión Destino
+Destino/fin de la llamada/contacto
+
+
+Duración Expresado en Segundo
+Tiempo que duración de cada llamada
+
+
+ASA Expresado en Segundo
+Tiempo de espera de la llamada antes de ser atendida
+
+
+Resultado de la llamada
+Estado en que culminó la llamada, ejemplo: atendida, contestadora, fallida…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Reporte Detallado Saliente
+Los filtros de este reporte son:
+Rango de Fecha: 
+poder realizar una consulta entre un rango de fecha específico, desde / Hasta.
+Dia de la semana: 
+poder realizar una consulta por dia de semana.
+Rango de Hora: 
+poder realizar una consulta entre un rango de horas específico, desde / Hasta.
+Intervalos de Tiempo
+Se debe poder solicitar que el reporte se exprese en intervalos de tiempo (fijos de 15 min, 30 min, 1 hora) y variables ad hoc.
+
+
+Campaña
+Realizar la búsqueda de información seleccionando de una campaña particular
+Servicio / Skill / Cola
+Realizar la búsqueda de información seleccionando de un servicio particular
+
+
+
+
+
+
+Los datos que debe contener este reporte son:
+
+
+Fecha        
+Fecha de la data a mostrar en formato DD/MM/AAAA
+Mes
+Mes de la fecha mostrada, en formato texto Ejemplo: Abril
+Día
+Dia de la fecha mostrada, en formato texto y número, ejemplo: domingo 01, lunes 02…
+
+
+Intervalo
+Hora inicio del intervalo de tiempo que se está reportando
+
+
+Servicio
+Nombre del servicio / skill / cola de donde se está presentando el dato.
+
+
+Llamadas Realizadas Expresado en Unidades
+Cantidad de llamadas realizadas
+
+
+Llamadas Contestadas Expresado en Unidades
+Cantidad de llamadas salientes contestadas, en marcador procer se llama completadas
+
+
+TMO Expresado en Segundos
+Tiempo Medio de Operación, SUMA(tiempo_operacion)/CONTAR(llamadas_atendidas) del agente
+
+
+tiempo_de_operacion - Expresado en Segundos
+Suma de (duración de llamada + tiempo de hold + tiempo after call)
+
+
+% Contactabilidad Expresado en %
+Proporción de llamadas atendidas del total de realizadas suma(llamadas_ContactadasSalientes)/suma(llamadas_RealizadasSalientes)
+
+
+BDD Expresado en Unidades
+Cantidad de registros a llamar de la Base de Datos, en el marcador procer se le llama inyectadas
+
+
+Registros Pendientes por Recorrer Expresado en Unidades
+Cantidad de registros pendientes por llamar de la Base de Datos, en el marcador procer se nombra como pendientes
+
+
+Intentos Fallidos Expresado en Unidades
+Cantidad de registros llamados de la Base de Datos pero con resultados fallido, en el marcador procer se nombra como fallidos
+
+
+Vueltas BDD Expresado en Unidades
+Cantidad de veces que la PBX ha marcado a la totalidad de la BDD
+
+
+
+
+[a]queda bajo revision por parte del cliente
+[b]dato duplicado validar,
+[c]se sugiere agregar max, min y promedio de agentes logueados en la cola.

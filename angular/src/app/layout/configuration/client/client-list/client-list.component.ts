@@ -45,9 +45,10 @@ export class ClientListComponent implements OnInit {
   rows: any;
 
   columns = [
-    { prop: 'inv_client_name', name: 'Client', width: 200 },
-    { prop: 'inv_client_schedule_name', name: 'Horario', width: 100 },
+    { prop: 'inv_client_id', name: 'ID', width: 50 },
+    { prop: 'inv_client_name', name: 'Cliente', width: 100 },
     { prop: 'inv_client_status', name: 'Estado', width: 50 },
+    { prop: 'inv_client_type', name: 'Tipo', width: 50 }, 
   ];
 
   closeResult: string;

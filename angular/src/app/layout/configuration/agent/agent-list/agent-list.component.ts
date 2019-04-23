@@ -226,8 +226,8 @@ export class AgentListComponent implements OnInit {
 
     onEdit(selected) {
 
-    console.log (selected)
-      localStorage.setItem("Agent", JSON.stringify(selected))
+    console.log (selected);
+      localStorage.setItem('Agent', JSON.stringify(selected));
       this.router.navigate(['/configuration/agent/edit']);
       // this.router("/configuration/Agent/edit")
 
@@ -238,6 +238,6 @@ export class AgentListComponent implements OnInit {
 
         this.router.navigate(['/configuration/agent/add']);
         // this.router("/configuration/Agent/edit")
-  
+
       }
 }

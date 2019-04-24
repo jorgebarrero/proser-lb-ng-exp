@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.suplentes"
+  bindLabel="name" placeholder="Suplentes"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.suplentes">
+</ng-select>
+  

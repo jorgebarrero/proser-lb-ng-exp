@@ -1,4 +1,4 @@
-import * as pool from '../../../connectors/pool';
+import * as pool from 'src/connectors/pool';
 import { removeRowDataPacket } from '../../helpers/mysql-helper.js';
 import * as callFunctions from './update_cdr_call_functions';
 
@@ -9,7 +9,7 @@ function readCdrMaxId() {
     resolve(pool.poolCdr.query(querySQL));
     reject('Error');
   });
-};
+}
 
 // Read maximum id in imported data
 function readCdrTypeNextId() {
@@ -45,7 +45,7 @@ function readCdr(maxId) {
     reject('Error');
   });
 
-};
+}
 
 // write procesed records
 function writeCdrType(data) {

@@ -1,4 +1,4 @@
-import * as pool from '../../../connectors/pool';
+import * as pool from 'src/connectors/pool';
 import{ removeRowDataPacket } from '../../helpers/mysql-helper.js';
 
 // Read maximum id in original data

@@ -1,4 +1,4 @@
-import * as pool from '../../../connectors/pool';
+import * as pool from 'src/connectors/pool';
 import { removeRowDataPacket } from '../../helpers/mysql-helper.js';
 import * as datesFunctions from './update_cdr_dates_functions';
 

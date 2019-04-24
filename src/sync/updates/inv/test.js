@@ -31,7 +31,7 @@ async function asyncCall() {
 var call = function() {
   return new Promise(function(resolve, reject) {
       resolve();
-      console.log("Doing more stuff, should not be visible after a resolve!");
+      console.log("Proser starting update process...");
   });
 };
 

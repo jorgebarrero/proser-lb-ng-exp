@@ -1,140 +1,99 @@
 import {
-  UserSelection
-} from './../models/filter/Selection';
+  SelectionConfig
+} from './../models';
 
-
-export function createFilterTitles(userSelection: UserSelection) {
+export function createTitles(selection: SelectionConfig) {
 
   const resultado: any = [];
 
-  if (userSelection.agent) {
-    if (userSelection.agent.length > 0) {
-      const sqlAgentes = userSelection.agent
-        .map(x => {
-          return `${x.menu_agent_name}`;
-        });
-      const temp = sqlAgentes.join(', ');
-        resultado.push(` AGENTES: ${temp}`);
-    }
-  }
 
-  if (userSelection.asignation) {
-    if (userSelection.asignation.length > 0) {
-      const sqlAgentes = userSelection.asignation
+  if (selection.clientes) {
+    if (selection.clientes.length > 0) {
+      const sqlClientes = selection.clientes
         .map(x => {
-          return `${x.menu_asignation_name}`;
-        });
-      const temp = sqlAgentes.join(', ');
-        resultado.push(` ASIGNACIONES: ${temp}`);
-    }
-  }
-
-  if (userSelection.auxiliar) {
-    if (userSelection.auxiliar.length > 0) {
-      const sqlAgentes = userSelection.auxiliar
-        .map(x => {
-          return `${x.menu_auxiliar_name}`;
-        });
-      const temp = sqlAgentes.join(', ');
-        resultado.push(` ASIGNACIONES: ${temp}`);
-    }
-  }
-
-  if (userSelection.campaign) {
-    if (userSelection.campaign.length > 0) {
-      const sqlCampanas = userSelection.campaign
-        .map(x => {
-          return `${x.menu_campaign_name}`;
-        });
-      const temp = sqlCampanas.join(' - ');
-      resultado.push(` CAMPAÑAS: ${temp}`);
-    }
-  }
-
-
-  if (userSelection.client) {
-    if (userSelection.client.length > 0) {
-      const sqlClientes = userSelection.client
-        .map(x => {
-          return `${x.menu_client_name}`;
+          return `${x.name}`;
         });
       const temp = sqlClientes.join(' - ');
-      resultado.push(` CLIENTES: ${temp}`);
+      resultado.push(`CLIENTES: [${temp}]`);
     }
   }
 
-
-  if (userSelection.queue) {
-    if (userSelection.queue.length > 0) {
-      const sqlColas = userSelection.queue
+  if (selection.colas) {
+    if (selection.colas.length > 0) {
+      const sqlColas = selection.colas
         .map(x => {
-          return `${x.menu_queue_name}`;
+          return `${x.id}`;
         });
       const temp = sqlColas.join(' - ');
-      resultado.push(` COLAS: ${temp}`);
+      resultado.push(`COLAS: [${temp}]`);
     }
   }
 
-  if (userSelection.scale) {
-    if (userSelection.scale.length > 0) {
-      const sqlServicios = userSelection.scale
+  if (selection.servicios) {
+    if (selection.servicios.length > 0) {
+      const sqlServicios = selection.servicios
         .map(x => {
-          return `${x.menu_scale_name}`;
+          return `${x.name}`;
         });
       const temp = sqlServicios.join(' - ');
-        resultado.push(` ESCALA: ${temp}`);
-
+      resultado.push(`SERVICIOS: [${temp}]`);
     }
   }
 
-  if (userSelection.schedule) {
-    if (userSelection.schedule.length > 0) {
-      const sqlHorarios = userSelection.schedule
+  if (selection.campanas) {
+    if (selection.campanas.length > 0) {
+      const sqlCampanas = selection.campanas
         .map(x => {
-          return `${x.menu_schedule_name}`;
+          return `${x.name}`;
         });
-      const temp = sqlHorarios.join(', ');
-      resultado.push(` TURNOS: ${temp}`);
+      const temp = sqlCampanas.join(' - ');
+      resultado.push(`CAMPAÑAS: [${temp}]`);
     }
   }
 
-
-
-  if (userSelection.service) {
-    if (userSelection.service.length > 0) {
-      const sqlServicios = userSelection.service
+  if (selection.supervisores) {
+    if (selection.supervisores.length > 0) {
+      const sqlSupervisores = selection.supervisores
         .map(x => {
-          return `${x.menu_service_name}`;
+          return `${x.name}`;
         });
-      const temp = sqlServicios.join(' - ');
-        resultado.push(` SERVICIOS: ${temp}`);
-
+      const temp = sqlSupervisores.join(' OR ');
+      resultado.push(`SUPERVISORES: [${temp}]`);
     }
   }
 
-  if (userSelection.substitute) {
-    if (userSelection.substitute.length > 0) {
-      const sqlSuplentes = userSelection.substitute
+  if (selection.suplentes) {
+    if (selection.suplentes.length > 0) {
+      const sqlSuplentes = selection.suplentes
         .map(x => {
-          return `${x.menu_substitute_name}`;
+          return `${x.name}`;
         });
-      const temp = sqlSuplentes.join(', ');
-      resultado.push(` SUPLENTES: ${temp}`);
+      const temp = sqlSuplentes.join(' OR ');
+      resultado.push(`SUPLENTES: [${temp}]`);
     }
   }
 
-  if (userSelection.supervisor) {
-    if (userSelection.supervisor.length > 0) {
-      const sqlSupervisores = userSelection.supervisor
+  if (selection.agentes) {
+    if (selection.agentes.length > 0) {
+      const sqlAgentes = selection.agentes
         .map(x => {
-          return `${x.menu_supervisor_name}`;
+          return `${x.name}`;
         });
-      const temp = sqlSupervisores.join(', ');
-      resultado.push(` SUPERVISORES: ${temp}`);
+      const temp = sqlAgentes.join(' OR ');
+      resultado.push(`AGENTES: [${temp}]`);
     }
   }
 
-
+  if (selection.horarios) {
+    if (selection.horarios.length > 0) {
+      const sqlHorarios = selection.horarios
+        .map(x => {
+          return `${x.name}`;
+        });
+      const temp = sqlHorarios.join(' OR ');
+      resultado.push(`HORARIOS: [${temp}]`);
+    }
+  }
 
   const filtered_resultado = resultado
     .filter(x => {
@@ -146,33 +105,25 @@ export function createFilterTitles(userSelection: UserSelection) {
   const filtered_join = filtered_resultado.join(' & ');
   const resultado_string = filtered_join;
 
-  return resultado;
-  // return 'Filter titles'
+  return resultado_string;
 }
 
 
 
-export function createSubTitles(userSelection: UserSelection) {
+
+export function createSubTitles(selection: SelectionConfig) {
 
   const resultado = [];
 
-  if (userSelection) {
-    //  console.log('userSelection.interval.name', userSelection.interval);
+  if (selection) {
+    //  console.log('selection.minutos_intervalo.name', selection.minutos_intervalo);
 
-    userSelection.start_date ?
-      resultado.push(` Fecha inicio: ${userSelection.start_date} `) : returnWhite();
-    userSelection.end_date  ?
-      resultado.push(` Fecha final: ${userSelection.end_date} `) : returnWhite();
-
-    userSelection.start_time  ?
-      resultado.push(` Hora inicio: ${userSelection.start_time} `) : returnWhite();
-    userSelection.end_time ?
-      resultado.push(` Hora final: ${userSelection.end_time} `) : returnWhite();
-
-    userSelection.last_minutes  ?
-      resultado.push(` Ultimos minutos: ${userSelection.last_minutes} min`) : returnWhite();
-    userSelection.interval ?
-      resultado.push(` Intervalo: ${userSelection.interval} min`) : returnWhite();
+    selection.hora_inicio !== undefined ?
+      resultado.push(` Hora inicio: ${selection.hora_inicio.name} `) : returnWhite();
+    selection.hora_final !== undefined ?
+      resultado.push(` Hora final: ${selection.hora_final.name} `) : returnWhite();
+    selection.ultimos_minutos !== undefined ?
+      resultado.push(` Ultimos minutos: ${selection.ultimos_minutos.name} `) : returnWhite();
   }
 
 
@@ -183,12 +134,12 @@ export function createSubTitles(userSelection: UserSelection) {
 
 
 
-export function createIntervalTitles(userSelection: UserSelection, subtitles) {
+export function createIntervalTitles(selection: SelectionConfig, subtitles) {
 
   const resultado = [subtitles];
 
-  if (userSelection.interval) {
-    resultado.push(` Minutos intervalo: ${userSelection.interval.name} `);
+  if (selection.minutos_intervalo) {
+    resultado.push(` Minutos intervalo: ${selection.minutos_intervalo.name} `);
   } else {
     returnWhite();
   }
@@ -200,4 +151,9 @@ export function createIntervalTitles(userSelection: UserSelection, subtitles) {
 
 function returnWhite() {
   return '';
+}
+
+
+export function createFilterTitles (arg) {
+
 }

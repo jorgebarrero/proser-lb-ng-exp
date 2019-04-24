@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.resultado_llamada"
+  bindLabel="name" placeholder="Resultado llamada"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.resultado_llamada">
+</ng-select>
+  

@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.supervisores"
+  bindLabel="name" placeholder="Supervisores"
+  [dropdownPosition]="'top'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.supervisores">
+</ng-select>
+  

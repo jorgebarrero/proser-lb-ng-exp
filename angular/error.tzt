@@ -1,0 +1,147 @@
+
+
+ERROR in node_modules/rxjs/Observable.d.ts(1,15): error TS2307: Cannot find module 'rxjs-compat/Observable'.
+src/app/layout/config/config-agente/config-agente.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-campana/config-campana.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-cliente/config-cliente.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-cola/config-cola.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-fecha-final/config-fecha-final.component.ts(8,10): error TS2300: Duplicate identifier 'datePickerToDate'.
+src/app/layout/config/config-fecha-final/config-fecha-final.component.ts(10,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-fecha-final/config-fecha-final.component.ts(11,10): error TS2300: Duplicate identifier 'datePickerToDate'.
+src/app/layout/config/config-fecha-inicio/config-fecha-inicio.component.ts(11,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-group-by/config-group-by.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-group-by/config-group-by.component.ts(36,24): error TS2304: Cannot find name 'Group'.
+src/app/layout/config/config-hora-final/config-hora-final.component.ts(6,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-hora-final/config-hora-final.component.ts(10,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-hora-inicio/config-hora-inicio.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-hora-inicio/config-hora-inicio.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-horario/config-horario.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-horario/config-horario.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-intervalo/config-intervalo.component.ts(6,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-intervalo/config-intervalo.component.ts(6,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-intervalo/config-intervalo.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-lineas/config-lineas.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-lineas/config-lineas.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-lineas/config-lineas.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-lineas/config-lineas.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-llamada/config-llamada.component.ts(7,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-llamada/config-llamada.component.ts(7,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-llamada/config-llamada.component.ts(7,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-llamada/config-llamada.component.ts(7,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-llamada/config-llamada.component.ts(11,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-modo/config-modo.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-modo/config-modo.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-modo/config-modo.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-modo/config-modo.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-modo/config-modo.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-modo/config-modo.component.ts(10,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(6,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-peticion/config-peticion.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(7,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-resultado-llamada/config-resultado-llamada.component.ts(10,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(5,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-servicio/config-servicio.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(5,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-supervisor/config-supervisor.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(5,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-suplente/config-suplente.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(5,95): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Type'.
+src/app/layout/config/config-tipo/config-tipo.component.ts(9,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,27): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Hours'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,34): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Interval'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,44): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Lineas'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,52): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Llamada'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,61): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Mode'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,67): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Peticion'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,77): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'ResultadoLlamada'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(5,95): error TS2305: Module '"../../../shared/models/filter"' has no exported member 'Type'.
+src/app/layout/config/config-ultimos-minutos/config-ultimos-minutos.component.ts(8,46): error TS2307: Cannot find module '.src/app/shared/services'.
+src/app/layout/configuration/components/config-header/config-header.component.ts(2,10): error TS2305: Module '"../../../../shared/models"' has no exported member 'UserInterface'.
+src/app/layout/reports/conexion-desconexion/conexion-desconexion-list/conexion-desconexion-list.component.ts(7,10): error TS2305: Module '"../../../../shared/services"' has no exported member 'ConexionDesconexionService'.
+src/app/layout/reports/conexion-desconexion/conexion-desconexion-list/conexion-desconexion-list.component.ts(7,38): error TS2305: Module '"../../../../shared/services"' has no exported member 'ExcelService'.
+src/app/layout/selector/components/llamadas-entrantes/llamadas-entrantes.component.ts(7,10): error TS2724: Module '"../../../../shared/functions/titles-peticion"' has no exported member 'createFilterTitles'. Did you mean 'createIntervalTitles'?
+src/app/layout/selector/components/selector-intro/selector-intro.component.ts(13,28): error TS2724: Module '"../../../../shared/functions/titles-peticion"' has no exported member 'createFilterTitles'. Did you mean 'createIntervalTitles'?
+src/app/shared/services/reports/agentes.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/agentes.service.ts(13,31): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/audit.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/audit.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/cdr.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/cdr.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/conexion-desconexion.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/conexion-desconexion.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/config.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/config.service.ts(13,28): error TS2307: Cannot find module './../models/rango-fechas'.
+src/app/shared/services/reports/detallado-asignaciones.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detallado-asignaciones.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detallado-auxiliares.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detallado-auxiliares.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detallado-saliente.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detallado-saliente.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detalle-asignaciones.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detalle-asignaciones.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detalle-auxiliares.service.2.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detalle-auxiliares.service.2.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detalle-auxiliares.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detalle-auxiliares.service.ts(13,37): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/detalle-llamadas.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/detalle-llamadas.service.ts(13,33): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/entrante-dashboard.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/entrante-dashboard.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/entrante-diario.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/entrante-diario.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/entrante-intervalo.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/indicadores-cdr.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/indicadores-cdr.service.ts(13,36): error TS2307: Cannot find module '../models/reports/operativo.detallado'.
+src/app/shared/services/reports/manual-diario.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/manual-diario.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/manual-intervalo.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/menu.service.ts(9,10): error TS2305: Module '"../../../../../node_modules/rxjs/Observable"' has no exported member 'Observable'.
+src/app/shared/services/reports/menu.service.ts(12,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/operativo-detallado.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/operativo-detallado.service.ts(13,36): error TS2307: Cannot find module '../models/reports/operativo.detallado'.
+src/app/shared/services/reports/peticion.service.ts(9,10): error TS2305: Module '"../../../../../node_modules/rxjs/Observable"' has no exported member 'Observable'.
+src/app/shared/services/reports/peticion.service.ts(12,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/productividad.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/productividad.service.ts(13,31): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/servicio-diario.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/servicio-diario.service.ts(13,32): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/servicio-historico.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/servicio-historico.service.ts(13,35): error TS2307: Cannot find module './../models/'.
+src/app/shared/services/reports/servicio-intervalo.service.ts(11,25): error TS2307: Cannot find module './../database/api'.
+src/app/shared/services/reports/servicio-intervalo.service.ts(13,35): error TS2307: Cannot find module './../models/'.

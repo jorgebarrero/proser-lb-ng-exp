@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.llamada_clasificacion"
+  bindLabel="name" placeholder="Tipo llamada"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.llamada_clasificacion">
+</ng-select>
+  

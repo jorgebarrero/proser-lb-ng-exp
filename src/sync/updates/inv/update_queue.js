@@ -176,7 +176,7 @@ async function updateQueue( ) {
       .map( x => {
         // date
 
-        x.inv_queue_number = x.queue;
+          x.inv_queue_number = x.queue;
 
         x.inv_queue_id = x.id;
         x.inv_queue_status = x.estatus;

@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.agentes"
+  bindLabel="name" placeholder="Agentes"
+  [dropdownPosition]="'top'"
+  [searchable]="true"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.agentes">
+</ng-select>
+

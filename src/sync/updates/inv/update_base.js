@@ -161,7 +161,8 @@ async function updateBreak( ) {
   console.log(`maxCdrMainIdnum`, maxCdrMainIdnum);
 
   // Validate if pending records to update
-  if(true) {
+  let val = true;
+  if(val) {
     let result = await readOrigin(maxCdrMainIdnum);
 
     // console.log('result', result);

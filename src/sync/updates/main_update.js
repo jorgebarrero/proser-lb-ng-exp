@@ -2,11 +2,6 @@ import { updateMainCdr } from './cdr/update_cdr_main';
 import { updateMainAudit } from './audit/update_audit_main';
 import { updateMainAuditEmpty } from './audit/update_audit_main_empty';
 
-// import { updateAsyncCdrDates } from './cdr/update_cdr_dates';
-// import { updateAsyncCdrQlog } from './cdr/update_cdr_qlog';
-// import { updateAsyncCdrType } from './cdr/update_cdr_type';
-// import { updateAsyncCdrCall } from './cdr/update_cdr_call';
-
 import { updateAgent } from './inv/update_agent';
 import { updateBreak } from './inv/update_break';
 import { updateCampaign } from './inv/update_campaign';
@@ -33,19 +28,14 @@ async function repeatCdrUpdate( ) {
 
 
       updateMainCdr();
-      // updateMainAudit();
-      // updateMainAuditEmpty();
+      updateMainAudit();
+      updateMainAuditEmpty();
 
-      // updateAgent();
-      // updateBreak();
-      // updateCampaign();
-      // updateQueue();
+      updateAgent();
+      updateBreak();
+      updateCampaign();
+      updateQueue();
 
-
-      // updateAsyncCdrDates();
-      // updateAsyncCdrQlog();
-      // updateAsyncCdrType();
-      // updateAsyncCdrCall();
     }, 3000
   );
 }

@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 //  import 'rxjs/add/operator/toPromise'
-import 'rxjs/add/operator/map';
+import 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 //  Local
-import * as proser from './../database/api';
+import * as proser from '../../database/api';
 
-import { OperativoDetallado } from '../models/reports/operativo.detallado';
+import { OperativoDetallado } from '../../models';
 
 
 @Injectable({
@@ -46,7 +46,7 @@ export class OperativoDetalladoService {
  */
 getList(item): Observable<any> {
 
-  let consultas_SQL = item;
+  const consultas_SQL = item;
   const apiURL = `${this.apiRootProser}api/rep-operativo-detallado/list`;
   const res = this.http.post(apiURL, consultas_SQL);
     // console.warn('Operativo detallado......' , apiURL);

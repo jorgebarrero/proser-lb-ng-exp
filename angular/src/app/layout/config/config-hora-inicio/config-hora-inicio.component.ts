@@ -2,10 +2,10 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { FormBuilder } from '@angular/forms';
 
-import { SelectionConfig, Hours} from 'src/app/shared/models/filter';
+import { SelectionConfig, Hours} from 'src/app/shared/models';
 import { createTitles, createSubTitles } from 'src/app/shared/functions/titles-peticion';
 
-import { MenuService, PeticionService } from '.src/app/shared/services';
+import { MenuService, PeticionService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-config-hora-inicio',

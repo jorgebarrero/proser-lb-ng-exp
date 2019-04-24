@@ -4,13 +4,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 //  import 'rxjs/add/operator/toPromise'
-import 'rxjs/add/operator/map';
+import 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 //  Local
-import * as proser from './../database/api';
+import * as proser from '../../database/api';
 
-import { DateRanges } from './../models/rango-fechas';
+import { DateRanges } from '../../models/rango-fechas';
 
 @Injectable({
   providedIn: 'root'

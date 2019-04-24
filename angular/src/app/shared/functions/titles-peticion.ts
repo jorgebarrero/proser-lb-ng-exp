@@ -4,106 +4,106 @@ import {
 
 export function createTitles(selection: SelectionConfig) {
 
-  let resultado: any = [];
+  const resultado: any = [];
 
 
   if (selection.clientes) {
     if (selection.clientes.length > 0) {
-      let sqlClientes = selection.clientes
+      const sqlClientes = selection.clientes
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlClientes.join(' - ');
+      const temp = sqlClientes.join(' - ');
       resultado.push(`CLIENTES: [${temp}]`);
     }
   }
 
   if (selection.colas) {
     if (selection.colas.length > 0) {
-      let sqlColas = selection.colas
+      const sqlColas = selection.colas
         .map(x => {
           return `${x.id}`;
         });
-      let temp = sqlColas.join(' - ');
+      const temp = sqlColas.join(' - ');
       resultado.push(`COLAS: [${temp}]`);
     }
   }
 
   if (selection.servicios) {
     if (selection.servicios.length > 0) {
-      let sqlServicios = selection.servicios
+      const sqlServicios = selection.servicios
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlServicios.join(' - ');
+      const temp = sqlServicios.join(' - ');
       resultado.push(`SERVICIOS: [${temp}]`);
     }
   }
 
   if (selection.campanas) {
     if (selection.campanas.length > 0) {
-      let sqlCampanas = selection.campanas
+      const sqlCampanas = selection.campanas
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlCampanas.join(' - ');
+      const temp = sqlCampanas.join(' - ');
       resultado.push(`CAMPAÑAS: [${temp}]`);
     }
   }
 
   if (selection.supervisores) {
     if (selection.supervisores.length > 0) {
-      let sqlSupervisores = selection.supervisores
+      const sqlSupervisores = selection.supervisores
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlSupervisores.join(' OR ');
+      const temp = sqlSupervisores.join(' OR ');
       resultado.push(`SUPERVISORES: [${temp}]`);
     }
   }
 
   if (selection.suplentes) {
     if (selection.suplentes.length > 0) {
-      let sqlSuplentes = selection.suplentes
+      const sqlSuplentes = selection.suplentes
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlSuplentes.join(' OR ');
+      const temp = sqlSuplentes.join(' OR ');
       resultado.push(`SUPLENTES: [${temp}]`);
     }
   }
 
   if (selection.agentes) {
     if (selection.agentes.length > 0) {
-      let sqlAgentes = selection.agentes
+      const sqlAgentes = selection.agentes
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlAgentes.join(' OR ');
+      const temp = sqlAgentes.join(' OR ');
       resultado.push(`AGENTES: [${temp}]`);
     }
   }
 
   if (selection.horarios) {
     if (selection.horarios.length > 0) {
-      let sqlHorarios = selection.horarios
+      const sqlHorarios = selection.horarios
         .map(x => {
           return `${x.name}`;
         });
-      let temp = sqlHorarios.join(' OR ');
+      const temp = sqlHorarios.join(' OR ');
       resultado.push(`HORARIOS: [${temp}]`);
     }
   }
 
-  let filtered_resultado = resultado
+  const filtered_resultado = resultado
     .filter(x => {
-      let lastChars = x.substr(x.length - 2);
+      const lastChars = x.substr(x.length - 2);
       return lastChars !== '[]';
     });
 
 
-  let filtered_join = filtered_resultado.join(' & ');
-  let resultado_string = filtered_join;
+  const filtered_join = filtered_resultado.join(' & ');
+  const resultado_string = filtered_join;
 
   return resultado_string;
 }
@@ -113,7 +113,7 @@ export function createTitles(selection: SelectionConfig) {
 
 export function createSubTitles(selection: SelectionConfig) {
 
-  let resultado = [];
+  const resultado = [];
 
   if (selection) {
     //  console.log('selection.minutos_intervalo.name', selection.minutos_intervalo);
@@ -136,7 +136,7 @@ export function createSubTitles(selection: SelectionConfig) {
 
 export function createIntervalTitles(selection: SelectionConfig, subtitles) {
 
-  let resultado = [subtitles];
+  const resultado = [subtitles];
 
   if (selection.minutos_intervalo) {
     resultado.push(` Minutos intervalo: ${selection.minutos_intervalo.name} `);
@@ -151,4 +151,9 @@ export function createIntervalTitles(selection: SelectionConfig, subtitles) {
 
 function returnWhite() {
   return '';
+}
+
+
+export function createFilterTitles (arg) {
+
 }

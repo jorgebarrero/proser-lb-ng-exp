@@ -5,9 +5,9 @@ import { FormBuilder } from '@angular/forms';
 // import { SelectionConfig,   } from './../../../shared/models';
 // import { createTitles } from './../../../shared/functions';
 
-import { MenuService, PeticionService } from '.src/app/shared/services';
+import { MenuService, PeticionService } from 'src/app/shared/services';
 
-import { SelectionConfig } from 'src/app/shared/models/filter';
+import { SelectionConfig } from 'src/app/shared/models';
 import { createTitles } from 'src/app/shared/functions/titles-peticion';
 
 

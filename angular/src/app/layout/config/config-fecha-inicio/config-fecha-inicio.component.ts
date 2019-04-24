@@ -8,7 +8,7 @@ import { SelectionConfig,  } from './../../../shared/models';
 import { datePickerToDate, datePickerToText, dateToDatePicker } from 'src/app/shared/functions/dates';
 
 
-import { MenuService, PeticionService } from '.src/app/shared/services';
+import { MenuService, PeticionService } from 'src/app/shared/services';
 
 @Component({
   selector: 'app-config-fecha-inicio',

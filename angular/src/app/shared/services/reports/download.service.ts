@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-// import 'rxjs/add/operator/map';
+// import 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import * as FileSaver from 'file-saver';

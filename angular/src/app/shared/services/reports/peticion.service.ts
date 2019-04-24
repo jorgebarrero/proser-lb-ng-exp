@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 //  import 'rxjs/add/operator/toPromise'
-import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 //  Local
-import * as proser from './../database/api';
+import * as proser from '../../database/api';
 
 
 

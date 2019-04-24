@@ -2,13 +2,12 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { FormBuilder } from '@angular/forms';
 
-import { SelectionConfig } from 'src/app/shared/models/filter';
+import { SelectionConfig } from 'src/app/shared/models';
 import { createTitles } from 'src/app/shared/functions/titles-peticion';
 
 import { datePickerToDate, datePickerToText, dateToDatePicker } from 'src/app/shared/functions/dates';
 
-import { MenuService, PeticionService } from '.src/app/shared/services';
-import { datePickerToDate } from 'src/app/shared/functions/dates';
+import { MenuService, PeticionService } from 'src/app/shared/services';
 
 
 

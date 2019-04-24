@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { isNullOrUndefined } from 'util';
@@ -17,7 +17,7 @@ import { InvSchedule } from '../../models/configuration/InvSchedule';
 
 export class InvScheduleService {
 
- 
+
   constructor(
     private http: HttpClient,
     private env: EnvService

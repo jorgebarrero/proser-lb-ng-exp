@@ -31,9 +31,9 @@ SELECT
 
 FROM
  MainAudit AS audit
-LEFT JOIN
+INNER JOIN
  HcaAgent AS agent ON audit.id_agent = agent.hca_agent_agent_id
- INNER JOIN
+ LEFT OUTER JOIN
  InvBreak AS break ON audit.id_break = break.inv_break_id
 
 WHERE

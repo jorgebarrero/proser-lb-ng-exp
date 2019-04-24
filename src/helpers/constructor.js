@@ -34,7 +34,7 @@
 //     ]
 // };
 
-function mainQuery(arg){
+function detailQuery(arg){
 
     let result = null;
 
@@ -54,29 +54,39 @@ function mainQuery(arg){
 
     if (field && table){
 
-        let totalField = {
-            total: [],
-            detail: []
-        };
-
-        totalField.total = group;
-        totalField.detail = [field];
-        console.log("TOTAL FIELD", totalField);
-
-    let querySQL = 
-    `
-    SELECT 'TOTAL', ${totalField.detail} FROM ${table}
-    ${filterBy} ${filter}
-
-    UNION
-
-    SELECT ${totalField.total}, ${totalField.detail} FROM ${table}
+    let queryDetail = `
+    
+    SELECT "DETAIL" as row, ${field} FROM ${table}
     ${filterBy} ${filter} ${groupBy} ${group}
     ${orderBy} ${order} ${limitBy} ${limit}
-    
-    `;
+    `
+   
     // console.log(querySQL);
-    result = querySQL;
+    result = queryDetail;
+    }
+
+    return result;
+
+}
+
+function totalQuery(arg1, arg2){
+
+    let result = null;
+
+    let fieldTotal = arg1.total;
+    let filterBy = validateFilter(arg1) ? "WHERE" : "";
+    let filter = validateFilter(arg1) ? arg1.filter : "";
+    let queryDetail = arg2;
+
+    if (fieldTotal){
+
+    let queryTotal = `
+    
+    SELECT "TOTAL" as row, ${fieldTotal} FROM (${queryDetail}) as detail
+    `
+
+    // console.log(querySQL);
+    result = queryTotal;
     }
 
     return result;
@@ -186,4 +196,4 @@ if (arg.limit){
 // let valid = validateField(input);
 // console.log(valid);
 
-export { mainQuery };
+export { detailQuery, totalQuery };

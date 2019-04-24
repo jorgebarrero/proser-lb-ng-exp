@@ -36,9 +36,9 @@ export class ConexionDesconexionService {
 
   getList(item): Observable<any> {
 
-    const query = {
-      name: 'conexion-desconexion'
-    };
+
+    const query = item;
+
     const accessToken = localStorage.getItem('accessToken');
 
     const url_api = `${this.env.loopbackApiUrl}/api/InvReports/mainQuery?access_token=${accessToken}`;

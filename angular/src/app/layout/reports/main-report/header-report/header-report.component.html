@@ -1,0 +1,147 @@
+<section>
+  <nav class="navbar navbar-expand-lg navbar-dark configheader-menu">
+    <a routerLink="/" class="navbar-brand"
+      ><img
+        src="../../../../assets/img/proser-light-2.png"
+        width="160"
+        height="40"
+        alt=""
+    /></a>
+
+    <!--# Responsive button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navigation"
+      aria-controls="#navigation"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--/ Responsive button -->
+
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a routerLink="/reports" class="nav-link">Reportes</a>
+        </li>
+
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+            >Personas</a
+          >
+
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a class="dropdown-item configheader-menu" routerLink="/filter/supervisor/">
+              <i class="fas fa-user-tie"></i> Supervisores
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter//agent/">
+              <i class="fas fa-users"></i> Agentes
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/location/">
+              <i class="fas fa-globe"></i> Ubicaciones
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/schedule/">
+              <i class="fas fa-calendar-alt"></i> Turnos
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/asignation/">
+              <i class="fas fa-street-view"></i> Asignaciones
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/break/">
+              <i class="fas fa-utensils"></i> Auxiliares
+            </a>
+          </div>
+        </li>
+
+        <!-- ----------------------------------- -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navdrop"
+            role="button"
+            data-toggle="dropdown"
+            data-hover="dropdown"
+            >Operacion</a
+          >
+          <div class="dropdown-menu" aria-labelledby="navdrop">
+            <a class="dropdown-item configheader-menu" routerLink="/filter/client/">
+              <i class="fas fa-industry"></i> Clientes
+            </a>
+
+            <a class="dropdown-item configheader-menu" routerLink="/filter/queue/">
+              <i class="fas fa-comment-dots"></i> Colas
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/service/">
+              <i class="fas fa-concierge-bell"></i> Servicios
+            </a>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/campaign/">
+              <i class="fas fa-crosshairs"></i> Campañas
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item configheader-menu" routerLink="/filter/scale/">
+              <i class="fas fa-chart-line"></i> Escalas
+            </a>
+          </div>
+        </li>
+      </ul>
+
+
+
+      <ul class="navbar-nav ml-auto">
+          <li>
+            <a class="nav-link active right-menu-text pt-3">
+                <!-- <app-now-date></app-now-date>
+              <app-now-time></app-now-time> -->
+            </a>
+          </li>
+
+
+            <li class="nav-item dropdown" ngbDropdown>
+                  <a
+                  class="nav-link "
+                  id="navdrop"
+                  role="button"
+                  data-toggle="dropdown"
+                  data-hover="dropdown"
+                  > <span class="right-menu-inline right-menu-text pt-2"><i class="fas fa-user"></i>&nbsp;
+                  
+                  <!-- <app-now-user></app-now-user> <app-connection></app-connection> -->
+                  
+                  </span>
+                  </a
+                >
+
+            <div class="dropdown-menu" aria-labelledby="navdrop">
+
+                <a class="dropdown-item " routerLink="/filter/break/">
+                  <i class="fas fa-id-badge"></i> Perfil
+                </a>
+
+                <div class="dropdown-divider"></div>
+
+                <a class="dropdown-item " routerLink="/" (click)="onLogout()">
+                  <i class="fas fa-power-off"></i> Logout
+                </a>
+
+              </div>
+
+
+          </li>
+
+
+        </ul>
+
+
+    </div>
+  </nav>
+  </section>

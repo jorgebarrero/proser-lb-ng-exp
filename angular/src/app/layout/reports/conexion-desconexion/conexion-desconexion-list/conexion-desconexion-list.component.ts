@@ -30,6 +30,8 @@ export class ConexionDesconexionListComponent implements OnInit {
     show_table;
     lista_encontrada;
 
+    alertMessage;
+
 
   constructor(
     private conexionDesconexionService: ConexionDesconexionService,
@@ -63,9 +65,17 @@ export class ConexionDesconexionListComponent implements OnInit {
 
   getList() {
 
-  const consulta_SQL  = this.selection;
+    const query = {
+      report_id: 3,
+      name: `conexion-desconexion`,
+      filter: [`DATE_FORMAT(audit.datetime_init, '%Y-%m%-%d') = '2018-11-23' AND audit.id_break = 0`],
+      group: [],
+      order: [],
+      limit: [],
+      total: ['sum(detail.seg_conexion)']
+  };
 
-    this.conexionDesconexionService.getList(consulta_SQL)
+    this.conexionDesconexionService.getList(query)
     .subscribe(res => {
 
       const temp = JSON.parse(JSON.stringify(res));

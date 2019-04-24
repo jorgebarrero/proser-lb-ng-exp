@@ -1,12 +1,7 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
-
 import { SelectionConfig } from 'src/app/shared/models/filter';
-
-
 import { datePickerFormatDate,  } from './../../../../shared/functions';
-
 import { MenuService } from './../../../../shared/services';
 
 
@@ -18,53 +13,55 @@ import { MenuService } from './../../../../shared/services';
 export class ConexionDesconexionConfigComponent implements OnInit, OnDestroy {
 
 
-  currentUser;
+  // currentUser;
   message;
   records;
 
-  selection;
-  filter;
+  // selection;
+  // filter;
   options;
-  proser_store;
+  // proser_store;
 
-  today;
-  now;
+  // today;
+  // now;
+
+  alertMessage;
 
   constructor(
     private menuService: MenuService,
   ) {
 
-    this.message = 'Conectando con el servidor';
+    // this.message = 'Conectando con el servidor';
 
-     this.selection = new SelectionConfig;
-     this.options = new SelectionConfig;
-
-
-    this.proser_store = JSON.parse(localStorage.getItem('proser_store'));
+    //  this.selection = new SelectionConfig;
+    //  this.options = new SelectionConfig;
 
 
-    const storedSelection = this.proser_store.conexion_desconexion.selection;
-
-    const storedOptions = this.proser_store.conexion_desconexion.options;
-
-    if (storedSelection) {
-      this.selection = this.proser_store.conexion_desconexion.selection;
-    }
+    // this.proser_store = JSON.parse(localStorage.getItem('proser_store'));
 
 
-    if (storedOptions) {
-      this.options = this.proser_store.conexion_desconexion.options;
-    }
+    // const storedSelection = this.proser_store.conexion_desconexion.selection;
+
+    // const storedOptions = this.proser_store.conexion_desconexion.options;
+
+    // if (storedSelection) {
+    //   this.selection = this.proser_store.conexion_desconexion.selection;
+    // }
+
+
+    // if (storedOptions) {
+    //   this.options = this.proser_store.conexion_desconexion.options;
+    // }
 
 
 
-    /******************************************* */
-    this.now = new Date();
-    this.today = {
-      year: this.now.getFullYear(),
-      month: this.now.getMonth() + 1,
-      day: this.now.getDate()
-    };
+    // /******************************************* */
+    // this.now = new Date();
+    // this.today = {
+    //   year: this.now.getFullYear(),
+    //   month: this.now.getMonth() + 1,
+    //   day: this.now.getDate()
+    // };
 
     // this.onMismoDia();
 
@@ -72,7 +69,7 @@ export class ConexionDesconexionConfigComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.getMenu_multiple(this.selection);
+    // this.getMenu_multiple(this.selection);
 
 
   }
@@ -80,10 +77,10 @@ export class ConexionDesconexionConfigComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
 
     // this.onMismoDia();
-    this.proser_store.conexion_desconexion.selection = this.selection;
-    this.proser_store.conexion_desconexion.options = this.options;
+    // this.proser_store.conexion_desconexion.selection = this.selection;
+    // this.proser_store.conexion_desconexion.options = this.options;
 
-    localStorage.setItem('proser_store', JSON.stringify(this.proser_store));
+    // localStorage.setItem('proser_store', JSON.stringify(this.proser_store));
 
   }
 
@@ -107,7 +104,7 @@ export class ConexionDesconexionConfigComponent implements OnInit, OnDestroy {
             },
           err => {
               console.log('error de lectura', err, err.ok);
-              this.message = 'Conexión no disponible';
+              // this.message = 'Conexión no disponible';
           }
        );
 

@@ -1,24 +1,18 @@
-<div *ngIf="!rows">
-  <div class="alert-danger" *ngIf="!records">
-      <ngb-alert [dismissible]="false" [type]="danger" (click)="close(alert)" >
-        <strong>¡Alerta!</strong> {{message}}
-        <button _ngcontent-c0="" aria-label="Close" class="close" type="button">
-              <span _ngcontent-c0="" aria-hidden="true">x</span>
-            </button>
-      </ngb-alert>
-</div>
+<div *ngIf="!auxiliar">
+  <h1>Alerta</h1>
+  {{ HttpErrorResponse }}
+  <app-alert [alertMessage]="alertMessage"></app-alert>
 </div>
 
+<section class="report" *ngIf="rows">
 
-<section class="mycontainer" *ngIf="rows">
 
-
-    <div class="subtiulo">
+    <div class="report-subtiulo">
         <div>
-          <h5>{{selection.titles}}</h5>
-          <h6>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h6>
+          <h2>{{selection.titles}}</h2>
+          <h3>Fecha: {{selection.date_text_inicio}} al {{selection.date_text_final}}  {{ selection.subtitles }}</h3>
         </div>
-        <div class="botonera">
+        <div class="report-botonera">
           <button
           (click)="exportToExcel(rows, 'conexion-desconexion')"
           class="btn btn-outline-secondary ">Excel</button>
@@ -31,7 +25,6 @@
           [rows]="rows"
           [rows_all]="rows_all"
           [selection]="selection"
-
           ></app-cd-list-table>
       </div>
   <p></p>

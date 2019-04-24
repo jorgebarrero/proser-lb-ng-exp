@@ -29,6 +29,9 @@ module.exports = function(InvDashboard) {
         SELECT 
         ${dashboard.SQLCdr}
 
+        FROM
+        MainCdr
+
         `;
 
         try {

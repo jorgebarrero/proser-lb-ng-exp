@@ -11,16 +11,7 @@ SUM(duration)/SUM(cdr_call_received),
 sum(cdr_qlog_secs_at_wait)/SUM(cdr_call_received)
 `;
 
-<<<<<<< HEAD
-// let SQLAudit = `
-// COUNT()
-// `
-// SELECT 
-// 'LOGIN', 
-// COUNT(id_break), 
-// MIN(datetime_init), 
-// MAX(datetime_end) 
-=======
+
 let SQLAudit = `
 COUNT()
 <<<<<<< HEAD
@@ -31,7 +22,7 @@ COUNT()
 SELECT 'LOGIN', COUNT(id_break), MIN(datetime_init), MAX(datetime_end) FROM 'MainAudit' WHERE id_break = '0'
 >>>>>>> 133303951ba4c5475a30bb8a825d17218c2e49b9
 
-// FROM `MainAudit` 
+// FROM `MainAudit`
 
 <<<<<<< HEAD
 // WHERE id_break = '0'
@@ -42,31 +33,31 @@ SELECT 'AUXILIAR', COUNT(audit.id_break) FROM 'MainAudit' as audit JOIN 'InvBrea
 // UNION
 
 <<<<<<< HEAD
-// SELECT 
-// 'AUXILIAR', 
-// COUNT(audit.id_break) 
-// FROM `MainAudit` as audit JOIN `InvBreak` as break 
-// ON 
-// audit.id_break = break.inv_break_id  
+// SELECT
+// 'AUXILIAR',
+// COUNT(audit.id_break)
+// FROM `MainAudit` as audit JOIN `InvBreak` as break
+// ON
+// audit.id_break = break.inv_break_id
 
-// WHERE 
-// audit.id_break <> '0' 
-// AND 
+// WHERE
+// audit.id_break <> '0'
+// AND
 // break.inv_break_productivity = '0'
 
 // UNION
 
-// SELECT 
-// 'ASIGNATION', 
-// COUNT(audit.id_break) 
+// SELECT
+// 'ASIGNATION',
+// COUNT(audit.id_break)
 
-// FROM `MainAudit` as audit JOIN `InvBreak` as break 
-// ON 
-// audit.id_break = break.inv_break_id  
+// FROM `MainAudit` as audit JOIN `InvBreak` as break
+// ON
+// audit.id_break = break.inv_break_id
 
-// WHERE 
-// audit.id_break <> '0' 
-// AND 
+// WHERE
+// audit.id_break <> '0'
+// AND
 // break.inv_break_productivity = '1'
 =======
 SELECT 'ASIGNATION', COUNT(audit.id_break) FROM 'MainAudit' as audit JOIN 'InvBreak' as break ON audit.id_break = break.inv_break_id  WHERE audit.id_break <> '0' AND break.inv_break_productivity = '1'

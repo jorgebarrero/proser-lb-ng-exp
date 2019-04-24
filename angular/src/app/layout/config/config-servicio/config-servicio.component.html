@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.servicios"
+  bindLabel="name" placeholder="Servicios"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.servicios">
+</ng-select>
+  

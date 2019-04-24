@@ -20,6 +20,92 @@ const routes: Routes = [
 
           { path: 'selector', loadChildren: './selector/selector.module#SelectorModule' },
 
+
+          {
+            path: 'conexion-desconexion',
+            loadChildren: './reports/conexion-desconexion/conexion-desconexion.module#ConexionDesconexionModule'
+          },
+          // {
+          //   path: 'detalle-auxiliares',
+          //   loadChildren: './hist/detalle-auxiliares/detalle-auxiliares.module#DetalleAuxiliaresModule'
+          // },
+          // {
+          //   path: 'detalle-asignaciones',
+          //   loadChildren: './hist/detalle-asignaciones/detalle-asignaciones.module#DetalleAsignacionesModule'
+          // },
+          // {
+          //   path: 'detallado-auxiliares',
+          //   loadChildren: './hist/detallado-auxiliares/detallado-auxiliares.module#DetalladoAuxiliaresModule'
+          // },
+          // {
+          //   path: 'detallado-asignaciones',
+          //   loadChildren: './hist/detallado-asignaciones/detallado-asignaciones.module#DetalladoAsignacionesModule'
+          // },
+          // {
+          //   path: 'detalle-llamadas',
+          //   loadChildren: './hist/detalle-llamadas/detalle-llamadas.module#DetalleLlamadasModule'
+          // },
+          // {
+          //   path: 'operativo-detallado',
+          //   loadChildren: './hist/operativo-detallado/operativo-detallado.module#OperativoDetalladoModule'
+          // },
+          // {
+          //   path: 'productividad',
+          //   loadChildren: './hist/productividad/productividad.module#ProductividadModule'
+          // },
+          // {
+          //   path: 'servicio-diario',
+          //   loadChildren: './hist/servicio-diario/servicio-diario.module#ServicioDiarioModule'
+          // },
+          // {
+          //   path: 'servicio-intervalo',
+          //   loadChildren: './hist/servicio-intervalo/servicio-intervalo.module#ServicioIntervaloModule'
+          // },
+
+          // {
+          //   path: 'servicio-historico',
+          //   loadChildren: './hist/servicio-historico/servicio-historico.module#ServicioHistoricoModule'
+          // },
+
+          // {
+          //   path: 'entrante-diario',
+          //   loadChildren: './hist/entrante-diario/entrante-diario.module#EntranteDiarioModule'
+          // },
+
+          // {
+          //   path: 'entrante-dashboard',
+          //   loadChildren: './hist/entrante-dashboard/entrante-dashboard.module#EntranteDashboardModule'
+          // },
+
+          // {
+          //   path: 'cdr',
+          //   loadChildren: './hist/cdr/cdr.module#CdrModule'
+          // },
+
+          // {
+          //   path: 'entrante-intervalo',
+          //   loadChildren: './hist/entrante-intervalo/entrante-intervalo.module#EntranteIntervaloModule'
+          // },
+
+          // {
+          //   path: 'manual-diario',
+          //   loadChildren: './hist/manual-diario/manual-diario.module#ManualDiarioModule'
+          // },
+          // {
+          //   path: 'manual-intervalo',
+          //   loadChildren: './hist/manual-intervalo/manual-intervalo.module#ManualIntervaloModule'
+          // },
+
+          // {
+          //   path: 'agentes',
+          //   loadChildren: './hist/agentes/agentes.module#AgentesModule'
+          // },
+          // {
+          //   path: 'config',
+          //   loadChildren: './config/config.module#ConfigModule'
+          // },
+
+
       ]
   }
 ];

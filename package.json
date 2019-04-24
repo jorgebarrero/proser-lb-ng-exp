@@ -6,8 +6,9 @@
     "pretest": "jshint .",
     "start": "babel-node src/server/server.js",
     "start-up": "babel-node updates/app",
-    "start-import": "babel-node sync/imports/main_import",
-    "start-update": "babel-node sync/updates/main_update",
+    "start-import": "babel-node src/sync/imports/main_import",
+    "start-update": "babel-node src/sync/updates/main_update",
+    "start-forever": "forever babel-node src/sync/updates/main_update",
     "ng": "bash ng.sh",
     "test": "mocha test/*test.js"
   },

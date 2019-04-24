@@ -1,0 +1,11 @@
+<ng-select
+  [items]="options.minutos_intervalo"
+  bindLabel="name" placeholder="Intervalo"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="false"
+  hideSelected="true"
+  [(ngModel)]="selection.minutos_intervalo">
+</ng-select>

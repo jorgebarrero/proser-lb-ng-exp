@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.campanas"
+  bindLabel="name" placeholder="Campanas"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.campanas">
+</ng-select>
+  

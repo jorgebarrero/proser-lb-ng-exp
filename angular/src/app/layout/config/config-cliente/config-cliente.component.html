@@ -1,0 +1,19 @@
+
+ <ng-select
+  [items]="options.clientes"
+  bindLabel="name" placeholder="Clientes"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.clientes">
+</ng-select>
+
+<!-- 
+<p>{{filter.tabla_cdr}}</p>
+<p>{{filter.filtro_fecha_inicio}}</p>
+<p>{{filter.filtro_fecha_final}}</p>
+<p>{{filter.filtro_otro}}</p>
+   -->

@@ -1,0 +1,17 @@
+<ng-select
+  [items]="options.group"
+  bindLabel="name" placeholder="Agrupar por"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="false"
+  hideSelected="true"
+  [(ngModel)]="selection.group">
+</ng-select>
+  
+
+
+<!-- <p>{{filter.filtro_group_compuesto}}</p>
+<p>{{filter.filtro_group}}</p>
+<p>{{selection.group | json}}</p> -->

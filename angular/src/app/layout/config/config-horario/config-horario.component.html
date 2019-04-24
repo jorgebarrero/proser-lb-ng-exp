@@ -1,0 +1,12 @@
+<ng-select
+  [items]="options.horarios"
+  bindLabel="name" placeholder="Horarios"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.horarios">
+</ng-select>
+  

@@ -1,0 +1,13 @@
+<ng-select
+  [items]="options.colas"
+  bindLabel="name" placeholder="Colas"
+  [dropdownPosition]="'top'"
+  [searchable]="false"
+  (change)="onChange()"
+  [clearable]="true"
+  [multiple]="true"
+  hideSelected="true"
+  [(ngModel)]="selection.colas">
+</ng-select>
+  
+  

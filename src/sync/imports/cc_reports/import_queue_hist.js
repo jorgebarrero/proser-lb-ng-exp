@@ -1,5 +1,5 @@
-import * as poolOrigin from 'src/connectors/pool_cc_reports';
-import * as pool from 'src/connectors/pool';
+import * as poolOrigin from '../../../connectors/pool_cc_reports';
+import * as pool from '../../../connectors/pool';
 import * as queueFunctions from './import_queue_hist_functions';
 import{ removeRowDataPacket } from '../../helpers/mysql-helper.js';
 

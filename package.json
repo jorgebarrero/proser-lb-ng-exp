@@ -5,10 +5,11 @@
   "scripts": {
     "pretest": "jshint .",
     "start": "babel-node src/server/server.js",
-    "start-up": "babel-node updates/app",
+    "start-up": "babel-node src/sync/app",
     "start-import": "babel-node src/sync/imports/main_import",
     "start-update": "babel-node src/sync/updates/main_update",
-    "start-forever": "forever babel-node src/sync/updates/main_update",
+    "start-forever": "forever start -c 'babel-node src/sync/app.js'",
+    "end-forever": "forever stop 'babel-node src/sync/app.js'",
     "ng": "bash ng.sh",
     "test": "mocha test/*test.js"
   },
@@ -34,6 +35,7 @@
     "loopback-component-explorer": "^2.1.0"
   },
   "devDependencies": {
+    "@babel/register": "^7.4.0",
     "jshint": "^2.10.2",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.11",

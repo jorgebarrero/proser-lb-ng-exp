@@ -1,76 +1,82 @@
-// let SQLCdr = `
-// SUM(cdr_call_received),
-// SUM(cdr_call_abandoned),
-// SUM(cdr_call_atended),
-// SUM(cdr_call_short),
-// SUM(cdr_call_before_time),
-// SUM(cdr_call_before_time)/SUM(cdr_call_received),
-// SUM(cdr_call_atended)/SUM(cdr_call_received),
-// SUM(cdr_call_abandoned)/SUM(cdr_call_received),
-// SUM(duration)/SUM(cdr_call_received),
-// sum(cdr_qlog_secs_at_wait)/SUM(cdr_call_received)
-// `;
+function sqlCdr(arg){ 
+    
+let build_sqlCdr = `
+    SELECT  
 
-// <<<<<<< HEAD
-// // let SQLAudit = `
-// // COUNT()
-// // `
-// // SELECT 
-// // 'LOGIN', 
-// // COUNT(id_break), 
-// // MIN(datetime_init), 
-// // MAX(datetime_end) 
+    SUM(cdr_call_received) as llamadas_recibidas,
+    SUM(cdr_call_abandoned) as llamadas_abandonadas,
+    SUM(cdr_call_atended) as llamadas_atendidas,
+    SUM(cdr_call_short) as llamadas_cortas,
+    SUM(cdr_call_before_time) as llamadas_antes_de,
+    SUM(cdr_call_before_time)/SUM(cdr_call_received) as nivel_servicio,
+    SUM(cdr_call_atended)/SUM(cdr_call_received) as nivel_atencion,
+    SUM(cdr_call_abandoned)/SUM(cdr_call_received) as nivel_abandono,
+    SUM(duration)/SUM(cdr_call_received) as tmo,
+    sum(cdr_qlog_secs_at_wait)/SUM(cdr_call_received) as asa
 
-// let SQLAudit = `
-// COUNT()
+    FROM MainCdr
 
-// '
+    WHERE ${filtro}
+    `;
 
+    return build_sqlCdr;
+};
 
-// >>>>>>> 329a93600d47868ec929996e9e2d0118c7d74701
-// SELECT 'LOGIN', COUNT(id_break), MIN(datetime_init), MAX(datetime_end) FROM 'MainAudit' WHERE id_break = '0'
-// >>>>>>> 133303951ba4c5475a30bb8a825d17218c2e49b9
+function sqlHcaAgent(arg){
 
-// // FROM `MainAudit` 
+    let build_sqlHcaAgent = `
 
+    SELECT
 
-// // WHERE id_break = '0'
+    hca_agent_id as ig_agente,
+    hca_agent_agent_name as nombre_agente,
+    hca_agent_supervisor_name as nombre_supervisor,
+    hca_agent_agente_extension as extension_agente
 
-// // SELECT 'AUXILIAR', COUNT(audit.id_break) FROM 'MainAudit' as audit JOIN 'InvBreak' as break ON audit.id_break = break.inv_break_id  WHERE audit.id_break <> '0' AND break.inv_break_productivity = '0'
+    FROM HcaAgent 
 
+    WHERE ${filtro}
 
-// // UNION
+    `;
 
+    return build_sqlHcaAgent;
 
-// // SELECT 
-// // 'AUXILIAR', 
-// // COUNT(audit.id_break) 
-// // FROM `MainAudit` as audit JOIN `InvBreak` as break 
-// // ON 
-// // audit.id_break = break.inv_break_id  
+};
 
-// // WHERE 
-// // audit.id_break <> '0' 
-// // AND 
-// // break.inv_break_productivity = '0'
+function sqlAudit(arg){
 
-// // UNION
+    let build_sqlAudit = `
 
-// // SELECT 
-// // 'ASIGNATION', 
-// // COUNT(audit.id_break) 
+    SELECT 
+    audit.id_agent as id_agente,
+    agent.hca_agent_agent_name as nombre_agente,
+    agent.hca_agent_supervisor_name as nombre_supervisor,
+    agent.hca_agent_agente_extension as extension_agente,
+    audit.audit_status as estado
 
-// // FROM `MainAudit` as audit JOIN `InvBreak` as break 
-// // ON 
-// // audit.id_break = break.inv_break_id  
+    FROM MainAudit as audit
+    INNER JOIN HcaAgent as agent
+    ON
+    audit.audit_hca_agent_id = agent.hca_agent_key_audit
 
-// // WHERE 
-// // audit.id_break <> '0' 
-// // AND 
-// // break.inv_break_productivity = '1'
+    WHERE
+    ${filtro}
 
-// // SELECT 'ASIGNATION', COUNT(audit.id_break) FROM 'MainAudit' as audit JOIN 'InvBreak' as break ON audit.id_break = break.inv_break_id  WHERE audit.id_break <> '0' AND break.inv_break_productivity = '1'
+    `;
 
+return build_sqlAudit;
 
+};
 
-// // export { SQLCdr } `;
+function sqlAuditCdr(arg){
+
+    let build_sqlAuditCdr = `
+
+    SELECT
+
+`;
+
+return build_sqlAuditCdr;
+};
+
+export { sqlCdr, sqlHcaAgent, sqlAudit, sqlAuditCdr};

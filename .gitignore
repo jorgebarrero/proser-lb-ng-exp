@@ -2,3 +2,7 @@ node_modules
 .env
 support/env_config
 .github
+documentacion/manual-tecnico/vendor
+documentacion/manual-tecnico/system
+documentacion/manual-tecnico/user/plugins
+documentacion/manual-tecnico/user/themes

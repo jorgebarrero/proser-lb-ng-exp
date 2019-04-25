@@ -20,6 +20,8 @@ const routes: Routes = [
 
           { path: 'selector', loadChildren: './selector/selector.module#SelectorModule' },
 
+          { path: 'reports', loadChildren: './reports/reports.module#ReportsModule' },
+
 
           {
             path: 'conexion-desconexion',

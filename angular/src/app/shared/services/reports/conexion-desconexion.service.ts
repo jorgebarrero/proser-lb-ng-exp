@@ -1,16 +1,17 @@
 //  Angular
 
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { isNullOrUndefined } from 'util';
 
-//  import 'rxjs/add/operator/toPromise'
 import 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-//  Local
 import * as proser from '../../database/api';
-
 import { ConexionDesconexion } from '../../models/';
+
+import { EnvService } from '../env.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,27 +22,30 @@ export class ConexionDesconexionService {
   conexionDesconexion_selected: ConexionDesconexion;
   conexionDesconexion_rows: ConexionDesconexion[];
 
-    constructor( private http: HttpClient ) {
+    constructor(
+      private http: HttpClient,
+      private env: EnvService
+      ) {
       this.conexionDesconexion_selected = new ConexionDesconexion();
     }
 
-/************************************************************************
- * LIST
- */
+  headers: HttpHeaders = new HttpHeaders({
+    'Content-Type': 'application/json'
+  });
+
 
   getList(item): Observable<any> {
 
-    const consultas_SQL = item;
-    const apiURL = `${this.apiRootProser}api/rep-conexion-desconexion/list`;
-    const res = this.http.post(apiURL, consultas_SQL);
-      console.warn('Operativo detallado......' , apiURL);
+
+    const query = item;
+
+    const accessToken = localStorage.getItem('accessToken');
+
+    const url_api = `${this.env.loopbackApiUrl}/api/InvReports/mainQuery?access_token=${accessToken}`;
+    const res = this.http.post(url_api, query, {headers: this.headers});
+      console.warn('Operativo detallado......' , url_api);
       console.log(res);
     return res;
     }
-
-
-
-
-
 
 }

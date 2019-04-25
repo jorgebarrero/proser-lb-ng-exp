@@ -16,9 +16,14 @@ import { ConexionDesconexionListComponent } from './conexion-desconexion-list/co
 import { CdListTableComponent } from './conexion-desconexion-list/cd-list-table/cd-list-table.component';
 import { ConexionDesconexionConfigComponent } from './conexion-desconexion-config/conexion-desconexion-config.component';
 
+import { MainReportModule } from '../../reports/main-report/main-report.module';
+
 import { ConfigModule } from '../../config/config.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { NowModule } from 'src/app/shared/modules/now/now.module';
+import { ConnectionModule } from 'src/app/shared/modules/connection/connection.module';
+import { AlertModule } from 'src/app/shared/modules/alert/alert.module';
 
 @NgModule({
   imports: [
@@ -30,6 +35,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ConfigModule,
     NgbModule,
     AngularMaterialModule,
+    MainReportModule,
+    AlertModule,
+    ConnectionModule,
+    NowModule,
     ConexionDesconexionRoutingModule
   ],
   declarations: [

@@ -1,4 +1,6 @@
 function sqlCdr(arg){ 
+
+    let date = arg.date;
     
 let build_sqlCdr = `
     SELECT  
@@ -16,7 +18,7 @@ let build_sqlCdr = `
 
     FROM MainCdr
 
-    WHERE ${filtro}
+    WHERE cdr_dates_calldate = ${date}
     `;
 
     return build_sqlCdr;
@@ -24,18 +26,23 @@ let build_sqlCdr = `
 
 function sqlHcaAgent(arg){
 
+    let date = arg.date;
+    let paramFilter = arg.filter;
+    let and = validateAND(arg) ? "AND" : "";
+
     let build_sqlHcaAgent = `
 
     SELECT
 
-    hca_agent_id as ig_agente,
+    hca_agent_agent_id as ig_agente,
     hca_agent_agent_name as nombre_agente,
     hca_agent_supervisor_name as nombre_supervisor,
     hca_agent_agente_extension as extension_agente
 
-    FROM HcaAgent 
+    FROM HcaAgent as agent
+    
 
-    WHERE ${filtro}
+    WHERE agent.hca_agent_date_text = ${date} ${and} ${paramFilter}
 
     `;
 
@@ -44,6 +51,10 @@ function sqlHcaAgent(arg){
 };
 
 function sqlAudit(arg){
+
+    let date = arg.date;
+    let paramFilter = arg.filter;
+    let and = validateAND(arg) ? "AND" : "";
 
     let build_sqlAudit = `
 
@@ -60,7 +71,7 @@ function sqlAudit(arg){
     audit.audit_hca_agent_id = agent.hca_agent_key_audit
 
     WHERE
-    ${filtro}
+    agent.hca_agent_date_text = ${date} ${and} ${paramFilter}
 
     `;
 
@@ -78,5 +89,18 @@ function sqlAuditCdr(arg){
 
 return build_sqlAuditCdr;
 };
+
+function validateAND(arg){
+
+    let result = false
+
+    if (arg.filter){
+    
+            return true
+        } else {
+            result = false
+        };
+        return result;
+    };
 
 export { sqlCdr, sqlHcaAgent, sqlAudit, sqlAuditCdr};

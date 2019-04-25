@@ -41,6 +41,7 @@ function detailQuery(arg){
     let field = validateField(arg) ? arg.field : "";
     let table = validateTable(arg) ? arg.table : "";
     let filter = validateFilter(arg) ? arg.filter : "";
+    let staticFilter = validatedatabaseFilter(arg) ? arg.databaseFilter : "1";
     let group = validateGroup(arg) ? arg.group : "";
     let order = validateOrder(arg) ? arg.order : "";
     let limit = validateLimit(arg) ? arg.limit :"";
@@ -57,7 +58,7 @@ function detailQuery(arg){
     let queryDetail = `
     
     SELECT "DETAIL" as row, ${field} FROM ${table}
-    ${filterBy} ${filter} ${groupBy} ${group}
+    ${filterBy} ${staticFilter} AND ${filter} ${groupBy} ${group}
     ${orderBy} ${order} ${limitBy} ${limit}
     `
    
@@ -133,6 +134,21 @@ function validateFilter(arg){
 if (arg.filter){
 
     if (arg.filter.length > 0){
+        return true
+    } else {
+        result = false
+    };
+ }
+    return result;
+};
+
+function validatedatabaseFilter(arg){
+
+    let result = false
+
+if (arg.databaseFilter){
+
+    if (arg.databaseFilter.length > 0){
         return true
     } else {
         result = false

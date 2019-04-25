@@ -26,7 +26,7 @@ async function selectionReport(arg){
 
     let findSQL = 
     `
-    SELECT inv_report_field, inv_report_table
+    SELECT inv_report_field, inv_report_table, inv_report_filter
     FROM InvReport
     WHERE inv_report_id = ${report_id}
     `;

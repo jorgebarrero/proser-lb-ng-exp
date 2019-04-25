@@ -30,6 +30,7 @@ module.exports = function(InvReport) {
         //**********************INSERTION DATA FIELD & TABLE INTO FILTRO***************************/
         filtro.field = [querySelection[0].inv_report_field];
         filtro.table = [querySelection[0].inv_report_table];
+        filtro.databaseFilter = [querySelection[0].inv_report_filter];
         // console.log("//***********FILTRO MODIFICADO********//")
         // console.log("FILTRO", filtro);
 

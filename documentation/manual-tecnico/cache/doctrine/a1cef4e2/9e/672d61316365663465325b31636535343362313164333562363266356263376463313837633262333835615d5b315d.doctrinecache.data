@@ -1,0 +1,67 @@
+1556639065
+a:2:{s:7:"content";s:1826:"<h1>InvAgent</h1>
+<p>Inventario de datos de los agentes</p>
+<h2>Campos</h2>
+<h3>inv_agent_id</h3>
+<p>Número de identificación del registro del agente</p>
+<ul>
+<li>Clave primaria</li>
+<li>Campo numérico auto-incremental</li>
+</ul>
+<h3>inv_agent_status</h3>
+<p>Estade del agente</p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_agent_chk</h3>
+<p>Marca de uso del campo</p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_agent_name</h3>
+<p>Nombre del agente
+<strong>Texto</strong></p>
+<h3>inv_agent_shortname</h3>
+<p>Nombre corto del agente</p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_agent_type</h3>
+<p>Tipo de agente</p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_agent_extension</h3>
+<p>Extensión asignada al agente</p>
+<ul>
+<li>Agent = Agente que solo recibe llmadas</li>
+<li>SIP = agente que hace y recibe llamadas</li>
+</ul>
+<h3>inv_agent_extension</h3>
+<p>Extensión asignada al agente
+<strong>texto en forma de numero</strong></p>
+<h3>inv_agent_legal_id</h3>
+<p>Indentificación oficial del agente
+<strong>Cédula, pasaporte o documento legal del agente</strong></p>
+<h3>inv_agent_internal_id</h3>
+<p>Identificacion interna del agente
+<strong>Numero asignado por la organización para identificar al agente</strong></p>
+<h3>inv_agent_supervisor_id</h3>
+<p>Id de identificación del supervisor
+<strong>Número de identificación del registro del supervisor</strong></p>
+<h3>inv_agent_supervisor_name</h3>
+<p>Nombre del supervisor
+<strong>Texto</strong></p>
+<h3>inv_agent_schedule_id</h3>
+<p>Id de identificación del turno o el horario</p>
+<h3>inv_agent_schedule_name</h3>
+<p>Nombre del horario
+<strong>Nombre del horario (Mañana, Tarde, Noche, etc)</strong></p>
+<h3>inv_agent_password</h3>
+<p>Contraseña
+<strong>En texto normal</strong></p>
+<h3>inv_agent_eccp_password</h3>
+<p>Clave cifrada
+<strong>Con eccp</strong></p>";s:12:"content_meta";N;}

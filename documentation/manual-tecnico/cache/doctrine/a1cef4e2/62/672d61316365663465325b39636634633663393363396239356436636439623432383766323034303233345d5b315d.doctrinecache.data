@@ -1,0 +1,31 @@
+1556641367
+a:2:{s:7:"content";s:556:"<h1>InvScale</h1>
+<p>Escala</p>
+<h2>Campos</h2>
+<h3>inv_scale_id</h3>
+<p>Numero de identificacion del registro del scale </p>
+<h3>inv_scale_status</h3>
+<p>Estade del scale</p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_scale_chk</h3>
+<p>Marca de uso del campo </p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_scale_short_name</h3>
+<p>Nombre corto del scale </p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_scale_name</h3>
+<p>Nombre del schedule </p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_scale_red</h3>
+<h3>inv_scale_yellow</h3>
+<h3>inv_scale_green</h3>";s:12:"content_meta";N;}

@@ -1,0 +1,183 @@
+1556647033
+a:2:{s:7:"content";s:10980:"<h1>Definiciones</h1>
+<h2>Campaña</h2>
+<h2>Llamada</h2>
+<h2>Skill,</h2>
+<h2>Servicio</h2>
+<h2>Cola</h2>
+<h2>Supervisor</h2>
+<p>Es la persona responsable de un grupo de agentes</p>
+<h2>Agente</h2>
+<p>La persona que atiende la llamada</p>
+<h2>Inbound</h2>
+<p>Llamadas entrantes</p>
+<h2>Nivel de Servicio - Expresado en %</h2>
+<h3>suma(llamadas_atendidas_antes_de_20_seg)/suma(llamadas_recibidas)</h3>
+<p>Una medición que expresa el porcentaje de transacciones que se atienden en un período específico. Por ejemplo, para un call center, un nivel de servicio 80/20 significa que se atiende o atenderán un 80% de las llamadas dentro de los 20 segundos. El Nivel de Servicio puede ser un objetivo o una medición del desempeño real.</p>
+<h2>Nivel de Atención - Expresado en %</h2>
+<p>Suma(llamadas_atendidas)/suma(llamadas_Recibidas)</p>
+<h2>Nivel de Abandono - Expresado en %</h2>
+<p>Suma(llamadas_abandonadas)/suma(llamadas_Recibidas)</p>
+<h2>TMO - Expresado en Segundos</h2>
+<h3>entero(SUMA(tiempo_operacion)/CONTARA(llamadas_atendidas))</h3>
+<p>El tiempo promedio medido en segundos que le lleva al RAC procesar una transacción. Esto incluye el tiempo de comunicación con el cliente, colocar al cliente en hold (tiempo en hold), y completar la transacción luego de que el cliente haya concluido su participación en la transacción (wrapping).</p>
+<h3>Que es el RAC?</h3>
+<p>(representante de atención al cliente = agente)</p>
+<h3>Wrapping</h3>
+<p>Tiempo post llamada después de colgada la llamada y antes que el Agente finalice la transacción.</p>
+<h2>Llamadas Recibidas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas entrantes bruto, sin importar su clasificación o resultado.</p>
+<h2>Llamadas Abandonadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que el cliente inicia pero que el cliente cuelga antes que sean contestadas.</p>
+<h2>Llamadas Atendidas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que son respondidas por un agente</p>
+<h2>Llamadas Cortas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas con duración inferior a un parámetro previamente ajustado que calcula la no posibilidad de gestion. (ejemplo: menos de 3 segundos).</p>
+<h2>Llamadas en Cola - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que están a la espera de ser atendidas</p>
+<h2>Llamadas atendidas antes de 20 segundos - Expresado en Unidades</h2>
+<p>Cantidad de llamadas atendidas antes de 20 segundos</p>
+<h2>Tiempo medio de atención (ASA) - Expresado en Segundos</h2>
+<p>entero(suma(tiempo_espera_en_cola)/suma(llamadas_atendidas))</p>
+<h2>Agentes Conectados  - Expresado en Unidades</h2>
+<p>Cantidad de agentes que están conectados porque hicieron login</p>
+<h2>Agentes Ocupados - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están contestando una llamada</p>
+<h2>Agentes Disponibles - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están a la espera de una llamada</p>
+<h2>Tiempo_de_operacion - Expresado en Segundos</h2>
+<h3>Suma de (duración de llamada + tiempo de hold + tiempo after call work)</h3>
+<p>after call = tiempo desde que se cuelga la llamada hasta que el operador completa el formulario (tipifica) y queda disponible para atender otra llamada y/o pasa a un auxiliar</p>
+<h2>Tiempo_de_after_call_work - Expresado en Segundos</h2>
+<p>tiempo desde que se cuelga la llamada hasta que el operador completa el formulario (tipifica) y queda disponible para atender otra llamada y/o pasa a un auxiliar</p>
+<h2>tiempo_de_espera_ivr - Expresado en Segundos</h2>
+<p>Suma del tiempo que reporta el IVR antes de que la llamada sea contestada</p>
+<h2>Agentes_Auxiliar - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que no están ni ocupados ni disponibles tomaron una pausa dentro del sistema</p>
+<h2>Tabla auxiliar de agentes - Expresado en Unidades</h2>
+<p>En formato maestro detalle aparecen las causas auxiliares
+este último con un desplegable para validar el detalle del tipo de auxiliar en el que se encuentran los agentes.</p>
+<h1>Out Bound Marcación Predictiva</h1>
+<h2>BDD- Expresado en Unidades</h2>
+<p>Base de datos que el cliente suministra para llamadas o listado en papel</p>
+<h2>Registros pendientes por recorrer - Expresado en Unidades</h2>
+<p>Registros que faltan por llamar</p>
+<h2>Llamadas Realizadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas realizadas por el agente sin importar el resultado</p>
+<h2>Llamadas Fallidas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas realizadas que no cumplen la especificación de contactabilidad</p>
+<h2>Llamadas Contestadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas con resultado de contactabilidad positivo</p>
+<h2>Llamadas Abandonadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que el cliente cuelga antes de ser atendidas
+En Out Bound esta definición no tiene sentido, serán las llamadas atendidas y cortadas antes de cumplir con el criterio de efectividad</p>
+<h2>Llamadas en Cola - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que están a la espera de ser atendidas
+En Out Bound esta definición no tiene sentido, ya que no hay llamadas entrantes esperando ser atendidas</p>
+<h2>Llamadas Efectivas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que cumplen con el criterio de efectividad</p>
+<h2>% de Contactabilidad  - Expresado en %</h2>
+<p>(suma(llamadas_Contestadas)/suma(llamadas_Realizadas))
+suma(Registros contactados / Registros cargados)</p>
+<h2>% de efectividad - Expresado en %</h2>
+<p>suma(llamadas_efectivas)/suma(llamadas_Contestadas)</p>
+<h2>TMO - Expresado en Segundos</h2>
+<p>entero(SUMA(tiempo_operacion)/CONTAR(llamadas_Contestadas))</p>
+<h2>Agentes Conectados - Expresado en Unidades</h2>
+<p>Cantidad de agentes que están conectados porque hicieron login</p>
+<h2>Agentes Ocupados - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están contestando una llamada
+En Out Bound esta definición no tiene sentido, ya que no hay llamadas entrantes será haciendo una llamada</p>
+<h2>Agentes Disponibles - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están a la espera de una llamada
+En Out Bound esta definición no tiene sentido, ya que no hay llamadas entrantes será a la espera de hacer una llamada</p>
+<h2>Agentes Auxiliar - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que no están ni ocupados ni disponibles tomaron una pausa dentro del sistema
+este último con un desplegable para validar el detalle del tipo de auxiliar en el que se encuentran los agentes.</p>
+<h2>Tabla auxiliar de agentes - Expresado en Unidades</h2>
+<p>En formato maestro detalle aparecen las causas auxiliares
+este último con un desplegable para validar el detalle del tipo de auxiliar en el que se en</p>
+<h2>tiempo_de_operacion - Expresado en Segundos</h2>
+<p>Suma de (duración de llamada + tiempo de hold + tiempo after call)</p>
+<h1>Out Bound Marcación Manual</h1>
+<h2>Llamadas Realizadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas realizadas por el agente sin importar el resultado</p>
+<h2>Llamadas Fallidas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas realizadas que no cumplen la especificación de contactabilidad</p>
+<h2>Llamadas Contestadas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas con resultado de contactabilidad positivo</p>
+<h2>Llamadas Efectivas - Expresado en Unidades</h2>
+<p>Cantidad de llamadas que cumplen con el criterio de efectividad</p>
+<h2>% de Contactabilidad  - Expresado en %</h2>
+<p>(suma(llamadas_Contestadas)/suma(llamadas_Realizadas))</p>
+<h2>% de efectividad - Expresado en %</h2>
+<p>suma(llamadas_efectivas)/suma(llamadas_Contestadas)</p>
+<h2>TMO - Expresado en Segundos</h2>
+<p>entero(SUMA(tiempo_operacion)/CONTAR(llamadas_Contestadas))</p>
+<h2>Agentes Conectados - Expresado en Unidades</h2>
+<p>Cantidad de agentes que están conectados porque hicieron login</p>
+<h2>Agentes Ocupados - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están contestando una llamada
+En Out Bound esta definición no tiene sentido, ya que no hay llamadas entrantes será haciendo una llamada</p>
+<h2>Agentes Disponibles - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que están a la espera de una llamada
+En Out Bound esta definición no tiene sentido, ya que no hay llamadas entrantes será a la espera de hacer una llamada</p>
+<h2>Agentes Auxiliar - Expresado en Unidades</h2>
+<p>Cantidad de agentes conectados que no están ni ocupados ni disponibles tomaron una pausa dentro del sistema
+este último con un desplegable para validar el detalle del tipo de auxiliar en el que se encuentran los agentes.</p>
+<h2>Tabla auxiliar de agentes - Expresado en Unidades</h2>
+<p>En formato maestro detalle aparecen las causas auxiliares
+este último con un desplegable para validar el detalle del tipo de auxiliar en el que se en</p>
+<h2>Tiempo_de_operacion - Expresado en Segundos</h2>
+<p>Suma de (duración de llamada + tiempo de hold + tiempo after call)</p>
+<h1>Dashboard Supervisores</h1>
+<p>Filtro x servicio</p>
+<h3>Pestaña Agente</h3>
+<h2>Nombre</h2>
+<p>Nombre del agente</p>
+<h2>Id</h2>
+<p>Código de identificación del agente</p>
+<h2>Nombre supervisor</h2>
+<p>Nombre del supervisor</p>
+<h2>Extensión</h2>
+<p>Código de identificación de la extensión</p>
+<h2>Skill</h2>
+<p>Habilidad certificada del agente</p>
+<h2>Campaña</h2>
+<p>Empresa contratante</p>
+<h3>Pestaña Llamadas</h3>
+<h2>Nombre</h2>
+<p>Nombre del agente</p>
+<h2>Id</h2>
+<p>Código de identificación del agente</p>
+<h2>Llamadas entrantes</h2>
+<p>Cantidad de llamadas entrantes</p>
+<h2>Llamadas Realizadas</h2>
+<p>Cantidad de llamadas realizadas por el agente de forma manual</p>
+<h2>Llamadas contestadas</h2>
+<p>Cantidad de llamadas contestadas, que ha tenido el agente</p>
+<h3>Pestaña TMO</h3>
+<h2>Nombre</h2>
+<p>Nombre del agente</p>
+<h2>Id</h2>
+<p>Código de identificación del agente</p>
+<h2>TMO saliente</h2>
+<p>Cantidad de segundos TMO saliente del dia actual</p>
+<h2>TMO entrante</h2>
+<p>Cantidad de segundos TMO entrante del día actual</p>
+<h3>Pestaña ESTADO</h3>
+<h2>Estado actual</h2>
+<p>Estado actual del agente (ocupado/disponible/auxiliar)</p>
+<h2>Tiempo login Expresado en H.M.S</h2>
+<p>Tiempo total de logueo que lleva el agente, de acuerdo al corte acordado con el cliente</p>
+<h2>Tiempo Auxiliar en H.M.S</h2>
+<p>Tiempo total de auxiliar (suma de todos los auxiliares) que lleva el agente, de acuerdo al corte acordado con el cliente</p>
+<h2>Tiempo Conversado en H.M.S</h2>
+<p>Tiempo total de conversando que lleva el agente, de acuerdo al corte acordado con el cliente</p>
+<h2>Tiempo Disponible en H.M.S</h2>
+<p>Tiempo conectado - tiempo coversado - tiempo auxiliar
+Tiempo total de espera por llamadas que lleva el agente, de acuerdo al corte acordado con el cliente</p>
+<h2>Utilización - Expresado con decimales 2 decimales en %</h2>
+<p>Suma(Tiempo disponible; tiempo conversado)/(tiempo login)</p>
+<h2>Auxiliar</h2>
+<p>Maestro detalle del</p>";s:12:"content_meta";N;}

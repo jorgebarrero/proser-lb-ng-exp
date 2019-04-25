@@ -1,0 +1,115 @@
+1556646089
+a:2:{s:7:"content";s:2927:"<h1>MainCdr</h1>
+<p>Principal</p>
+<h2>Campos</h2>
+<h3>id</h3>
+<p>Numero de identificacion del registro </p>
+<h3>calldate</h3>
+<p>Fecha y hora</p>
+<h3>clid</h3>
+<h3>src</h3>
+<h3>dst</h3>
+<h3>dcontext</h3>
+<h3>channel</h3>
+<h3>dstchannel</h3>
+<h3>lastapp</h3>
+<h3>lastdata</h3>
+<h3>duration</h3>
+<p>Duracion</p>
+<h3>billsec</h3>
+<h3>disposition</h3>
+<h3>amaflags</h3>
+<h3>accountcode</h3>
+<h3>uniqueid</h3>
+<h3>userfield</h3>
+<h3>recordingfile</h3>
+<h3>cnum</h3>
+<h3>cnam</h3>
+<h3>outbound_cnum</h3>
+<h3>outbound_cnam</h3>
+<h3>dst_cnam</h3>
+<h3>did</h3>
+<h3><strong>CALLCENTER</strong></h3>
+<h3>cdr_main_callcenter_name</h3>
+<h3><strong>CASE</strong></h3>
+<h3>cdr_main_case</h3>
+<h3>cdr_main_subcase</h3>
+<h3><strong>TYPE</strong></h3>
+<h3>cdr_type_queue</h3>
+<h3>cdr_type_extension</h3>
+<h3>cdr_type_tel_number</h3>
+<h3>cdr_type_hca_agent_id</h3>
+<h3>cdr_type_hca_queue_id</h3>
+<h3><strong>DATE</strong></h3>
+<h3>cdr_dates_calldate</h3>
+<h3>cdr_dates_aaaa</h3>
+<p>Año</p>
+<h3>cdr_dates_aaaa_mm</h3>
+<p>Año y mes </p>
+<h3>cdr_dates_aaaa_mm_dd</h3>
+<p>Año, Mes, Dia </p>
+<h3>cdr_dates_week</h3>
+<h3>cdr_dates_week_day</h3>
+<p>Numero del dia de la semana </p>
+<h3>cdr_dates_week_day_name</h3>
+<p>Nombre del dia de la semana </p>
+<h3>cdr_dates_month</h3>
+<p>Dias  </p>
+<h3>cdr_dates_month_name</h3>
+<p>Mes </p>
+<h3>cdr_dates_time</h3>
+<p>Hora </p>
+<h3>cdr_dates_minutes</h3>
+<p>Minutos </p>
+<h3>cdr_dates_seconds</h3>
+<p>Segundos </p>
+<h3><strong>QLOG</strong></h3>
+<h3>cdr_qlog_uniqueid</h3>
+<h3>cdr_qlog_ivroption_time</h3>
+<h3>cdr_qlog_enterqueue_time</h3>
+<h3>cdr_qlog_connect_time</h3>
+<h3>cdr_qlog_completecaller_time</h3>
+<h3>cdr_qlog_completeagent_time</h3>
+<h3>cdr_qlog_abandon_time</h3>
+<h3>cdr_qlog_complete_time</h3>
+<h3>__DURATION_TIME__</h3>
+<h3>cdr_qlog_secs_at_ivr</h3>
+<h3>cdr_qlog_secs_at_queue</h3>
+<h3>cdr_qlog_secs_with_agent</h3>
+<h3>cdr_qlog_secs_at_abandon</h3>
+<h3>cdr_qlog_secs_at_wait</h3>
+<h3>cdr_qlog_secs_at_holt</h3>
+<h3>cdr_qlog_secs_at_operation</h3>
+<h3>__QLOG_RESTIN__</h3>
+<h3>cdr_qlog_result_hung_by</h3>
+<h3>cdr_qlog_result_hung_agent</h3>
+<h3><strong>CLASIFICATION</strong></h3>
+<h3>cdr_call_type</h3>
+<h3>cdr_call_class</h3>
+<h3>cdr_call_production</h3>
+<h3>cdr_call_internal</h3>
+<h3>cdr_call_transfer</h3>
+<h3>cdr_call_in</h3>
+<h3>cdr_call_out</h3>
+<h3>cdr_call<em>in</em> auto</h3>
+<h3><strong>RECIVED</strong></h3>
+<h3>cdr_call_received</h3>
+<h3>cdr_call_abandoned</h3>
+<h3>cdr_call_atendente</h3>
+<h3>cdr_call_short</h3>
+<h3>cdr_call_before_time</h3>
+<h3><strong>MADE</strong></h3>
+<h3>cdr_call_made</h3>
+<h3>cdr_call_fail</h3>
+<h3>cdr_call_answered</h3>
+<h3>cdr_call_efective</h3>
+<h3>cdr_call_hungout</h3>
+<h3><strong>AUTOMATIC</strong></h3>
+<h3>cdr_call_auto_bbdd</h3>
+<h3>cdr_call_auto_run</h3>
+<h3>cdr_call_auto_left</h3>
+<h3>cdr_call_auto_det</h3>
+<h3><strong>RESULTS</strong></h3>
+<h3>cdr_call_result_inbound</h3>
+<h3>cdr_call_result_outbound</h3>
+<h3>cdr_call_result_auto</h3>";s:12:"content_meta";N;}

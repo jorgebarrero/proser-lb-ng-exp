@@ -1,0 +1,11 @@
+state: enabled
+email: aleidystorres15@gmail.com
+fullname: yolimar
+title: administrador
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$kBdq/TNPqTno2KNw6KQVDuvFucIsiVm0vSOf969cf3ajwbaq6q/He

@@ -1,0 +1,16 @@
+1556644645
+a:2:{s:7:"content";s:331:"<h1>User</h1>
+<p>Usuario</p>
+<h2>Campos</h2>
+<h3>id</h3>
+<p>Numero de identificacion de registro</p>
+<h3>real</h3>
+<h3>username</h3>
+<p>Nombre de usuario</p>
+<h3>password</h3>
+<p>Contraseña</p>
+<h3>email</h3>
+<p>Correo electronico</p>
+<h3>email_ verifles</h3>
+<p>Verificacion del correo electronico</p>
+<h3>verification_token</h3>";s:12:"content_meta";N;}

@@ -1,0 +1,34 @@
+1556639359
+a:2:{s:7:"content";s:620:"<h1>InvBreak</h1>
+<p>Auxiliares</p>
+<h2>Campos</h2>
+<h3>inv_break_id</h3>
+<p>Número de identificación del registro</p>
+<h3>inv_break_status</h3>
+<p>Estade del break</p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_break_chk</h3>
+<p>Marca de uso del campo</p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_break_name</h3>
+<p>Nombre del break
+<strong>Texto</strong></p>
+<h3>inv_break_shortname</h3>
+<p>Nombre corto del break </p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_break_description</h3>
+<p>Descripcion </p>
+<h3>inv_break_type</h3>
+<p>Tipo de break</p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_break_productivity</h3>";s:12:"content_meta";N;}

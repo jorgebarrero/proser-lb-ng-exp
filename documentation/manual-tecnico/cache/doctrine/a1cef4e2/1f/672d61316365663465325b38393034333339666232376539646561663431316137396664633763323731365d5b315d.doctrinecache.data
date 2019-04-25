@@ -1,0 +1,21 @@
+1556641396
+a:2:{s:7:"content";s:472:"<h1>MainAudit</h1>
+<p>Audio</p>
+<h2>Campos</h2>
+<h3>audit_id</h3>
+<p>Numero de identificacion del registro </p>
+<h3>id_agent</h3>
+<p>identificacion del agent</p>
+<h3>id_break</h3>
+<p>identificacion del break </p>
+<h3>datetime_init</h3>
+<p>Fecha y hora del inicio </p>
+<h3>datetime_end</h3>
+<p>Fecha y hora del final </p>
+<h3>duration</h3>
+<p>Duracion </p>
+<h3>ext_parked</h3>
+<h3><em>TIME</em></h3>
+<h3>audi_secs_duration</h3>
+<h3>audit_status</h3>
+<p>Estado del audit</p>";s:12:"content_meta";N;}

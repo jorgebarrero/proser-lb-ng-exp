@@ -1,0 +1,39 @@
+1556653283
+a:2:{s:7:"content";s:921:"<h1>InvCampaign</h1>
+<p>Campaña</p>
+<h2>Campos</h2>
+<h3>inv_campaign_id</h3>
+<p>Numero de identificacion del registro de campaing </p>
+<h3>inv_campaign_status</h3>
+<p>Estade de campaing </p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_campaign_chk</h3>
+<p>Marca de uso del campo</p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_campaign_name</h3>
+<p>Nombre de campaing
+<strong>Texto</strong></p>
+<h3>inv_campaign_shortname</h3>
+<p>Nombre corto de campaing</p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_campaign_description</h3>
+<p>Descripcion</p>
+<h3>inv_campaign_queue_id</h3>
+<p>Identificacion de cola </p>
+<h3>inv_campaign_queue_name</h3>
+<h3>inv_campaign_queue_number</h3>
+<h3>inv_campaign_aftercall_time</h3>
+<h3>inv_campaign_start</h3>
+<h3>inv_campaign_end</h3>
+<h3>inv_campaign_start_date_text</h3>
+<h3>inv_campaign_end_date_text</h3>
+<h3>inv_campaign_start_time_text</h3>
+<h3>inv_campaign_end_time_text</h3>";s:12:"content_meta";N;}

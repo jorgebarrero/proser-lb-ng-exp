@@ -12,4 +12,12 @@ export class DisplayHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLogout() {
+    this.authService.logoutUser()
+    .subscribe(data => {
+      console.log('LOGOUT');
+      this.router.navigate(['/login']);
+    });
+  }
+  
 }

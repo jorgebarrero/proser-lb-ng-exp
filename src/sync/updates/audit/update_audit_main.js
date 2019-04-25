@@ -77,8 +77,6 @@ function writeDestiny(data) {
 
     updateFields = [
       `datetime_end = VALUE(datetime_end)`,
-      `audit_hca_agent_id = VALUE(audit_hca_agent_id)`,
-      `audit_date = VALUE(audit_date)`,
     ];
 
     let querySQL = `INSERT INTO ${cdr_table} (${myfields}) values ?

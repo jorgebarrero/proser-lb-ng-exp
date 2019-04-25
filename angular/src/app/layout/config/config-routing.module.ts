@@ -5,13 +5,13 @@ import { ConfigIntroComponent } from './config-intro/config-intro.component';
 
 
 const routes: Routes = [
-//   { path: '', component: ConfigComponent,
-//   children: [
-//       { path: '', pathMatch: 'full', redirectTo: 'intro-config' },
-//       { path: 'intro-config', component: ConfigIntroComponent },
-//       { path: 'configuracion-config', component: ConfigConfiguracionComponent },
-//   ],
-//  }
+  { path: '', component: ConfigComponent,
+  children: [
+      { path: '', pathMatch: 'full', redirectTo: 'intro-config' },
+      { path: 'intro-config', component: ConfigIntroComponent },
+
+  ],
+ }
 ];
 
 @NgModule({

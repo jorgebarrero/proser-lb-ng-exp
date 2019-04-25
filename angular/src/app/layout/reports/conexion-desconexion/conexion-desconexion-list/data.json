@@ -1,0 +1,1 @@
+{"report_id":"2","name":"conexion-desconexion","filter":["DATE_FORMAT(audit.datetime_init, '%Y-%m%-%d') = '2018-11-23' AND audit.id_break = 0"],"group":[],"order":[],"limit":[],"total":["SEC_TO_TIME(sum(detail.seg_conexion))"]}

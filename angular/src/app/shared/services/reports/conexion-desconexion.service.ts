@@ -37,13 +37,13 @@ export class ConexionDesconexionService {
   getList(item): Observable<any> {
 
 
-    const query = item;
+    const query = JSON.stringify(item);
 
     const accessToken = localStorage.getItem('accessToken');
 
     const url_api = `${this.env.loopbackApiUrl}/api/InvReports/mainQuery?access_token=${accessToken}`;
     const res = this.http.post(url_api, query, {headers: this.headers});
-      console.warn('Operativo detallado......' , url_api);
+      console.warn('Operativo detallado......' , url_api, query);
       console.log(res);
     return res;
     }

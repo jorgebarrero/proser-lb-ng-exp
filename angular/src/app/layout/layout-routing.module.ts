@@ -20,6 +20,8 @@ const routes: Routes = [
 
           { path: 'selector', loadChildren: './selector/selector.module#SelectorModule' },
 
+            { path: 'config', loadChildren: './config/config.module#ConfigModule' },
+
           { path: 'reports', loadChildren: './reports/reports.module#ReportsModule' },
 
 

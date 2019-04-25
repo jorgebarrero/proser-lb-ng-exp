@@ -10,6 +10,7 @@
     "start-update": "babel-node src/sync/updates/main_update",
     "start-forever": "forever start -c 'babel-node src/sync/app.js'",
     "end-forever": "forever stop 'babel-node src/sync/app.js'",
+    "start-audit": "babel-node src/sync/updates/audit/update_audit_main",
     "ng": "bash ng.sh",
     "test": "mocha test/*test.js"
   },

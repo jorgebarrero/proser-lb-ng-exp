@@ -17,6 +17,7 @@ export class ConexionDesconexionListComponent implements OnInit {
 
   rows: any;
   rows_all: any;
+  rows_base;
 
   message = 'Conectando con el servidor';
 
@@ -66,31 +67,33 @@ export class ConexionDesconexionListComponent implements OnInit {
   getList() {
 
     const query = {
-      report_id: 3,
-      name: `conexion-desconexion`,
-      filter: [`DATE_FORMAT(audit.datetime_init, '%Y-%m%-%d') = '2018-11-23' AND audit.id_break = 0`],
+      report_id: '2',
+      name: 'conexion-desconexion',
+      filter: ['DATE_FORMAT(audit.datetime_init, \'%Y-%m%-%d\') = \'2018-11-23\' AND audit.id_break = 0'],
       group: [],
       order: [],
       limit: [],
-      total: ['sum(detail.seg_conexion)']
-  };
+      total: ['SEC_TO_TIME(sum(detail.seg_conexion)) AS seg_conexion']};
+
 
     this.conexionDesconexionService.getList(query)
     .subscribe(res => {
 
       const temp = JSON.parse(JSON.stringify(res));
 
-      // console.log('ROWS', temp);
+      console.log('ROWS', temp);
 
-      this.rows = temp
-      .filter( x => {
-        return x.row !== 'TOTAL';
-      });
+      this.rows = temp.detail
+      // .filter( x => {
+      //   return x.row !== 'TOTAL';
+      // });
 
-      this.rows_all = temp
-      .filter( x => {
-        return x.row === 'TOTAL';
-      });
+      this.rows_all = temp.total
+      this.rows_base = temp.total[0].seg_conexion
+
+      // .filter( x => {
+      //   return x.row === 'TOTAL';
+      // });
 
       console.log('ROWS', this.rows);
       console.log('ROWS_ALL',  this.rows_all);

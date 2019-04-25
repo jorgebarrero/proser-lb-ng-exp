@@ -1,7 +1,7 @@
 'use strict';
 
 const myPool = require ('../../connectors/pool');
-// const dashboard = require ('../query/dashboard');
+const dashboard = require ('../query/dashboard');
 
 
 const poolDat = myPool.poolDat;
@@ -19,21 +19,21 @@ module.exports = function(InvDashboard) {
 
       async function mainSQLDahsboard(filtro){
           
-        let resultDashboard = [];
+        let resultDashboard = {};
 
         //***************************INVOKE QUERY****************************/
-        var queryCdr = dashboard.sqlCdr(filtro);
-        console.log("CDR DASHBOARD", queryCdr);
-        var queryHcaAgent = constructor.totalQuery(filtro, querySQLDetail);
-        console.log("TOTAL", querySQLTotal);       
+        var queryCallToday = dashboard.sqlCdr(filtro);
+        console.log("CALL OF THE DAY", queryCallToday);
+        var queryAgentToday = dashboard.sqlHcaAgent(filtro);
+        console.log("AGENTS TODAY", queryAgentToday);       
         
             try {
             
-            var resultQueryCdr = await poolDat.query(queryCdr);
-            var resultHcaAgent = await poolDat.query(queryHcaAgent);
-            // console.log(result);
-            var cdr = resultQueryCdr;
-            var hcaAgent = resultHcaAgent;
+            var resultCallToday = await poolDat.query(queryCallToday);
+            var resultAgentToday = await poolDat.query(queryAgentToday);
+            console.log(queryCallToday);
+            var CallToday = resultCallToday;
+            var AgentToday = resultAgentToday;
                 
             } catch (error) {
     
@@ -46,9 +46,14 @@ module.exports = function(InvDashboard) {
 
         //******************************RESULT*******************/
 
-        resultDashboard[0] = cdr;
-        resultDashboard[1] = hcaAgent;
-        resultDashboard[2] = callcenter;
+        resultDashboard = {
+          CallToday,
+          AgentToday
+        };
+        // resultDashboard[1] = hcaAgent;
+        // resultDashboard[2] = callcenter;
+
+        return resultDashboard;
       }
 
       

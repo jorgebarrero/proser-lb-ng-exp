@@ -19,6 +19,7 @@
 
                 <div class="login-form">
 
+<div class="login-two-col">
 
                 <div class="form-group">
                     <label class="login-label">Usuario</label>
@@ -55,6 +56,8 @@
                       <div *ngIf="f.password.errors.minlength">El password es muy corto</div>
                   </div>
                 </div>
+
+</div>
 
                 <div *ngIf="loginForm.valid">
                 <button type="submit" class="btn btn-lg btn-primary btn-block">

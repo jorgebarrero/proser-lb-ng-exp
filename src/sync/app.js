@@ -16,14 +16,14 @@ async function repeatUpdate( ) {
     function() {
       console.clear();
       console.log(`/*************/ MAIN UPDATE /*************/ `);
-      updateMainCdr();
+      // updateMainCdr();
       updateMainAudit();
-      updateMainAuditEmpty();
+      // updateMainAuditEmpty();
 
-      updateAgent();
-      updateBreak();
-      updateCampaign();
-      updateQueue();
+      // updateAgent();
+      // updateBreak();
+      // updateCampaign();
+      // updateQueue();
 
     }, 5000
   );

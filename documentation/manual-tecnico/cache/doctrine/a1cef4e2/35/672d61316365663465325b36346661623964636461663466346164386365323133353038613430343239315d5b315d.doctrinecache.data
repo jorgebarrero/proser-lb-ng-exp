@@ -1,0 +1,35 @@
+1556641378
+a:2:{s:7:"content";s:650:"<h1>InvSchedule</h1>
+<p>Programar</p>
+<h2>Campos</h2>
+<h3>inv_schedule_id</h3>
+<p>Numero de identificacion del registro del schedule </p>
+<h3>inv_schedule_status</h3>
+<p>Estade del schedule</p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_schedule_chk</h3>
+<p>Marca de uso del campo </p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_schedule_type</h3>
+<p>Tipo de schedule </p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_schedule_name</h3>
+<p>Nombre del schedule </p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_schedule_shortname</h3>
+<p>Nombre corto del schedule </p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_schedule_description</h3>
+<h3>inv_schedule_days</h3>";s:12:"content_meta";N;}

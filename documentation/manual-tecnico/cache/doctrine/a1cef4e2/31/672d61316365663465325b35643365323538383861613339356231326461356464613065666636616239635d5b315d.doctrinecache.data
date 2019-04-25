@@ -1,0 +1,37 @@
+1556641387
+a:2:{s:7:"content";s:755:"<h1>InvSupervisor</h1>
+<p>Supervisor</p>
+<h2>Campos</h2>
+<h3>inv_supervisor_id</h3>
+<p>Numero de identificacion del registro del supervisor</p>
+<h3>inv_supervisor_status</h3>
+<p>Estade del supervisor</p>
+<ul>
+<li>A = Activo</li>
+<li>B = inactivo</li>
+</ul>
+<h3>inv_supervisor_chk</h3>
+<p>Marca de uso del campo </p>
+<ul>
+<li>0</li>
+<li>1</li>
+</ul>
+<h3>inv_supervisor_type</h3>
+<p>Tipo de supervisor </p>
+<ul>
+<li>texto</li>
+</ul>
+<h3>inv_supervisor_name</h3>
+<p>Nombre del supervisor</p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_supervisor_shortname</h3>
+<p>Nombre corto del supervisor </p>
+<ul>
+<li>texto </li>
+</ul>
+<h3>inv_supervisor_legal_id</h3>
+<h3>inv_supervisor_internal_id</h3>
+<h3>inv_supervisor_schedule_id</h3>
+<h3>inv_supervisor_schedule_name</h3>";s:12:"content_meta";N;}

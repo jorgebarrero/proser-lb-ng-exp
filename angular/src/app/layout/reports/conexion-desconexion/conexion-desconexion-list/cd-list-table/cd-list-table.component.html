@@ -17,7 +17,7 @@
   [scrollbarV]="false"
 
   [summaryRow]="true"
-  [summaryHeight]="30"
+  [summaryHeight]="50"
 
   [loadingIndicator]="loadingIndicator"
   [messages]="{emptyMessage: 'Sin datos que mostrar'} "
@@ -26,6 +26,7 @@
   [selectionType]="'single'"
   (activate)="onActivate($event)"
   (select)='onSelect($event)'>
+
 
 
 
@@ -213,8 +214,10 @@
 
 <!-- ----------------------------------------------------------------------- -->
 
-<ngx-datatable-column prop="t_conexion" width="150"
-[summaryTemplate]="t_conexion">
+
+
+<ngx-datatable-column prop="seg_conexion" width="150"
+[summaryTemplate]="seg_conexion">
 
     <ng-template let-column="column" let-sort="sortFn" let-sortDir="sortDir"  ngx-datatable-header-template>
     <p class="celda_derecha" (click)="sort($event, sortDir, sortFn)"> Tiempo <br> conexion  </p>
@@ -225,10 +228,9 @@
     </ng-template>
 
 
-  <ng-template #t_conexion>
-      <p class="celda_derecha_verde">{{ rows_all[0].t_conexion }}</p>
+  <ng-template #seg_conexion>
+      <p class="celda_derecha_verde">{{ rows_all[0].seg_conexion }}</p>
     </ng-template>
-
     </ngx-datatable-column>
 
 

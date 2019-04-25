@@ -12,4 +12,8 @@ export class AuditHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLogout() {
+
+  }
+
 }

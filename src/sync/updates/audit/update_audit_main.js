@@ -1,3 +1,9 @@
+/******* NOTAS ******* */
+/*
+  Este archivo trabaja junto con el complementario update_audit_main-empy.
+  Los resultados dependen de la impotacion de este y la actualizacion del otro
+*/
+
 import * as pool from '../../../connectors/pool';
 import{ removeRowDataPacket } from '../../helpers/mysql-helper.js';
 // import * as moment from 'moment/src/moment';
@@ -77,11 +83,6 @@ function writeDestiny(data) {
 
     updateFields = [
       `datetime_end = VALUE(datetime_end)`,
-      // `audit_hca_agent_id = VALUE(audit_hca_agent_id)`,
-      // `audit_date = VALUE(audit_date)`,
-
-      `audit_hca_agent_id = VALUE(1)`,
-      `audit_date = VALUE('2018-01-01')`,
     ];
 
     let querySQL = `INSERT INTO ${cdr_table} (${myfields}) values ?
@@ -157,28 +158,14 @@ async function updateMainAudit( ) {
     let extendedResult = result
       .map( function(x) {
 
-        x.audit_id = 1;
-        x.id_agent = 1;
-        x.id_break = 1;
-        x.datetime_init = 1;
-        x.datetime_end = 1;
-        x.duration = 1;
-        x.ext_parked = 1;
-        x.__TIME__ = 1;
-        x.audit_secs_duration = 1;
-        x.audit_status = 1;
-        x.audit_hca_agent_id = 1;
-        x.audit_date = 1;
-
-
 
         x.audit_id = x.id;
-        x.datetime_init = x.datetime_init;
+        // x.datetime_init = x.datetime_init;
         x.id_break = x.id_break? x.id_break: 0;
         x.audit_secs_duration = moment.duration(x.duration).asSeconds();
         x.audit_status = x.duration? `I`: `A`;
 
-        x.audit_hca_agent_id =  moment(x.datetime_init).format('YYYY-MM-DD')  + 'agt'+ x.id_agent;
+        x.audit_hca_agent_id = moment(x.datetime_init).format('YYYY-MM-DD')  + 'agt'+ x.id_agent;
         x.audit_date = x.datetime_init; // moment(x.datetime_init).format('YYYY-MM-DD');
 
         return x;
@@ -186,7 +173,7 @@ async function updateMainAudit( ) {
       .map( y => {
         // TYPE
         delete y.id;
-        delete y.datetime_init;
+        // delete y.datetime_init;
         return y;
       });
 

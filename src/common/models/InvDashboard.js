@@ -8,53 +8,53 @@ const poolDat = myPool.poolDat;
 
 module.exports = function(InvDashboard) {
 
-    InvDashboard.dashboard = async function(filtro) {
-        return mainSQLDahsboard(filtro);
-      }
+  InvDashboard.dashboard = async function(filtro) {
+    return mainSQLDahsboard(filtro);
+  };
     
-      InvDashboard.remoteMethod('dashboard', {
-            accepts: {arg: 'filtro', type: 'object', http: { source: 'body'} },
-            returns: {type: 'array', root: 'true'}
-      });
+  InvDashboard.remoteMethod('dashboard', {
+    accepts: {arg: 'filtro', type: 'object', http: { source: 'body'} },
+    returns: {type: 'array', root: 'true'}
+  });
 
-      async function mainSQLDahsboard(filtro){
-          
-        let resultDashboard = {};
+  async function mainSQLDahsboard(filtro){
 
-        //***************************INVOKE QUERY****************************/
-        var queryCallToday = dashboard.sqlCdr(filtro);
-        console.log("CALL OF THE DAY", queryCallToday);
-        var queryAgentToday = dashboard.sqlHcaAgent(filtro);
-        console.log("AGENTS TODAY", queryAgentToday);       
-        
-            try {
-            
-            var resultCallToday = await poolDat.query(queryCallToday);
-            var resultAgentToday = await poolDat.query(queryAgentToday);
-            console.log(queryCallToday);
-            var CallToday = resultCallToday;
-            var AgentToday = resultAgentToday;
-                
-            } catch (error) {
-    
-              console.log('Server error');
-              return error;
-                
-            }
-        
-        
+    let resultDashboard = {};
 
-        //******************************RESULT*******************/
+    //***************************INVOKE QUERY****************************/
+    var queryCallToday = dashboard.sqlCdr(filtro);
+    console.log("CALL OF THE DAY", queryCallToday);
+    var queryAgentToday = dashboard.sqlHcaAgent(filtro);
+    console.log("AGENTS TODAY", queryAgentToday);
 
-        resultDashboard = {
-          CallToday,
-          AgentToday
-        };
-        // resultDashboard[1] = hcaAgent;
-        // resultDashboard[2] = callcenter;
+    try {
 
-        return resultDashboard;
-      }
+      var resultCallToday = await poolDat.query(queryCallToday);
+      var resultAgentToday = await poolDat.query(queryAgentToday);
+      console.log(queryCallToday);
+      var CallToday = resultCallToday;
+      var AgentToday = resultAgentToday;
 
-      
+    } catch (error) {
+
+      console.log('Server error');
+      return error;
+
+    }
+
+
+
+    //******************************RESULT*******************/
+
+    resultDashboard = {
+      CallToday,
+      AgentToday
+    };
+    // resultDashboard[1] = hcaAgent;
+    // resultDashboard[2] = callcenter;
+
+    return resultDashboard;
+  }
+
+
 };

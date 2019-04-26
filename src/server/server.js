@@ -7,6 +7,15 @@ var bodyParser = require('body-parser');
 var boot = require('loopback-boot');
 var loopback = require('loopback');
 var path = require('path');
+var handlebars  = require('handlebars');
+var exphbs      = require('express-handlebars');
+
+var hbs = exphbs.create({
+  defaultLayout : '',
+  helpers       : {},
+  partialsDir   :  __dirname + '/../client/views',
+  extname       : 'handlebars'
+});
 
 var app = module.exports = loopback();
 
@@ -16,12 +25,16 @@ app.middleware('initial', bodyParser.urlencoded({ extended: true }));
 
 boot(app, __dirname);
 
-app.set('view engine', 'ejs'); // LoopBack comes with EJS out-of-box
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+app.set('views', path.resolve(__dirname, 'views'));
+
+// app.set('view engine', handlebars); // LoopBack comes with EJS out-of-box
 app.set('json spaces', 2); // format json responses for easier viewing
 
 // must be set to serve views properly when starting the app via `slc run` from
 // the project root
-app.set('views', path.resolve(__dirname, 'views'));
+
 
 app.start = function() {
   // start the web server
@@ -40,4 +53,3 @@ app.start = function() {
 if (require.main === module) {
   app.start();
 }
-

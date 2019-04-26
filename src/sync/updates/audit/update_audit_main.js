@@ -1,3 +1,9 @@
+/******* NOTAS ******* */
+/*
+  Este archivo trabaja junto con el complementario update_audit_main-empy.
+  Los resultados dependen de la impotacion de este y la actualizacion del otro
+*/
+
 import * as pool from '../../../connectors/pool';
 import{ removeRowDataPacket } from '../../helpers/mysql-helper.js';
 // import * as moment from 'moment/src/moment';
@@ -152,21 +158,22 @@ async function updateMainAudit( ) {
     let extendedResult = result
       .map( function(x) {
 
+
         x.audit_id = x.id;
         // x.datetime_init = x.datetime_init;
         x.id_break = x.id_break? x.id_break: 0;
         x.audit_secs_duration = moment.duration(x.duration).asSeconds();
         x.audit_status = x.duration? `I`: `A`;
 
-        x.audit_hca_agent_id =  moment(x.datetime_init).format('YYYY-MM-DD')  + 'agt'+ x.id_agent;
-        x.audit_date = moment(x.datetime_init).format('YYYY-MM-DD');
+        x.audit_hca_agent_id = moment(x.datetime_init).format('YYYY-MM-DD')  + 'agt'+ x.id_agent;
+        x.audit_date = x.datetime_init; // moment(x.datetime_init).format('YYYY-MM-DD');
 
         return x;
       })
       .map( y => {
         // TYPE
         delete y.id;
-        // delete y.datetime_init
+        // delete y.datetime_init;
         return y;
       });
 

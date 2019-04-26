@@ -1,9 +1,8 @@
 {
-<<<<<<< HEAD
-=======
   "files.exclude": {
     "angular/node_modules": true,
-    "node_modules": true
+    "node_modules": true,
+    "documentation/technical/vendor": true,
+    "documentation/technical/system": true,
   }
->>>>>>> cdefb914c28ced8e624c09a60cff68d9155613a0
 }

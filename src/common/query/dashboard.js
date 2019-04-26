@@ -1,9 +1,9 @@
-function sqlCdr(arg){ 
+function sqlCdr(arg){
 
-    let date = arg.date;
-    
-let build_sqlCdr = `
-    SELECT  
+  let date = arg.date;
+
+  let build_sqlCdr = `
+    SELECT
 
     SUM(cdr_call_received) as llamadas_recibidas,
     SUM(cdr_call_abandoned) as llamadas_abandonadas,
@@ -21,16 +21,16 @@ let build_sqlCdr = `
     WHERE cdr_dates_calldate = ${date}
     `;
 
-    return build_sqlCdr;
-};
+  return build_sqlCdr;
+}
 
 function sqlHcaAgent(arg){
 
-    let date = arg.date;
-    let paramFilter = arg.filter;
-    let and = validateAND(arg) ? "AND" : "";
+  let date = arg.date;
+  let paramFilter = arg.filter;
+  let and = validateAND(arg) ? "AND" : "";
 
-    let build_sqlHcaAgent = `
+  let build_sqlHcaAgent = `
 
     SELECT
 
@@ -40,25 +40,25 @@ function sqlHcaAgent(arg){
     hca_agent_agente_extension as extension_agente
 
     FROM HcaAgent as agent
-    
+
 
     WHERE agent.hca_agent_date_text = ${date} ${and} ${paramFilter}
 
     `;
 
-    return build_sqlHcaAgent;
+  return build_sqlHcaAgent;
 
-};
+}
 
 function sqlAudit(arg){
 
-    let date = arg.date;
-    let paramFilter = arg.filter;
-    let and = validateAND(arg) ? "AND" : "";
+  let date = arg.date;
+  let paramFilter = arg.filter;
+  let and = validateAND(arg) ? "AND" : "";
 
-    let build_sqlAudit = `
+  let build_sqlAudit = `
 
-    SELECT 
+    SELECT
     audit.id_agent as id_agente,
     agent.hca_agent_agent_name as nombre_agente,
     agent.hca_agent_supervisor_name as nombre_supervisor,
@@ -75,32 +75,32 @@ function sqlAudit(arg){
 
     `;
 
-return build_sqlAudit;
+  return build_sqlAudit;
 
-};
+}
 
 function sqlAuditCdr(arg){
 
-    let build_sqlAuditCdr = `
+  let build_sqlAuditCdr = `
 
     SELECT
 
 `;
 
-return build_sqlAuditCdr;
-};
+  return build_sqlAuditCdr;
+}
 
 function validateAND(arg){
 
-    let result = false
+  let result = false;
 
-    if (arg.filter){
-    
-            return true
-        } else {
-            result = false
-        };
-        return result;
-    };
+  if (arg.filter){
+
+    return true;
+  } else {
+    result = false;
+  }
+  return result;
+}
 
 export { sqlCdr, sqlHcaAgent, sqlAudit, sqlAuditCdr};

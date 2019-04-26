@@ -25,6 +25,8 @@ export class ConexionDesconexionConfigComponent implements OnInit, OnDestroy {
   // today;
   // now;
 
+  rows;
+
   alertMessage;
 
   constructor(

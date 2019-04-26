@@ -22,7 +22,7 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
 
   menuOptions = new MenuOptions;
   userSelection = new UserSelection;
-  storedVariable = 'userSelection'
+  storedVariable = 'userSelection';
   menuList;
   example;
 
@@ -30,7 +30,7 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
   fieldUpdated;
   show = false;
   auxiliar = null;
-  
+
   constructor(
     private menuService: MenuService,
     private alertService: AlertService,
@@ -48,7 +48,7 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    let temp = JSON.parse(localStorage.getItem('userSelection'));
+    const temp = JSON.parse(localStorage.getItem('userSelection'));
 
     if (!temp.start_date) {
           localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
@@ -60,7 +60,7 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-   
+
   }
 
 
@@ -109,14 +109,19 @@ export class SelectorIntroComponent implements OnInit, OnDestroy {
   }
 
 
-  onReceive(event){
+  onReceive(event) {
     // console.log('event', event);
-    
-    eval( `this.${this.storedVariable}.${event.field} = event.value`)
+
+    // tslint:disable-next-line:no-eval
+    eval( `this.${this.storedVariable}.${event.field} = event.value`);
     localStorage.setItem('userSelection', JSON.stringify(this.userSelection));
     // console.log('received', this.userSelection);
   }
 
-  
+
+  onDateChange() {
+
+  }
+
 
 }

@@ -26,6 +26,7 @@ export class LlamadasEntrantesComponent implements OnInit, OnDestroy {
 
 
   message = 'Conectando con el servidor';
+  auxiliar;
 
     // Selection values
     userSelection; // = new Selection;

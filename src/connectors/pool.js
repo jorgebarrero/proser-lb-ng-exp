@@ -9,15 +9,7 @@ if (process.env.NODE_ENV !== `production`) {
 const util = require(`util`);
 const mysql = require(`mysql`);
 
-const poolCdr = mysql.createPool({
-  connectionLimit: 10,
-  host: process.env.REPORTS_DB_HOST,
-  user: process.env.REPORTS_DB_USER,
-  password: process.env.REPORTS_DB_PASSWORD,
-  database: process.env.REPORTS_ASTERISKCDR_DB,
-  multipleStatements: true
-});
-
+// MAIN DB
 const poolDat = mysql.createPool({
   connectionLimit: 10,
   host: process.env.REPORTS_DB_HOST,
@@ -27,22 +19,33 @@ const poolDat = mysql.createPool({
   multipleStatements: true
 });
 
-
+// ORIGIN ASTERISK
 const poolQue = mysql.createPool({
   connectionLimit: 10,
-  host: process.env.REPORTS_DB_HOST,
-  user: process.env.REPORTS_DB_USER,
-  password: process.env.REPORTS_DB_PASSWORD,
-  database: process.env.REPORTS_ASTERISK_DB,
+  host: process.env.ORIGIN_DB_HOST,
+  user: process.env.ORIGIN_DB_USER,
+  password: process.env.ORIGIN_DB_PASSWORD,
+  database: process.env.ORIGIN_ASTERISK_DB,
   multipleStatements: true
 });
 
+// ORIGIN ASTERISK CDR
+const poolCdr = mysql.createPool({
+  connectionLimit: 10,
+  host: process.env.ORIGIN_DB_HOST,
+  user: process.env.ORIGIN_DB_USER,
+  password: process.env.ORIGIN_DB_PASSWORD,
+  database: process.env.ORIGIN_ASTERISKCDR_DB,
+  multipleStatements: true
+});
+
+// ORIGIN CALLCENTER
 const poolCall = mysql.createPool({
   connectionLimit: 10,
-  host: process.env.REPORTS_DB_HOST,
-  user: process.env.REPORTS_DB_USER,
-  password: process.env.REPORTS_DB_PASSWORD,
-  database: process.env.REPORTS_CALLCENTER_DB,
+  host: process.env.ORIGIN_DB_HOST,
+  user: process.env.ORIGIN_DB_USER,
+  password: process.env.ORIGIN_DB_PASSWORD,
+  database: process.env.ORIGIN_CALLCENTER_DB,
   multipleStatements: true
 });
 

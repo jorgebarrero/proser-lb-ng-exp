@@ -12,4 +12,7 @@ export class SystemHeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onLogout() {
+
+  }
 }
